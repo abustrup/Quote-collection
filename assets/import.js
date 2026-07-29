@@ -393,7 +393,10 @@ export function parseQuoteLines(pages) {
   const stream = [];
   for (const page of pages) {
     for (const line of markFurniture(page)) {
-      if (line.furniture === 'printed url' && !meta.sourceUrl) {
+      // The printed footer is the only place the address of the page survives,
+      // and it is worth keeping: it is the one piece of provenance a printout
+      // still carries. It usually shares its line with the page counter.
+      if (line.furniture && !meta.sourceUrl) {
         const [url] = line.text.match(URL_IN_LINE) ?? [];
         if (url) meta.sourceUrl = url.replace(/[.,;]+$/, '');
       }

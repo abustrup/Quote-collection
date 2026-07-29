@@ -335,7 +335,7 @@ function typeset(text) {
     .replace(/"([^"]*)"/g, '“$1”');
 }
 
-function quoteBlock(entry) {
+function quoteBlock(entry, isStraddler) {
   const attribution = entry.work
     ? `<a class="authorOrTitle" href="/author/show/1">${escapeHtml(entry.author)}</a>,\n`
       + `      <a class="authorOrTitle" href="/work/quotes/1">${escapeHtml(entry.work)}</a>`
@@ -347,13 +347,13 @@ function quoteBlock(entry) {
       .join(', ')}</div>`
     : '';
 
-  return `
+  return `${isStraddler ? '\n  <div id="print-spacer"></div>' : ''}
   <div class="quote mediumText">
     <div class="quoteDetails">
       <div class="leftAlignedImage bookAuthorProfileImage">
         <a href="/book/show/1"><img alt="" src="${COVER}"></a>
       </div>
-      <div class="quoteText">
+      <div class="quoteText"${isStraddler ? ' id="straddle-target"' : ''}>
         &ldquo;${typeset(entry.text)}&rdquo;
         <br>
         &#8213;
@@ -368,6 +368,21 @@ function quoteBlock(entry) {
       </div>
     </div>
   </div>`;
+}
+
+/**
+ * Which quote gets pushed across a page break.
+ *
+ * The longest one on the page: it has the most lines, so cutting it in half
+ * leaves enough on each side of the break that the browser's widow and orphan
+ * rules do not simply move the whole block to the next page instead.
+ */
+function straddlerIndex(entries) {
+  let best = 0;
+  entries.forEach((entry, index) => {
+    if (entry.text.length > entries[best].text.length) best = index;
+  });
+  return best;
 }
 
 function pageHtml(page) {
@@ -419,7 +434,7 @@ function pageHtml(page) {
   </div>
   <h1>${escapeHtml(page.title)}</h1>
   <div class="showing">Showing ${from}-${to} of ${total}</div>
-${page.entries.map(quoteBlock).join('\n')}
+${page.entries.map((entry, index) => quoteBlock(entry, index === straddlerIndex(page.entries))).join('\n')}
   <div class="pagination">
     <a href="/quotes/list?page=${Math.max(1, page.goodreadsPage - 1)}">&laquo; previous</a>
         ${pageLinks}

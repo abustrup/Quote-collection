@@ -146,12 +146,21 @@ const server = http.createServer(async (request, response) => {
     .pipe(response);
 });
 
-const options = parseArgs(process.argv.slice(2));
+let options;
+try {
+  options = parseArgs(process.argv.slice(2));
+} catch (error) {
+  process.stderr.write(`${error.message}\nUsage: node scripts/serve.mjs [--port 8080] [--root .]\n`);
+  process.exit(1);
+}
 server.options = options;
 
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
-    process.stderr.write(`Port ${options.port} is already in use. Try: node scripts/serve.mjs --port 8081\n`);
+    process.stderr.write(
+      `Port ${options.port} is already in use — something is serving there already.\n`
+      + `Try: node scripts/serve.mjs --port ${options.port + 1}\n`,
+    );
     process.exitCode = 1;
     return;
   }
