@@ -19,21 +19,33 @@ direct link to your new quote. Then it closes the issue.
 
 That is the whole loop. You never touch a file.
 
-### 2. Import your Goodreads quotes
+### 2. Nothing, for Goodreads
 
-Your Goodreads list is not something this site can fetch on its own, so it is
-brought over once by hand:
+The Goodreads list looks after itself. A job runs every morning, reads the
+public quote list at the profile recorded in `data/sources.json`, and adds
+anything new. It has already brought over all 174.
 
-1. Go to your Goodreads quotes list and print each page to PDF
-   (in Chrome or Safari: **File → Print → Save as PDF**). Six pages, six files.
-2. Open **[the importer](https://abustrup.github.io/Quote-collection/import.html)**.
-3. Drag all six PDFs onto the page.
+If you ever want it sooner, run
+**[Sync from Goodreads](https://github.com/abustrup/Quote-collection/actions/workflows/sync-goodreads.yml)**
+and press the button. Nothing needs typing; the profile is remembered.
 
-It reads them in your browser – nothing is uploaded anywhere – shows you exactly
-what it found, and lets you delete anything it got wrong. Then press
+Quotes arriving this way are marked *unverified*, because Goodreads
+quotations are transcribed by other readers and nobody has checked them.
+
+<details>
+<summary>If the sync ever breaks — the manual way in</summary>
+
+The importer still works, and does not depend on Goodreads being readable by a
+robot. Print each page of your quotes list to PDF (in Chrome or Safari:
+**File → Print → Save as PDF**), open
+**[the importer](https://abustrup.github.io/Quote-collection/import.html)**, and
+drag the files on. It reads them in your browser, nothing is uploaded, and it
+shows you what it found so you can delete anything wrong. Then press
 **Copy JSON**, open
 **[Bulk import](https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml)**,
-paste, and submit. Same robot, same result.
+paste, and submit.
+
+</details>
 
 ### 3. Find something to read next
 
@@ -89,11 +101,12 @@ index.html          the collection
 import.html         the Goodreads importer
 suggest.html        reading suggestions
 data/quotes.json    every quotation – the only file that really matters
+data/sources.json   which Goodreads profile the daily sync reads
 data/library.json   the curated works the recommender can suggest
 data/schema.json    the shape data/quotes.json must keep to
 assets/             styles, fonts, and the code the pages run
 scripts/            the validator and the issue-to-quote importer
-.github/            the issue forms and the robot that files your quotes
+.github/            the issue forms, the daily Goodreads sync, and the checks
 ```
 
 `data/quotes.json` is plain text and will still open in any editor in twenty
@@ -107,7 +120,7 @@ No build step, no dependencies, no framework. Serve the folder and it works.
 
 ```sh
 npm run serve    # http://localhost:8080
-npm run check    # validate data/quotes.json
+npm run check    # validate the collection and the library
 npm test         # run the parser tests
 ```
 
