@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6efe4">
+<meta name="color-scheme" content="light dark">
+<title>Quote Collection — Alexander Bustrup</title>
+<meta name="description" content="A personal collection of lines worth keeping: philosophy, technology, literature and ideas.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quote Collection">
+<meta property="og:description" content="A personal collection of lines worth keeping.">
+
+<script>
+  /* Apply the saved edition before first paint so the page never flashes the
+     default palette. Mirrors readEdition() in assets/app.js. */
+  (function () {
+    try {
+      var editions = ['paper', 'night', 'folio', 'index'];
+      var saved = localStorage.getItem('quotes-edition');
+      if (editions.indexOf(saved) < 0) {
+        saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'night'
+          : 'paper';
+      }
+      document.documentElement.dataset.edition = saved;
+      if (saved === 'night') {
+        document.querySelector('meta[name=theme-color]').setAttribute('content', '#14110d');
+      }
+    } catch (e) {
+      document.documentElement.dataset.edition = 'paper';
+    }
+  })();
+</script>
+
+<!-- Fonts are ~760kB of embedded woff2 and must never block first paint: the
+     page renders immediately in the system serif, then swaps. -->
+<link rel="preload" href="assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+
+<body>
+<a class="skip-link" href="#collection">Skip to the quotes</a>
+
+<header class="masthead shell">
+  <p class="masthead-kicker">A personal collection</p>
+  <h1>Lines Worth Keeping</h1>
+  <p class="masthead-dek">
+    Everything I have wanted to remember — from philosophy, technology,
+    literature and the odd sentence that would not leave me alone.
+  </p>
+</header>
+
+<div class="controls" id="controls">
+  <div class="shell">
+    <div class="controls-row">
+      <div class="search">
+        <label class="visually-hidden" for="search">Search the collection</label>
+        <input id="search" type="search" placeholder="Search quotes, authors, works…" autocomplete="off" spellcheck="false">
+        <span class="search-hint" aria-hidden="true">/</span>
+      </div>
+
+      <div class="control-group">
+        <label class="visually-hidden" for="filter-author">Filter by author</label>
+        <select class="pill" id="filter-author"><option value="">All authors</option></select>
+
+        <label class="visually-hidden" for="filter-theme">Filter by theme</label>
+        <select class="pill" id="filter-theme"><option value="">All themes</option></select>
+
+        <label class="visually-hidden" for="sort">Sort</label>
+        <select class="pill" id="sort">
+          <option value="added">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="author">By author</option>
+          <option value="work">By work</option>
+          <option value="year">By year written</option>
+          <option value="length">Shortest first</option>
+          <option value="random">Shuffle</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <button class="pill" id="toggle-favorites" type="button" aria-pressed="false">
+          Favourites <span class="pill-count" id="favorites-count"></span>
+        </button>
+        <button class="pill" id="open-focus" type="button" title="Read one at a time (F)">Focus</button>
+        <label class="visually-hidden" for="edition">Edition</label>
+        <select class="pill" id="edition" title="Change how the collection is set">
+          <option value="paper">Paper</option>
+          <option value="night">Night</option>
+          <option value="folio">Folio</option>
+          <option value="index">Index</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="active-filters" id="active-filters" hidden></div>
+  </div>
+</div>
+
+<main class="shell">
+  <p class="result-summary" id="result-summary" role="status" aria-live="polite"></p>
+
+  <ol class="collection" id="collection"></ol>
+
+  <div class="empty" id="empty" hidden>
+    <p><strong>Nothing here yet.</strong></p>
+    <p id="empty-detail"></p>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <div class="shell footer-row">
+    <div>
+      <p style="margin:0">
+        <a href="import.html">Import from Goodreads</a> ·
+        <a href="suggest.html">What to read next</a> ·
+        <a id="add-quote-link" href="https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml">Add a quote</a>
+      </p>
+      <p style="margin:.4rem 0 0">
+        Press <kbd>/</kbd> to search, <kbd>J</kbd> and <kbd>K</kbd> to move,
+        <kbd>F</kbd> for focus, <kbd>R</kbd> for a random line.
+      </p>
+    </div>
+    <div>
+      <p style="margin:0" id="footer-stats"></p>
+      <p style="margin:.4rem 0 0">
+        <a href="https://github.com/abustrup/Quote-collection">Source</a> ·
+        <a href="https://abustrup.github.io/alexanders-brief/">Alexanders Brief</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<div class="focus" id="focus" hidden>
+  <div class="focus-bar shell">
+    <span class="focus-position" id="focus-position"></span>
+    <button class="pill" id="close-focus" type="button">Close <span aria-hidden="true">esc</span></button>
+  </div>
+  <div class="focus-stage">
+    <figure class="focus-quote" id="focus-quote"></figure>
+  </div>
+  <div class="focus-nav">
+    <button class="pill" id="focus-prev" type="button">← Previous</button>
+    <button class="pill" id="focus-shuffle" type="button">Shuffle</button>
+    <button class="pill" id="focus-next" type="button">Next →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="shell" style="padding:2rem 0">
+    <p>This collection is rendered in the browser, so it needs JavaScript enabled.
+    The quotations themselves live in plain JSON at
+    <a href="data/quotes.json">data/quotes.json</a> and can always be read directly.</p>
+  </div>
+</noscript>
+
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

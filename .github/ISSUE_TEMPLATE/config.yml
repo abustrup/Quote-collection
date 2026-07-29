@@ -1,0 +1,18 @@
+# Blank issues stay enabled on purpose. The forms cover adding quotes, but the
+# other half of keeping a collection is noticing that something in it is wrong —
+# a misattribution, a typo, a translation worth reconsidering — and that should
+# never have to wait for a form to exist.
+blank_issues_enabled: true
+
+contact_links:
+  - name: Read the collection
+    url: https://abustrup.github.io/Quote-collection/
+    about: The library itself. Search it before adding, in case it is already there.
+
+  - name: Import from Goodreads or a PDF
+    url: https://abustrup.github.io/Quote-collection/import.html
+    about: Turns an export or a marked-up PDF into the JSON that the import form takes.
+
+  - name: How the collection is put together
+    url: https://github.com/abustrup/Quote-collection#readme
+    about: What each field means, and what happens to an issue after you open it.

@@ -1,0 +1,786 @@
+/* ==========================================================================
+   Quote Collection — design tokens
+   --------------------------------------------------------------------------
+   The palette, type stack and token architecture are inherited from
+   Alexanders Brief so the two sites read as one hand. What differs is density:
+   the brief is a newspaper and wants compression, a quote collection wants air.
+   Almost every decision below trades information density for room to read.
+
+   Four editions, chosen by the reader and remembered per device:
+     paper  — warm cream, Newsreader. The default. For reading slowly.
+     night  — low light, Spectral, amber. Same reading posture, less glare.
+     folio  — display serif, one quote at a time. For looking at a single line.
+     index  — compact sans list. For finding one quote among hundreds.
+   Editions are pure token overrides; no component rule knows which is active.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --measure: 34em;
+  --gutter: clamp(1.15rem, 4vw, 3rem);
+  --container: min(72rem, 100% - (var(--gutter) * 2));
+  --tap-min: 44px;
+
+  --bg: #f6efe4;
+  --surface: #efe4d3;
+  --ink: #1b1714;
+  --muted: #6b6358;
+  --body-soft: #403c37;
+  --rule: #cdbfa9;
+  --rule-soft: #e0d4be;
+  --accent: #a3122c;
+  --accent-ink: var(--accent);
+  --teal: #0b6769;
+
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-label: "Archivo", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-quote: var(--font-display);
+
+  /* The quotation's own type. Kept as tokens because each edition retunes it. */
+  --quote-size: clamp(1.32rem, 1.05rem + 1.15vw, 1.85rem);
+  --quote-leading: 1.46;
+  --quote-weight: 400;
+  --quote-tracking: -0.011em;
+
+  --stack: clamp(3rem, 6vw, 5.25rem);
+  --radius: 2px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+:root[data-edition="night"] {
+  color-scheme: dark;
+  --bg: #14110d;
+  --surface: #1c1813;
+  --ink: #ece6db;
+  --muted: #8a8073;
+  --body-soft: #c4bcae;
+  --rule: #322c24;
+  --rule-soft: #262019;
+  --accent: #e0a955;
+  --accent-ink: #e8bd77;
+  --teal: #54b9ab;
+  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --quote-weight: 300;
+  --quote-leading: 1.5;
+}
+
+:root[data-edition="folio"] {
+  --bg: #fbf7f0;
+  --surface: #efe7d8;
+  --ink: #16120e;
+  --rule: #cdbfa9;
+  --accent: #b3122e;
+  --accent-ink: #b3122e;
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --quote-size: clamp(1.6rem, 1.1rem + 2.1vw, 2.7rem);
+  --quote-leading: 1.26;
+  --quote-tracking: -0.02em;
+  --measure: 24em;
+  --stack: clamp(4.5rem, 11vw, 9rem);
+}
+
+:root[data-edition="index"] {
+  --bg: #eef0f3;
+  --surface: #ffffff;
+  --ink: #14171c;
+  --muted: #6b7280;
+  --body-soft: #3f4651;
+  --rule: #dfe3e8;
+  --rule-soft: #e9ecf0;
+  --accent: #c41230;
+  --accent-ink: #c41230;
+  --teal: #18a06b;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-quote: var(--font-display);
+  --quote-size: clamp(1rem, 0.95rem + 0.3vw, 1.12rem);
+  --quote-leading: 1.5;
+  --quote-tracking: 0;
+  --measure: 46em;
+  --stack: 1.5rem;
+  --radius: 10px;
+}
+
+/* ==========================================================================
+   Reset and page frame
+   ========================================================================== */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+[hidden] { display: none !important; }
+
+a { color: inherit; }
+
+button {
+  margin: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.shell {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 40;
+  transform: translate(-50%, -150%);
+  padding: 0.65rem 1.1rem;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.18s var(--ease);
+}
+
+.skip-link:focus-visible { transform: translate(-50%, 0); }
+
+/* ==========================================================================
+   Masthead
+   ========================================================================== */
+
+.masthead {
+  padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(1.5rem, 3vw, 2.25rem);
+  text-align: center;
+}
+
+.masthead-kicker {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.masthead h1 {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.4rem + 4.4vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -0.042em;
+  line-height: 0.94;
+}
+
+.masthead-dek {
+  max-width: 40ch;
+  margin: 0.85rem auto 0;
+  color: var(--body-soft);
+  font-size: clamp(0.98rem, 0.94rem + 0.25vw, 1.12rem);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+/* ==========================================================================
+   Controls
+   --------------------------------------------------------------------------
+   The control bar sticks to the top while reading. It is the only chrome on
+   the page, so it stays quiet: a hairline, no fill, no shadow until it lifts
+   off the top of the document.
+   ========================================================================== */
+
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px) saturate(1.4);
+  transition: border-color 0.2s var(--ease);
+}
+
+.controls[data-lifted="true"] { border-bottom-color: var(--rule); }
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem 0.7rem;
+  flex-wrap: wrap;
+}
+
+.search {
+  position: relative;
+  flex: 1 1 15rem;
+  min-width: 0;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.62rem 2.3rem 0.62rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.92rem;
+  line-height: 1.3;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search input::placeholder { color: var(--muted); }
+
+.search input:focus-visible {
+  outline: none;
+  border-color: var(--accent-ink);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-ink) 22%, transparent);
+}
+
+.search-hint {
+  position: absolute;
+  right: 0.62rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.1rem 0.36rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  pointer-events: none;
+}
+
+.search input:focus-visible ~ .search-hint,
+.search input:not(:placeholder-shown) ~ .search-hint { opacity: 0; }
+
+/* Wrapping matters: each pill keeps its own text on one line, so a group of
+   them has to be free to break onto a second row or it pushes the page wider
+   than the viewport on a phone. */
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 34px;
+  padding: 0.32rem 0.72rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+  transition: color 0.16s var(--ease), border-color 0.16s var(--ease), background-color 0.16s var(--ease);
+}
+
+.pill:hover { color: var(--ink); border-color: var(--ink); }
+
+.pill[aria-pressed="true"],
+.pill[aria-current="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.pill-count {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.65;
+}
+
+select.pill {
+  padding-right: 1.6rem;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 0.72rem center, right 0.48rem center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Active filters read as a sentence rather than a row of widgets. */
+.active-filters {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.7rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.filter-chip::after {
+  content: "×";
+  font-size: 1.05em;
+  line-height: 1;
+  opacity: 0.55;
+}
+
+.filter-chip:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
+.filter-chip:hover::after { opacity: 1; }
+
+/* ==========================================================================
+   The collection
+   ========================================================================== */
+
+main { padding-bottom: clamp(4rem, 12vw, 9rem); }
+
+.result-summary {
+  padding: clamp(1.6rem, 4vw, 2.6rem) 0 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.collection {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quote {
+  --quote-pad: clamp(1.9rem, 4vw, 3rem);
+  position: relative;
+  padding: var(--stack) 0;
+  border-bottom: 1px solid var(--rule-soft);
+  scroll-margin-top: 5.5rem;
+}
+
+.collection > .quote:last-child { border-bottom: 0; }
+
+/* The deep-linked quote is marked in the margin rather than highlighted, so
+   arriving at a permalink never changes how the words themselves look. */
+.quote[data-targeted="true"]::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--gutter) * -0.5);
+  top: var(--stack);
+  width: 2px;
+  height: 2.4em;
+  background: var(--accent);
+}
+
+.quote-text {
+  max-width: var(--measure);
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-quote);
+  font-size: var(--quote-size);
+  font-weight: var(--quote-weight);
+  letter-spacing: var(--quote-tracking);
+  line-height: var(--quote-leading);
+  text-wrap: pretty;
+}
+
+.quote-text mark {
+  padding: 0.05em 0.12em;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: inherit;
+}
+
+/* Long passages set down a step: a paragraph should not shout like an aphorism. */
+.quote[data-length="long"] { --quote-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); --quote-leading: 1.58; }
+.quote[data-length="short"] { --quote-size: clamp(1.5rem, 1.1rem + 1.7vw, 2.35rem); }
+
+:root[data-edition="index"] .quote[data-length="long"],
+:root[data-edition="index"] .quote[data-length="short"] {
+  --quote-size: clamp(1rem, 0.95rem + 0.3vw, 1.12rem);
+  --quote-leading: 1.5;
+}
+
+.attribution {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.5rem;
+  max-width: var(--measure);
+  margin: 1.15rem 0 0;
+  font-family: var(--font-label);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.attribution::before {
+  content: "";
+  width: 1.35rem;
+  height: 1px;
+  margin-right: 0.15rem;
+  transform: translateY(-0.32em);
+  background: var(--rule);
+}
+
+.attribution-author {
+  border-bottom: 1px solid transparent;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.16s var(--ease), color 0.16s var(--ease);
+}
+
+.attribution-author:hover {
+  border-bottom-color: currentColor;
+  color: var(--accent-ink);
+}
+
+.attribution-work {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.attribution-year {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.quote-note {
+  max-width: var(--measure);
+  margin: 0.9rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--rule);
+  color: var(--body-soft);
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Per-quote meta row. Hidden until hover or focus on pointer devices so that
+   scrolling the collection shows only writing; always visible on touch, where
+   there is no hover to reveal it.
+   -------------------------------------------------------------------------- */
+
+.quote-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem 0.55rem;
+  flex-wrap: wrap;
+  max-width: var(--measure);
+  margin: 1rem 0 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .quote-actions {
+    opacity: 0;
+    transition: opacity 0.18s var(--ease);
+  }
+  .quote:hover .quote-actions,
+  .quote:focus-within .quote-actions { opacity: 1; }
+}
+
+.quote-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin-left: auto;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  color: var(--muted);
+  transition: color 0.16s var(--ease), background-color 0.16s var(--ease);
+}
+
+.icon-button:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.icon-button svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-button[aria-pressed="true"] { color: var(--accent-ink); }
+.icon-button[aria-pressed="true"] svg { fill: currentColor; stroke: currentColor; }
+
+.tag {
+  padding: 0.16rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.16s var(--ease), border-color 0.16s var(--ease);
+}
+
+.tag:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
+
+/* Verification is shown as a quiet dot, and only spelled out when it matters.
+   A collection that tracks how well it knows its own sources should say so
+   without turning every quotation into a footnote. */
+.verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: help;
+}
+
+.verify::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.verify[data-status="verified"] { color: var(--teal); }
+.verify[data-status="reported"] { color: var(--muted); }
+.verify[data-status="unverified"] { color: var(--muted); opacity: 0.75; }
+.verify[data-status="disputed"] { color: var(--accent-ink); }
+
+.verify[data-status="reported"]::before,
+.verify[data-status="unverified"]::before {
+  background: none;
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+/* ==========================================================================
+   Empty state
+   ========================================================================== */
+
+.empty {
+  max-width: 34ch;
+  margin: clamp(4rem, 12vw, 8rem) auto;
+  text-align: center;
+}
+
+.empty p {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.empty strong { color: var(--ink); font-weight: 600; }
+
+/* ==========================================================================
+   Focus mode — one quote, nothing else
+   ========================================================================== */
+
+.focus {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--bg);
+  animation: fade-in 0.28s var(--ease);
+}
+
+@keyframes fade-in { from { opacity: 0; } }
+
+.focus-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: var(--container);
+  margin-inline: auto;
+  padding: 1.1rem 0;
+}
+
+.focus-position {
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+.focus-stage {
+  display: grid;
+  place-items: center;
+  padding: 1rem var(--gutter) 2rem;
+  overflow-y: auto;
+}
+
+.focus-quote { max-width: 26em; text-align: left; }
+
+.focus-quote .quote-text {
+  max-width: none;
+  font-size: clamp(1.6rem, 1rem + 3.1vw, 3.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.024em;
+}
+
+.focus-quote[data-length="long"] .quote-text {
+  font-size: clamp(1.15rem, 0.95rem + 1.2vw, 1.7rem);
+  line-height: 1.45;
+}
+
+.focus-quote .attribution {
+  max-width: none;
+  margin-top: 1.8rem;
+  font-size: 0.9rem;
+}
+
+.focus-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 var(--gutter) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.page-footer {
+  padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(3rem, 8vw, 5rem);
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.page-footer a {
+  color: var(--ink);
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+.page-footer a:hover { color: var(--accent-ink); }
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Toast
+   ========================================================================== */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.6rem;
+  z-index: 80;
+  transform: translate(-50%, 1.5rem);
+  padding: 0.6rem 1.05rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+}
+
+.toast[data-visible="true"] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ==========================================================================
+   Motion and print
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .controls,
+  .quote-actions,
+  .page-footer,
+  .skip-link,
+  .toast { display: none !important; }
+
+  :root { --bg: #fff; --ink: #000; --muted: #444; --rule: #ccc; --rule-soft: #ddd; }
+
+  body { font-size: 11pt; }
+  .quote { padding: 1.4rem 0; break-inside: avoid; }
+  .quote-text { font-size: 13pt; }
+}

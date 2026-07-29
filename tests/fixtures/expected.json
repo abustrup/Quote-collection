@@ -1,0 +1,747 @@
+{
+  "generatedBy": "tests/fixtures/make-fixtures.mjs",
+  "pages": [
+    {
+      "file": "goodreads-quotes-page-1.pdf",
+      "goodreadsPage": 1,
+      "sourceUrl": "https://www.goodreads.com/quotes/list?page=1",
+      "showing": {
+        "from": 1,
+        "to": 30,
+        "total": 174
+      },
+      "quotes": [
+        {
+          "text": "It is not that we have a short time to live, but that we waste a lot of it. Life is long enough, and a sufficiently generous amount has been given to us for the highest achievements if it were all well invested.",
+          "author": "Seneca",
+          "work": "On the Shortness of Life",
+          "tags": [
+            "time",
+            "philosophy",
+            "stoicism"
+          ]
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 1.)",
+          "author": "Fixture Author 1",
+          "work": "A Sample Work, Number 1",
+          "tags": [
+            "fixture",
+            "set-1"
+          ]
+        },
+        {
+          "text": "The unexamined life is not worth living.",
+          "author": "Socrates",
+          "work": null,
+          "tags": [
+            "philosophy"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 2.)",
+          "author": "Fixture Author 2",
+          "work": "A Sample Work, Number 2",
+          "tags": [
+            "fixture",
+            "set-2"
+          ]
+        },
+        {
+          "text": "Man is condemned to be free; because once thrown into the world, he is responsible for everything he does.",
+          "author": "Jean-Paul Sartre",
+          "work": "Existentialism Is a Humanism",
+          "tags": []
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 3.)",
+          "author": "Fixture Author 3",
+          "work": "A Sample Work, Number 3",
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "Never say about anything, “I have lost it,” but say, “I have given it back” — and then go on living as though nothing had been taken from you.",
+          "author": "Epictetus",
+          "work": "The Enchiridion",
+          "tags": [
+            "loss",
+            "acceptance"
+          ]
+        },
+        {
+          "text": "Attention is the rarest form of generosity, and it cannot be faked for very long. (Fixture entry 4.)",
+          "author": "Fixture Author 4",
+          "work": "A Sample Work, Number 4",
+          "tags": []
+        },
+        {
+          "text": "Livet skal forstås baglæns, men det må leves forlæns.",
+          "author": "Søren Kierkegaard",
+          "work": "Journalen JJ",
+          "tags": [
+            "livet",
+            "filosofi"
+          ]
+        },
+        {
+          "text": "Nothing is so practical as a good theory, and nothing is so useless as a theory that has never once been embarrassed by a fact. (Fixture entry 5.)",
+          "author": "Fixture Author 5",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-5"
+          ]
+        },
+        {
+          "text": "A student who has read only summaries knows the shape of an argument and none of its weight, because the weight is in the sentences that the summary leaves out; and when such a student is asked to defend the argument, he defends the shape, which cannot be defended, since a shape has no reasons in it. The remedy is not to read more summaries but to read one book slowly, with a pencil, and to write in the margin every time a sentence does something the summary had not prepared you for. After a hundred pages of this the book stops being a position to agree or disagree with and becomes a mind you are arguing with, which is the only condition under which reading changes anybody.",
+          "author": "Fixture Author 101",
+          "work": "On Reading Slowly",
+          "tags": [
+            "reading",
+            "attention",
+            "study"
+          ]
+        },
+        {
+          "text": "To study something is to agree in advance to be corrected by it. (Fixture entry 6.)",
+          "author": "Fixture Author 6",
+          "work": "A Sample Work, Number 6",
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        },
+        {
+          "text": "The story so far: In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.",
+          "author": "Douglas Adams",
+          "work": "The Restaurant at the End of the Universe, Volume 2",
+          "tags": [
+            "humour",
+            "science-fiction"
+          ]
+        },
+        {
+          "text": "A market clears; it does not thereby become just. The two words describe different questions, and a great deal of bad argument comes from answering the first while appearing to answer the second. (Fixture entry 7.)",
+          "author": "Fixture Author 7",
+          "work": "A Sample Work, Number 7",
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "We are not troubled by things, but by the opinions which we have of things.",
+          "author": "Marcus Aurelius Antoninus Augustus",
+          "work": "Meditations: A New Translation with an Introduction",
+          "tags": [
+            "stoicism",
+            "mind",
+            "perception",
+            "philosophy",
+            "self-control",
+            "ancient-rome",
+            "meditation",
+            "classics"
+          ]
+        },
+        {
+          "text": "The first duty of a student is to find out what he actually believes, which usually takes longer than finding out what is true. (Fixture entry 8.)",
+          "author": "Fixture Author 8",
+          "work": "A Sample Work, Number 8",
+          "tags": []
+        },
+        {
+          "text": "Hat man sein Warum des Lebens, so verträgt man sich fast mit jedem Wie — der Mensch strebt nicht nach Glück.",
+          "author": "Friedrich Nietzsche",
+          "work": "Götzen-Dämmerung",
+          "tags": [
+            "sinn",
+            "philosophie"
+          ]
+        },
+        {
+          "text": "Boredom is the raw material of thought, and we have industrialised its removal. (Fixture entry 9.)",
+          "author": "Fixture Author 9",
+          "work": "A Sample Work, Number 9",
+          "tags": [
+            "fixture",
+            "set-2"
+          ]
+        },
+        {
+          "text": "Amor fati.",
+          "author": "Friedrich Nietzsche",
+          "work": "Ecce Homo",
+          "tags": [
+            "fate"
+          ]
+        },
+        {
+          "text": "An argument you cannot state in your opponent’s own words is an argument you have not yet understood. (Fixture entry 10.)",
+          "author": "Fixture Author 10",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+          "author": "Albert Camus",
+          "work": "Retour à Tipasa",
+          "tags": [
+            "espoir"
+          ]
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 11.)",
+          "author": "Fixture Author 11",
+          "work": "A Sample Work, Number 11",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "What is the use of a house if you have not got a tolerable planet to put it on?",
+          "author": "Henry David Thoreau",
+          "work": null,
+          "tags": [
+            "nature",
+            "home"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 12.)",
+          "author": "Fixture Author 12",
+          "work": "A Sample Work, Number 12",
+          "tags": []
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 13.)",
+          "author": "Fixture Author 13",
+          "work": "A Sample Work, Number 13",
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        },
+        {
+          "text": "Attention is the rarest form of generosity, and it cannot be faked for very long. (Fixture entry 14.)",
+          "author": "Fixture Author 14",
+          "work": "A Sample Work, Number 14",
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "Nothing is so practical as a good theory, and nothing is so useless as a theory that has never once been embarrassed by a fact. (Fixture entry 15.)",
+          "author": "Fixture Author 15",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-1"
+          ]
+        },
+        {
+          "text": "To study something is to agree in advance to be corrected by it. (Fixture entry 16.)",
+          "author": "Fixture Author 16",
+          "work": "A Sample Work, Number 16",
+          "tags": []
+        },
+        {
+          "text": "A market clears; it does not thereby become just. The two words describe different questions, and a great deal of bad argument comes from answering the first while appearing to answer the second. (Fixture entry 17.)",
+          "author": "Fixture Author 17",
+          "work": "A Sample Work, Number 17",
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "The first duty of a student is to find out what he actually believes, which usually takes longer than finding out what is true. (Fixture entry 18.)",
+          "author": "Fixture Author 18",
+          "work": "A Sample Work, Number 18",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "goodreads-quotes-page-2.pdf",
+      "goodreadsPage": 2,
+      "sourceUrl": "https://www.goodreads.com/quotes/list?page=2",
+      "showing": {
+        "from": 31,
+        "to": 60,
+        "total": 174
+      },
+      "quotes": [
+        {
+          "text": "Economics is not a science of wealth, whatever its textbooks say on their first page; it is a science of choices made under scarcity, and the moment a student grasps that the subject stops being about money at all and becomes about what a person is willing to give up. Every price is a sentence about somebody’s preferences, written in the only language large groups of strangers have ever agreed on. Read enough of them and a market begins to look less like a machine and more like a conversation nobody is chairing.",
+          "author": "Fixture Author 102",
+          "work": "Notes on Scarcity",
+          "tags": [
+            "economics",
+            "choice",
+            "value"
+          ]
+        },
+        {
+          "text": "An argument you cannot state in your opponent’s own words is an argument you have not yet understood. (Fixture entry 200.)",
+          "author": "Fixture Author 200",
+          "work": null,
+          "tags": []
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 201.)",
+          "author": "Fixture Author 201",
+          "work": "A Sample Work, Number 201",
+          "tags": [
+            "fixture",
+            "set-5"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 202.)",
+          "author": "Fixture Author 202",
+          "work": "A Sample Work, Number 202",
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        },
+        {
+          "text": "It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their regard to their own interest.",
+          "author": "Adam Smith",
+          "work": "The Wealth of Nations",
+          "tags": [
+            "economics",
+            "self-interest"
+          ]
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 203.)",
+          "author": "Fixture Author 203",
+          "work": "A Sample Work, Number 203",
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "Attention is the rarest form of generosity, and it cannot be faked for very long. (Fixture entry 204.)",
+          "author": "Fixture Author 204",
+          "work": "A Sample Work, Number 204",
+          "tags": []
+        },
+        {
+          "text": "Nothing is so practical as a good theory, and nothing is so useless as a theory that has never once been embarrassed by a fact. (Fixture entry 205.)",
+          "author": "Fixture Author 205",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-2"
+          ]
+        },
+        {
+          "text": "The whole problem with the world is that fools and fanatics are always so certain of themselves, and wiser people so full of doubts.",
+          "author": "Bertrand Russell",
+          "work": null,
+          "tags": []
+        },
+        {
+          "text": "To study something is to agree in advance to be corrected by it. (Fixture entry 206.)",
+          "author": "Fixture Author 206",
+          "work": "A Sample Work, Number 206",
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "A market clears; it does not thereby become just. The two words describe different questions, and a great deal of bad argument comes from answering the first while appearing to answer the second. (Fixture entry 207.)",
+          "author": "Fixture Author 207",
+          "work": "A Sample Work, Number 207",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "The first duty of a student is to find out what he actually believes, which usually takes longer than finding out what is true. (Fixture entry 208.)",
+          "author": "Fixture Author 208",
+          "work": "A Sample Work, Number 208",
+          "tags": []
+        },
+        {
+          "text": "He asked me, “And what do you plan to do with a philosophy degree?” ... I said that I planned to notice things.",
+          "author": "Fixture Author 103",
+          "work": "Small Conversations",
+          "tags": [
+            "study"
+          ]
+        },
+        {
+          "text": "Boredom is the raw material of thought, and we have industrialised its removal. (Fixture entry 209.)",
+          "author": "Fixture Author 209",
+          "work": "A Sample Work, Number 209",
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        },
+        {
+          "text": "An argument you cannot state in your opponent’s own words is an argument you have not yet understood. (Fixture entry 210.)",
+          "author": "Fixture Author 210",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 211.)",
+          "author": "Fixture Author 211",
+          "work": "A Sample Work, Number 211",
+          "tags": [
+            "fixture",
+            "set-1"
+          ]
+        },
+        {
+          "text": "Two things fill the mind with ever new and increasing admiration and awe: the starry heavens above me and the moral law within me.",
+          "author": "Immanuel Kant",
+          "work": "Critique of Practical Reason",
+          "tags": [
+            "ethics",
+            "wonder"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 212.)",
+          "author": "Fixture Author 212",
+          "work": "A Sample Work, Number 212",
+          "tags": []
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 213.)",
+          "author": "Fixture Author 213",
+          "work": "A Sample Work, Number 213",
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "Attention is the rarest form of generosity, and it cannot be faked for very long. (Fixture entry 214.)",
+          "author": "Fixture Author 214",
+          "work": "A Sample Work, Number 214",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "Freedom is not worth having if it does not include the freedom to make mistakes.",
+          "author": "Mahatma Gandhi",
+          "work": null,
+          "tags": [
+            "freedom"
+          ]
+        },
+        {
+          "text": "Nothing is so practical as a good theory, and nothing is so useless as a theory that has never once been embarrassed by a fact. (Fixture entry 215.)",
+          "author": "Fixture Author 215",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-5"
+          ]
+        },
+        {
+          "text": "To study something is to agree in advance to be corrected by it. (Fixture entry 216.)",
+          "author": "Fixture Author 216",
+          "work": "A Sample Work, Number 216",
+          "tags": []
+        },
+        {
+          "text": "A market clears; it does not thereby become just. The two words describe different questions, and a great deal of bad argument comes from answering the first while appearing to answer the second. (Fixture entry 217.)",
+          "author": "Fixture Author 217",
+          "work": "A Sample Work, Number 217",
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "The first duty of a student is to find out what he actually believes, which usually takes longer than finding out what is true. (Fixture entry 218.)",
+          "author": "Fixture Author 218",
+          "work": "A Sample Work, Number 218",
+          "tags": [
+            "fixture",
+            "set-1"
+          ]
+        },
+        {
+          "text": "Boredom is the raw material of thought, and we have industrialised its removal. (Fixture entry 219.)",
+          "author": "Fixture Author 219",
+          "work": "A Sample Work, Number 219",
+          "tags": [
+            "fixture",
+            "set-2"
+          ]
+        },
+        {
+          "text": "An argument you cannot state in your opponent’s own words is an argument you have not yet understood. (Fixture entry 220.)",
+          "author": "Fixture Author 220",
+          "work": null,
+          "tags": []
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 221.)",
+          "author": "Fixture Author 221",
+          "work": "A Sample Work, Number 221",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 222.)",
+          "author": "Fixture Author 222",
+          "work": "A Sample Work, Number 222",
+          "tags": [
+            "fixture",
+            "set-5"
+          ]
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 223.)",
+          "author": "Fixture Author 223",
+          "work": "A Sample Work, Number 223",
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "goodreads-quotes-page-6.pdf",
+      "goodreadsPage": 6,
+      "sourceUrl": "https://www.goodreads.com/quotes/list?page=6",
+      "showing": {
+        "from": 151,
+        "to": 174,
+        "total": 174
+      },
+      "quotes": [
+        {
+          "text": "The greatest hazard of all, losing one’s self, can occur very quietly in the world, as if it were nothing at all.",
+          "author": "Søren Kierkegaard",
+          "work": "The Sickness Unto Death",
+          "tags": [
+            "self",
+            "anxiety"
+          ]
+        },
+        {
+          "text": "An argument you cannot state in your opponent’s own words is an argument you have not yet understood. (Fixture entry 400.)",
+          "author": "Fixture Author 400",
+          "work": null,
+          "tags": []
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 401.)",
+          "author": "Fixture Author 401",
+          "work": "A Sample Work, Number 401",
+          "tags": [
+            "fixture",
+            "set-2"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 402.)",
+          "author": "Fixture Author 402",
+          "work": "A Sample Work, Number 402",
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "I have no special talent. I am only passionately curious.",
+          "author": "Albert Einstein",
+          "work": null,
+          "tags": []
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 403.)",
+          "author": "Fixture Author 403",
+          "work": "A Sample Work, Number 403",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "Attention is the rarest form of generosity, and it cannot be faked for very long. (Fixture entry 404.)",
+          "author": "Fixture Author 404",
+          "work": "A Sample Work, Number 404",
+          "tags": []
+        },
+        {
+          "text": "Nothing is so practical as a good theory, and nothing is so useless as a theory that has never once been embarrassed by a fact. (Fixture entry 405.)",
+          "author": "Fixture Author 405",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        },
+        {
+          "text": "A room without books is like a body without a soul.",
+          "author": "Marcus Tullius Cicero",
+          "work": null,
+          "tags": [
+            "books",
+            "reading"
+          ]
+        },
+        {
+          "text": "To study something is to agree in advance to be corrected by it. (Fixture entry 406.)",
+          "author": "Fixture Author 406",
+          "work": "A Sample Work, Number 406",
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "A market clears; it does not thereby become just. The two words describe different questions, and a great deal of bad argument comes from answering the first while appearing to answer the second. (Fixture entry 407.)",
+          "author": "Fixture Author 407",
+          "work": "A Sample Work, Number 407",
+          "tags": [
+            "fixture",
+            "set-1"
+          ]
+        },
+        {
+          "text": "The first duty of a student is to find out what he actually believes, which usually takes longer than finding out what is true. (Fixture entry 408.)",
+          "author": "Fixture Author 408",
+          "work": "A Sample Work, Number 408",
+          "tags": []
+        },
+        {
+          "text": "Whereof one cannot speak, thereof one must be silent.",
+          "author": "Ludwig Wittgenstein",
+          "work": "Tractatus Logico-Philosophicus",
+          "tags": [
+            "language",
+            "silence"
+          ]
+        },
+        {
+          "text": "Boredom is the raw material of thought, and we have industrialised its removal. (Fixture entry 409.)",
+          "author": "Fixture Author 409",
+          "work": "A Sample Work, Number 409",
+          "tags": [
+            "fixture",
+            "set-3"
+          ]
+        },
+        {
+          "text": "An argument you cannot state in your opponent’s own words is an argument you have not yet understood. (Fixture entry 410.)",
+          "author": "Fixture Author 410",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "The ledger is honest about everything except what was worth doing, and that is the only entry anyone remembers. (Fixture entry 411.)",
+          "author": "Fixture Author 411",
+          "work": "A Sample Work, Number 411",
+          "tags": [
+            "fixture",
+            "set-5"
+          ]
+        },
+        {
+          "text": "Patience is a technique before it is a virtue: it is the practice of leaving a question open long enough for it to answer itself. (Fixture entry 412.)",
+          "author": "Fixture Author 412",
+          "work": "A Sample Work, Number 412",
+          "tags": []
+        },
+        {
+          "text": "Every institution begins as a solution to a problem and ends as a description of the people who work in it, which is why reform is so much harder than founding, and why the founders are so much better remembered than the reformers who kept the thing alive. (Fixture entry 413.)",
+          "author": "Fixture Author 413",
+          "work": "A Sample Work, Number 413",
+          "tags": [
+            "fixture",
+            "set-0"
+          ]
+        },
+        {
+          "text": "Attention is the rarest form of generosity, and it cannot be faked for very long. (Fixture entry 414.)",
+          "author": "Fixture Author 414",
+          "work": "A Sample Work, Number 414",
+          "tags": [
+            "fixture",
+            "set-1"
+          ]
+        },
+        {
+          "text": "Nothing is so practical as a good theory, and nothing is so useless as a theory that has never once been embarrassed by a fact. (Fixture entry 415.)",
+          "author": "Fixture Author 415",
+          "work": null,
+          "tags": [
+            "fixture",
+            "set-2"
+          ]
+        },
+        {
+          "text": "To study something is to agree in advance to be corrected by it. (Fixture entry 416.)",
+          "author": "Fixture Author 416",
+          "work": "A Sample Work, Number 416",
+          "tags": []
+        },
+        {
+          "text": "A market clears; it does not thereby become just. The two words describe different questions, and a great deal of bad argument comes from answering the first while appearing to answer the second. (Fixture entry 417.)",
+          "author": "Fixture Author 417",
+          "work": "A Sample Work, Number 417",
+          "tags": [
+            "fixture",
+            "set-4"
+          ]
+        },
+        {
+          "text": "The first duty of a student is to find out what he actually believes, which usually takes longer than finding out what is true. (Fixture entry 418.)",
+          "author": "Fixture Author 418",
+          "work": "A Sample Work, Number 418",
+          "tags": [
+            "fixture",
+            "set-5"
+          ]
+        },
+        {
+          "text": "Boredom is the raw material of thought, and we have industrialised its removal. (Fixture entry 419.)",
+          "author": "Fixture Author 419",
+          "work": "A Sample Work, Number 419",
+          "tags": [
+            "fixture",
+            "set-6"
+          ]
+        }
+      ]
+    }
+  ]
+}
