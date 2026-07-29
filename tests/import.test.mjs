@@ -9,6 +9,10 @@
  * went in, not a transcript of what the parser happened to produce.
  */
 
+// pdf.js is the browser build, so under Node it needs the few DOM globals a
+// browser supplies natively. This must come before anything imports it.
+import './helpers/dom-shims.mjs';
+
 import { after, before, describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
