@@ -470,14 +470,56 @@ function furniture(page) {
   };
 }
 
+const PAPER_MM = { A4: { width: 210, height: 297 }, Letter: { width: 215.9, height: 279.4 } };
+const MARGIN_MM = { top: 14, bottom: 15, left: 12, right: 12 };
+const MM_TO_PX = 96 / 25.4;
+
+/**
+ * Push one quote across a page boundary, on purpose.
+ *
+ * Left to chance, thirty quotes can happily fall so that every one of them
+ * lands whole on a page, and the case the importer most needs to survive — a
+ * sentence cut in half by a printed footer and a printed header — never gets
+ * tested. So the layout is measured in a viewport the size of the printed
+ * content area, and an otherwise empty spacer above the target quote is grown
+ * until the middle of that quote sits exactly on a page break.
+ */
+async function forceStraddle(tab, contentHeightPx) {
+  return tab.evaluate((contentHeight) => {
+    const target = document.getElementById('straddle-target');
+    const spacer = document.getElementById('print-spacer');
+    if (!target || !spacer) return null;
+
+    const measure = () => {
+      const rect = target.getBoundingClientRect();
+      return { top: rect.top + window.scrollY, height: rect.height };
+    };
+
+    const { top, height } = measure();
+    const boundary = Math.ceil((top + height / 2) / contentHeight) * contentHeight;
+    const shift = Math.max(0, boundary - height / 2 - top);
+    spacer.style.height = `${shift}px`;
+    return { shift: Math.round(shift), boundary: Math.round(boundary), lines: Math.round(height) };
+  }, contentHeightPx);
+}
+
 async function main() {
   const browser = await chromium.launch();
   const context = await browser.newContext();
   const expected = [];
 
   for (const page of PAGES) {
-    const tab = await context.newPage();
+    const paper = PAPER_MM[page.paper];
+    const contentWidthPx = Math.round((paper.width - MARGIN_MM.left - MARGIN_MM.right) * MM_TO_PX);
+    const contentHeightPx = (paper.height - MARGIN_MM.top - MARGIN_MM.bottom) * MM_TO_PX;
+
+    const tab = await context.newPage({ viewport: { width: contentWidthPx, height: 900 } });
+    // Measuring under print media in a viewport the width of the printed
+    // content area is what makes the measurement above agree with the layout
+    // the PDF is actually paginated from.
+    await tab.emulateMedia({ media: 'print' });
     await tab.setContent(pageHtml(page), { waitUntil: 'load' });
+    const placement = await forceStraddle(tab, contentHeightPx);
     const { header, footer } = furniture(page);
 
     await tab.pdf({
@@ -490,6 +532,7 @@ async function main() {
       margin: { top: '14mm', bottom: '15mm', left: '12mm', right: '12mm' },
     });
     await tab.close();
+    console.log(`${page.file}: straddler shifted ${placement?.shift}px onto the break at ${placement?.boundary}px`);
 
     expected.push({
       file: page.file,
