@@ -121,7 +121,7 @@ async function copyText(text, label) {
     area.select();
     const ok = document.execCommand?.('copy');
     area.remove();
-    toast(ok ? label : 'Could not copy — select the text instead');
+    toast(ok ? label : 'Could not copy – select the text instead');
   }
 }
 

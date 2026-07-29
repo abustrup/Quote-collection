@@ -1,6 +1,6 @@
 # Quote Collection
 
-A personal library of lines worth keeping — philosophy, technology, literature,
+A personal library of lines worth keeping – philosophy, technology, literature,
 and the sentences that would not leave. It is a plain website with no build
 step and no server: the quotations live in one JSON file, and the site reads it.
 
@@ -29,7 +29,7 @@ brought over once by hand:
 2. Open **[the importer](https://abustrup.github.io/Quote-collection/import.html)**.
 3. Drag all six PDFs onto the page.
 
-It reads them in your browser — nothing is uploaded anywhere — shows you exactly
+It reads them in your browser – nothing is uploaded anywhere – shows you exactly
 what it found, and lets you delete anything it got wrong. Then press
 **Copy JSON**, open
 **[Bulk import](https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml)**,
@@ -38,8 +38,8 @@ paste, and submit. Same robot, same result.
 ### 3. Find something to read next
 
 **[What to read next](https://abustrup.github.io/Quote-collection/suggest.html)**
-looks at the shape of what you have kept — which authors you return to, which
-questions your quotes keep circling — and suggests works from a hand-checked
+looks at the shape of what you have kept – which authors you return to, which
+questions your quotes keep circling – and suggests works from a hand-checked
 library. It says *why* it suggested each one, so you can tell when it has
 guessed wrong.
 
@@ -53,7 +53,7 @@ bills your own account, so it stays switched off until you turn it on.
 
 | | |
 |---|---|
-| **Search** | Type anything — words in the quote, an author, a book |
+| **Search** | Type anything – words in the quote, an author, a book |
 | **Filter** | Click an author or a theme to see only those |
 | **Editions** | *Paper* to read slowly, *Night* for the dark, *Folio* for one line at a time, *Index* to scan hundreds fast |
 | **Focus** | One quote, nothing else. Press <kbd>F</kbd>, or the Focus button |
@@ -73,12 +73,12 @@ records how far it has actually been checked:
 | **Verified** | The wording was confirmed against the primary text |
 | **Reported** | The attribution is well established, but the original was not consulted |
 | **Unverified** | Carried over from an import and not independently checked |
-| **Disputed** | Commonly misattributed or circulated in paraphrase — treat with care |
+| **Disputed** | Commonly misattributed or circulated in paraphrase – treat with care |
 
 Anything imported from Goodreads starts as *unverified*, because Goodreads
 quotations are transcribed by other readers and nobody has checked them. That is
 not a criticism of the quotes; it is just the honest label. Verified entries
-show no badge at all — the badge appears only when there is something to say.
+show no badge at all – the badge appears only when there is something to say.
 
 ---
 
@@ -88,7 +88,7 @@ show no badge at all — the badge appears only when there is something to say.
 index.html          the collection
 import.html         the Goodreads importer
 suggest.html        reading suggestions
-data/quotes.json    every quotation — the only file that really matters
+data/quotes.json    every quotation – the only file that really matters
 data/library.json   the curated works the recommender can suggest
 data/schema.json    the shape data/quotes.json must keep to
 assets/             styles, fonts, and the code the pages run

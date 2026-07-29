@@ -219,7 +219,7 @@ function hashString(input) {
  * Pick the final list, capping how many can share an author.
  *
  * Without the cap, a reader with nine Wittgenstein quotes gets nine
- * Wittgenstein recommendations — technically the best matches, and useless.
+ * Wittgenstein recommendations – technically the best matches, and useless.
  */
 function selectSuggestions(scored) {
   const perAuthor = new Map();
@@ -281,7 +281,7 @@ function renderSuggestions() {
 
   if (!picked.length) {
     dom.emptyDetail.textContent = profile.size === 0
-      ? 'Import your quotes first — the suggestions are built from what you have kept.'
+      ? 'Import your quotes first – the suggestions are built from what you have kept.'
       : 'Nothing in the library matches those filters. Try loosening one.';
     return;
   }
@@ -393,8 +393,8 @@ const CLAUDE_SCHEMA = {
 function buildClaudePrompt() {
   const topThemes = topEntries(profile.themes, 8).map(([theme, n]) => `${theme} (${n})`);
   const topAuthors = topEntries(profile.authors, 12).map(([author, n]) => `${author} (${n})`);
-  const sample = quotes.slice(0, 25).map((quote) => `- "${quote.text}" — ${quote.author}${quote.work ? `, ${quote.work}` : ''}`);
-  const candidates = library.map((work) => `${work.title} — ${work.author} (${work.year ?? 'n.d.'})`);
+  const sample = quotes.slice(0, 25).map((quote) => `- "${quote.text}" – ${quote.author}${quote.work ? `, ${quote.work}` : ''}`);
+  const candidates = library.map((work) => `${work.title} – ${work.author} (${work.year ?? 'n.d.'})`);
 
   return `Here is a reader's personal quote collection, summarised.
 
@@ -412,7 +412,7 @@ Recommend 6 works to read next.
 Rules, in order of importance:
 1. Never invent a book. Prefer the candidate library. You may name at most 2
    works from outside it, and only if you are certain they exist with that
-   author — mark those with inLibrary false.
+   author – mark those with inLibrary false.
 2. Do not recommend anything he is already quoting from.
 3. Spread the recommendations. No more than two by the same author, and include
    at least one that is a genuine stretch rather than more of the same.
@@ -513,7 +513,7 @@ function renderClaude(recommendations) {
     if (!item.inLibrary) {
       const warning = document.createElement('p');
       warning.className = 'work-because';
-      warning.append('Not from the vetted library — worth confirming this one exists before you buy it.');
+      warning.append('Not from the vetted library – worth confirming this one exists before you buy it.');
       entry.append(warning);
     }
 

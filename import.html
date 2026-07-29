@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6efe4">
 <meta name="color-scheme" content="light dark">
-<title>Import from Goodreads — Quote Collection</title>
+<title>Import from Goodreads – Quote Collection</title>
 <meta name="description" content="Turn printed Goodreads quote pages back into the collection, without uploading anything.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -31,7 +31,7 @@
 <style>
   /* Page-specific: a drop target, a table of what was read, and the two ways
      of getting it out again. A utility page, so it stays quieter than the
-     collection it feeds — no display sizes, no ornament, nothing that competes
+     collection it feeds – no display sizes, no ornament, nothing that competes
      with the job of checking 174 rows without losing your place. */
 
   .lede { max-width: 62ch; color: var(--body-soft); }
@@ -208,7 +208,7 @@
   <h1>Import from Goodreads</h1>
   <p class="masthead-dek lede">
     Goodreads has no export worth the name, but it will print. Drop the printed
-    pages here and they become quotes again — read in this browser, on this
+    pages here and they become quotes again – read in this browser, on this
     device, and never sent anywhere.
   </p>
 </header>
@@ -268,7 +268,7 @@
     <summary>How to make the PDFs</summary>
     <ol>
       <li>Open <code>goodreads.com/quotes/list</code> while signed in.</li>
-      <li>Print the page — Cmd-P on a Mac, Ctrl-P otherwise — and choose
+      <li>Print the page – Cmd-P on a Mac, Ctrl-P otherwise – and choose
         <em>Save as PDF</em> as the destination. The headers, footers and page
         numbers the browser adds are expected; they get stripped here.</li>
       <li>Click through to the next page of the list and repeat, once per page.
@@ -348,7 +348,7 @@
     item.dataset.ok = ok ? 'yes' : 'no';
     const label = document.createElement('b');
     label.textContent = name;
-    item.append(label, ` — ${text}`);
+    item.append(label, ` – ${text}`);
     filesList.append(item);
     return item;
   }
@@ -391,14 +391,14 @@
         const claim = meta.expected === null
           ? ''
           : meta.expected === quotes.length
-            ? ` — the page says ${meta.expected}, and ${meta.expected} came through`
-            : ` — the page says ${meta.expected}, so ${meta.expected - quotes.length} did not come through`;
+            ? ` – the page says ${meta.expected}, and ${meta.expected} came through`
+            : ` – the page says ${meta.expected}, so ${meta.expected - quotes.length} did not come through`;
         line.remove();
         fileLine(
           file.name,
           quotes.length
             ? `${plural(quotes.length, 'quote', 'quotes')}${claim}`
-            : 'no quotes found — is this a printed Goodreads quote list?',
+            : 'no quotes found – is this a printed Goodreads quote list?',
           quotes.length > 0,
         );
       } catch (error) {

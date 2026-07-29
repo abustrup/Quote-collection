@@ -65,8 +65,8 @@ export function loadPdfjs() {
  *
  * Two things force this to be done geometrically rather than by taking the
  * items in order. First, the items arrive in paint order, not reading order:
- * Chrome paints floated elements — the tag list and the like count of every
- * quote — in a separate pass, so they all arrive before the text they sit
+ * Chrome paints floated elements – the tag list and the like count of every
+ * quote – in a separate pass, so they all arrive before the text they sit
  * under. Second, a word can be split across items wherever the font has a
  * ligature ("fi" + "xture"), so joins have to be decided by the horizontal gap
  * rather than assumed.
@@ -105,7 +105,7 @@ export function linesFromItems(items) {
     // sets a book cover to the left of every quote and floats the like count to
     // the right, so a single baseline can cross three columns. Treating a
     // column gap as a word space is not a cosmetic error: it splices the cover
-    // straight into the quotation — and the cover's alt text is the book's
+    // straight into the quotation – and the cover's alt text is the book's
     // title, which is exactly the kind of plausible-looking corruption nobody
     // would catch by eye.
     //
@@ -188,7 +188,7 @@ const TIME_IN_LINE = /\b\d{1,2}[:.]\d{2}(\s*(AM|PM))?\b/i;
  * Is this line something the browser printed rather than something Goodreads
  * showed?
  *
- * A date on its own is not enough — quotations mention dates — so the header is
+ * A date on its own is not enough – quotations mention dates – so the header is
  * only recognised when a date and a clock time appear together, which is how
  * every browser stamps a printed page and how almost no quotation reads.
  */
@@ -213,7 +213,7 @@ function median(values) {
  * The patterns above catch what Chrome, Firefox and Safari actually print. This
  * adds a second, shape-based test for the ones that do not: a line alone in the
  * page margin, separated from the body by far more than a line of leading, is
- * furniture whatever it says. Both tests are needed — the pattern test alone
+ * furniture whatever it says. Both tests are needed – the pattern test alone
  * misses a custom header, and the shape test alone would eventually eat the
  * first line of a quote.
  */
@@ -228,15 +228,15 @@ function markFurniture(page) {
 
   // Anything standing in a left-hand column of its own is not part of a
   // quotation. Goodreads sets a book cover beside every quote, and when a
-  // browser prints without images that cover leaves its alt text — the book's
-  // title — sitting in the margin, interleaved with the quote's own lines.
+  // browser prints without images that cover leaves its alt text – the book's
+  // title – sitting in the margin, interleaved with the quote's own lines.
   //
   // Being left of the body column is not enough on its own to condemn a line:
   // page headings and navigation also sit out there, and one fixture puts a
   // legitimate tag list in the same margin. What distinguishes a cover is that
   // it *shares baselines* with the quotation beside it. So the gutter is
   // located only from lines that were found sitting next to another column, and
-  // once located, anything standing in it is discarded — including the cover's
+  // once located, anything standing in it is discarded – including the cover's
   // own middle lines, which have nothing beside them.
   const positioned = lines.filter((line) => typeof line.x === 'number');
   let gutterEdge = -Infinity;
@@ -325,7 +325,7 @@ function quoteBalance(text) {
  * the last block ended.
  *
  * The buffer can hold navigation, a "Showing 1-30 of 174" line, or the tail of
- * the site header, and — for a quote that straddles a page break — the whole
+ * the site header, and – for a quote that straddles a page break – the whole
  * lot arrives interleaved. Scanning backwards for a line that opens a quotation
  * *and* balances against the end of the buffer means an inner quotation that
  * happens to begin a line does not truncate the quote, which taking the last
@@ -349,7 +349,7 @@ function findQuoteStart(buffer) {
  * appears inside the text, which is right for a general-purpose cleaner but
  * wrong here: this parser knows from the markup that the outermost pair is
  * Goodreads's own, so it can strip a pair that contains balanced inner pairs
- * — `“Never say “I have lost it” ...”` — and leave anything unbalanced alone.
+ * – `“Never say “I have lost it” ...”` – and leave anything unbalanced alone.
  */
 function unwrap(text) {
   const trimmed = text.trim();
@@ -463,7 +463,7 @@ function buildRow(block) {
  * Walk the flattened lines of one printed file and pull the quotes out.
  *
  * The state machine is small on purpose. A block is opened by an attribution
- * line — every Goodreads quote has one, and nothing else on the page does — and
+ * line – every Goodreads quote has one, and nothing else on the page does – and
  * closed by whatever comes after its tags and like count. Everything the block
  * does not claim is discarded, so no list of navigation labels to keep up to
  * date is needed.
@@ -588,7 +588,7 @@ export async function importPdf(bytes, pdfjs) {
  * Turn a parsed row into a schema record.
  *
  * `workKind` is set to book whenever a work is named, because a Goodreads quote
- * list is a list of quotes attached to books — that is a fact about the source,
+ * list is a list of quotes attached to books – that is a fact about the source,
  * not a guess about the text. Verification stays `unverified`, which is the
  * honest description of anything that arrived this way.
  */
