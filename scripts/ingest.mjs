@@ -724,12 +724,13 @@ async function main() {
 
   if (!options.quiet) {
     const verb = options.dryRun ? 'would hold' : 'holds';
+    const relative = path.relative(REPO_ROOT, result.dataFile);
+    const where = relative.startsWith('..') ? result.dataFile : relative;
     process.stdout.write(
       `${result.mode === 'bulk' ? 'Bulk import' : 'Quote'}: `
       + `${result.added.length} added, ${result.enriched.length} enriched, `
       + `${result.unchanged.length} unchanged.\n`
-      + `${path.relative(REPO_ROOT, result.dataFile)} ${verb} ${result.totalCount} quotes `
-      + `(was ${result.existingCount}).\n`,
+      + `${where} ${verb} ${result.totalCount} quotes (was ${result.existingCount}).\n`,
     );
     for (const warning of result.warnings) process.stdout.write(`  warning: ${warning}\n`);
   }
