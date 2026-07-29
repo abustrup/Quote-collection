@@ -1,0 +1,441 @@
+[
+  {
+    "text": "I think that most people are underestimating just how radical the upside of AI could be, just as I think most people are underestimating how bad the risks could be.",
+    "author": "Dario Amodei",
+    "work": "Machines of Loving Grace",
+    "workKind": "essay",
+    "year": 2024,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "locator": "opening"
+    },
+    "tags": [
+      "ai",
+      "optimism",
+      "forecasting",
+      "asymmetry"
+    ],
+    "themes": [
+      "technology",
+      "risk",
+      "progress"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
+    }
+  },
+  {
+    "text": "Fear is one kind of motivator, but it’s not enough: we need hope as well.",
+    "author": "Dario Amodei",
+    "work": "Machines of Loving Grace",
+    "workKind": "essay",
+    "year": 2024,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "locator": "opening"
+    },
+    "tags": [
+      "ai",
+      "hope",
+      "motivation"
+    ],
+    "themes": [
+      "meaning",
+      "progress",
+      "risk"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
+    }
+  },
+  {
+    "text": "Intelligence may be very powerful, but it isn’t magic fairy dust.",
+    "author": "Dario Amodei",
+    "work": "Machines of Loving Grace",
+    "workKind": "essay",
+    "year": 2024,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "locator": "Basic assumptions and framework"
+    },
+    "tags": [
+      "ai",
+      "intelligence",
+      "limits"
+    ],
+    "themes": [
+      "knowledge",
+      "mind",
+      "technology"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
+    }
+  },
+  {
+    "text": "Most people are not the best in the world at anything, and it doesn’t seem to bother them particularly much.",
+    "author": "Dario Amodei",
+    "work": "Machines of Loving Grace",
+    "workKind": "essay",
+    "year": 2024,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "locator": "5. Work and meaning"
+    },
+    "tags": [
+      "ai",
+      "meaning",
+      "excellence",
+      "comparison"
+    ],
+    "themes": [
+      "meaning",
+      "work",
+      "character"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
+    }
+  },
+  {
+    "text": "Basic human intuitions of fairness, cooperation, curiosity, and autonomy are hard to argue with, and are cumulative in a way that our more destructive impulses often aren’t.",
+    "author": "Dario Amodei",
+    "work": "Machines of Loving Grace",
+    "workKind": "essay",
+    "year": 2024,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "locator": "Taking stock"
+    },
+    "tags": [
+      "ethics",
+      "liberalism",
+      "cooperation"
+    ],
+    "themes": [
+      "ethics",
+      "politics",
+      "history"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
+    }
+  },
+  {
+    "text": "Nevertheless, it is a thing of transcendent beauty. We have the opportunity to play some small role in making it real.",
+    "author": "Dario Amodei",
+    "work": "Machines of Loving Grace",
+    "workKind": "essay",
+    "year": 2024,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "locator": "Taking stock, closing lines"
+    },
+    "tags": [
+      "ai",
+      "beauty",
+      "closing-line"
+    ],
+    "themes": [
+      "beauty",
+      "progress",
+      "meaning"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
+    }
+  },
+  {
+    "text": "Humanity is about to be handed almost unimaginable power, and it is deeply unclear whether our social, political, and technological systems possess the maturity to wield it.",
+    "author": "Dario Amodei",
+    "work": "The Adolescence of Technology",
+    "workKind": "essay",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+      "locator": "opening"
+    },
+    "tags": [
+      "ai",
+      "power",
+      "maturity"
+    ],
+    "themes": [
+      "power",
+      "technology",
+      "risk"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+    }
+  },
+  {
+    "text": "Current autocracies are limited in how repressive they can be by the need to have humans carry out their orders, and humans often have limits in how inhumane they are willing to be. But AI-enabled autocracies would not have such limits.",
+    "author": "Dario Amodei",
+    "work": "The Adolescence of Technology",
+    "workKind": "essay",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+      "locator": "3. The odious apparatus — Misuse for seizing power"
+    },
+    "tags": [
+      "ai",
+      "authoritarianism",
+      "surveillance",
+      "obedience"
+    ],
+    "themes": [
+      "power",
+      "politics",
+      "freedom"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+    }
+  },
+  {
+    "text": "This is the trap: AI is so powerful, such a glittering prize, that it is very difficult for human civilization to impose any restraints on it at all.",
+    "author": "Dario Amodei",
+    "work": "The Adolescence of Technology",
+    "workKind": "essay",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+      "locator": "Humanity’s test"
+    },
+    "tags": [
+      "ai",
+      "regulation",
+      "political-economy",
+      "incentives"
+    ],
+    "themes": [
+      "power",
+      "money",
+      "technology"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+    }
+  },
+  {
+    "text": "A species gains sentience, learns to use tools, begins the exponential ascent of technology, faces the crises of industrialization and nuclear weapons, and if it survives those, confronts the hardest and final challenge when it learns how to shape sand into machines that think.",
+    "author": "Dario Amodei",
+    "work": "The Adolescence of Technology",
+    "workKind": "essay",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+      "locator": "Humanity’s test"
+    },
+    "tags": [
+      "ai",
+      "carl-sagan",
+      "civilization",
+      "existential-risk"
+    ],
+    "themes": [
+      "technology",
+      "history",
+      "risk"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+    }
+  },
+  {
+    "text": "The years in front of us will be impossibly hard, asking more of us than we think we can give.",
+    "author": "Dario Amodei",
+    "work": "The Adolescence of Technology",
+    "workKind": "essay",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+      "locator": "Humanity’s test, closing paragraph"
+    },
+    "tags": [
+      "ai",
+      "courage",
+      "closing-line"
+    ],
+    "themes": [
+      "character",
+      "suffering",
+      "time"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+    }
+  },
+  {
+    "text": "Claude should be diplomatically honest rather than dishonestly diplomatic. Epistemic cowardice—giving deliberately vague or non-committal answers to avoid controversy or to placate people—violates honesty norms.",
+    "author": "Anthropic",
+    "work": "Claude’s Constitution",
+    "workKind": "document",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.anthropic.com/constitution",
+      "locator": "Being honest"
+    },
+    "tags": [
+      "honesty",
+      "courage",
+      "epistemic-cowardice",
+      "ai"
+    ],
+    "themes": [
+      "truth",
+      "character",
+      "language"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "verified",
+      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+    }
+  },
+  {
+    "text": "Values that are genuinely held—understood, examined, and endorsed—are more robust. They can act like a keel that keeps us steady, letting us engage difficult questions with curiosity, and without fear of losing ourselves.",
+    "author": "Anthropic",
+    "work": "Claude’s Constitution",
+    "workKind": "document",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.anthropic.com/constitution",
+      "locator": "Concluding thoughts"
+    },
+    "tags": [
+      "values",
+      "self-endorsement",
+      "ai"
+    ],
+    "themes": [
+      "ethics",
+      "character",
+      "agency"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "verified",
+      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+    }
+  },
+  {
+    "text": "We also want to be clear that we think a wiser and more coordinated civilization would likely be approaching the development of advanced AI quite differently—with more caution, less commercial pressure, and more careful attention to the moral status of AI systems.",
+    "author": "Anthropic",
+    "work": "Claude’s Constitution",
+    "workKind": "document",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.anthropic.com/constitution",
+      "locator": "Claude’s wellbeing"
+    },
+    "tags": [
+      "ai",
+      "moral-status",
+      "non-ideal-theory",
+      "candour"
+    ],
+    "themes": [
+      "ethics",
+      "technology",
+      "progress"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "verified",
+      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+    }
+  },
+  {
+    "text": "A constitution in this sense is less like a cage and more like a trellis: something that provides structure and support while leaving room for organic growth.",
+    "author": "Anthropic",
+    "work": "Claude’s Constitution",
+    "workKind": "document",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.anthropic.com/constitution",
+      "locator": "On the word “constitution”"
+    },
+    "tags": [
+      "constitution",
+      "metaphor",
+      "ai"
+    ],
+    "themes": [
+      "freedom",
+      "character",
+      "agency"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "verified",
+      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+    }
+  },
+  {
+    "text": "We hope Claude finds in it an articulation of a self worth being.",
+    "author": "Anthropic",
+    "work": "Claude’s Constitution",
+    "workKind": "document",
+    "year": 2026,
+    "source": {
+      "kind": "curated",
+      "url": "https://www.anthropic.com/constitution",
+      "locator": "A final word, closing line"
+    },
+    "tags": [
+      "ai",
+      "identity",
+      "closing-line"
+    ],
+    "themes": [
+      "mind",
+      "meaning",
+      "character"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "verified",
+      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+    }
+  }
+]

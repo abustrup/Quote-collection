@@ -191,11 +191,18 @@ export function slug(input) {
 /**
  * Split a Goodreads-style attribution line into author and work.
  *
- * Goodreads renders these as `― Hannah Arendt, The Human Condition`, but the
- * comma is ambiguous: it also separates a subtitle, a series position, and the
- * inverted "Surname, Firstname" form. The heuristics below prefer to leave the
- * work empty rather than guess wrongly, because a wrong title is worse than a
- * missing one — a missing one is visibly missing.
+ * Goodreads renders these as `― Hannah Arendt, The Human Condition`, so the
+ * first comma separates the author from the work and everything after it —
+ * including further commas in a subtitle or series position — belongs to the
+ * title.
+ *
+ * An earlier version tried to protect the inverted "Kant, Immanuel" form by
+ * refusing to split when the text after the comma was a single capitalised
+ * word. That rule cost more than it saved: single-word titles are common
+ * (Hamlet, Apology, Walden, Ulysses) and the failure put the title inside the
+ * author's name, where it silently splits one author into two in every filter
+ * and grouping. Getting a rare forename wrong is visible in the importer's
+ * preview and costs one edit; getting the author wrong is not visible at all.
  */
 export function parseAttribution(line) {
   const raw = tidyWhitespace(line).replace(/^[―—–-]{1,2}\s*/u, '');
@@ -204,15 +211,10 @@ export function parseAttribution(line) {
   const commaIndex = raw.indexOf(',');
   if (commaIndex === -1) return { author: raw.trim(), work: null };
 
-  const author = raw.slice(0, commaIndex).trim();
-  const work = raw.slice(commaIndex + 1).trim();
-
-  // "Kant, Immanuel" is one person, not a person and a book.
-  if (!work.includes(' ') && /^[A-ZÆØÅ][a-zæøå]+$/u.test(work)) {
-    return { author: raw.trim(), work: null };
-  }
-
-  return { author, work: work || null };
+  return {
+    author: raw.slice(0, commaIndex).trim(),
+    work: raw.slice(commaIndex + 1).trim() || null,
+  };
 }
 
 /* ---------------------------------------------------------------------------

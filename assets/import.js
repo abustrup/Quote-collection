@@ -100,17 +100,51 @@ export function linesFromItems(items) {
   const lines = [];
   for (const row of rows) {
     row.items.sort((a, b) => a.x - b.x);
-    let text = '';
+
+    // Items sharing a baseline are not necessarily one line of prose. Goodreads
+    // sets a book cover to the left of every quote and floats the like count to
+    // the right, so a single baseline can cross three columns. Treating a
+    // column gap as a word space is not a cosmetic error: it splices the cover
+    // straight into the quotation — and the cover's alt text is the book's
+    // title, which is exactly the kind of plausible-looking corruption nobody
+    // would catch by eye.
+    //
+    // A word space is a fraction of the type size and a column gap is multiples
+    // of it, so the two are far enough apart that a single threshold separates
+    // them without tuning.
+    const columnGap = Math.max(16, 2.2 * row.height);
+    const segments = [];
+    let current = null;
     let cursor = null;
+
     for (const item of row.items) {
+      if (current === null || (cursor !== null && item.x - cursor > columnGap)) {
+        current = { text: '', x: item.x };
+        segments.push(current);
+        cursor = null;
+      }
       // A gap of a fifth of the type size is a space; a gap of nothing is a
       // ligature that was split into two items mid-word.
-      if (cursor !== null && item.x - cursor > 0.2 * row.height) text += ' ';
-      text += item.str;
+      if (cursor !== null && item.x - cursor > 0.2 * row.height) current.text += ' ';
+      current.text += item.str;
       cursor = Math.max(cursor ?? -Infinity, item.x + item.width);
     }
-    const clean = tidyWhitespace(text);
-    if (clean) lines.push({ text: clean, y: row.y, height: row.height });
+
+    for (const [index, segment] of segments.entries()) {
+      const clean = tidyWhitespace(segment.text);
+      if (!clean) continue;
+      lines.push({
+        text: clean,
+        y: row.y,
+        x: segment.x,
+        height: row.height,
+        // Whether this line shared its baseline with another column. This is
+        // what later tells a book cover beside a quote apart from a heading in
+        // the page margin: the cover interleaves with the quote's own lines,
+        // a heading sits on a row of its own.
+        beside: segments.length > 1 ? index : null,
+      });
+    }
   }
   return lines;
 }
@@ -192,9 +226,40 @@ function markFurniture(page) {
   const typical = median(gaps.filter((gap) => gap > 0)) || 12;
   const band = 0.06 * height;
 
+  // Anything standing in a left-hand column of its own is not part of a
+  // quotation. Goodreads sets a book cover beside every quote, and when a
+  // browser prints without images that cover leaves its alt text — the book's
+  // title — sitting in the margin, interleaved with the quote's own lines.
+  //
+  // Being left of the body column is not enough on its own to condemn a line:
+  // page headings and navigation also sit out there, and one fixture puts a
+  // legitimate tag list in the same margin. What distinguishes a cover is that
+  // it *shares baselines* with the quotation beside it. So the gutter is
+  // located only from lines that were found sitting next to another column, and
+  // once located, anything standing in it is discarded — including the cover's
+  // own middle lines, which have nothing beside them.
+  const positioned = lines.filter((line) => typeof line.x === 'number');
+  let gutterEdge = -Infinity;
+  if (positioned.length) {
+    const weightByColumn = new Map();
+    for (const line of positioned) {
+      const column = Math.round(line.x / 4) * 4;
+      weightByColumn.set(column, (weightByColumn.get(column) ?? 0) + line.text.length);
+    }
+    const [bodyColumn] = [...weightByColumn.entries()].sort((a, b) => b[1] - a[1])[0];
+    const sidecars = positioned.filter((line) => line.beside !== null && line.x < bodyColumn - 12);
+    if (sidecars.length >= 2) {
+      gutterEdge = Math.min(Math.max(...sidecars.map((line) => line.x)) + 6, bodyColumn - 12);
+    }
+  }
+
   return lines.map((line, index) => {
     const pattern = furnitureReason(line);
     if (pattern) return { ...line, furniture: pattern };
+
+    if (typeof line.x === 'number' && line.x < gutterEdge) {
+      return { ...line, furniture: 'left gutter' };
+    }
 
     const isFirst = index === 0;
     const isLast = index === lines.length - 1;
@@ -223,6 +288,7 @@ const CLOSING_MARKS = '”“»‟"';
  * enough elsewhere to be trusted on sight; an em or en dash is only accepted
  * when the quote above it has visibly closed, because a wrapped line of prose
  * beginning "— and then" is otherwise indistinguishable from an attribution.
+ * See `classify`, where that condition is applied.
  */
 const ATTRIBUTION = /^(―|—|–|--)\s+(?=\S)/u;
 const TAGS_LINE = /^tags\s*:\s*/i;
@@ -234,11 +300,13 @@ const LIKE_BUTTON = /^like$/i;
 const LIKES_TAIL = /(^|\s)\d[\d.,]*\s*likes?\s*(like)?\s*$/i;
 const SHOWING = /\bshowing\s+(\d+)\s*[-–—]\s*(\d+)\s+of\s+(\d+)\b/i;
 
-function classify(line) {
+function classify(line, quoteHasClosed) {
   const { text } = line;
   if (TAGS_LINE.test(text)) return 'tags';
   if (LIKES_LINE.test(text) || LIKE_BUTTON.test(text)) return 'likes';
-  if (ATTRIBUTION.test(text)) return 'attribution';
+
+  const dash = text.match(ATTRIBUTION);
+  if (dash && (dash[1] === '―' || quoteHasClosed)) return 'attribution';
   return 'text';
 }
 
@@ -330,6 +398,20 @@ export function guessLanguage(text) {
 
 const LONG_QUOTE = 900;
 const SHORT_QUOTE = 12;
+
+/**
+ * Flags that describe the source rather than doubt the reading of it.
+ *
+ * A Goodreads quote with no book behind it is simply a quote with no book
+ * behind it, and a fifth of any real list looks like that. Marking those as
+ * loudly as a quotation whose marks never closed would train the eye to ignore
+ * both, so the page shows them quietly.
+ */
+const QUIET_FLAGS = [/^no work title$/, /^looks like [a-z]{2}, not English$/];
+
+export function flagIsQuiet(flag) {
+  return QUIET_FLAGS.some((pattern) => pattern.test(flag));
+}
 
 /** Everything about a row that deserves a second look before it is saved. */
 function flagsFor(row) {
@@ -430,8 +512,15 @@ export function parseQuoteLines(pages) {
     buffer = [];
   };
 
+  /** Has the quotation collected so far visibly ended? */
+  const quoteHasClosed = () => {
+    if (!buffer.length) return false;
+    const last = buffer[buffer.length - 1].text.trimEnd().slice(-1);
+    return Boolean(last) && CLOSING_MARKS.includes(last);
+  };
+
   for (const line of stream) {
-    const kind = classify(line);
+    const kind = classify(line, quoteHasClosed());
 
     if (!meta.showing) {
       const match = line.text.match(SHOWING);

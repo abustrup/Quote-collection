@@ -456,7 +456,9 @@ async function readCollection(file) {
   try {
     raw = await readFile(file, 'utf8');
   } catch (error) {
-    if (error.code === 'ENOENT') return { schemaVersion: SCHEMA_VERSION, quotes: [], missing: true };
+    // A collection that does not exist yet is simply an empty one. The summary
+    // says "was 0", which is the only signal anybody needs.
+    if (error.code === 'ENOENT') return { schemaVersion: SCHEMA_VERSION, quotes: [] };
     throw error;
   }
 
@@ -659,7 +661,6 @@ export async function ingest(body, options = {}) {
     quotes,
     ...(changed ? { updatedAt: new Date().toISOString() } : {}),
   };
-  delete collection.missing;
 
   // The last line of defence: a merge that would produce an invalid collection
   // never reaches the disk, whatever combination of inputs led to it.

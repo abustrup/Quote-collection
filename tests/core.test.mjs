@@ -93,16 +93,24 @@ test('normalizeForIdentity discards punctuation but not words', () => {
   assert.equal(normalizeForIdentity('Man, is; condemned: to—be free!'), 'man is condemned to be free');
 });
 
-test('parseAttribution splits author from work, and declines when unsure', () => {
+test('parseAttribution splits author from work at the first comma', () => {
   assert.deepEqual(parseAttribution('― Hannah Arendt, The Human Condition'),
     { author: 'Hannah Arendt', work: 'The Human Condition' });
   assert.deepEqual(parseAttribution('― Marcus Aurelius'),
     { author: 'Marcus Aurelius', work: null });
-  // "Surname, Firstname" is one person; guessing a work here would be worse
-  // than leaving it empty, because a wrong title looks authoritative.
-  assert.deepEqual(parseAttribution('― Kant, Immanuel'),
-    { author: 'Kant, Immanuel', work: null });
   assert.deepEqual(parseAttribution(''), { author: '', work: null });
+
+  // Single-word titles must survive. An earlier rule treated a lone capitalised
+  // word after the comma as a forename, which folded the title into the author
+  // and split one author across two filters.
+  assert.deepEqual(parseAttribution('― Plato, Apology'),
+    { author: 'Plato', work: 'Apology' });
+  assert.deepEqual(parseAttribution('― William Shakespeare, Hamlet'),
+    { author: 'William Shakespeare', work: 'Hamlet' });
+
+  // Later commas belong to the title, not to a second field.
+  assert.deepEqual(parseAttribution('― Michel Foucault, The History of Sexuality, Volume 1'),
+    { author: 'Michel Foucault', work: 'The History of Sexuality, Volume 1' });
 });
 
 test('makeQuote fills defaults and discards unknown vocabulary', () => {

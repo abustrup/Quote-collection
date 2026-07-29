@@ -513,10 +513,12 @@ async function main() {
     const contentWidthPx = Math.round((paper.width - MARGIN_MM.left - MARGIN_MM.right) * MM_TO_PX);
     const contentHeightPx = (paper.height - MARGIN_MM.top - MARGIN_MM.bottom) * MM_TO_PX;
 
-    const tab = await context.newPage({ viewport: { width: contentWidthPx, height: 900 } });
-    // Measuring under print media in a viewport the width of the printed
-    // content area is what makes the measurement above agree with the layout
-    // the PDF is actually paginated from.
+    const tab = await context.newPage();
+    // Measuring under print media, in a viewport exactly as wide as the printed
+    // content area, is what makes the measurement agree with the layout the PDF
+    // is paginated from. Get the width wrong and the lines wrap differently, the
+    // error accumulates down the document, and the quote lands anywhere.
+    await tab.setViewportSize({ width: contentWidthPx, height: 900 });
     await tab.emulateMedia({ media: 'print' });
     await tab.setContent(pageHtml(page), { waitUntil: 'load' });
     const placement = await forceStraddle(tab, contentHeightPx);
