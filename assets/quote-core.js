@@ -268,6 +268,40 @@ export function parseAttribution(line) {
 }
 
 /* ---------------------------------------------------------------------------
+ * Author names
+ * ------------------------------------------------------------------------- */
+
+/**
+ * One spelling per person.
+ *
+ * Goodreads records whatever the edition on the shelf credited, so the same
+ * author arrives under more than one name: a transliteration that went out of
+ * fashion, or a name someone typed in lower case. The cost is not cosmetic —
+ * the author filter, the "you already quote X" signal in the recommender, and
+ * the count on the masthead all key on this string, so one person split in two
+ * is one person the collection cannot see clearly.
+ *
+ * Deliberately a list rather than a similarity heuristic. Two names that look
+ * alike are often two people, and quietly merging them would be a worse error
+ * than leaving them apart. Keyed on the lower-cased form, so a casing slip is
+ * covered by the same entry.
+ */
+export const AUTHOR_ALIASES = new Map(Object.entries({
+  'fyodor dostoyevsky': 'Fyodor Dostoevsky',
+  'fyodor dostoievsky': 'Fyodor Dostoevsky',
+  'leo tolstoy': 'Leo Tolstoy',
+  'lev tolstoy': 'Leo Tolstoy',
+  'friedrich nietzche': 'Friedrich Nietzsche',
+  'albert camu': 'Albert Camus',
+}));
+
+/** Resolve an author to the collection's one spelling for that person. */
+export function canonicalAuthor(name) {
+  const tidied = tidyWhitespace(name);
+  return AUTHOR_ALIASES.get(tidied.toLowerCase()) ?? tidied;
+}
+
+/* ---------------------------------------------------------------------------
  * Records
  * ------------------------------------------------------------------------- */
 
@@ -287,7 +321,7 @@ export function makeQuote(partial = {}) {
   return {
     id: partial.id && /^q_[0-9a-f]{12}$/.test(partial.id) ? partial.id : quoteId(text),
     text,
-    author: tidyWhitespace(partial.author) || 'Unknown',
+    author: canonicalAuthor(partial.author) || 'Unknown',
     work: partial.work ? tidyWhitespace(partial.work) : null,
     workKind,
     year: Number.isInteger(partial.year) ? partial.year : null,
@@ -396,6 +430,8 @@ export function validateCollection(collection) {
 
   const seenIds = new Map();
   const seenText = new Map();
+  // One person under two spellings splits every filter that keys on the name.
+  const authorsByKey = new Map();
 
   collection.quotes.forEach((quote, index) => {
     const where = `quotes[${index}]`;
@@ -442,6 +478,15 @@ export function validateCollection(collection) {
     }
     if (/^\s*["“]/.test(quote.text) && /["”]\s*$/.test(quote.text)) {
       warnings.push(`${where}: text still carries enclosing quotation marks`);
+    }
+
+    if (typeof quote.author === 'string' && quote.author) {
+      const key = quote.author.toLowerCase();
+      const seen = authorsByKey.get(key);
+      if (seen && seen !== quote.author) {
+        warnings.push(`author "${quote.author}" is also spelled "${seen}" — add one to AUTHOR_ALIASES`);
+      }
+      authorsByKey.set(key, quote.author);
     }
   });
 

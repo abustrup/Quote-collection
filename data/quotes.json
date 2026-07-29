@@ -2017,8 +2017,128 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_635244e35041",
+      "text": "From a hundred rabbits you can’t make a horse, a hundred suspicions don’t make a proof,",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0a72d224228c",
+      "text": "I wanted to find out then and quickly whether I was a louse like everybody else or a man. Whether I can step over barriers or not, whether I dare stoop to pick up or not, whether I am a trembling creature or whether I have the right...F",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a034bffc4506",
+      "text": "It is almost better to tell your own lies than somebody else's truth; in the first case you are a man, in the second you are no better than a parrot!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "truth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a02beaa0e8e6",
+      "text": "It takes something more than intelligence to act intelligently.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "intelligence",
+        "intelligent-action"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_3ebddaff0de2",
       "text": "Man grows used to everything, the scoundrel!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0eda5c164429",
+      "text": "Man has it all in his hands, and it all slips through his fingers from sheer cowardice.",
       "author": "Fyodor Dostoevsky",
       "work": "Crime and Punishment",
       "workKind": null,
@@ -2089,6 +2209,29 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_82b852cfd593",
+      "text": "The people who have nothing to lock up are the happy ones, aren't they?",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_e5df00b2e4eb",
       "text": "They sat side by side, sad and weary, like shipwrecked sailors on a deserted shore.",
       "author": "Fyodor Dostoevsky",
@@ -2128,6 +2271,29 @@
         "self-determination",
         "self-expression"
       ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9847e87702ad",
+      "text": "We have facts,’ they say. But facts are not everything—at least half the business lies in how you interpret them!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -2187,6 +2353,171 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_059a2908bf9d",
+      "text": "an intelligent man cannot become anything seriously, and it is only the fool who becomes anything.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from the Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0debd938c8e0",
+      "text": "I swear, gentlemen, that to be too conscious is an illness--a real thorough-going illness.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from the Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_da9dde0f30bf",
+      "text": "the whole work of man really seems to consist in nothing but proving to himself every minute that he is a man and not a piano-key!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from the Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_85ed596607e9",
+      "text": "And that is not all: even if man really were nothing but a piano-key, even if this were proved to him by natural science and mathematics, even then he would not become reasonable, but would purposely do something perverse out of simple ingratitude, simply to gain his point. And if he does not find means he will contrive destruction and chaos, will contrive sufferings of all sorts, only to gain his point! He will launch a curse upon the world, and as only man can curse (it is his privilege, the primary distinction between him and other animals), may be by his curse alone he will attain his object--that is, convince himself that he is a man and not a piano-key! If you say that all this, too, can be calculated and tabulated--chaos and darkness and curses, so that the mere possibility of calculating it all beforehand would stop it all, and reason would reassert itself, then man would purposely go mad in order to be rid of reason and gain his point!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9f51b5b578d5",
+      "text": "How can a man of consciousness have the slightest respect for himself",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_10c78ba2b35c",
+      "text": "I'll go this minute!' Of course, I remained.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "desperation",
+        "frustration",
+        "indignation"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c93a39ee67d5",
+      "text": "The best definition of man is: a being that goes on two legs and is ungrateful.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_ddc5d89f7d92",
       "text": "Above all, don't lie to yourself. The man who lies to himself and listens to his own lie comes to a point that he cannot distinguish the truth within him, or around him, and so loses all respect for himself and for others. And having no respect he ceases to love.",
       "author": "Fyodor Dostoevsky",
@@ -2204,6 +2535,34 @@
         "respect",
         "self-deception",
         "truth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a4a566e65299",
+      "text": "I love mankind, he said, \"but I find to my amazement that the more I love mankind as a whole, the less I love man in particular.",
+      "author": "Fyodor Dostoevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "humanity",
+        "individuals",
+        "love",
+        "mankind"
       ],
       "themes": [],
       "lang": "en",
@@ -2337,6 +2696,52 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_a4722fd76ffd",
+      "text": "I don’t know how to be silent when my heart is speaking.",
+      "author": "Fyodor Dostoevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_f78c1ce39de6",
+      "text": "I like revisiting, at certain times, spots where I was once happy; I like to shape the present in the image of the irretrievable past.",
+      "author": "Fyodor Dostoevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_906a60af7730",
       "text": "It was a wonderful night, such a night as is only possible when we are young, dear reader.",
       "author": "Fyodor Dostoevsky",
@@ -2391,414 +2796,9 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_635244e35041",
-      "text": "From a hundred rabbits you can’t make a horse, a hundred suspicions don’t make a proof,",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_0a72d224228c",
-      "text": "I wanted to find out then and quickly whether I was a louse like everybody else or a man. Whether I can step over barriers or not, whether I dare stoop to pick up or not, whether I am a trembling creature or whether I have the right...F",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_a034bffc4506",
-      "text": "It is almost better to tell your own lies than somebody else's truth; in the first case you are a man, in the second you are no better than a parrot!",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "truth"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_a02beaa0e8e6",
-      "text": "It takes something more than intelligence to act intelligently.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "intelligence",
-        "intelligent-action"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_0eda5c164429",
-      "text": "Man has it all in his hands, and it all slips through his fingers from sheer cowardice.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_82b852cfd593",
-      "text": "The people who have nothing to lock up are the happy ones, aren't they?",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_9847e87702ad",
-      "text": "We have facts,’ they say. But facts are not everything—at least half the business lies in how you interpret them!",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_059a2908bf9d",
-      "text": "an intelligent man cannot become anything seriously, and it is only the fool who becomes anything.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from the Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_0debd938c8e0",
-      "text": "I swear, gentlemen, that to be too conscious is an illness--a real thorough-going illness.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from the Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_da9dde0f30bf",
-      "text": "the whole work of man really seems to consist in nothing but proving to himself every minute that he is a man and not a piano-key!",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from the Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_85ed596607e9",
-      "text": "And that is not all: even if man really were nothing but a piano-key, even if this were proved to him by natural science and mathematics, even then he would not become reasonable, but would purposely do something perverse out of simple ingratitude, simply to gain his point. And if he does not find means he will contrive destruction and chaos, will contrive sufferings of all sorts, only to gain his point! He will launch a curse upon the world, and as only man can curse (it is his privilege, the primary distinction between him and other animals), may be by his curse alone he will attain his object--that is, convince himself that he is a man and not a piano-key! If you say that all this, too, can be calculated and tabulated--chaos and darkness and curses, so that the mere possibility of calculating it all beforehand would stop it all, and reason would reassert itself, then man would purposely go mad in order to be rid of reason and gain his point!",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_9f51b5b578d5",
-      "text": "How can a man of consciousness have the slightest respect for himself",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_10c78ba2b35c",
-      "text": "I'll go this minute!' Of course, I remained.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "desperation",
-        "frustration",
-        "indignation"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_c93a39ee67d5",
-      "text": "The best definition of man is: a being that goes on two legs and is ungrateful.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "Notes from Underground",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_a4a566e65299",
-      "text": "I love mankind, he said, \"but I find to my amazement that the more I love mankind as a whole, the less I love man in particular.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "The Brothers Karamazov",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "humanity",
-        "individuals",
-        "love",
-        "mankind"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_a4722fd76ffd",
-      "text": "I don’t know how to be silent when my heart is speaking.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "White Nights",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_f78c1ce39de6",
-      "text": "I like revisiting, at certain times, spots where I was once happy; I like to shape the present in the image of the irretrievable past.",
-      "author": "Fyodor Dostoyevsky",
-      "work": "White Nights",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_1f4a68e18355",
       "text": "Oh, how unbearable is a happy person sometimes!",
-      "author": "Fyodor Dostoyevsky",
+      "author": "Fyodor Dostoevsky",
       "work": "White Nights",
       "workKind": null,
       "year": null,
@@ -4649,32 +4649,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_b58e0c445118",
-      "text": "If we admit that human life can be ruled by reason, then all possibility of life is destroyed.",
-      "author": "leo tolstoy",
-      "work": "War and Peace",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "life",
-        "reason"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_9151e6dfa8ce",
       "text": "A man on a thousand mile walk has to forget his goal and say to himself every morning, 'Today I'm going to cover twenty-five miles and then rest up and sleep.",
       "author": "Leo Tolstoy",
@@ -4716,6 +4690,32 @@
       "tags": [
         "parenting",
         "upbringing"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b58e0c445118",
+      "text": "If we admit that human life can be ruled by reason, then all possibility of life is destroyed.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "life",
+        "reason"
       ],
       "themes": [],
       "lang": "en",
