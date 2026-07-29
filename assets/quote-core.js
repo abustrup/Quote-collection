@@ -160,12 +160,26 @@ export function quoteId(text) {
   return `q_${(hash & 0xffffffffffffn).toString(16).padStart(12, '0')}`;
 }
 
+/**
+ * Letters that Unicode normalisation cannot take apart.
+ *
+ * NFD splits an accent off its base letter, which handles é and å, but ø and æ
+ * are letters in their own right with no decomposition — they would survive to
+ * the strip step and be replaced by a hyphen. That is not merely ugly in a URL:
+ * it would slug Søren and Særen to the same string, silently merging two
+ * authors into one filter. A Danish collection cannot afford that.
+ */
+const TRANSLITERATIONS = new Map(Object.entries({
+  ø: 'o', æ: 'ae', å: 'a', ð: 'd', þ: 'th', œ: 'oe', ß: 'ss', đ: 'd', ł: 'l', ı: 'i',
+}));
+
 /** A short, human-readable slug — used for author and theme filter links. */
 export function slug(input) {
   return String(input ?? '')
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
+    .replace(/[øæåðþœßđłı]/g, (letter) => TRANSLITERATIONS.get(letter) ?? letter)
+    .normalize('NFD')
+    .replace(/\p{M}+/gu, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
