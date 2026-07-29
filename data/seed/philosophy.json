@@ -1,0 +1,572 @@
+[
+  {
+    "text": "The unexamined life is not worth living for men.",
+    "author": "Plato",
+    "work": "Apology",
+    "workKind": "book",
+    "year": -399,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "38a"
+    },
+    "tags": ["socrates", "self-examination", "trial", "greek"],
+    "themes": ["knowledge", "meaning", "character"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Socrates' words at Apology 38a, one of the most securely located lines in Greek philosophy. Wording is G. M. A. Grube's translation (Hackett), which keeps the qualifying \"for men\" that most popular versions drop; Jowett has \"the life which is unexamined is not worth living\". Cross-checked against several independent sources that agree on Grube's phrasing. The Greek text and the Hackett edition were not consulted from this environment, which has no access to primary texts."
+    }
+  },
+  {
+    "text": "We become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.",
+    "author": "Aristotle",
+    "work": "Nicomachean Ethics",
+    "workKind": "book",
+    "year": -350,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "bk. II, ch. 1, 1103a-b"
+    },
+    "tags": ["virtue-ethics", "habituation", "practice", "greek"],
+    "themes": ["character", "ethics", "work"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain. Wording is W. D. Ross's translation. The sentence in Ross runs \"men become builders by building and lyre-players by playing the lyre; so too we become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts\"; the clause stored here is the second half, with \"so too\" dropped and the w capitalised so it stands alone. Nothing else is altered. Note that the famous \"We are what we repeatedly do. Excellence, then, is not an act but a habit\" is Will Durant summarising this passage, not Aristotle, and is deliberately excluded."
+    }
+  },
+  {
+    "text": "Hence it is evident that the state is a creation of nature, and that man is by nature a political animal.",
+    "author": "Aristotle",
+    "work": "Politics",
+    "workKind": "book",
+    "year": -330,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "bk. I, ch. 2, 1253a"
+    },
+    "tags": ["polis", "political-animal", "community", "greek"],
+    "themes": ["politics", "nature", "freedom"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain. Wording is Benjamin Jowett's translation (1885). Rackham renders the same line \"the city-state is a natural growth, and that man is by nature a political animal\". The Greek is ho anthropos physei politikon zoon. Cross-checked against several independent sources that agree on Jowett's phrasing; no primary edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Good sense is the best distributed thing in the world: for everyone thinks himself so well endowed with it that even those who are the hardest to please in everything else do not usually desire more of it than they possess.",
+    "author": "René Descartes",
+    "work": "Discourse on the Method",
+    "workKind": "essay",
+    "year": 1637,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "part one, opening (AT VI 1)"
+    },
+    "tags": ["reason", "method", "irony", "rationalism"],
+    "themes": ["mind", "knowledge", "certainty"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the opening sentence of the Discourse. Wording is the Cottingham, Stoothoff and Murdoch translation in The Philosophical Writings of Descartes (Cambridge, 1985). The French is \"Le bon sens est la chose du monde la mieux partagée\". Haldane and Ross render it \"Good sense is of all things in the world the most equally distributed\". Cross-checked against independent sources; the Cambridge edition was not consulted from this environment."
+    }
+  },
+  {
+    "text": "Reason is, and ought only to be the slave of the passions, and can never pretend to any other office than to serve and obey them.",
+    "author": "David Hume",
+    "work": "A Treatise of Human Nature",
+    "workKind": "book",
+    "year": 1739,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "bk. 2, pt. 3, sec. 3 (SBN 415)"
+    },
+    "tags": ["empiricism", "motivation", "reason-and-desire", "scottish-enlightenment"],
+    "themes": ["mind", "ethics", "agency"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain and the location is standard: Treatise 2.3.3, Selby-Bigge/Nidditch p. 415. Written in English, so no translation question. Wording cross-checked against several independent sources that agree exactly, including the Hume Texts Online reference apparatus; the printed edition was not consulted from this environment."
+    }
+  },
+  {
+    "text": "I am surpriz'd to find, that instead of the usual copulations of propositions, is, and is not, I meet with no proposition that is not connected with an ought, or an ought not.",
+    "author": "David Hume",
+    "work": "A Treatise of Human Nature",
+    "workKind": "book",
+    "year": 1740,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "bk. 3, pt. 1, sec. 1 (SBN 469)"
+    },
+    "tags": ["is-ought", "fact-value", "guillotine", "meta-ethics"],
+    "themes": ["ethics", "truth", "knowledge"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the is-ought passage that closes Treatise 3.1.1. The archaic spelling \"surpriz'd\" is Hume's own and is retained in the standard scholarly editions, so it is not a transcription error. This is one sentence lifted from a longer paragraph beginning \"In every system of morality, which I have hitherto met with...\". Wording cross-checked against independent sources; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Enlightenment is man's emergence from his self-imposed immaturity.",
+    "author": "Immanuel Kant",
+    "work": "An Answer to the Question: What Is Enlightenment?",
+    "workKind": "essay",
+    "year": 1784,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "opening sentence (Ak. 8:35)"
+    },
+    "tags": ["enlightenment", "sapere-aude", "autonomy", "german-idealism"],
+    "themes": ["freedom", "knowledge", "agency"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the opening sentence of Kant's 1784 answer in the Berlinische Monatsschrift. Wording is Ted Humphrey's translation (Hackett, 1992). Lewis White Beck's older and still widely used version reads \"Enlightenment is man's release from his self-incurred tutelage\"; the German is \"Aufklärung ist der Ausgang des Menschen aus seiner selbstverschuldeten Unmündigkeit\". The motto that follows two sentences later, \"Sapere aude! Have courage to use your own understanding!\", is not included here. No primary edition consulted from this environment."
+    }
+  },
+  {
+    "text": "So act that you use humanity, whether in your own person or in the person of any other, always at the same time as an end, never merely as a means.",
+    "author": "Immanuel Kant",
+    "work": "Groundwork of the Metaphysics of Morals",
+    "workKind": "book",
+    "year": 1785,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "second section (Ak. 4:429)"
+    },
+    "tags": ["categorical-imperative", "formula-of-humanity", "dignity", "deontology"],
+    "themes": ["ethics", "freedom", "character"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the Formula of Humanity at Groundwork 4:429. Wording is Mary Gregor's translation (Cambridge Texts in the History of Philosophy), later revised by Jens Timmermann. Older translations run \"Act in such a way that you treat humanity... never simply as a means, but always at the same time as an end\"; the differences are real but the sense is stable across all of them. No primary edition consulted from this environment."
+    }
+  },
+  {
+    "text": "The only purpose for which power can be rightfully exercised over any member of a civilised community, against his will, is to prevent harm to others.",
+    "author": "John Stuart Mill",
+    "work": "On Liberty",
+    "workKind": "book",
+    "year": 1859,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 1"
+    },
+    "tags": ["harm-principle", "liberalism", "paternalism", "self-determination"],
+    "themes": ["freedom", "politics", "power"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the harm principle in On Liberty ch. 1. Mill's sentence begins \"That the only purpose...\", carrying on from the preceding clause; the leading \"That\" is dropped here, as it is in nearly every citation, so the sentence stands alone. British spelling \"civilised\" is Mill's. Wording cross-checked against several independent sources; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "It is better to be a human being dissatisfied than a pig satisfied; better to be Socrates dissatisfied than a fool satisfied.",
+    "author": "John Stuart Mill",
+    "work": "Utilitarianism",
+    "workKind": "book",
+    "year": 1863,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 2"
+    },
+    "tags": ["higher-pleasures", "utilitarianism", "quality-of-life"],
+    "themes": ["ethics", "meaning", "suffering"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Utilitarianism ch. 2, Mill's reply to the charge that his doctrine is one \"worthy only of swine\". Written in English. The sentence that follows is \"And if the fool, or the pig, is of a different opinion, it is because they only know their own side of the question.\" Wording cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Convictions are more dangerous enemies of truth than lies.",
+    "author": "Friedrich Nietzsche",
+    "work": "Human, All Too Human",
+    "workKind": "book",
+    "year": 1878,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "sec. 9, aphorism 483"
+    },
+    "tags": ["conviction", "scepticism", "free-spirits", "intellectual-honesty"],
+    "themes": ["truth", "knowledge", "character"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain and unusually well anchored: aphorism 483, headed \"Enemies of truth\", in the section \"Man Alone with Himself\". Nietzsche himself cites it back by number in The Antichrist §55. The German is \"Überzeugungen sind gefährlichere Feinde der Wahrheit als Lügen\". Zimmern and Hollingdale both render it in the English form stored here. No primary edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Whereof one cannot speak, thereof one must be silent.",
+    "author": "Ludwig Wittgenstein",
+    "work": "Tractatus Logico-Philosophicus",
+    "workKind": "book",
+    "year": 1921,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "proposition 7"
+    },
+    "tags": ["limits-of-language", "silence", "logical-atomism", "closing-line"],
+    "themes": ["language", "knowledge", "truth"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the seventh and final proposition of the Tractatus. Wording is C. K. Ogden's 1922 translation, prepared with Wittgenstein's own involvement. Pears and McGuinness render it \"What we cannot speak about we must pass over in silence\". The German is \"Wovon man nicht sprechen kann, darüber muß man schweigen\". No primary edition consulted from this environment; the translator attribution rests on independent secondary sources that agree."
+    }
+  },
+  {
+    "text": "For a large class of cases—though not for all—in which we employ the word 'meaning' it can be defined thus: the meaning of a word is its use in the language.",
+    "author": "Ludwig Wittgenstein",
+    "work": "Philosophical Investigations",
+    "workKind": "book",
+    "year": 1953,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "part I, §43"
+    },
+    "tags": ["meaning-is-use", "language-games", "later-wittgenstein"],
+    "themes": ["language", "meaning", "knowledge"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Philosophical Investigations §43, in G. E. M. Anscombe's translation. The full sentence is stored deliberately rather than the popular fragment \"the meaning of a word is its use in the language\", because Wittgenstein's qualification \"though not for all\" is the part people drop and the part that matters. No primary edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Science does not rest upon solid bedrock. The bold structure of its theories rises, as it were, above a swamp. It is like a building erected on piles.",
+    "author": "Karl Popper",
+    "work": "The Logic of Scientific Discovery",
+    "workKind": "book",
+    "year": 1934,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 5, on the empirical basis of science"
+    },
+    "tags": ["foundations", "fallibilism", "empirical-basis", "philosophy-of-science"],
+    "themes": ["science", "certainty", "knowledge"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain. English wording is from the 1959 translation of Logik der Forschung (1934), made by Popper with Julius and Lan Freed. The passage continues \"The piles are driven down from above into the swamp, but not down to any natural or 'given' base... We simply stop when we are satisfied that the piles are firm enough to carry the structure, at least for the time being.\" Only the first three sentences are stored. Cross-checked against several independent sources that agree; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "A theory which is not refutable by any conceivable event is non-scientific. Irrefutability is not a virtue of a theory (as people often think) but a vice.",
+    "author": "Karl Popper",
+    "work": "Conjectures and Refutations",
+    "workKind": "essay",
+    "year": 1963,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 1, 'Science: Conjectures and Refutations', summary of conclusions"
+    },
+    "tags": ["falsifiability", "demarcation", "pseudo-science", "philosophy-of-science"],
+    "themes": ["science", "truth", "knowledge"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the demarcation criterion as Popper states it in the numbered conclusions of the opening essay. Written in English. Wording cross-checked against several independent sources that agree exactly, including the widely circulated scan of the essay; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Normal science often suppresses fundamental novelties because they are necessarily subversive of its basic commitments.",
+    "author": "Thomas S. Kuhn",
+    "work": "The Structure of Scientific Revolutions",
+    "workKind": "book",
+    "year": 1962,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 1"
+    },
+    "tags": ["normal-science", "paradigm", "anomaly", "philosophy-of-science"],
+    "themes": ["science", "knowledge", "progress"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Kuhn's characterisation of normal science in the opening chapter, p. 5 of the second edition. Written in English. Quoted in this exact form by several independent sources; note that Kuhn's own sentence carries a parenthetical \"for example\" after \"Normal science\", which citations customarily drop. Elsewhere in the same passage he describes normal research as \"a strenuous and devoted attempt to force nature into the conceptual boxes supplied by professional education\", which is the same thought in sharper words. No printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "It was as though in those last minutes he was summing up the lesson that this long course in human wickedness had taught us — the lesson of the fearsome, word-and-thought-defying banality of evil.",
+    "author": "Hannah Arendt",
+    "work": "Eichmann in Jerusalem",
+    "workKind": "book",
+    "year": 1963,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 15, on Eichmann's execution"
+    },
+    "tags": ["banality-of-evil", "bureaucracy", "responsibility", "totalitarianism"],
+    "themes": ["ethics", "power", "history"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the sentence in which Arendt's famous phrase actually appears in the body of the book, describing Eichmann's last minutes on the scaffold. Written in English. Wording cross-checked against several independent sources that agree; no printed edition consulted from this environment. Worth keeping in this full form, since \"the banality of evil\" is almost always quoted as a bare phrase and read as if it meant that evil is trivial, which is close to the opposite of Arendt's point."
+    }
+  },
+  {
+    "text": "The remedy for unpredictability, for the chaotic uncertainty of the future, is contained in the faculty to make and keep promises.",
+    "author": "Hannah Arendt",
+    "work": "The Human Condition",
+    "workKind": "book",
+    "year": 1958,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 5, sec. 33"
+    },
+    "tags": ["promising", "action", "plurality", "contracts"],
+    "themes": ["agency", "freedom", "time"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Arendt's pairing of forgiving (the remedy for irreversibility) with promising (the remedy for unpredictability), in the chapter on action. Written in English. Wording cross-checked against several independent sources that agree exactly; the companion sentence on forgiving was left out because sources disagree on how much of its middle clause is elided when it is quoted. No printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Visibility is a trap.",
+    "author": "Michel Foucault",
+    "work": "Discipline and Punish",
+    "workKind": "book",
+    "year": 1975,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "part 3, ch. 3 ('Panopticism')"
+    },
+    "tags": ["panopticon", "surveillance", "discipline", "organisation"],
+    "themes": ["power", "attention", "freedom"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: Foucault's four-word gloss on the Panopticon. Wording is Alan Sheridan's 1977 translation of Surveiller et punir (1975); the French is \"La visibilité est un piège\". Cross-checked against several independent sources that agree; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Is it surprising that prisons resemble factories, schools, barracks, hospitals, which all resemble prisons?",
+    "author": "Michel Foucault",
+    "work": "Discipline and Punish",
+    "workKind": "book",
+    "year": 1975,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "part 3, ch. 3 ('Panopticism')"
+    },
+    "tags": ["discipline", "institutions", "management", "organisation"],
+    "themes": ["power", "work", "politics"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain. Wording is Alan Sheridan's 1977 translation. Sources cite different page numbers for it because the Panopticism chapter circulates as a standalone excerpt with its own pagination, so no page is claimed here. Cross-checked against several independent sources that agree on the wording; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Only those norms can claim to be valid that meet (or could meet) with the approval of all affected in their capacity as participants in a practical discourse.",
+    "author": "Jürgen Habermas",
+    "work": "Moral Consciousness and Communicative Action",
+    "workKind": "book",
+    "year": 1983,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "'Discourse Ethics: Notes on a Program of Philosophical Justification', principle (D)"
+    },
+    "tags": ["discourse-ethics", "legitimacy", "deliberation", "stakeholders"],
+    "themes": ["ethics", "politics", "language"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: this is principle (D), the discourse principle, as distinct from principle (U), the universalisation principle. English wording is the Christian Lenhardt and Shierry Weber Nicholsen translation (MIT Press, 1990) of Moralbewußtsein und kommunikatives Handeln (1983). Cross-checked against independent sources including the Stanford Encyclopedia entry on Habermas; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "I can only answer the question 'What am I to do?' if I can answer the prior question 'Of what story or stories do I find myself a part?'",
+    "author": "Alasdair MacIntyre",
+    "work": "After Virtue",
+    "workKind": "book",
+    "year": 1981,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 15"
+    },
+    "tags": ["narrative", "virtue-ethics", "tradition", "identity"],
+    "themes": ["meaning", "character", "ethics"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: MacIntyre's statement of the narrative self, in the chapter on the virtues and the unity of a life. Written in English. Wording cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment. It follows a few lines after \"man is in his actions and practice, as well as in his fictions, essentially a story-telling animal\"."
+    }
+  },
+  {
+    "text": "Man is condemned to be free.",
+    "author": "Jean-Paul Sartre",
+    "work": "Existentialism Is a Humanism",
+    "workKind": "speech",
+    "year": 1946,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "the 1945 lecture, published 1946"
+    },
+    "tags": ["existentialism", "responsibility", "bad-faith", "choice"],
+    "themes": ["freedom", "agency", "meaning"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the best-known line of the lecture, from Philip Mairet's 1948 translation of L'existentialisme est un humanisme. Only the sentence itself is stored, because the clause that follows it circulates in at least two materially different English versions and I could not establish which is Mairet's; Mairet reads roughly \"Condemned, because he did not create himself, yet is nevertheless at liberty, and from the moment that he is thrown into this world he is responsible for everything he does.\" No printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.",
+    "author": "Albert Camus",
+    "work": "The Myth of Sisyphus",
+    "workKind": "essay",
+    "year": 1942,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "closing lines"
+    },
+    "tags": ["absurd", "sisyphus", "revolt", "closing-line"],
+    "themes": ["meaning", "suffering", "work"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the last two sentences of the essay. Wording is Justin O'Brien's translation (1955) of Le mythe de Sisyphe (1942); the French closes \"Il faut imaginer Sisyphe heureux.\" Cross-checked against several independent sources that agree; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Specialists without spirit, sensualists without heart; this nullity imagines that it has attained a level of civilization never before achieved.",
+    "author": "Max Weber",
+    "work": "The Protestant Ethic and the Spirit of Capitalism",
+    "workKind": "book",
+    "year": 1905,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "closing pages of ch. 5"
+    },
+    "tags": ["iron-cage", "capitalism", "vocation", "modernity"],
+    "themes": ["work", "money", "meaning"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the near-final lines of the book, where Weber quotes an unnamed source and then adds this judgement of his own age. Wording is Talcott Parsons's 1930 translation; American spelling \"civilization\" is Parsons's. Stephen Kalberg's later translation differs in phrasing. Cross-checked against several independent sources that agree on Parsons; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "The fate of our times is characterized by rationalization and intellectualization and, above all, by the disenchantment of the world.",
+    "author": "Max Weber",
+    "work": "Science as a Vocation",
+    "workKind": "speech",
+    "year": 1917,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "lecture at Munich, published 1919"
+    },
+    "tags": ["disenchantment", "rationalization", "modernity", "vocation"],
+    "themes": ["science", "meaning", "progress"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain. Wording is the Hans Gerth and C. Wright Mills translation (1946) of Wissenschaft als Beruf, delivered as a lecture in 1917 and published in 1919; the German phrase is \"die Entzauberung der Welt\". Gerth and Mills set disenchantment of the world in quotation marks, which are dropped here since the schema stores no enclosing marks. Cross-checked against several independent sources; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Myth is already enlightenment, and enlightenment reverts to mythology.",
+    "author": "Max Horkheimer and Theodor W. Adorno",
+    "work": "Dialectic of Enlightenment",
+    "workKind": "book",
+    "year": 1947,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": ["frankfurt-school", "critical-theory", "instrumental-reason", "modernity"],
+    "themes": ["progress", "history", "knowledge"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the book's central thesis, stated in its opening material. Wording is Edmund Jephcott's translation (Stanford, 2002), which supersedes John Cumming's 1972 version. Cross-checked against several independent sources that agree on Jephcott's phrasing. No locator is claimed because sources place the sentence variously in the preface and in the first chapter, and I could not settle which from this environment; no printed edition was consulted."
+    }
+  },
+  {
+    "text": "Wrong life cannot be lived rightly.",
+    "author": "Theodor W. Adorno",
+    "work": "Minima Moralia",
+    "workKind": "book",
+    "year": 1951,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "part one, aphorism 18"
+    },
+    "tags": ["frankfurt-school", "damaged-life", "complicity", "aphorism"],
+    "themes": ["ethics", "meaning", "suffering"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the closing line of aphorism 18, \"Asylum for the homeless\". Wording is E. F. N. Jephcott's translation (1974). The German, \"Es gibt kein richtiges Leben im falschen\", is also rendered \"There is no right life in the wrong one\", and the two English versions differ enough in emphasis that the German is worth remembering alongside them. Cross-checked against several independent sources; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Justice is the first virtue of social institutions, as truth is of systems of thought.",
+    "author": "John Rawls",
+    "work": "A Theory of Justice",
+    "workKind": "book",
+    "year": 1971,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "sec. 1, opening"
+    },
+    "tags": ["justice", "institutions", "fairness", "liberalism"],
+    "themes": ["politics", "ethics", "truth"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the opening sentence of the book. Written in English. It continues \"A theory however elegant and economical must be rejected or revised if it is untrue; likewise laws and institutions, no matter how efficient and well-arranged, must be reformed or abolished if they are unjust.\" Wording cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment."
+    }
+  },
+  {
+    "text": "Thirsty for national profit, nations, and their systems of education, are heedlessly discarding skills that are needed to keep democracies alive.",
+    "author": "Martha C. Nussbaum",
+    "work": "Not for Profit",
+    "workKind": "book",
+    "year": 2010,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 1, opening"
+    },
+    "tags": ["humanities", "education", "democracy", "profit"],
+    "themes": ["politics", "money", "knowledge"],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution certain: the second sentence of the book, following \"Radical changes are occurring in what democratic societies teach the young, and these changes have not been well thought through.\" Written in English. Wording cross-checked against independent sources including the excerpt published in Harvard Magazine in 2010; the printed edition was not consulted from this environment."
+    }
+  }
+]

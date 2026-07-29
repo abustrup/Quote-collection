@@ -316,7 +316,10 @@ function renderSuggestions() {
     if (reasons.length) {
       const because = document.createElement('p');
       because.className = 'work-because';
-      because.append(`Suggested because ${listPhrase([...new Set(reasons)].slice(0, 2))}.`);
+      // Joined with a semicolon rather than "and", because a single reason
+      // often contains one already ("you keep 6 on technology and 4 on risk")
+      // and a second "and" on top of it reads as a run-on.
+      because.append(`Suggested because ${[...new Set(reasons)].slice(0, 2).join('; ')}.`);
       item.append(because);
     }
 
