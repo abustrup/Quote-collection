@@ -173,6 +173,56 @@ const TRANSLITERATIONS = new Map(Object.entries({
   ø: 'o', æ: 'ae', å: 'a', ð: 'd', þ: 'th', œ: 'oe', ß: 'ss', đ: 'd', ł: 'l', ı: 'i',
 }));
 
+/**
+ * Curl the straight quotation marks a keyboard produces.
+ *
+ * This is a *display* transform and nothing else. It is deliberately not part
+ * of `cleanQuoteText`, because that function feeds `quoteId`: curling a mark
+ * there would change a quote's identity and break its permalink. Stored text
+ * keeps whatever the source had; only what a reader sees is set properly.
+ *
+ * The rules are the ordinary ones a typesetter uses. A mark opens when it
+ * follows a space, a bracket or a dash, or begins the text; otherwise it
+ * closes. A lone apostrophe between two letters or digits is always an
+ * apostrophe, which is what keeps "man's" and "'89" from turning into an
+ * opening quotation mark.
+ */
+export function typographic(input) {
+  const text = String(input ?? '');
+  let result = '';
+
+  for (let i = 0; i < text.length; i += 1) {
+    const character = text[i];
+    if (character !== '"' && character !== "'") {
+      result += character;
+      continue;
+    }
+
+    const before = text[i - 1] ?? '';
+    const after = text[i + 1] ?? '';
+    const opens = before === '' || /[\s([{<—–―“‘]/u.test(before);
+
+    if (character === '"') {
+      result += opens ? '“' : '”';
+      continue;
+    }
+
+    // An apostrophe inside a word is never a quotation mark.
+    if (/[\p{L}\p{N}]/u.test(before) && /[\p{L}\p{N}]/u.test(after)) {
+      result += '’';
+      continue;
+    }
+    // A leading elision, as in '89 or 'tis.
+    if (opens && /[\p{L}\p{N}]/u.test(after)) {
+      result += /^\d/u.test(after) ? '’' : '‘';
+      continue;
+    }
+    result += opens ? '‘' : '’';
+  }
+
+  return result;
+}
+
 /** A short, human-readable slug — used for author and theme filter links. */
 export function slug(input) {
   return String(input ?? '')

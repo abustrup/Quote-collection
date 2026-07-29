@@ -6,7 +6,7 @@
  * can be shared, and nothing animates that does not need to.
  */
 
-import { VERIFICATION_LABELS, slug } from './quote-core.js';
+import { VERIFICATION_LABELS, slug, typographic } from './quote-core.js';
 
 const DATA_URL = 'data/quotes.json';
 const STORAGE = {
@@ -240,7 +240,13 @@ function appendHighlighted(parent, text, terms) {
     parent.append(text);
     return;
   }
-  const pattern = new RegExp(`(${terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
+  // Quotation marks are curled for display, so a term typed with a straight
+  // apostrophe still has to match the curly one on screen.
+  const escape = (term) => term
+    .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    .replace(/['\u2018\u2019]/g, "['\u2018\u2019]")
+    .replace(/["\u201c\u201d]/g, '["\u201c\u201d]');
+  const pattern = new RegExp(`(${terms.map(escape).join('|')})`, 'gi');
   let last = 0;
   for (const match of text.matchAll(pattern)) {
     if (match.index > last) parent.append(text.slice(last, match.index));
@@ -305,13 +311,13 @@ function buildQuote(quote, terms) {
   blockquote.className = 'quote-text';
   blockquote.style.margin = '0';
   if (quote.lang && quote.lang !== 'en') blockquote.lang = quote.lang;
-  appendHighlighted(blockquote, quote.text, terms);
+  appendHighlighted(blockquote, typographic(quote.text), terms);
   figure.append(blockquote, buildAttribution(quote));
 
   if (quote.note) {
     const note = document.createElement('p');
     note.className = 'quote-note';
-    note.textContent = quote.note;
+    note.textContent = typographic(quote.note);
     figure.append(note);
   }
 
@@ -520,7 +526,7 @@ function renderFocus() {
   blockquote.className = 'quote-text';
   blockquote.style.margin = '0';
   if (quote.lang && quote.lang !== 'en') blockquote.lang = quote.lang;
-  blockquote.textContent = quote.text;
+  blockquote.textContent = typographic(quote.text);
 
   dom.focusQuote.replaceChildren(blockquote, buildAttribution(quote, { linked: false }));
   dom.focusPosition.textContent = `${state.focusIndex + 1} / ${state.visible.length}`;
@@ -646,7 +652,7 @@ function wireControls() {
     if (action.dataset.action === 'copy') {
       event.preventDefault();
       const attribution = [quote.author, quote.work].filter(Boolean).join(', ');
-      copyText(`“${quote.text}”\n— ${attribution}`, 'Quote copied');
+      copyText(`“${typographic(quote.text)}”\n— ${attribution}`, 'Quote copied');
       return;
     }
 
@@ -756,8 +762,11 @@ function prepare(quotes) {
       _authorSlug: slug(quote.author),
       _workSlug: quote.work ? slug(quote.work) : '',
       _tagSlugs: tagSlugs,
+      // Joined with a newline: search terms are split on whitespace, so no term
+      // can ever span two fields, and the separator stays a character nobody
+      // can type into the box.
       _haystack: [quote.text, quote.author, quote.work ?? '', quote.note ?? '',
-        ...(quote.tags ?? []), ...(quote.themes ?? [])].join('   ').toLowerCase(),
+        ...(quote.tags ?? []), ...(quote.themes ?? [])].join('\n').toLowerCase(),
     };
   });
 }

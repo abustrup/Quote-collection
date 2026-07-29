@@ -26,6 +26,7 @@ import {
   quoteId,
   slug,
   tidyWhitespace,
+  typographic,
   validateCollection,
 } from '../assets/quote-core.js';
 
@@ -231,4 +232,24 @@ test('slug keeps Nordic authors distinct', () => {
   assert.notEqual(slug('Søren'), slug('Særen'));
   assert.equal(slug('Friedrich Nietzsche'), 'friedrich-nietzsche');
   assert.equal(slug('Simone de Beauvoir'), 'simone-de-beauvoir');
+});
+
+test('typographic curls marks the way a typesetter would', () => {
+  assert.equal(
+    typographic(`I can only answer the question 'What am I to do?' if I can answer the prior question`),
+    'I can only answer the question ‘What am I to do?’ if I can answer the prior question');
+  assert.equal(typographic(`"Hello," she said, "goodbye"`), '“Hello,” she said, “goodbye”');
+  assert.equal(typographic(`man's heart`), 'man’s heart');
+  assert.equal(typographic(`the '89 crash`), 'the ’89 crash');
+  assert.equal(typographic(`'tis the season`), '‘tis the season');
+  assert.equal(typographic(`He said "no" — 'firmly'`), 'He said “no” — ‘firmly’');
+  assert.equal(typographic(`dogs' bowls`), 'dogs’ bowls');
+});
+
+test('typographic leaves already-typeset text and the identity alone', () => {
+  const already = '“The unexamined life,” he said — ‘truly’.';
+  assert.equal(typographic(already), already);
+  // The transform must never be part of identity, or permalinks would move.
+  const straight = `It's a test`;
+  assert.equal(quoteId(straight), quoteId(typographic(straight)));
 });
