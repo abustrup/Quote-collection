@@ -187,7 +187,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. darioamodei.com is unreachable from this environment, so the wording was matched against third-party full-text mirrors rather than the primary page. Those mirrors agreed with each other, but they are transcriptions, not the source, which is why this is reported and not verified. Worth re-checking against darioamodei.com from a normal browser."
     }
   },
   {
@@ -215,7 +215,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. darioamodei.com is unreachable from this environment, so the wording was matched against third-party full-text mirrors rather than the primary page. Those mirrors agreed with each other, but they are transcriptions, not the source, which is why this is reported and not verified. Worth re-checking against darioamodei.com from a normal browser."
     }
   },
   {
@@ -243,7 +243,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. darioamodei.com is unreachable from this environment, so the wording was matched against third-party full-text mirrors rather than the primary page. Those mirrors agreed with each other, but they are transcriptions, not the source, which is why this is reported and not verified. Worth re-checking against darioamodei.com from a normal browser."
     }
   },
   {
@@ -271,7 +271,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. darioamodei.com is unreachable from this environment, so the wording was matched against third-party full-text mirrors rather than the primary page. Those mirrors agreed with each other, but they are transcriptions, not the source, which is why this is reported and not verified. Worth re-checking against darioamodei.com from a normal browser."
     }
   },
   {
@@ -298,7 +298,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. Wording checked character for character against several independently archived full-text copies, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page was not consulted."
+      "note": "Attribution certain: Amodei's companion essay to Machines of Loving Grace, published on his own site in January 2026 and widely reported at the time. darioamodei.com is unreachable from this environment, so the wording was matched against third-party full-text mirrors rather than the primary page. Those mirrors agreed with each other, but they are transcriptions, not the source, which is why this is reported and not verified. Worth re-checking against darioamodei.com from a normal browser."
     }
   },
   {
@@ -309,7 +309,7 @@
     "year": 2026,
     "source": {
       "kind": "curated",
-      "url": "https://www.anthropic.com/constitution",
+      "url": "https://github.com/anthropics/claude-constitution/blob/main/20260120-constitution.md",
       "locator": "Being honest"
     },
     "tags": [
@@ -326,7 +326,8 @@
     "lang": "en",
     "verification": {
       "status": "verified",
-      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+      "note": "Verified verbatim against Anthropic's own CC0 text: raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md, the January 2026 constitution as released. Re-checked 2026-07-29 by string match against that file, 5 of 5 exact. The anthropic.com landing page is unreachable from this environment, which is why the repository is cited instead.",
+      "checkedAt": "2026-07-29"
     }
   },
   {
@@ -337,7 +338,7 @@
     "year": 2026,
     "source": {
       "kind": "curated",
-      "url": "https://www.anthropic.com/constitution",
+      "url": "https://github.com/anthropics/claude-constitution/blob/main/20260120-constitution.md",
       "locator": "Concluding thoughts"
     },
     "tags": [
@@ -353,7 +354,8 @@
     "lang": "en",
     "verification": {
       "status": "verified",
-      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+      "note": "Verified verbatim against Anthropic's own CC0 text: raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md, the January 2026 constitution as released. Re-checked 2026-07-29 by string match against that file, 5 of 5 exact. The anthropic.com landing page is unreachable from this environment, which is why the repository is cited instead.",
+      "checkedAt": "2026-07-29"
     }
   },
   {
@@ -364,7 +366,7 @@
     "year": 2026,
     "source": {
       "kind": "curated",
-      "url": "https://www.anthropic.com/constitution",
+      "url": "https://github.com/anthropics/claude-constitution/blob/main/20260120-constitution.md",
       "locator": "Claude’s wellbeing"
     },
     "tags": [
@@ -381,7 +383,8 @@
     "lang": "en",
     "verification": {
       "status": "verified",
-      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+      "note": "Verified verbatim against Anthropic's own CC0 text: raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md, the January 2026 constitution as released. Re-checked 2026-07-29 by string match against that file, 5 of 5 exact. The anthropic.com landing page is unreachable from this environment, which is why the repository is cited instead.",
+      "checkedAt": "2026-07-29"
     }
   },
   {
@@ -392,7 +395,7 @@
     "year": 2026,
     "source": {
       "kind": "curated",
-      "url": "https://www.anthropic.com/constitution",
+      "url": "https://github.com/anthropics/claude-constitution/blob/main/20260120-constitution.md",
       "locator": "On the word “constitution”"
     },
     "tags": [
@@ -408,7 +411,8 @@
     "lang": "en",
     "verification": {
       "status": "verified",
-      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+      "note": "Verified verbatim against Anthropic's own CC0 text: raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md, the January 2026 constitution as released. Re-checked 2026-07-29 by string match against that file, 5 of 5 exact. The anthropic.com landing page is unreachable from this environment, which is why the repository is cited instead.",
+      "checkedAt": "2026-07-29"
     }
   },
   {
@@ -419,7 +423,7 @@
     "year": 2026,
     "source": {
       "kind": "curated",
-      "url": "https://www.anthropic.com/constitution",
+      "url": "https://github.com/anthropics/claude-constitution/blob/main/20260120-constitution.md",
       "locator": "A final word, closing line"
     },
     "tags": [
@@ -435,7 +439,8 @@
     "lang": "en",
     "verification": {
       "status": "verified",
-      "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
+      "note": "Verified verbatim against Anthropic's own CC0 text: raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md, the January 2026 constitution as released. Re-checked 2026-07-29 by string match against that file, 5 of 5 exact. The anthropic.com landing page is unreachable from this environment, which is why the repository is cited instead.",
+      "checkedAt": "2026-07-29"
     }
   }
 ]

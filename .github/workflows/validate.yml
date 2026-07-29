@@ -35,6 +35,11 @@ jobs:
       - name: Validate the collection
         run: node scripts/validate.mjs
 
+      # The library had no guard at all until three entries drifted out of the
+      # shared vocabulary unnoticed, because nothing reads the field they broke.
+      - name: Validate the library
+        run: node scripts/validate-library.mjs
+
       # Node 22 reads a bare `tests/` as a module to execute rather than a
       # directory to search, so the pattern is spelled out. Quoted, so that Node
       # expands it and the result does not depend on the shell's glob settings.

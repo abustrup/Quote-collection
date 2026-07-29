@@ -8,13 +8,38 @@
       "year": 1962,
       "kind": "book",
       "url": null,
-      "themes": ["science", "knowledge", "truth", "certainty", "progress", "history"],
-      "keywords": ["paradigm", "revolution", "anomaly", "normal", "science", "crisis", "consensus", "incommensurable"],
+      "themes": [
+        "science",
+        "knowledge",
+        "truth",
+        "certainty",
+        "progress",
+        "history"
+      ],
+      "keywords": [
+        "paradigm",
+        "revolution",
+        "anomaly",
+        "normal",
+        "science",
+        "crisis",
+        "consensus",
+        "incommensurable"
+      ],
       "difficulty": "demanding",
       "lengthHours": 8,
       "why": "This is where the phrase ‘paradigm shift’ comes from, and it will probably annoy you: Kuhn takes the tidy picture of science accumulating truth and replaces it with something messier and more social. Read it against Popper rather than after him — they were arguing with each other, and the argument is the point.",
-      "pairsWith": ["conjectures-and-refutations", "against-method", "what-is-this-thing-called-science"],
-      "adjacentTo": ["Karl Popper", "Richard Feynman", "Michel Foucault", "Paul Feyerabend"]
+      "pairsWith": [
+        "conjectures-and-refutations",
+        "against-method",
+        "what-is-this-thing-called-science"
+      ],
+      "adjacentTo": [
+        "Karl Popper",
+        "Richard Feynman",
+        "Michel Foucault",
+        "Paul Feyerabend"
+      ]
     },
     {
       "id": "conjectures-and-refutations",
@@ -23,13 +48,37 @@
       "year": 1963,
       "kind": "book",
       "url": null,
-      "themes": ["science", "knowledge", "truth", "certainty", "politics"],
-      "keywords": ["falsification", "conjecture", "refutation", "hypothesis", "dogma", "error", "criticism", "ignorance"],
+      "themes": [
+        "science",
+        "knowledge",
+        "truth",
+        "certainty",
+        "politics"
+      ],
+      "keywords": [
+        "falsification",
+        "conjecture",
+        "refutation",
+        "hypothesis",
+        "dogma",
+        "error",
+        "criticism",
+        "ignorance"
+      ],
       "difficulty": "demanding",
       "lengthHours": 14,
       "why": "Popper's claim is that a theory earns its keep by forbidding things, not by explaining them, and that a theory which explains everything explains nothing. If fourteen hours is too much, the opening essay on the sources of knowledge and ignorance carries most of what matters.",
-      "pairsWith": ["structure-of-scientific-revolutions", "against-method", "superforecasting"],
-      "adjacentTo": ["Thomas Kuhn", "Bertrand Russell", "Friedrich Hayek", "Isaiah Berlin"]
+      "pairsWith": [
+        "structure-of-scientific-revolutions",
+        "against-method",
+        "superforecasting"
+      ],
+      "adjacentTo": [
+        "Thomas Kuhn",
+        "Bertrand Russell",
+        "Friedrich Hayek",
+        "Isaiah Berlin"
+      ]
     },
     {
       "id": "against-method",
@@ -38,13 +87,33 @@
       "year": 1975,
       "kind": "book",
       "url": null,
-      "themes": ["science", "knowledge", "truth", "freedom", "certainty"],
-      "keywords": ["method", "anarchism", "galileo", "rationality", "tradition", "relativism"],
+      "themes": [
+        "science",
+        "knowledge",
+        "truth",
+        "freedom",
+        "certainty"
+      ],
+      "keywords": [
+        "method",
+        "anarchism",
+        "galileo",
+        "rationality",
+        "tradition",
+        "relativism"
+      ],
       "difficulty": "hard",
       "lengthHours": 12,
       "why": "Feyerabend read Kuhn and Popper and concluded there is no scientific method at all, only whatever worked at the time. He is wrong in interesting ways, which makes him the best available test of whether you actually believe what you think you believe about science.",
-      "pairsWith": ["structure-of-scientific-revolutions", "conjectures-and-refutations"],
-      "adjacentTo": ["Thomas Kuhn", "Karl Popper", "Friedrich Nietzsche"]
+      "pairsWith": [
+        "structure-of-scientific-revolutions",
+        "conjectures-and-refutations"
+      ],
+      "adjacentTo": [
+        "Thomas Kuhn",
+        "Karl Popper",
+        "Friedrich Nietzsche"
+      ]
     },
     {
       "id": "what-is-this-thing-called-science",
@@ -53,28 +122,70 @@
       "year": 1976,
       "kind": "book",
       "url": null,
-      "themes": ["science", "knowledge", "certainty", "truth"],
-      "keywords": ["induction", "observation", "falsification", "theory", "evidence", "experiment"],
+      "themes": [
+        "science",
+        "knowledge",
+        "certainty",
+        "truth"
+      ],
+      "keywords": [
+        "induction",
+        "observation",
+        "falsification",
+        "theory",
+        "evidence",
+        "experiment"
+      ],
       "difficulty": "accessible",
       "lengthHours": 7,
       "why": "The standard textbook, and it earns that by being genuinely clear rather than merely simple. Start here if you want induction, falsification and the paradigm debate laid out before you meet the originals, then go to Popper and Kuhn with your own questions.",
-      "pairsWith": ["structure-of-scientific-revolutions", "conjectures-and-refutations", "cargo-cult-science"],
-      "adjacentTo": ["Karl Popper", "Thomas Kuhn", "Richard Feynman"]
+      "pairsWith": [
+        "structure-of-scientific-revolutions",
+        "conjectures-and-refutations",
+        "cargo-cult-science"
+      ],
+      "adjacentTo": [
+        "Karl Popper",
+        "Thomas Kuhn",
+        "Richard Feynman"
+      ]
     },
     {
       "id": "cargo-cult-science",
       "title": "Cargo Cult Science",
       "author": "Richard P. Feynman",
       "year": 1974,
-      "kind": "lecture",
+      "kind": "speech",
       "url": "https://calteches.library.caltech.edu/3043/",
-      "themes": ["science", "truth", "character", "knowledge", "certainty"],
-      "keywords": ["integrity", "honesty", "experiment", "pseudoscience", "results", "fooling", "science"],
+      "themes": [
+        "science",
+        "truth",
+        "character",
+        "knowledge",
+        "certainty"
+      ],
+      "keywords": [
+        "integrity",
+        "honesty",
+        "experiment",
+        "pseudoscience",
+        "results",
+        "fooling",
+        "science"
+      ],
       "difficulty": "accessible",
       "lengthHours": 0.5,
       "why": "Half an hour, and the most useful thing written about intellectual honesty as a working practice rather than a virtue. Feynman's point is that the hard part is not fooling other people; it is the standard of care required not to fool yourself.",
-      "pairsWith": ["you-and-your-research", "superforecasting", "surely-youre-joking-mr-feynman"],
-      "adjacentTo": ["Richard Feynman", "Carl Sagan", "Karl Popper"]
+      "pairsWith": [
+        "you-and-your-research",
+        "superforecasting",
+        "surely-youre-joking-mr-feynman"
+      ],
+      "adjacentTo": [
+        "Richard Feynman",
+        "Carl Sagan",
+        "Karl Popper"
+      ]
     },
     {
       "id": "superforecasting",
@@ -83,13 +194,35 @@
       "year": 2015,
       "kind": "book",
       "url": null,
-      "themes": ["knowledge", "certainty", "risk", "truth", "mind"],
-      "keywords": ["forecast", "prediction", "probability", "calibration", "expert", "uncertainty", "judgement"],
+      "themes": [
+        "knowledge",
+        "certainty",
+        "risk",
+        "truth",
+        "mind"
+      ],
+      "keywords": [
+        "forecast",
+        "prediction",
+        "probability",
+        "calibration",
+        "expert",
+        "uncertainty",
+        "judgement"
+      ],
       "difficulty": "accessible",
       "lengthHours": 9,
       "why": "Tetlock spent twenty years actually scoring the predictions of people paid to make them, and found that the confident experts did worse than the hedging ones. Useful if you are heading for a career where you will be asked to forecast things, which business administration more or less guarantees.",
-      "pairsWith": ["thinking-fast-and-slow", "against-the-gods", "conjectures-and-refutations"],
-      "adjacentTo": ["Daniel Kahneman", "Nassim Nicholas Taleb", "Karl Popper"]
+      "pairsWith": [
+        "thinking-fast-and-slow",
+        "against-the-gods",
+        "conjectures-and-refutations"
+      ],
+      "adjacentTo": [
+        "Daniel Kahneman",
+        "Nassim Nicholas Taleb",
+        "Karl Popper"
+      ]
     },
     {
       "id": "thinking-fast-and-slow",
@@ -98,28 +231,75 @@
       "year": 2011,
       "kind": "book",
       "url": null,
-      "themes": ["mind", "knowledge", "certainty", "risk", "attention"],
-      "keywords": ["intuition", "bias", "heuristic", "anchoring", "framing", "regression", "judgement", "attention"],
+      "themes": [
+        "mind",
+        "knowledge",
+        "certainty",
+        "risk",
+        "attention"
+      ],
+      "keywords": [
+        "intuition",
+        "bias",
+        "heuristic",
+        "anchoring",
+        "framing",
+        "regression",
+        "judgement",
+        "attention"
+      ],
       "difficulty": "demanding",
       "lengthHours": 15,
       "why": "Long, and the second half is stronger than the first. Read it for the distinction between what you can actually compute and what merely feels obvious — and read up on the replication trouble around the priming chapters alongside it, because Kahneman himself conceded ground there.",
-      "pairsWith": ["superforecasting", "against-the-gods", "maerk-verden"],
-      "adjacentTo": ["Nassim Nicholas Taleb", "Philip Tetlock", "Herbert Simon"]
+      "pairsWith": [
+        "superforecasting",
+        "against-the-gods",
+        "maerk-verden"
+      ],
+      "adjacentTo": [
+        "Nassim Nicholas Taleb",
+        "Philip Tetlock",
+        "Herbert Simon"
+      ]
     },
     {
       "id": "nicomachean-ethics",
       "title": "Nicomachean Ethics",
       "author": "Aristotle",
-      "year": -340,
+      "year": -350,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "character", "meaning", "friendship", "work"],
-      "keywords": ["virtue", "habit", "happiness", "friendship", "excellence", "character", "mean", "flourishing"],
+      "themes": [
+        "ethics",
+        "character",
+        "meaning",
+        "friendship",
+        "work"
+      ],
+      "keywords": [
+        "virtue",
+        "habit",
+        "happiness",
+        "friendship",
+        "excellence",
+        "character",
+        "mean",
+        "flourishing"
+      ],
       "difficulty": "demanding",
       "lengthHours": 12,
       "why": "Aristotle's answer to how to live is not a rule but a habit: you become just by doing just things, the way you become a builder by building. Book II is the one everybody quotes and Book X is the one that should bother you, since it argues the best life is contemplative.",
-      "pairsWith": ["after-virtue", "meditations", "sovereignty-of-good"],
-      "adjacentTo": ["Plato", "Seneca", "Marcus Aurelius", "Alasdair MacIntyre"]
+      "pairsWith": [
+        "after-virtue",
+        "meditations",
+        "sovereignty-of-good"
+      ],
+      "adjacentTo": [
+        "Plato",
+        "Seneca",
+        "Marcus Aurelius",
+        "Alasdair MacIntyre"
+      ]
     },
     {
       "id": "groundwork-metaphysics-of-morals",
@@ -128,13 +308,37 @@
       "year": 1785,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "freedom", "agency", "truth", "character"],
-      "keywords": ["duty", "imperative", "maxim", "autonomy", "dignity", "universal", "reason", "goodwill"],
+      "themes": [
+        "ethics",
+        "freedom",
+        "agency",
+        "truth",
+        "character"
+      ],
+      "keywords": [
+        "duty",
+        "imperative",
+        "maxim",
+        "autonomy",
+        "dignity",
+        "universal",
+        "reason",
+        "goodwill"
+      ],
       "difficulty": "hard",
       "lengthHours": 5,
       "why": "Ninety pages that most people find harder than a whole novel, and the claim that a good will is the only thing good without qualification is one you will meet in every ethics seminar for the rest of your life. Read it once for the shape of the argument and once for the three formulations of the categorical imperative.",
-      "pairsWith": ["ethics-and-the-limits-of-philosophy", "reasons-and-persons", "on-liberty"],
-      "adjacentTo": ["Immanuel Kant", "Georg Wilhelm Friedrich Hegel", "Søren Kierkegaard", "John Rawls"]
+      "pairsWith": [
+        "ethics-and-the-limits-of-philosophy",
+        "reasons-and-persons",
+        "on-liberty"
+      ],
+      "adjacentTo": [
+        "Immanuel Kant",
+        "Georg Wilhelm Friedrich Hegel",
+        "Søren Kierkegaard",
+        "John Rawls"
+      ]
     },
     {
       "id": "reasons-and-persons",
@@ -143,13 +347,36 @@
       "year": 1984,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "mind", "time", "death", "agency"],
-      "keywords": ["identity", "personal", "future", "generations", "rationality", "teleporter", "population"],
+      "themes": [
+        "ethics",
+        "mind",
+        "time",
+        "death",
+        "agency"
+      ],
+      "keywords": [
+        "identity",
+        "personal",
+        "future",
+        "generations",
+        "rationality",
+        "teleporter",
+        "population"
+      ],
       "difficulty": "hard",
       "lengthHours": 20,
       "why": "Parfit argues that personal identity is not what matters, and does it with thought experiments that are genuinely hard to shake off afterwards. Part Four more or less invented population ethics; if you care about the long-run consequences of technology, that is where the vocabulary came from.",
-      "pairsWith": ["superintelligence", "groundwork-metaphysics-of-morals", "famine-affluence-and-morality"],
-      "adjacentTo": ["Peter Singer", "Nick Bostrom", "Immanuel Kant", "Bernard Williams"]
+      "pairsWith": [
+        "superintelligence",
+        "groundwork-metaphysics-of-morals",
+        "famine-affluence-and-morality"
+      ],
+      "adjacentTo": [
+        "Peter Singer",
+        "Nick Bostrom",
+        "Immanuel Kant",
+        "Bernard Williams"
+      ]
     },
     {
       "id": "after-virtue",
@@ -158,13 +385,36 @@
       "year": 1981,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "character", "history", "meaning", "language"],
-      "keywords": ["virtue", "tradition", "practice", "narrative", "emotivism", "fragments", "telos"],
+      "themes": [
+        "ethics",
+        "character",
+        "history",
+        "meaning",
+        "language"
+      ],
+      "keywords": [
+        "virtue",
+        "tradition",
+        "practice",
+        "narrative",
+        "emotivism",
+        "fragments",
+        "telos"
+      ],
       "difficulty": "hard",
       "lengthHours": 14,
       "why": "MacIntyre's claim is that modern moral argument goes on forever because we inherited fragments of an older tradition without the framework that made them cohere. It is the strongest case against the Kant-versus-utilitarian framing you are going to be taught.",
-      "pairsWith": ["nicomachean-ethics", "ethics-and-the-limits-of-philosophy", "sovereignty-of-good"],
-      "adjacentTo": ["Aristotle", "Friedrich Nietzsche", "Bernard Williams", "Charles Taylor"]
+      "pairsWith": [
+        "nicomachean-ethics",
+        "ethics-and-the-limits-of-philosophy",
+        "sovereignty-of-good"
+      ],
+      "adjacentTo": [
+        "Aristotle",
+        "Friedrich Nietzsche",
+        "Bernard Williams",
+        "Charles Taylor"
+      ]
     },
     {
       "id": "famine-affluence-and-morality",
@@ -173,13 +423,35 @@
       "year": 1972,
       "kind": "essay",
       "url": "https://archive.org/details/famine-affluence-and-morality-singer-1972",
-      "themes": ["ethics", "money", "suffering", "agency"],
-      "keywords": ["obligation", "charity", "distance", "drowning", "affluence", "duty", "suffering"],
+      "themes": [
+        "ethics",
+        "money",
+        "suffering",
+        "agency"
+      ],
+      "keywords": [
+        "obligation",
+        "charity",
+        "distance",
+        "drowning",
+        "affluence",
+        "duty",
+        "suffering"
+      ],
       "difficulty": "accessible",
       "lengthHours": 0.75,
       "why": "A short paper asking why physical distance should make any moral difference, and it never quite lets you off. Read it before any of Singer's books, because the whole method is visible here in miniature and you can decide early whether you accept it.",
-      "pairsWith": ["reasons-and-persons", "development-as-freedom", "ethics-and-the-limits-of-philosophy"],
-      "adjacentTo": ["Peter Singer", "Derek Parfit", "Jeremy Bentham", "John Stuart Mill"]
+      "pairsWith": [
+        "reasons-and-persons",
+        "development-as-freedom",
+        "ethics-and-the-limits-of-philosophy"
+      ],
+      "adjacentTo": [
+        "Peter Singer",
+        "Derek Parfit",
+        "Jeremy Bentham",
+        "John Stuart Mill"
+      ]
     },
     {
       "id": "sovereignty-of-good",
@@ -188,13 +460,36 @@
       "year": 1970,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "attention", "beauty", "love", "character"],
-      "keywords": ["attention", "goodness", "unselfing", "perfection", "vision", "humility", "beauty"],
+      "themes": [
+        "ethics",
+        "attention",
+        "beauty",
+        "love",
+        "character"
+      ],
+      "keywords": [
+        "attention",
+        "goodness",
+        "unselfing",
+        "perfection",
+        "vision",
+        "humility",
+        "beauty"
+      ],
       "difficulty": "demanding",
       "lengthHours": 4,
       "why": "Murdoch argues that moral life is mostly attention — what you actually manage to see about another person — rather than choice at the moment of decision. Short, and a real corrective if the only ethics you have read is the analytic kind.",
-      "pairsWith": ["ethics-and-the-limits-of-philosophy", "nicomachean-ethics", "letters-to-a-young-poet"],
-      "adjacentTo": ["Simone Weil", "Ludwig Wittgenstein", "Plato", "Bernard Williams"]
+      "pairsWith": [
+        "ethics-and-the-limits-of-philosophy",
+        "nicomachean-ethics",
+        "letters-to-a-young-poet"
+      ],
+      "adjacentTo": [
+        "Simone Weil",
+        "Ludwig Wittgenstein",
+        "Plato",
+        "Bernard Williams"
+      ]
     },
     {
       "id": "ethics-and-the-limits-of-philosophy",
@@ -203,13 +498,36 @@
       "year": 1985,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "truth", "character", "meaning", "agency"],
-      "keywords": ["morality", "obligation", "integrity", "luck", "thick", "reflection", "relativism"],
+      "themes": [
+        "ethics",
+        "truth",
+        "character",
+        "meaning",
+        "agency"
+      ],
+      "keywords": [
+        "morality",
+        "obligation",
+        "integrity",
+        "luck",
+        "thick",
+        "reflection",
+        "relativism"
+      ],
       "difficulty": "hard",
       "lengthHours": 10,
-      "why": "Williams thought both Kant and the utilitarians asked us to stand outside our own lives in a way nobody actually can. This is the book that put ‘one thought too many’ into circulation, and it will make you slower to accept any clean moral system.",
-      "pairsWith": ["after-virtue", "groundwork-metaphysics-of-morals", "sovereignty-of-good"],
-      "adjacentTo": ["Friedrich Nietzsche", "Iris Murdoch", "Derek Parfit", "Immanuel Kant"]
+      "why": "Williams thought both Kant and the utilitarians asked us to stand outside our own lives in a way nobody actually can. It carries forward the ‘one thought too many’ objection he first made in Moral Luck, and it will make you slower to accept any clean moral system.",
+      "pairsWith": [
+        "after-virtue",
+        "groundwork-metaphysics-of-morals",
+        "sovereignty-of-good"
+      ],
+      "adjacentTo": [
+        "Friedrich Nietzsche",
+        "Iris Murdoch",
+        "Derek Parfit",
+        "Immanuel Kant"
+      ]
     },
     {
       "id": "eichmann-in-jerusalem",
@@ -218,13 +536,36 @@
       "year": 1963,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "politics", "power", "history", "character"],
-      "keywords": ["banality", "obedience", "bureaucracy", "conscience", "trial", "thoughtlessness", "judgement"],
+      "themes": [
+        "ethics",
+        "politics",
+        "power",
+        "history",
+        "character"
+      ],
+      "keywords": [
+        "banality",
+        "obedience",
+        "bureaucracy",
+        "conscience",
+        "trial",
+        "thoughtlessness",
+        "judgement"
+      ],
       "difficulty": "demanding",
       "lengthHours": 11,
       "why": "Arendt went to the trial expecting a monster and reported a bureaucrat, and ‘the banality of evil’ has been misquoted ever since. Read the epilogue, where she defends the death sentence — it complicates the caricature of the book that most people carry around.",
-      "pairsWith": ["the-human-condition", "bloodlands", "if-this-is-a-man"],
-      "adjacentTo": ["Hannah Arendt", "Primo Levi", "Karl Jaspers", "Timothy Snyder"]
+      "pairsWith": [
+        "the-human-condition",
+        "bloodlands",
+        "if-this-is-a-man"
+      ],
+      "adjacentTo": [
+        "Hannah Arendt",
+        "Primo Levi",
+        "Karl Jaspers",
+        "Timothy Snyder"
+      ]
     },
     {
       "id": "a-theory-of-justice",
@@ -233,13 +574,37 @@
       "year": 1971,
       "kind": "book",
       "url": null,
-      "themes": ["politics", "ethics", "freedom", "money", "power"],
-      "keywords": ["justice", "fairness", "veil", "ignorance", "distribution", "liberty", "inequality", "contract"],
+      "themes": [
+        "politics",
+        "ethics",
+        "freedom",
+        "money",
+        "power"
+      ],
+      "keywords": [
+        "justice",
+        "fairness",
+        "veil",
+        "ignorance",
+        "distribution",
+        "liberty",
+        "inequality",
+        "contract"
+      ],
       "difficulty": "hard",
       "lengthHours": 25,
       "why": "The original position and the veil of ignorance are the two ideas from twentieth-century political philosophy you cannot get around. It is long and dry; sections 1 to 4 and 11 to 17 carry the spine of the argument if you want that first.",
-      "pairsWith": ["anarchy-state-and-utopia", "development-as-freedom", "groundwork-metaphysics-of-morals"],
-      "adjacentTo": ["Immanuel Kant", "Robert Nozick", "Amartya Sen", "John Stuart Mill"]
+      "pairsWith": [
+        "anarchy-state-and-utopia",
+        "development-as-freedom",
+        "groundwork-metaphysics-of-morals"
+      ],
+      "adjacentTo": [
+        "Immanuel Kant",
+        "Robert Nozick",
+        "Amartya Sen",
+        "John Stuart Mill"
+      ]
     },
     {
       "id": "anarchy-state-and-utopia",
@@ -248,13 +613,36 @@
       "year": 1974,
       "kind": "book",
       "url": null,
-      "themes": ["politics", "freedom", "money", "ethics", "power"],
-      "keywords": ["entitlement", "redistribution", "liberty", "state", "rights", "pattern", "taxation"],
+      "themes": [
+        "politics",
+        "freedom",
+        "money",
+        "ethics",
+        "power"
+      ],
+      "keywords": [
+        "entitlement",
+        "redistribution",
+        "liberty",
+        "state",
+        "rights",
+        "pattern",
+        "taxation"
+      ],
       "difficulty": "hard",
       "lengthHours": 15,
       "why": "Written directly against Rawls, and much funnier. The Wilt Chamberlain argument about how liberty keeps upsetting any distribution you fix in advance is the one that will make you defend or abandon redistribution on better grounds than you have now.",
-      "pairsWith": ["a-theory-of-justice", "the-use-of-knowledge-in-society", "on-liberty"],
-      "adjacentTo": ["John Rawls", "Friedrich Hayek", "John Locke", "Milton Friedman"]
+      "pairsWith": [
+        "a-theory-of-justice",
+        "the-use-of-knowledge-in-society",
+        "on-liberty"
+      ],
+      "adjacentTo": [
+        "John Rawls",
+        "Friedrich Hayek",
+        "John Locke",
+        "Milton Friedman"
+      ]
     },
     {
       "id": "on-liberty",
@@ -263,13 +651,37 @@
       "year": 1859,
       "kind": "book",
       "url": "https://www.gutenberg.org/ebooks/34901",
-      "themes": ["freedom", "politics", "truth", "language", "agency"],
-      "keywords": ["liberty", "harm", "opinion", "silence", "individuality", "tyranny", "majority", "tolerance"],
+      "themes": [
+        "freedom",
+        "politics",
+        "truth",
+        "language",
+        "agency"
+      ],
+      "keywords": [
+        "liberty",
+        "harm",
+        "opinion",
+        "silence",
+        "individuality",
+        "tyranny",
+        "majority",
+        "tolerance"
+      ],
       "difficulty": "demanding",
       "lengthHours": 4,
       "why": "The harm principle, argued by someone whose real reason for defending free speech was that we are so often wrong. Chapter II, on the liberty of thought and discussion, is the one to read if you only read one, and it is still a better defence than most things written since.",
-      "pairsWith": ["politics-and-the-english-language", "two-concepts-of-liberty", "democracy-in-america"],
-      "adjacentTo": ["John Stuart Mill", "Alexis de Tocqueville", "Isaiah Berlin", "George Orwell"]
+      "pairsWith": [
+        "politics-and-the-english-language",
+        "two-concepts-of-liberty",
+        "democracy-in-america"
+      ],
+      "adjacentTo": [
+        "John Stuart Mill",
+        "Alexis de Tocqueville",
+        "Isaiah Berlin",
+        "George Orwell"
+      ]
     },
     {
       "id": "the-human-condition",
@@ -278,13 +690,37 @@
       "year": 1958,
       "kind": "book",
       "url": null,
-      "themes": ["politics", "work", "meaning", "freedom", "agency"],
-      "keywords": ["labour", "action", "plurality", "public", "private", "natality", "world", "appearance"],
+      "themes": [
+        "politics",
+        "work",
+        "meaning",
+        "freedom",
+        "agency"
+      ],
+      "keywords": [
+        "labour",
+        "action",
+        "plurality",
+        "public",
+        "private",
+        "natality",
+        "world",
+        "appearance"
+      ],
       "difficulty": "hard",
       "lengthHours": 13,
       "why": "Arendt separates labour, work and action — what keeps you alive, what makes lasting things, and what happens between people — and once you hold the distinction you cannot unsee it. Hard going, but it sits underneath half of what now gets said about meaningful work.",
-      "pairsWith": ["eichmann-in-jerusalem", "nicomachean-ethics", "the-question-concerning-technology"],
-      "adjacentTo": ["Hannah Arendt", "Martin Heidegger", "Aristotle", "Karl Marx"]
+      "pairsWith": [
+        "eichmann-in-jerusalem",
+        "nicomachean-ethics",
+        "the-question-concerning-technology"
+      ],
+      "adjacentTo": [
+        "Hannah Arendt",
+        "Martin Heidegger",
+        "Aristotle",
+        "Karl Marx"
+      ]
     },
     {
       "id": "politics-and-the-english-language",
@@ -293,13 +729,37 @@
       "year": 1946,
       "kind": "essay",
       "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/",
-      "themes": ["language", "politics", "truth", "writing", "power"],
-      "keywords": ["language", "metaphor", "jargon", "vague", "euphemism", "prose", "writing", "clarity"],
+      "themes": [
+        "language",
+        "politics",
+        "truth",
+        "writing",
+        "power"
+      ],
+      "keywords": [
+        "language",
+        "metaphor",
+        "jargon",
+        "vague",
+        "euphemism",
+        "prose",
+        "writing",
+        "clarity"
+      ],
       "difficulty": "accessible",
       "lengthHours": 0.5,
       "why": "Twenty minutes, and it will change how you write essays this term rather than eventually. Copy out the six rules at the end; the sixth one, about breaking any of them sooner than saying anything outright barbarous, is the one people always forget.",
-      "pairsWith": ["the-elements-of-style", "consider-the-lobster", "on-liberty"],
-      "adjacentTo": ["George Orwell", "Christopher Hitchens", "Joan Didion", "Ludwig Wittgenstein"]
+      "pairsWith": [
+        "the-elements-of-style",
+        "consider-the-lobster",
+        "on-liberty"
+      ],
+      "adjacentTo": [
+        "George Orwell",
+        "Christopher Hitchens",
+        "Joan Didion",
+        "Ludwig Wittgenstein"
+      ]
     },
     {
       "id": "seeing-like-a-state",
@@ -308,28 +768,74 @@
       "year": 1998,
       "kind": "book",
       "url": null,
-      "themes": ["politics", "power", "progress", "knowledge", "nature"],
-      "keywords": ["legibility", "planning", "local", "knowledge", "scheme", "simplification", "bureaucracy", "forest"],
+      "themes": [
+        "politics",
+        "power",
+        "progress",
+        "knowledge",
+        "nature"
+      ],
+      "keywords": [
+        "legibility",
+        "planning",
+        "local",
+        "knowledge",
+        "scheme",
+        "simplification",
+        "bureaucracy",
+        "forest"
+      ],
       "difficulty": "demanding",
       "lengthHours": 14,
       "why": "Scott asks why well-meaning, well-funded schemes to improve the human condition keep failing, and answers it with what gets destroyed when you make a place legible enough to administer. Probably the most useful book here for anyone who will end up designing systems that other people have to live inside.",
-      "pairsWith": ["the-use-of-knowledge-in-society", "how-asia-works", "thinking-in-systems"],
-      "adjacentTo": ["Friedrich Hayek", "James Scott", "Jane Jacobs", "Michel Foucault"]
+      "pairsWith": [
+        "the-use-of-knowledge-in-society",
+        "how-asia-works",
+        "thinking-in-systems"
+      ],
+      "adjacentTo": [
+        "Friedrich Hayek",
+        "James Scott",
+        "Jane Jacobs",
+        "Michel Foucault"
+      ]
     },
     {
       "id": "two-concepts-of-liberty",
       "title": "Two Concepts of Liberty",
       "author": "Isaiah Berlin",
       "year": 1958,
-      "kind": "lecture",
+      "kind": "speech",
       "url": null,
-      "themes": ["freedom", "politics", "power", "truth"],
-      "keywords": ["liberty", "negative", "positive", "coercion", "pluralism", "values", "freedom"],
+      "themes": [
+        "freedom",
+        "politics",
+        "power",
+        "truth"
+      ],
+      "keywords": [
+        "liberty",
+        "negative",
+        "positive",
+        "coercion",
+        "pluralism",
+        "values",
+        "freedom"
+      ],
       "difficulty": "demanding",
       "lengthHours": 2,
       "why": "Berlin's distinction between freedom from and freedom to is forty pages that clarified a century of argument. He is also honest that the two genuinely conflict, and that no political arrangement gives you both in full — which is the part most people quoting him leave out.",
-      "pairsWith": ["on-liberty", "a-theory-of-justice", "the-use-of-knowledge-in-society"],
-      "adjacentTo": ["Isaiah Berlin", "John Stuart Mill", "Karl Popper", "Hannah Arendt"]
+      "pairsWith": [
+        "on-liberty",
+        "a-theory-of-justice",
+        "the-use-of-knowledge-in-society"
+      ],
+      "adjacentTo": [
+        "Isaiah Berlin",
+        "John Stuart Mill",
+        "Karl Popper",
+        "Hannah Arendt"
+      ]
     },
     {
       "id": "democracy-in-america",
@@ -338,13 +844,36 @@
       "year": 1835,
       "kind": "book",
       "url": null,
-      "themes": ["politics", "freedom", "history", "character", "solitude"],
-      "keywords": ["democracy", "equality", "association", "majority", "individualism", "manners", "despotism"],
+      "themes": [
+        "politics",
+        "freedom",
+        "history",
+        "character",
+        "solitude"
+      ],
+      "keywords": [
+        "democracy",
+        "equality",
+        "association",
+        "majority",
+        "individualism",
+        "manners",
+        "despotism"
+      ],
       "difficulty": "demanding",
       "lengthHours": 30,
       "why": "A young French aristocrat toured America in 1831 and wrote the sharpest description anyone has managed of how a democracy feels from the inside. It is long, but the chapters on individualism and on the tyranny of the majority read as though they were written last year.",
-      "pairsWith": ["on-liberty", "postwar", "amusing-ourselves-to-death"],
-      "adjacentTo": ["Alexis de Tocqueville", "John Stuart Mill", "Edmund Burke", "Hannah Arendt"]
+      "pairsWith": [
+        "on-liberty",
+        "postwar",
+        "amusing-ourselves-to-death"
+      ],
+      "adjacentTo": [
+        "Alexis de Tocqueville",
+        "John Stuart Mill",
+        "Edmund Burke",
+        "Hannah Arendt"
+      ]
     },
     {
       "id": "the-use-of-knowledge-in-society",
@@ -353,13 +882,37 @@
       "year": 1945,
       "kind": "paper",
       "url": "https://www.econlib.org/library/Essays/hykKnw.html",
-      "themes": ["money", "knowledge", "politics", "freedom", "technology"],
-      "keywords": ["knowledge", "prices", "dispersed", "planning", "market", "information", "coordination", "local"],
+      "themes": [
+        "money",
+        "knowledge",
+        "politics",
+        "freedom",
+        "technology"
+      ],
+      "keywords": [
+        "knowledge",
+        "prices",
+        "dispersed",
+        "planning",
+        "market",
+        "information",
+        "coordination",
+        "local"
+      ],
       "difficulty": "demanding",
       "lengthHours": 1,
       "why": "Twelve pages arguing that the central problem of economics is that nobody has all the information, and that prices are how a society thinks without anyone doing the thinking. Read it before any argument about planning, about markets, or now about what a model can usefully be told.",
-      "pairsWith": ["seeing-like-a-state", "the-nature-of-the-firm", "thinking-in-systems"],
-      "adjacentTo": ["Friedrich Hayek", "Ronald Coase", "James Scott", "Adam Smith"]
+      "pairsWith": [
+        "seeing-like-a-state",
+        "the-nature-of-the-firm",
+        "thinking-in-systems"
+      ],
+      "adjacentTo": [
+        "Friedrich Hayek",
+        "Ronald Coase",
+        "James Scott",
+        "Adam Smith"
+      ]
     },
     {
       "id": "the-nature-of-the-firm",
@@ -368,13 +921,35 @@
       "year": 1937,
       "kind": "paper",
       "url": null,
-      "themes": ["money", "work", "knowledge", "power"],
-      "keywords": ["transaction", "costs", "firm", "market", "contract", "boundary", "organisation"],
+      "themes": [
+        "money",
+        "work",
+        "knowledge",
+        "power"
+      ],
+      "keywords": [
+        "transaction",
+        "costs",
+        "firm",
+        "market",
+        "contract",
+        "boundary",
+        "organisation"
+      ],
       "difficulty": "demanding",
       "lengthHours": 1,
       "why": "Coase asked a question nobody had bothered to ask — if markets are so efficient, why do firms exist at all? — and answered it with transaction costs. Twenty pages that sit under the whole of what you are studying, and worth reading in the original rather than in a textbook's summary.",
-      "pairsWith": ["the-use-of-knowledge-in-society", "the-effective-executive", "high-output-management"],
-      "adjacentTo": ["Ronald Coase", "Friedrich Hayek", "Adam Smith", "Oliver Williamson"]
+      "pairsWith": [
+        "the-use-of-knowledge-in-society",
+        "the-effective-executive",
+        "high-output-management"
+      ],
+      "adjacentTo": [
+        "Ronald Coase",
+        "Friedrich Hayek",
+        "Adam Smith",
+        "Oliver Williamson"
+      ]
     },
     {
       "id": "the-theory-of-moral-sentiments",
@@ -383,13 +958,36 @@
       "year": 1759,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "money", "character", "friendship", "mind"],
-      "keywords": ["sympathy", "spectator", "propriety", "conscience", "praise", "virtue", "restraint"],
+      "themes": [
+        "ethics",
+        "money",
+        "character",
+        "friendship",
+        "mind"
+      ],
+      "keywords": [
+        "sympathy",
+        "spectator",
+        "propriety",
+        "conscience",
+        "praise",
+        "virtue",
+        "restraint"
+      ],
       "difficulty": "hard",
       "lengthHours": 18,
       "why": "The book Smith himself thought was the better one, about sympathy and the impartial spectator we imagine watching us. It makes The Wealth of Nations read very differently, and it is the reply to anyone who tells you Smith believed people were only ever self-interested.",
-      "pairsWith": ["the-use-of-knowledge-in-society", "nicomachean-ethics", "ethics-and-the-limits-of-philosophy"],
-      "adjacentTo": ["Adam Smith", "David Hume", "Aristotle", "Friedrich Hayek"]
+      "pairsWith": [
+        "the-use-of-knowledge-in-society",
+        "nicomachean-ethics",
+        "ethics-and-the-limits-of-philosophy"
+      ],
+      "adjacentTo": [
+        "Adam Smith",
+        "David Hume",
+        "Aristotle",
+        "Friedrich Hayek"
+      ]
     },
     {
       "id": "capitalism-socialism-and-democracy",
@@ -398,13 +996,36 @@
       "year": 1942,
       "kind": "book",
       "url": null,
-      "themes": ["money", "politics", "progress", "technology", "power"],
-      "keywords": ["destruction", "creative", "entrepreneur", "monopoly", "innovation", "capitalism", "elite"],
+      "themes": [
+        "money",
+        "politics",
+        "progress",
+        "technology",
+        "power"
+      ],
+      "keywords": [
+        "destruction",
+        "creative",
+        "entrepreneur",
+        "monopoly",
+        "innovation",
+        "capitalism",
+        "elite"
+      ],
       "difficulty": "demanding",
       "lengthHours": 16,
       "why": "Where ‘creative destruction’ comes from, and it arrives inside a gloomy argument that capitalism will be undone by its own success and by the intellectuals it enriches. Part II is the core; the rest is a period piece worth skimming for how confident the predictions are.",
-      "pairsWith": ["the-innovators-dilemma", "zero-to-one", "chip-war"],
-      "adjacentTo": ["Joseph Schumpeter", "Sebastian Mallaby", "Peter Thiel", "Clayton Christensen"]
+      "pairsWith": [
+        "the-innovators-dilemma",
+        "zero-to-one",
+        "chip-war"
+      ],
+      "adjacentTo": [
+        "Joseph Schumpeter",
+        "Sebastian Mallaby",
+        "Peter Thiel",
+        "Clayton Christensen"
+      ]
     },
     {
       "id": "thinking-in-systems",
@@ -413,13 +1034,37 @@
       "year": 2008,
       "kind": "book",
       "url": null,
-      "themes": ["knowledge", "nature", "technology", "progress", "risk"],
-      "keywords": ["system", "feedback", "stock", "leverage", "delay", "resilience", "loops", "model"],
+      "themes": [
+        "knowledge",
+        "nature",
+        "technology",
+        "progress",
+        "risk"
+      ],
+      "keywords": [
+        "system",
+        "feedback",
+        "stock",
+        "leverage",
+        "delay",
+        "resilience",
+        "loops",
+        "model"
+      ],
       "difficulty": "accessible",
       "lengthHours": 6,
       "why": "Meadows teaches you to see stocks, flows and feedback loops, and then to find the point in a system where a small push does the most work. Unusually short and clear for a book about complexity, and the list of leverage points at the end is worth keeping.",
-      "pairsWith": ["seeing-like-a-state", "the-use-of-knowledge-in-society", "how-asia-works"],
-      "adjacentTo": ["Donella Meadows", "James Scott", "Herbert Simon", "Norbert Wiener"]
+      "pairsWith": [
+        "seeing-like-a-state",
+        "the-use-of-knowledge-in-society",
+        "how-asia-works"
+      ],
+      "adjacentTo": [
+        "Donella Meadows",
+        "James Scott",
+        "Herbert Simon",
+        "Norbert Wiener"
+      ]
     },
     {
       "id": "development-as-freedom",
@@ -428,13 +1073,36 @@
       "year": 1999,
       "kind": "book",
       "url": null,
-      "themes": ["money", "freedom", "ethics", "politics", "suffering"],
-      "keywords": ["capability", "development", "famine", "freedom", "poverty", "agency", "entitlement"],
+      "themes": [
+        "money",
+        "freedom",
+        "ethics",
+        "politics",
+        "suffering"
+      ],
+      "keywords": [
+        "capability",
+        "development",
+        "famine",
+        "freedom",
+        "poverty",
+        "agency",
+        "entitlement"
+      ],
       "difficulty": "demanding",
       "lengthHours": 10,
       "why": "Sen's argument is that development means expanding what people are actually able to do and be, not raising a number. It is the strongest available answer to a purely GDP-shaped account of what economies are for, and it comes from someone who watched a famine as a child.",
-      "pairsWith": ["famine-affluence-and-morality", "how-asia-works", "a-theory-of-justice"],
-      "adjacentTo": ["Amartya Sen", "John Rawls", "Peter Singer", "Adam Smith"]
+      "pairsWith": [
+        "famine-affluence-and-morality",
+        "how-asia-works",
+        "a-theory-of-justice"
+      ],
+      "adjacentTo": [
+        "Amartya Sen",
+        "John Rawls",
+        "Peter Singer",
+        "Adam Smith"
+      ]
     },
     {
       "id": "how-asia-works",
@@ -443,13 +1111,37 @@
       "year": 2013,
       "kind": "book",
       "url": null,
-      "themes": ["money", "politics", "history", "progress", "power"],
-      "keywords": ["industrial", "policy", "export", "discipline", "land", "reform", "growth", "manufacturing"],
+      "themes": [
+        "money",
+        "politics",
+        "history",
+        "progress",
+        "power"
+      ],
+      "keywords": [
+        "industrial",
+        "policy",
+        "export",
+        "discipline",
+        "land",
+        "reform",
+        "growth",
+        "manufacturing"
+      ],
       "difficulty": "accessible",
       "lengthHours": 11,
       "why": "Studwell explains why some Asian economies grew and others stalled, and his answer — land reform first, then export discipline, then finance kept on a short leash — is concrete enough to argue with properly. A useful antidote to books that explain growth by culture.",
-      "pairsWith": ["why-nations-fail", "seeing-like-a-state", "chip-war"],
-      "adjacentTo": ["Daron Acemoglu", "Ha-Joon Chang", "James Scott", "Amartya Sen"]
+      "pairsWith": [
+        "why-nations-fail",
+        "seeing-like-a-state",
+        "chip-war"
+      ],
+      "adjacentTo": [
+        "Daron Acemoglu",
+        "Ha-Joon Chang",
+        "James Scott",
+        "Amartya Sen"
+      ]
     },
     {
       "id": "why-nations-fail",
@@ -458,28 +1150,73 @@
       "year": 2012,
       "kind": "book",
       "url": null,
-      "themes": ["politics", "money", "history", "power", "progress"],
-      "keywords": ["institutions", "extractive", "inclusive", "growth", "elite", "property", "prosperity"],
+      "themes": [
+        "politics",
+        "money",
+        "history",
+        "power",
+        "progress"
+      ],
+      "keywords": [
+        "institutions",
+        "extractive",
+        "inclusive",
+        "growth",
+        "elite",
+        "property",
+        "prosperity"
+      ],
       "difficulty": "accessible",
       "lengthHours": 15,
       "why": "The case that institutions, not geography or culture, decide who gets rich, argued through a long parade of historical examples. It is repetitive and the critics have real objections, so treat it as an argument to test rather than a conclusion to adopt.",
-      "pairsWith": ["how-asia-works", "seeing-like-a-state", "debt-the-first-5000-years"],
-      "adjacentTo": ["Daron Acemoglu", "Joe Studwell", "Douglass North", "Amartya Sen"]
+      "pairsWith": [
+        "how-asia-works",
+        "seeing-like-a-state",
+        "debt-the-first-5000-years"
+      ],
+      "adjacentTo": [
+        "Daron Acemoglu",
+        "Joe Studwell",
+        "Douglass North",
+        "Amartya Sen"
+      ]
     },
     {
       "id": "the-effective-executive",
       "title": "The Effective Executive",
       "author": "Peter F. Drucker",
-      "year": 1967,
+      "year": 1966,
       "kind": "book",
       "url": null,
-      "themes": ["work", "time", "attention", "character", "agency"],
-      "keywords": ["effectiveness", "priorities", "decisions", "contribution", "strengths", "time", "management"],
+      "themes": [
+        "work",
+        "time",
+        "attention",
+        "character",
+        "agency"
+      ],
+      "keywords": [
+        "effectiveness",
+        "priorities",
+        "decisions",
+        "contribution",
+        "strengths",
+        "time",
+        "management"
+      ],
       "difficulty": "accessible",
       "lengthHours": 5,
-      "why": "Drucker on managing yourself, written in 1967 and almost entirely undated. The chapter on knowing where your time actually goes is worth doing as an exercise rather than reading as a chapter — record a fortnight honestly and it will change what you do next term.",
-      "pairsWith": ["high-output-management", "good-strategy-bad-strategy", "you-and-your-research"],
-      "adjacentTo": ["Peter Drucker", "Andrew Grove", "Herbert Simon"]
+      "why": "Drucker on managing yourself, written in the mid-sixties and almost entirely undated. The chapter on knowing where your time actually goes is worth doing as an exercise rather than reading as a chapter — record a fortnight honestly and it will change what you do next term.",
+      "pairsWith": [
+        "high-output-management",
+        "good-strategy-bad-strategy",
+        "you-and-your-research"
+      ],
+      "adjacentTo": [
+        "Peter Drucker",
+        "Andrew Grove",
+        "Herbert Simon"
+      ]
     },
     {
       "id": "high-output-management",
@@ -488,13 +1225,36 @@
       "year": 1983,
       "kind": "book",
       "url": null,
-      "themes": ["work", "power", "technology", "time", "agency"],
-      "keywords": ["management", "leverage", "meetings", "output", "delegation", "training", "production"],
+      "themes": [
+        "work",
+        "power",
+        "technology",
+        "time",
+        "agency"
+      ],
+      "keywords": [
+        "management",
+        "leverage",
+        "meetings",
+        "output",
+        "delegation",
+        "training",
+        "production"
+      ],
       "difficulty": "accessible",
       "lengthHours": 6,
       "why": "Grove ran Intel and wrote the clearest thing there is about what a manager's output actually is — the output of the team, not the manager's own. He explains a whole company using a breakfast factory, and the analogy holds for longer than you expect it to.",
-      "pairsWith": ["the-effective-executive", "the-innovators-dilemma", "chip-war"],
-      "adjacentTo": ["Andrew Grove", "Peter Drucker", "Ben Horowitz", "Clayton Christensen"]
+      "pairsWith": [
+        "the-effective-executive",
+        "the-innovators-dilemma",
+        "chip-war"
+      ],
+      "adjacentTo": [
+        "Andrew Grove",
+        "Peter Drucker",
+        "Ben Horowitz",
+        "Clayton Christensen"
+      ]
     },
     {
       "id": "good-strategy-bad-strategy",
@@ -503,13 +1263,35 @@
       "year": 2011,
       "kind": "book",
       "url": null,
-      "themes": ["work", "power", "money", "knowledge"],
-      "keywords": ["strategy", "diagnosis", "coherent", "leverage", "objectives", "fluff", "advantage"],
+      "themes": [
+        "work",
+        "power",
+        "money",
+        "knowledge"
+      ],
+      "keywords": [
+        "strategy",
+        "diagnosis",
+        "coherent",
+        "leverage",
+        "objectives",
+        "fluff",
+        "advantage"
+      ],
       "difficulty": "accessible",
       "lengthHours": 9,
       "why": "Rumelt defines strategy as a diagnosis, a guiding policy and coherent action, and his catalogue of what passes for strategy instead is uncomfortably recognisable. Useful the next time you have to write one for a case study and find yourself reaching for adjectives.",
-      "pairsWith": ["the-innovators-dilemma", "the-effective-executive", "zero-to-one"],
-      "adjacentTo": ["Michael Porter", "Peter Drucker", "Andrew Grove", "Clayton Christensen"]
+      "pairsWith": [
+        "the-innovators-dilemma",
+        "the-effective-executive",
+        "zero-to-one"
+      ],
+      "adjacentTo": [
+        "Michael Porter",
+        "Peter Drucker",
+        "Andrew Grove",
+        "Clayton Christensen"
+      ]
     },
     {
       "id": "the-innovators-dilemma",
@@ -518,13 +1300,36 @@
       "year": 1997,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "money", "progress", "work", "risk"],
-      "keywords": ["disruption", "incumbent", "customers", "sustaining", "margins", "innovation", "technology"],
+      "themes": [
+        "technology",
+        "money",
+        "progress",
+        "work",
+        "risk"
+      ],
+      "keywords": [
+        "disruption",
+        "incumbent",
+        "customers",
+        "sustaining",
+        "margins",
+        "innovation",
+        "technology"
+      ],
       "difficulty": "accessible",
       "lengthHours": 8,
       "why": "The argument that well-run companies fail precisely because they listen to their best customers. The theory has been attacked hard since publication, so read the criticism alongside it; the disputed cases are where the interesting thinking now is.",
-      "pairsWith": ["capitalism-socialism-and-democracy", "good-strategy-bad-strategy", "high-output-management"],
-      "adjacentTo": ["Clayton Christensen", "Joseph Schumpeter", "Sebastian Mallaby", "Peter Thiel"]
+      "pairsWith": [
+        "capitalism-socialism-and-democracy",
+        "good-strategy-bad-strategy",
+        "high-output-management"
+      ],
+      "adjacentTo": [
+        "Clayton Christensen",
+        "Joseph Schumpeter",
+        "Sebastian Mallaby",
+        "Peter Thiel"
+      ]
     },
     {
       "id": "against-the-gods",
@@ -533,13 +1338,36 @@
       "year": 1996,
       "kind": "book",
       "url": null,
-      "themes": ["risk", "money", "history", "knowledge", "certainty"],
-      "keywords": ["risk", "probability", "insurance", "gambling", "chance", "portfolio", "uncertainty", "measure"],
+      "themes": [
+        "risk",
+        "money",
+        "history",
+        "knowledge",
+        "certainty"
+      ],
+      "keywords": [
+        "risk",
+        "probability",
+        "insurance",
+        "gambling",
+        "chance",
+        "portfolio",
+        "uncertainty",
+        "measure"
+      ],
       "difficulty": "accessible",
       "lengthHours": 12,
       "why": "A history of how people learned to measure risk at all, from dice through insurance to portfolio theory. It gives you the historical spine that finance courses skip straight past, and it makes clear how recent the idea of a calculable future actually is.",
-      "pairsWith": ["superforecasting", "thinking-fast-and-slow", "the-outsiders"],
-      "adjacentTo": ["Nassim Nicholas Taleb", "Daniel Kahneman", "Sebastian Mallaby"]
+      "pairsWith": [
+        "superforecasting",
+        "thinking-fast-and-slow",
+        "the-outsiders"
+      ],
+      "adjacentTo": [
+        "Nassim Nicholas Taleb",
+        "Daniel Kahneman",
+        "Sebastian Mallaby"
+      ]
     },
     {
       "id": "the-outsiders",
@@ -548,13 +1376,34 @@
       "year": 2012,
       "kind": "book",
       "url": null,
-      "themes": ["money", "work", "power", "character"],
-      "keywords": ["capital", "allocation", "buyback", "returns", "decentralised", "cashflow", "patience"],
+      "themes": [
+        "money",
+        "work",
+        "power",
+        "character"
+      ],
+      "keywords": [
+        "capital",
+        "allocation",
+        "buyback",
+        "returns",
+        "decentralised",
+        "cashflow",
+        "patience"
+      ],
       "difficulty": "accessible",
       "lengthHours": 7,
       "why": "Eight chief executives who were unusually good at exactly one thing — deciding what to do with the cash — and beat the market for decades on that alone. Concrete, arithmetic-heavy, and the cleanest introduction there is to capital allocation as an actual skill rather than a phrase.",
-      "pairsWith": ["against-the-gods", "good-strategy-bad-strategy", "liars-poker"],
-      "adjacentTo": ["Sebastian Mallaby", "Warren Buffett", "Peter Drucker"]
+      "pairsWith": [
+        "against-the-gods",
+        "good-strategy-bad-strategy",
+        "liars-poker"
+      ],
+      "adjacentTo": [
+        "Sebastian Mallaby",
+        "Warren Buffett",
+        "Peter Drucker"
+      ]
     },
     {
       "id": "liars-poker",
@@ -563,13 +1412,34 @@
       "year": 1989,
       "kind": "book",
       "url": null,
-      "themes": ["money", "work", "character", "risk"],
-      "keywords": ["bonds", "trading", "salomon", "bonus", "greed", "mortgage", "salesman"],
+      "themes": [
+        "money",
+        "work",
+        "character",
+        "risk"
+      ],
+      "keywords": [
+        "bonds",
+        "trading",
+        "salomon",
+        "bonus",
+        "greed",
+        "mortgage",
+        "salesman"
+      ],
       "difficulty": "accessible",
       "lengthHours": 7,
       "why": "Lewis wrote this to warn people off Wall Street and it worked as a recruitment brochure instead, which tells you something about how warnings land. Short, funny, and the best available introduction to why an industry's incentives can be obvious to everyone inside it and still not change.",
-      "pairsWith": ["zero-to-one", "against-the-gods", "the-outsiders"],
-      "adjacentTo": ["Michael Lewis", "Sebastian Mallaby", "Nassim Nicholas Taleb"]
+      "pairsWith": [
+        "zero-to-one",
+        "against-the-gods",
+        "the-outsiders"
+      ],
+      "adjacentTo": [
+        "Michael Lewis",
+        "Sebastian Mallaby",
+        "Nassim Nicholas Taleb"
+      ]
     },
     {
       "id": "zero-to-one",
@@ -578,13 +1448,37 @@
       "year": 2014,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "money", "progress", "work", "truth"],
-      "keywords": ["monopoly", "competition", "secret", "founder", "startup", "future", "contrarian", "progress"],
+      "themes": [
+        "technology",
+        "money",
+        "progress",
+        "work",
+        "truth"
+      ],
+      "keywords": [
+        "monopoly",
+        "competition",
+        "secret",
+        "founder",
+        "startup",
+        "future",
+        "contrarian",
+        "progress"
+      ],
       "difficulty": "accessible",
       "lengthHours": 4,
       "why": "Lecture notes, sharpened: the claim that competition is for losers and that the interesting question is what true thing almost nobody agrees with you about. Read it alongside Mallaby rather than instead of him, since Thiel is a participant arguing his own position.",
-      "pairsWith": ["capitalism-socialism-and-democracy", "where-is-my-flying-car", "the-innovators-dilemma"],
-      "adjacentTo": ["Peter Thiel", "Sebastian Mallaby", "Joseph Schumpeter", "René Girard"]
+      "pairsWith": [
+        "capitalism-socialism-and-democracy",
+        "where-is-my-flying-car",
+        "the-innovators-dilemma"
+      ],
+      "adjacentTo": [
+        "Peter Thiel",
+        "Sebastian Mallaby",
+        "Joseph Schumpeter",
+        "René Girard"
+      ]
     },
     {
       "id": "debt-the-first-5000-years",
@@ -593,13 +1487,37 @@
       "year": 2011,
       "kind": "book",
       "url": null,
-      "themes": ["money", "history", "power", "ethics", "freedom"],
-      "keywords": ["debt", "credit", "barter", "obligation", "money", "slavery", "jubilee", "exchange"],
+      "themes": [
+        "money",
+        "history",
+        "power",
+        "ethics",
+        "freedom"
+      ],
+      "keywords": [
+        "debt",
+        "credit",
+        "barter",
+        "obligation",
+        "money",
+        "slavery",
+        "jubilee",
+        "exchange"
+      ],
       "difficulty": "demanding",
       "lengthHours": 18,
       "why": "Graeber takes the standard story — barter, then money, then credit — and argues it happened the other way round, with credit first and coins invented for armies. Anthropologists dispute a good deal of the detail; read it for the reframing and keep a sceptical hand on the facts.",
-      "pairsWith": ["the-theory-of-moral-sentiments", "development-as-freedom", "why-nations-fail"],
-      "adjacentTo": ["David Graeber", "Karl Polanyi", "Karl Marx", "Adam Smith"]
+      "pairsWith": [
+        "the-theory-of-moral-sentiments",
+        "development-as-freedom",
+        "why-nations-fail"
+      ],
+      "adjacentTo": [
+        "David Graeber",
+        "Karl Polanyi",
+        "Karl Marx",
+        "Adam Smith"
+      ]
     },
     {
       "id": "computing-machinery-and-intelligence",
@@ -608,13 +1526,37 @@
       "year": 1950,
       "kind": "paper",
       "url": null,
-      "themes": ["technology", "mind", "knowledge", "science", "language"],
-      "keywords": ["machine", "intelligence", "imitation", "thinking", "learning", "objection", "computer", "consciousness"],
+      "themes": [
+        "technology",
+        "mind",
+        "knowledge",
+        "science",
+        "language"
+      ],
+      "keywords": [
+        "machine",
+        "intelligence",
+        "imitation",
+        "thinking",
+        "learning",
+        "objection",
+        "computer",
+        "consciousness"
+      ],
       "difficulty": "demanding",
       "lengthHours": 1.5,
       "why": "The paper that proposed the imitation game and then, more usefully, took nine objections to machine intelligence seriously one at a time. The section answering the argument from consciousness is still the sharpest thing written on it, and the whole paper is shorter than one lecture.",
-      "pairsWith": ["human-compatible", "godel-escher-bach", "the-alignment-problem"],
-      "adjacentTo": ["Alan Turing", "Dario Amodei", "Douglas Hofstadter", "Ludwig Wittgenstein"]
+      "pairsWith": [
+        "human-compatible",
+        "godel-escher-bach",
+        "the-alignment-problem"
+      ],
+      "adjacentTo": [
+        "Alan Turing",
+        "Dario Amodei",
+        "Douglas Hofstadter",
+        "Ludwig Wittgenstein"
+      ]
     },
     {
       "id": "superintelligence",
@@ -623,13 +1565,36 @@
       "year": 2014,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "risk", "ethics", "power", "progress"],
-      "keywords": ["superintelligence", "alignment", "control", "takeoff", "values", "existential", "orthogonality"],
+      "themes": [
+        "technology",
+        "risk",
+        "ethics",
+        "power",
+        "progress"
+      ],
+      "keywords": [
+        "superintelligence",
+        "alignment",
+        "control",
+        "takeoff",
+        "values",
+        "existential",
+        "orthogonality"
+      ],
       "difficulty": "demanding",
       "lengthHours": 14,
       "why": "The book that put AI risk into serious philosophical circulation, and it is slower and more careful than its reputation suggests. Worth reading now partly as a historical document: most of it was written before the systems it worries about existed, and noticing what it got wrong is half the value.",
-      "pairsWith": ["human-compatible", "the-alignment-problem", "reasons-and-persons"],
-      "adjacentTo": ["Nick Bostrom", "Dario Amodei", "Stuart Russell", "Derek Parfit"]
+      "pairsWith": [
+        "human-compatible",
+        "the-alignment-problem",
+        "reasons-and-persons"
+      ],
+      "adjacentTo": [
+        "Nick Bostrom",
+        "Dario Amodei",
+        "Stuart Russell",
+        "Derek Parfit"
+      ]
     },
     {
       "id": "the-alignment-problem",
@@ -638,13 +1603,37 @@
       "year": 2020,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "ethics", "mind", "science", "risk"],
-      "keywords": ["alignment", "learning", "reward", "bias", "curiosity", "imitation", "models", "training"],
+      "themes": [
+        "technology",
+        "ethics",
+        "mind",
+        "science",
+        "risk"
+      ],
+      "keywords": [
+        "alignment",
+        "learning",
+        "reward",
+        "bias",
+        "curiosity",
+        "imitation",
+        "models",
+        "training"
+      ],
       "difficulty": "accessible",
       "lengthHours": 12,
       "why": "The best-written account of how machine learning actually behaves badly in practice, from biased classifiers up through reward hacking. It is reporting rather than argument, which makes it the right complement to Bostrom if you have been reading Anthropic's own material.",
-      "pairsWith": ["superintelligence", "human-compatible", "computing-machinery-and-intelligence"],
-      "adjacentTo": ["Dario Amodei", "Stuart Russell", "Nick Bostrom", "Brian Christian"]
+      "pairsWith": [
+        "superintelligence",
+        "human-compatible",
+        "computing-machinery-and-intelligence"
+      ],
+      "adjacentTo": [
+        "Dario Amodei",
+        "Stuart Russell",
+        "Nick Bostrom",
+        "Brian Christian"
+      ]
     },
     {
       "id": "human-compatible",
@@ -653,13 +1642,36 @@
       "year": 2019,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "ethics", "mind", "risk", "agency"],
-      "keywords": ["objective", "uncertainty", "preferences", "control", "assistance", "utility", "machines"],
+      "themes": [
+        "technology",
+        "ethics",
+        "mind",
+        "risk",
+        "agency"
+      ],
+      "keywords": [
+        "objective",
+        "uncertainty",
+        "preferences",
+        "control",
+        "assistance",
+        "utility",
+        "machines"
+      ],
       "difficulty": "accessible",
       "lengthHours": 10,
       "why": "Russell wrote the standard AI textbook and then wrote this to argue that the field's founding definition of intelligence was the wrong one. His alternative — machines that stay uncertain about what we actually want — is the cleanest technical proposal in the popular literature.",
-      "pairsWith": ["superintelligence", "the-alignment-problem", "computing-machinery-and-intelligence"],
-      "adjacentTo": ["Stuart Russell", "Dario Amodei", "Nick Bostrom", "Alan Turing"]
+      "pairsWith": [
+        "superintelligence",
+        "the-alignment-problem",
+        "computing-machinery-and-intelligence"
+      ],
+      "adjacentTo": [
+        "Stuart Russell",
+        "Dario Amodei",
+        "Nick Bostrom",
+        "Alan Turing"
+      ]
     },
     {
       "id": "as-we-may-think",
@@ -668,28 +1680,75 @@
       "year": 1945,
       "kind": "essay",
       "url": "https://web.mit.edu/sts.035/www/PDFs/think.pdf",
-      "themes": ["technology", "knowledge", "progress", "attention", "science"],
-      "keywords": ["memex", "association", "record", "trails", "knowledge", "machine", "selection"],
+      "themes": [
+        "technology",
+        "knowledge",
+        "progress",
+        "attention",
+        "science"
+      ],
+      "keywords": [
+        "memex",
+        "association",
+        "record",
+        "trails",
+        "knowledge",
+        "machine",
+        "selection"
+      ],
       "difficulty": "accessible",
       "lengthHours": 0.75,
       "why": "In 1945 Bush described a machine for following associative trails through documents and got most of the hypertext idea right decades early. Half an hour, and a useful calibration on how far ahead anybody can actually see — including the parts he missed completely.",
-      "pairsWith": ["the-dream-machine", "you-and-your-research", "computing-machinery-and-intelligence"],
-      "adjacentTo": ["Vannevar Bush", "Douglas Engelbart", "Alan Turing", "Dario Amodei"]
+      "pairsWith": [
+        "the-dream-machine",
+        "you-and-your-research",
+        "computing-machinery-and-intelligence"
+      ],
+      "adjacentTo": [
+        "Vannevar Bush",
+        "Douglas Engelbart",
+        "Alan Turing",
+        "Dario Amodei"
+      ]
     },
     {
       "id": "you-and-your-research",
       "title": "You and Your Research",
       "author": "Richard W. Hamming",
       "year": 1986,
-      "kind": "lecture",
+      "kind": "speech",
       "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
-      "themes": ["work", "character", "science", "agency", "attention"],
-      "keywords": ["research", "courage", "important", "problems", "compound", "ambition", "door", "luck"],
+      "themes": [
+        "work",
+        "character",
+        "science",
+        "agency",
+        "attention"
+      ],
+      "keywords": [
+        "research",
+        "courage",
+        "important",
+        "problems",
+        "compound",
+        "ambition",
+        "door",
+        "luck"
+      ],
       "difficulty": "accessible",
       "lengthHours": 1.5,
       "why": "A talk about why a few people do important work and most do not, given by someone who had watched both up close at Bell Labs for thirty years. It is blunt about courage, about working with your door open, and about choosing problems — read it now rather than at thirty.",
-      "pairsWith": ["cargo-cult-science", "the-effective-executive", "surely-youre-joking-mr-feynman"],
-      "adjacentTo": ["Richard Feynman", "Claude Shannon", "Peter Drucker", "Paul Graham"]
+      "pairsWith": [
+        "cargo-cult-science",
+        "the-effective-executive",
+        "surely-youre-joking-mr-feynman"
+      ],
+      "adjacentTo": [
+        "Richard Feynman",
+        "Claude Shannon",
+        "Peter Drucker",
+        "Paul Graham"
+      ]
     },
     {
       "id": "godel-escher-bach",
@@ -698,13 +1757,37 @@
       "year": 1979,
       "kind": "book",
       "url": null,
-      "themes": ["mind", "art", "science", "language", "beauty"],
-      "keywords": ["recursion", "paradox", "formal", "meaning", "loops", "symbols", "incompleteness", "consciousness"],
+      "themes": [
+        "mind",
+        "art",
+        "science",
+        "language",
+        "beauty"
+      ],
+      "keywords": [
+        "recursion",
+        "paradox",
+        "formal",
+        "meaning",
+        "loops",
+        "symbols",
+        "incompleteness",
+        "consciousness"
+      ],
       "difficulty": "hard",
       "lengthHours": 30,
       "why": "A book about how meaning arises out of meaningless parts, told through Bach's canons, Escher's staircases and Gödel's theorem at once. It is enormous and playful and will take a term rather than a weekend, and the dialogues between the chapters are not decoration.",
-      "pairsWith": ["computing-machinery-and-intelligence", "ficciones", "invisible-cities"],
-      "adjacentTo": ["Douglas Hofstadter", "Jorge Luis Borges", "Alan Turing", "Kurt Gödel"]
+      "pairsWith": [
+        "computing-machinery-and-intelligence",
+        "ficciones",
+        "invisible-cities"
+      ],
+      "adjacentTo": [
+        "Douglas Hofstadter",
+        "Jorge Luis Borges",
+        "Alan Turing",
+        "Kurt Gödel"
+      ]
     },
     {
       "id": "the-dream-machine",
@@ -713,13 +1796,36 @@
       "year": 2001,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "history", "progress", "work", "knowledge"],
-      "keywords": ["licklider", "arpanet", "computing", "funding", "interactive", "laboratory", "network"],
+      "themes": [
+        "technology",
+        "history",
+        "progress",
+        "work",
+        "knowledge"
+      ],
+      "keywords": [
+        "licklider",
+        "arpanet",
+        "computing",
+        "funding",
+        "interactive",
+        "laboratory",
+        "network"
+      ],
       "difficulty": "demanding",
       "lengthHours": 20,
       "why": "The history of how computing became personal, organised around Licklider and the funding decisions that made ARPANET possible. If The Power Law left you interested in who pays for what before it works, this is the government-money counterpart to that story.",
-      "pairsWith": ["as-we-may-think", "chip-war", "the-making-of-the-atomic-bomb"],
-      "adjacentTo": ["Sebastian Mallaby", "Vannevar Bush", "Alan Kay", "Chris Miller"]
+      "pairsWith": [
+        "as-we-may-think",
+        "chip-war",
+        "the-making-of-the-atomic-bomb"
+      ],
+      "adjacentTo": [
+        "Sebastian Mallaby",
+        "Vannevar Bush",
+        "Alan Kay",
+        "Chris Miller"
+      ]
     },
     {
       "id": "chip-war",
@@ -728,13 +1834,37 @@
       "year": 2022,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "politics", "power", "history", "money"],
-      "keywords": ["semiconductor", "lithography", "supply", "taiwan", "export", "fabrication", "compute", "chips"],
+      "themes": [
+        "technology",
+        "politics",
+        "power",
+        "history",
+        "money"
+      ],
+      "keywords": [
+        "semiconductor",
+        "lithography",
+        "supply",
+        "taiwan",
+        "export",
+        "fabrication",
+        "compute",
+        "chips"
+      ],
       "difficulty": "accessible",
       "lengthHours": 12,
       "why": "How the semiconductor supply chain became the most concentrated chokepoint in the world economy, told as narrative history rather than policy analysis. Directly underneath every current argument about export controls and compute, including the ones Amodei has been making.",
-      "pairsWith": ["the-dream-machine", "how-asia-works", "high-output-management"],
-      "adjacentTo": ["Dario Amodei", "Chris Miller", "Andrew Grove", "Joe Studwell"]
+      "pairsWith": [
+        "the-dream-machine",
+        "how-asia-works",
+        "high-output-management"
+      ],
+      "adjacentTo": [
+        "Dario Amodei",
+        "Chris Miller",
+        "Andrew Grove",
+        "Joe Studwell"
+      ]
     },
     {
       "id": "amusing-ourselves-to-death",
@@ -743,13 +1873,36 @@
       "year": 1985,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "attention", "politics", "language", "truth"],
-      "keywords": ["television", "medium", "discourse", "entertainment", "attention", "typography", "trivial"],
+      "themes": [
+        "technology",
+        "attention",
+        "politics",
+        "language",
+        "truth"
+      ],
+      "keywords": [
+        "television",
+        "medium",
+        "discourse",
+        "entertainment",
+        "attention",
+        "typography",
+        "trivial"
+      ],
       "difficulty": "accessible",
       "lengthHours": 5,
       "why": "Postman argues that the dominant medium sets what a culture is able to discuss seriously, and that television turned public argument into entertainment. Written in 1985 about television; the mechanism transfers to feeds with almost no editing, which is the unsettling part.",
-      "pairsWith": ["politics-and-the-english-language", "the-question-concerning-technology", "democracy-in-america"],
-      "adjacentTo": ["Neil Postman", "Marshall McLuhan", "George Orwell", "Aldous Huxley"]
+      "pairsWith": [
+        "politics-and-the-english-language",
+        "the-question-concerning-technology",
+        "democracy-in-america"
+      ],
+      "adjacentTo": [
+        "Neil Postman",
+        "Marshall McLuhan",
+        "George Orwell",
+        "Aldous Huxley"
+      ]
     },
     {
       "id": "the-question-concerning-technology",
@@ -758,28 +1911,75 @@
       "year": 1954,
       "kind": "essay",
       "url": null,
-      "themes": ["technology", "nature", "meaning", "truth", "power"],
-      "keywords": ["enframing", "revealing", "reserve", "essence", "instrumental", "danger", "technology"],
+      "themes": [
+        "technology",
+        "nature",
+        "meaning",
+        "truth",
+        "power"
+      ],
+      "keywords": [
+        "enframing",
+        "revealing",
+        "reserve",
+        "essence",
+        "instrumental",
+        "danger",
+        "technology"
+      ],
       "difficulty": "hard",
       "lengthHours": 3,
       "why": "Heidegger's claim is that technology is not a set of tools but a way of disclosing the world, one that turns everything — rivers, forests, people — into standing reserve waiting to be used. It is hard and the prose fights you; read it with a commentary open and do not expect to win on the first pass.",
-      "pairsWith": ["the-human-condition", "amusing-ourselves-to-death", "hverken-eller"],
-      "adjacentTo": ["Martin Heidegger", "Hannah Arendt", "Jacques Ellul", "Villy Sørensen"]
+      "pairsWith": [
+        "the-human-condition",
+        "amusing-ourselves-to-death",
+        "hverken-eller"
+      ],
+      "adjacentTo": [
+        "Martin Heidegger",
+        "Hannah Arendt",
+        "Jacques Ellul",
+        "Villy Sørensen"
+      ]
     },
     {
       "id": "where-is-my-flying-car",
       "title": "Where Is My Flying Car?",
       "author": "J. Storrs Hall",
-      "year": 2021,
+      "year": 2018,
       "kind": "book",
       "url": null,
-      "themes": ["technology", "progress", "risk", "history", "science"],
-      "keywords": ["stagnation", "progress", "energy", "nuclear", "regulation", "growth", "invention", "future"],
+      "themes": [
+        "technology",
+        "progress",
+        "risk",
+        "history",
+        "science"
+      ],
+      "keywords": [
+        "stagnation",
+        "progress",
+        "energy",
+        "nuclear",
+        "regulation",
+        "growth",
+        "invention",
+        "future"
+      ],
       "difficulty": "demanding",
       "lengthHours": 10,
-      "why": "Hall's case is that technological progress genuinely slowed after roughly 1970, and that the causes were regulatory and cultural rather than physical. Written with a nuclear engineer's impatience — treat the confidence as a prompt for scepticism rather than a conclusion, and it becomes a good argument to have.",
-      "pairsWith": ["zero-to-one", "the-dream-machine", "capitalism-socialism-and-democracy"],
-      "adjacentTo": ["Peter Thiel", "Dario Amodei", "Tyler Cowen", "Freeman Dyson"]
+      "why": "Hall's case is that technological progress genuinely slowed after roughly 1970, and that the causes were regulatory and cultural rather than physical. Written with a nanotechnologist's impatience — treat the confidence as a prompt for scepticism rather than a conclusion, and it becomes a good argument to have.",
+      "pairsWith": [
+        "zero-to-one",
+        "the-dream-machine",
+        "capitalism-socialism-and-democracy"
+      ],
+      "adjacentTo": [
+        "Peter Thiel",
+        "Dario Amodei",
+        "Tyler Cowen",
+        "Freeman Dyson"
+      ]
     },
     {
       "id": "the-guns-of-august",
@@ -788,13 +1988,36 @@
       "year": 1962,
       "kind": "book",
       "url": null,
-      "themes": ["history", "power", "politics", "risk", "death"],
-      "keywords": ["mobilisation", "schlieffen", "generals", "timetable", "invasion", "blunder", "plans"],
+      "themes": [
+        "history",
+        "power",
+        "politics",
+        "risk",
+        "death"
+      ],
+      "keywords": [
+        "mobilisation",
+        "schlieffen",
+        "generals",
+        "timetable",
+        "invasion",
+        "blunder",
+        "plans"
+      ],
       "difficulty": "accessible",
       "lengthHours": 16,
       "why": "The first month of the First World War, and how a set of rigid plans made by clever men produced a catastrophe none of them wanted. Kennedy reportedly had it in mind during the Cuban missile crisis, which is the best endorsement a history book has ever received.",
-      "pairsWith": ["the-sleepwalkers", "postwar", "seeing-like-a-state"],
-      "adjacentTo": ["Barbara Tuchman", "Christopher Clark", "Tony Judt", "Thucydides"]
+      "pairsWith": [
+        "the-sleepwalkers",
+        "postwar",
+        "seeing-like-a-state"
+      ],
+      "adjacentTo": [
+        "Barbara Tuchman",
+        "Christopher Clark",
+        "Tony Judt",
+        "Thucydides"
+      ]
     },
     {
       "id": "the-sleepwalkers",
@@ -803,13 +2026,36 @@
       "year": 2012,
       "kind": "book",
       "url": null,
-      "themes": ["history", "politics", "power", "risk", "certainty"],
-      "keywords": ["diplomacy", "crisis", "alliance", "balkans", "decision", "blame", "escalation"],
+      "themes": [
+        "history",
+        "politics",
+        "power",
+        "risk",
+        "certainty"
+      ],
+      "keywords": [
+        "diplomacy",
+        "crisis",
+        "alliance",
+        "balkans",
+        "decision",
+        "blame",
+        "escalation"
+      ],
       "difficulty": "demanding",
       "lengthHours": 22,
       "why": "Clark refuses to assign blame for 1914 and instead shows a system in which everybody's individually reasonable step compounded into disaster. Read it after Tuchman, because it is in large part an argument with her, and holding both accounts at once is the actual education.",
-      "pairsWith": ["the-guns-of-august", "the-history-of-the-peloponnesian-war", "thinking-in-systems"],
-      "adjacentTo": ["Barbara Tuchman", "Christopher Clark", "Thucydides", "Tony Judt"]
+      "pairsWith": [
+        "the-guns-of-august",
+        "the-history-of-the-peloponnesian-war",
+        "thinking-in-systems"
+      ],
+      "adjacentTo": [
+        "Barbara Tuchman",
+        "Christopher Clark",
+        "Thucydides",
+        "Tony Judt"
+      ]
     },
     {
       "id": "postwar",
@@ -818,13 +2064,36 @@
       "year": 2005,
       "kind": "book",
       "url": null,
-      "themes": ["history", "politics", "power", "freedom", "money"],
-      "keywords": ["europe", "reconstruction", "memory", "welfare", "communism", "division", "postwar"],
+      "themes": [
+        "history",
+        "politics",
+        "power",
+        "freedom",
+        "money"
+      ],
+      "keywords": [
+        "europe",
+        "reconstruction",
+        "memory",
+        "welfare",
+        "communism",
+        "division",
+        "postwar"
+      ],
       "difficulty": "demanding",
       "lengthHours": 35,
       "why": "The history of Europe from 1945 to 2005 — the book that explains the continent you actually live in, including how the Nordic settlement came to look the way it does. Long, and worth every hour, particularly the sections on how each country arranged its memory of the war.",
-      "pairsWith": ["bloodlands", "the-guns-of-august", "democracy-in-america"],
-      "adjacentTo": ["Tony Judt", "Timothy Snyder", "Hannah Arendt", "Christopher Clark"]
+      "pairsWith": [
+        "bloodlands",
+        "the-guns-of-august",
+        "democracy-in-america"
+      ],
+      "adjacentTo": [
+        "Tony Judt",
+        "Timothy Snyder",
+        "Hannah Arendt",
+        "Christopher Clark"
+      ]
     },
     {
       "id": "the-history-of-the-peloponnesian-war",
@@ -833,13 +2102,37 @@
       "year": -400,
       "kind": "book",
       "url": null,
-      "themes": ["history", "power", "politics", "truth", "death"],
-      "keywords": ["athens", "sparta", "empire", "necessity", "speech", "plague", "expedition", "justice"],
+      "themes": [
+        "history",
+        "power",
+        "politics",
+        "truth",
+        "death"
+      ],
+      "keywords": [
+        "athens",
+        "sparta",
+        "empire",
+        "necessity",
+        "speech",
+        "plague",
+        "expedition",
+        "justice"
+      ],
       "difficulty": "hard",
       "lengthHours": 25,
       "why": "The first attempt to write history as analysis rather than story, by a general who lost his command and had time to think about it. The Melian dialogue and Pericles' funeral oration are the two passages people in international relations are still arguing about.",
-      "pairsWith": ["the-sleepwalkers", "spqr", "nicomachean-ethics"],
-      "adjacentTo": ["Thucydides", "Plato", "Machiavelli", "Christopher Clark"]
+      "pairsWith": [
+        "the-sleepwalkers",
+        "spqr",
+        "nicomachean-ethics"
+      ],
+      "adjacentTo": [
+        "Thucydides",
+        "Plato",
+        "Machiavelli",
+        "Christopher Clark"
+      ]
     },
     {
       "id": "spqr",
@@ -848,13 +2141,35 @@
       "year": 2015,
       "kind": "book",
       "url": null,
-      "themes": ["history", "politics", "power", "knowledge"],
-      "keywords": ["rome", "republic", "citizenship", "empire", "senate", "evidence", "sources"],
+      "themes": [
+        "history",
+        "politics",
+        "power",
+        "knowledge"
+      ],
+      "keywords": [
+        "rome",
+        "republic",
+        "citizenship",
+        "empire",
+        "senate",
+        "evidence",
+        "sources"
+      ],
       "difficulty": "accessible",
       "lengthHours": 15,
       "why": "Beard writes about Rome as a historian arguing with the evidence rather than a narrator retelling a story, and keeps showing you where the sources are thin. A good model for how to hold a narrative and your doubts about it in the same hand.",
-      "pairsWith": ["the-history-of-the-peloponnesian-war", "meditations", "postwar"],
-      "adjacentTo": ["Mary Beard", "Thucydides", "Marcus Aurelius", "Tacitus"]
+      "pairsWith": [
+        "the-history-of-the-peloponnesian-war",
+        "meditations",
+        "postwar"
+      ],
+      "adjacentTo": [
+        "Mary Beard",
+        "Thucydides",
+        "Marcus Aurelius",
+        "Tacitus"
+      ]
     },
     {
       "id": "bloodlands",
@@ -863,13 +2178,37 @@
       "year": 2010,
       "kind": "book",
       "url": null,
-      "themes": ["history", "power", "suffering", "death", "politics"],
-      "keywords": ["famine", "terror", "murder", "regime", "victims", "ukraine", "occupation", "numbers"],
+      "themes": [
+        "history",
+        "power",
+        "suffering",
+        "death",
+        "politics"
+      ],
+      "keywords": [
+        "famine",
+        "terror",
+        "murder",
+        "regime",
+        "victims",
+        "ukraine",
+        "occupation",
+        "numbers"
+      ],
       "difficulty": "demanding",
       "lengthHours": 16,
       "why": "Snyder counts the fourteen million civilians killed by two regimes in the same stretch of territory and insists on seeing both at once rather than one at a time. It is grim and it is careful, and the arithmetic is the argument.",
-      "pairsWith": ["postwar", "eichmann-in-jerusalem", "if-this-is-a-man"],
-      "adjacentTo": ["Timothy Snyder", "Hannah Arendt", "Tony Judt", "Primo Levi"]
+      "pairsWith": [
+        "postwar",
+        "eichmann-in-jerusalem",
+        "if-this-is-a-man"
+      ],
+      "adjacentTo": [
+        "Timothy Snyder",
+        "Hannah Arendt",
+        "Tony Judt",
+        "Primo Levi"
+      ]
     },
     {
       "id": "the-making-of-the-atomic-bomb",
@@ -878,13 +2217,37 @@
       "year": 1986,
       "kind": "book",
       "url": null,
-      "themes": ["science", "history", "technology", "ethics", "power"],
-      "keywords": ["physics", "fission", "manhattan", "secrecy", "weapon", "laboratory", "discovery", "responsibility"],
+      "themes": [
+        "science",
+        "history",
+        "technology",
+        "ethics",
+        "power"
+      ],
+      "keywords": [
+        "physics",
+        "fission",
+        "manhattan",
+        "secrecy",
+        "weapon",
+        "laboratory",
+        "discovery",
+        "responsibility"
+      ],
       "difficulty": "demanding",
       "lengthHours": 35,
       "why": "Rhodes wrote a history of physics, a group biography and a moral inquiry at the same time and somehow made all three work. If you want one book about what it is like to build something that changes the world and find you cannot stop, this is it.",
-      "pairsWith": ["american-prometheus", "the-dream-machine", "superintelligence"],
-      "adjacentTo": ["Richard Rhodes", "Richard Feynman", "Robert Oppenheimer", "Dario Amodei"]
+      "pairsWith": [
+        "american-prometheus",
+        "the-dream-machine",
+        "superintelligence"
+      ],
+      "adjacentTo": [
+        "Richard Rhodes",
+        "Richard Feynman",
+        "Robert Oppenheimer",
+        "Dario Amodei"
+      ]
     },
     {
       "id": "meditations",
@@ -893,13 +2256,37 @@
       "year": 180,
       "kind": "book",
       "url": null,
-      "themes": ["character", "death", "time", "solitude", "ethics"],
-      "keywords": ["nature", "opinion", "impermanence", "duty", "discipline", "reason", "morning", "control"],
+      "themes": [
+        "character",
+        "death",
+        "time",
+        "solitude",
+        "ethics"
+      ],
+      "keywords": [
+        "nature",
+        "opinion",
+        "impermanence",
+        "duty",
+        "discipline",
+        "reason",
+        "morning",
+        "control"
+      ],
       "difficulty": "accessible",
       "lengthHours": 5,
       "why": "Notes an emperor wrote to himself with no intention that anyone would read them, which is exactly why they are worth reading. Books V and VII are the ones everyone copies out; the repetition is not a flaw, since he was trying to make it stick.",
-      "pairsWith": ["nicomachean-ethics", "essays-montaigne", "the-death-of-ivan-ilyich"],
-      "adjacentTo": ["Marcus Aurelius", "Seneca", "Epictetus", "Michel de Montaigne"]
+      "pairsWith": [
+        "nicomachean-ethics",
+        "essays-montaigne",
+        "the-death-of-ivan-ilyich"
+      ],
+      "adjacentTo": [
+        "Marcus Aurelius",
+        "Seneca",
+        "Epictetus",
+        "Michel de Montaigne"
+      ]
     },
     {
       "id": "confessions-augustine",
@@ -908,13 +2295,37 @@
       "year": 400,
       "kind": "book",
       "url": null,
-      "themes": ["meaning", "time", "character", "love", "solitude"],
-      "keywords": ["memory", "desire", "conversion", "restless", "eternity", "confession", "willing", "time"],
+      "themes": [
+        "meaning",
+        "time",
+        "character",
+        "love",
+        "solitude"
+      ],
+      "keywords": [
+        "memory",
+        "desire",
+        "conversion",
+        "restless",
+        "eternity",
+        "confession",
+        "willing",
+        "time"
+      ],
       "difficulty": "demanding",
       "lengthHours": 12,
       "why": "The first autobiography that treats an inner life as worth narrating, and still the most searching thing written about wanting the wrong things knowingly. Books I to IX are the story; Book XI, on what time actually is, works as a standalone philosophical essay.",
-      "pairsWith": ["essays-montaigne", "sygdommen-til-doden", "meditations"],
-      "adjacentTo": ["Søren Kierkegaard", "Blaise Pascal", "Michel de Montaigne", "Simone Weil"]
+      "pairsWith": [
+        "essays-montaigne",
+        "sygdommen-til-doden",
+        "meditations"
+      ],
+      "adjacentTo": [
+        "Søren Kierkegaard",
+        "Blaise Pascal",
+        "Michel de Montaigne",
+        "Simone Weil"
+      ]
     },
     {
       "id": "surely-youre-joking-mr-feynman",
@@ -923,13 +2334,35 @@
       "year": 1985,
       "kind": "book",
       "url": null,
-      "themes": ["science", "character", "work", "knowledge", "friendship"],
-      "keywords": ["curiosity", "physics", "anecdote", "puzzle", "problem", "playful", "safecracking"],
+      "themes": [
+        "science",
+        "character",
+        "work",
+        "knowledge",
+        "friendship"
+      ],
+      "keywords": [
+        "curiosity",
+        "physics",
+        "anecdote",
+        "puzzle",
+        "problem",
+        "playful",
+        "safecracking"
+      ],
       "difficulty": "accessible",
       "lengthHours": 8,
       "why": "Anecdotes, and underneath the showing-off there is a consistent argument about curiosity as a discipline rather than a mood. Read the last chapter on cargo cult science even if you skip the safecracking, though you should not skip the safecracking.",
-      "pairsWith": ["cargo-cult-science", "you-and-your-research", "the-making-of-the-atomic-bomb"],
-      "adjacentTo": ["Richard Feynman", "Freeman Dyson", "Richard Hamming"]
+      "pairsWith": [
+        "cargo-cult-science",
+        "you-and-your-research",
+        "the-making-of-the-atomic-bomb"
+      ],
+      "adjacentTo": [
+        "Richard Feynman",
+        "Freeman Dyson",
+        "Richard Hamming"
+      ]
     },
     {
       "id": "american-prometheus",
@@ -938,13 +2371,36 @@
       "year": 2005,
       "kind": "book",
       "url": null,
-      "themes": ["science", "politics", "power", "character", "ethics"],
-      "keywords": ["oppenheimer", "security", "hearing", "loyalty", "physics", "clearance", "conscience"],
+      "themes": [
+        "science",
+        "politics",
+        "power",
+        "character",
+        "ethics"
+      ],
+      "keywords": [
+        "oppenheimer",
+        "security",
+        "hearing",
+        "loyalty",
+        "physics",
+        "clearance",
+        "conscience"
+      ],
       "difficulty": "demanding",
       "lengthHours": 25,
       "why": "The biography behind the Nolan film, and considerably better than it, particularly on the security hearing that ended his career. The best case study there is of someone who was right about the physics and completely unprepared for the politics.",
-      "pairsWith": ["the-making-of-the-atomic-bomb", "eichmann-in-jerusalem", "superintelligence"],
-      "adjacentTo": ["Richard Rhodes", "Robert Oppenheimer", "Richard Feynman", "Hannah Arendt"]
+      "pairsWith": [
+        "the-making-of-the-atomic-bomb",
+        "eichmann-in-jerusalem",
+        "superintelligence"
+      ],
+      "adjacentTo": [
+        "Richard Rhodes",
+        "Robert Oppenheimer",
+        "Richard Feynman",
+        "Hannah Arendt"
+      ]
     },
     {
       "id": "mans-search-for-meaning",
@@ -953,13 +2409,36 @@
       "year": 1946,
       "kind": "book",
       "url": null,
-      "themes": ["meaning", "suffering", "freedom", "death", "agency"],
-      "keywords": ["meaning", "suffering", "camp", "purpose", "attitude", "survival", "choice"],
+      "themes": [
+        "meaning",
+        "suffering",
+        "freedom",
+        "death",
+        "agency"
+      ],
+      "keywords": [
+        "meaning",
+        "suffering",
+        "camp",
+        "purpose",
+        "attitude",
+        "survival",
+        "choice"
+      ],
       "difficulty": "accessible",
       "lengthHours": 4,
       "why": "Frankl's account of the camps and the psychology he built out of them afterwards. The first half is testimony and the second is theory; the theory is thinner than the testimony, and it is still worth your evening.",
-      "pairsWith": ["if-this-is-a-man", "the-death-of-ivan-ilyich", "meditations"],
-      "adjacentTo": ["Viktor Frankl", "Primo Levi", "Friedrich Nietzsche", "Albert Camus"]
+      "pairsWith": [
+        "if-this-is-a-man",
+        "the-death-of-ivan-ilyich",
+        "meditations"
+      ],
+      "adjacentTo": [
+        "Viktor Frankl",
+        "Primo Levi",
+        "Friedrich Nietzsche",
+        "Albert Camus"
+      ]
     },
     {
       "id": "if-this-is-a-man",
@@ -968,13 +2447,36 @@
       "year": 1947,
       "kind": "book",
       "url": null,
-      "themes": ["suffering", "character", "death", "history", "language"],
-      "keywords": ["auschwitz", "chemist", "dignity", "survival", "witness", "precision", "memory"],
+      "themes": [
+        "suffering",
+        "character",
+        "death",
+        "history",
+        "language"
+      ],
+      "keywords": [
+        "auschwitz",
+        "chemist",
+        "dignity",
+        "survival",
+        "witness",
+        "precision",
+        "memory"
+      ],
       "difficulty": "accessible",
       "lengthHours": 5,
       "why": "Levi was a chemist, and he wrote about Auschwitz with a chemist's precision and no rhetorical heightening at all, which is what makes it both unbearable and necessary. The chapter called The Canto of Ulysses is about why literature matters, asked in the worst possible place.",
-      "pairsWith": ["bloodlands", "eichmann-in-jerusalem", "mans-search-for-meaning"],
-      "adjacentTo": ["Primo Levi", "Hannah Arendt", "Viktor Frankl", "Elie Wiesel"]
+      "pairsWith": [
+        "bloodlands",
+        "eichmann-in-jerusalem",
+        "mans-search-for-meaning"
+      ],
+      "adjacentTo": [
+        "Primo Levi",
+        "Hannah Arendt",
+        "Viktor Frankl",
+        "Elie Wiesel"
+      ]
     },
     {
       "id": "speak-memory",
@@ -983,13 +2485,36 @@
       "year": 1966,
       "kind": "book",
       "url": null,
-      "themes": ["time", "beauty", "writing", "love", "meaning"],
-      "keywords": ["memory", "childhood", "exile", "butterflies", "pattern", "prose", "recollection"],
+      "themes": [
+        "time",
+        "beauty",
+        "writing",
+        "love",
+        "meaning"
+      ],
+      "keywords": [
+        "memory",
+        "childhood",
+        "exile",
+        "butterflies",
+        "pattern",
+        "prose",
+        "recollection"
+      ],
       "difficulty": "demanding",
       "lengthHours": 8,
       "why": "A memoir, and the best English prose there is about how memory actually behaves — in images, out of order, with the pattern only visible afterwards. Read it for the sentences if for nothing else; the first paragraph of chapter one is a small education in itself.",
-      "pairsWith": ["essays-montaigne", "confessions-augustine", "invisible-cities"],
-      "adjacentTo": ["Vladimir Nabokov", "Marcel Proust", "Joseph Brodsky", "Jorge Luis Borges"]
+      "pairsWith": [
+        "essays-montaigne",
+        "confessions-augustine",
+        "invisible-cities"
+      ],
+      "adjacentTo": [
+        "Vladimir Nabokov",
+        "Marcel Proust",
+        "Joseph Brodsky",
+        "Jorge Luis Borges"
+      ]
     },
     {
       "id": "essays-montaigne",
@@ -998,13 +2523,38 @@
       "year": 1580,
       "kind": "essay",
       "url": null,
-      "themes": ["character", "solitude", "death", "knowledge", "writing", "friendship"],
-      "keywords": ["self", "doubt", "custom", "solitude", "experience", "friendship", "judgement", "essay"],
+      "themes": [
+        "character",
+        "solitude",
+        "death",
+        "knowledge",
+        "writing",
+        "friendship"
+      ],
+      "keywords": [
+        "self",
+        "doubt",
+        "custom",
+        "solitude",
+        "experience",
+        "friendship",
+        "judgement",
+        "essay"
+      ],
       "difficulty": "demanding",
       "lengthHours": 40,
       "why": "Montaigne invented the essay by trying to write down what he was actually like, and 450 years later he is still better company than nearly anyone. Do not read it through — open it anywhere. On Experience, On Solitude and On Friendship are good doors in.",
-      "pairsWith": ["meditations", "confessions-augustine", "slouching-towards-bethlehem"],
-      "adjacentTo": ["Michel de Montaigne", "Blaise Pascal", "Marcus Aurelius", "Ralph Waldo Emerson"]
+      "pairsWith": [
+        "meditations",
+        "confessions-augustine",
+        "slouching-towards-bethlehem"
+      ],
+      "adjacentTo": [
+        "Michel de Montaigne",
+        "Blaise Pascal",
+        "Marcus Aurelius",
+        "Ralph Waldo Emerson"
+      ]
     },
     {
       "id": "the-brothers-karamazov",
@@ -1013,13 +2563,38 @@
       "year": 1880,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "meaning", "freedom", "suffering", "love", "death"],
-      "keywords": ["faith", "doubt", "guilt", "freedom", "suffering", "inquisitor", "brothers", "father"],
+      "themes": [
+        "ethics",
+        "meaning",
+        "freedom",
+        "suffering",
+        "love",
+        "death"
+      ],
+      "keywords": [
+        "faith",
+        "doubt",
+        "guilt",
+        "freedom",
+        "suffering",
+        "inquisitor",
+        "brothers",
+        "father"
+      ],
       "difficulty": "demanding",
       "lengthHours": 30,
       "why": "Dostoevsky's last novel, in which the strongest statement of the case against God ever written is given to a character the author disagrees with. The Grand Inquisitor can be read alone, but it means several times more inside the book that surrounds it.",
-      "pairsWith": ["notes-from-underground", "frygt-og-baeven", "middlemarch"],
-      "adjacentTo": ["Fyodor Dostoevsky", "Søren Kierkegaard", "Friedrich Nietzsche", "Albert Camus"]
+      "pairsWith": [
+        "notes-from-underground",
+        "frygt-og-baeven",
+        "middlemarch"
+      ],
+      "adjacentTo": [
+        "Fyodor Dostoevsky",
+        "Søren Kierkegaard",
+        "Friedrich Nietzsche",
+        "Albert Camus"
+      ]
     },
     {
       "id": "notes-from-underground",
@@ -1028,13 +2603,36 @@
       "year": 1864,
       "kind": "book",
       "url": "https://www.gutenberg.org/ebooks/600",
-      "themes": ["freedom", "agency", "suffering", "solitude", "mind"],
-      "keywords": ["spite", "consciousness", "resentment", "reason", "interest", "underground", "will"],
+      "themes": [
+        "freedom",
+        "agency",
+        "suffering",
+        "solitude",
+        "mind"
+      ],
+      "keywords": [
+        "spite",
+        "consciousness",
+        "resentment",
+        "reason",
+        "interest",
+        "underground",
+        "will"
+      ],
       "difficulty": "demanding",
       "lengthHours": 4,
       "why": "A hundred pages of a man insisting that people will act against their own interests purely to prove they are not piano keys. The first modern novel about resentment, and short enough to read tonight and be irritated by for a decade.",
-      "pairsWith": ["the-brothers-karamazov", "sult", "ethics-and-the-limits-of-philosophy"],
-      "adjacentTo": ["Fyodor Dostoevsky", "Friedrich Nietzsche", "Knut Hamsun", "Albert Camus"]
+      "pairsWith": [
+        "the-brothers-karamazov",
+        "sult",
+        "ethics-and-the-limits-of-philosophy"
+      ],
+      "adjacentTo": [
+        "Fyodor Dostoevsky",
+        "Friedrich Nietzsche",
+        "Knut Hamsun",
+        "Albert Camus"
+      ]
     },
     {
       "id": "middlemarch",
@@ -1043,13 +2641,36 @@
       "year": 1872,
       "kind": "book",
       "url": null,
-      "themes": ["character", "love", "work", "meaning", "money"],
-      "keywords": ["provincial", "marriage", "ambition", "vocation", "reform", "sympathy", "ordinary"],
+      "themes": [
+        "character",
+        "love",
+        "work",
+        "meaning",
+        "money"
+      ],
+      "keywords": [
+        "provincial",
+        "marriage",
+        "ambition",
+        "vocation",
+        "reform",
+        "sympathy",
+        "ordinary"
+      ],
       "difficulty": "demanding",
       "lengthHours": 30,
       "why": "Eliot on provincial people making ordinary decisions that turn out to be irreversible, written with more moral intelligence than any other novel in English. It is largely about what happens to ambitious young people, which is a reason to read it at seventeen rather than at forty.",
-      "pairsWith": ["the-brothers-karamazov", "sovereignty-of-good", "logneren"],
-      "adjacentTo": ["George Eliot", "Iris Murdoch", "Leo Tolstoy", "Henry James"]
+      "pairsWith": [
+        "the-brothers-karamazov",
+        "sovereignty-of-good",
+        "logneren"
+      ],
+      "adjacentTo": [
+        "George Eliot",
+        "Iris Murdoch",
+        "Leo Tolstoy",
+        "Henry James"
+      ]
     },
     {
       "id": "the-death-of-ivan-ilyich",
@@ -1058,13 +2679,36 @@
       "year": 1886,
       "kind": "book",
       "url": null,
-      "themes": ["death", "meaning", "work", "suffering", "time"],
-      "keywords": ["dying", "career", "propriety", "pretence", "illness", "regret", "ordinary"],
+      "themes": [
+        "death",
+        "meaning",
+        "work",
+        "suffering",
+        "time"
+      ],
+      "keywords": [
+        "dying",
+        "career",
+        "propriety",
+        "pretence",
+        "illness",
+        "regret",
+        "ordinary"
+      ],
       "difficulty": "accessible",
       "lengthHours": 2,
       "why": "Sixty pages about a man discovering, far too late, that he lived exactly as he was supposed to and it was the wrong life. There is no gentler introduction to Tolstoy and no harsher book about a career.",
-      "pairsWith": ["meditations", "mans-search-for-meaning", "middlemarch"],
-      "adjacentTo": ["Leo Tolstoy", "Fyodor Dostoevsky", "Martin Heidegger", "Søren Kierkegaard"]
+      "pairsWith": [
+        "meditations",
+        "mans-search-for-meaning",
+        "middlemarch"
+      ],
+      "adjacentTo": [
+        "Leo Tolstoy",
+        "Fyodor Dostoevsky",
+        "Martin Heidegger",
+        "Søren Kierkegaard"
+      ]
     },
     {
       "id": "ficciones",
@@ -1073,13 +2717,38 @@
       "year": 1944,
       "kind": "book",
       "url": null,
-      "themes": ["knowledge", "time", "language", "art", "beauty", "mind"],
-      "keywords": ["labyrinth", "library", "infinite", "memory", "mirror", "encyclopedia", "fiction", "forking"],
+      "themes": [
+        "knowledge",
+        "time",
+        "language",
+        "art",
+        "beauty",
+        "mind"
+      ],
+      "keywords": [
+        "labyrinth",
+        "library",
+        "infinite",
+        "memory",
+        "mirror",
+        "encyclopedia",
+        "fiction",
+        "forking"
+      ],
       "difficulty": "demanding",
       "lengthHours": 8,
       "why": "Borges wrote stories that are really philosophical problems with a plot: an infinite library, a fictional encyclopedia that starts colonising reality, a man who remembers absolutely everything. Each is about ten pages, and Funes the Memorious will stay with you longer than most novels.",
-      "pairsWith": ["godel-escher-bach", "invisible-cities", "speak-memory"],
-      "adjacentTo": ["Jorge Luis Borges", "Italo Calvino", "Douglas Hofstadter", "Vladimir Nabokov"]
+      "pairsWith": [
+        "godel-escher-bach",
+        "invisible-cities",
+        "speak-memory"
+      ],
+      "adjacentTo": [
+        "Jorge Luis Borges",
+        "Italo Calvino",
+        "Douglas Hofstadter",
+        "Vladimir Nabokov"
+      ]
     },
     {
       "id": "invisible-cities",
@@ -1088,13 +2757,35 @@
       "year": 1972,
       "kind": "book",
       "url": null,
-      "themes": ["beauty", "art", "time", "language", "meaning"],
-      "keywords": ["cities", "desire", "memory", "signs", "travel", "description", "invisible"],
+      "themes": [
+        "beauty",
+        "art",
+        "time",
+        "language",
+        "meaning"
+      ],
+      "keywords": [
+        "cities",
+        "desire",
+        "memory",
+        "signs",
+        "travel",
+        "description",
+        "invisible"
+      ],
       "difficulty": "accessible",
       "lengthHours": 4,
       "why": "Marco Polo describes fifty-five cities to Kublai Khan, and each one is a small argument about desire, memory or signs. The most beautiful book on this list, and it can be read in fragments over a month without losing anything.",
-      "pairsWith": ["ficciones", "speak-memory", "letters-to-a-young-poet"],
-      "adjacentTo": ["Italo Calvino", "Jorge Luis Borges", "Vladimir Nabokov"]
+      "pairsWith": [
+        "ficciones",
+        "speak-memory",
+        "letters-to-a-young-poet"
+      ],
+      "adjacentTo": [
+        "Italo Calvino",
+        "Jorge Luis Borges",
+        "Vladimir Nabokov"
+      ]
     },
     {
       "id": "slouching-towards-bethlehem",
@@ -1103,13 +2794,36 @@
       "year": 1968,
       "kind": "essay",
       "url": null,
-      "themes": ["writing", "attention", "character", "history", "solitude"],
-      "keywords": ["notebook", "respect", "california", "reporting", "morality", "essay", "sixties"],
+      "themes": [
+        "writing",
+        "attention",
+        "character",
+        "history",
+        "solitude"
+      ],
+      "keywords": [
+        "notebook",
+        "respect",
+        "california",
+        "reporting",
+        "morality",
+        "essay",
+        "sixties"
+      ],
       "difficulty": "accessible",
       "lengthHours": 6,
       "why": "Didion's essays from 1960s California, and still the standard against which reported prose is measured. On Self-Respect and On Keeping a Notebook are both short and both about things you are in the middle of deciding right now.",
-      "pairsWith": ["consider-the-lobster", "politics-and-the-english-language", "essays-montaigne"],
-      "adjacentTo": ["Joan Didion", "George Orwell", "David Foster Wallace", "James Baldwin"]
+      "pairsWith": [
+        "consider-the-lobster",
+        "politics-and-the-english-language",
+        "essays-montaigne"
+      ],
+      "adjacentTo": [
+        "Joan Didion",
+        "George Orwell",
+        "David Foster Wallace",
+        "James Baldwin"
+      ]
     },
     {
       "id": "consider-the-lobster",
@@ -1118,13 +2832,37 @@
       "year": 2005,
       "kind": "essay",
       "url": null,
-      "themes": ["writing", "ethics", "language", "attention", "truth"],
-      "keywords": ["usage", "footnote", "lobster", "grammar", "attention", "sincerity", "essay", "descriptive"],
+      "themes": [
+        "writing",
+        "ethics",
+        "language",
+        "attention",
+        "truth"
+      ],
+      "keywords": [
+        "usage",
+        "footnote",
+        "lobster",
+        "grammar",
+        "attention",
+        "sincerity",
+        "essay",
+        "descriptive"
+      ],
       "difficulty": "demanding",
       "lengthHours": 10,
       "why": "Essays in which a question like whether it is right to boil an animal alive gets taken absolutely seriously in the middle of a food festival. The one on usage dictionaries — Authority and American Usage — is the best thing written about why rules for language are always political.",
-      "pairsWith": ["politics-and-the-english-language", "slouching-towards-bethlehem", "the-elements-of-style"],
-      "adjacentTo": ["David Foster Wallace", "Joan Didion", "George Orwell", "Ludwig Wittgenstein"]
+      "pairsWith": [
+        "politics-and-the-english-language",
+        "slouching-towards-bethlehem",
+        "the-elements-of-style"
+      ],
+      "adjacentTo": [
+        "David Foster Wallace",
+        "Joan Didion",
+        "George Orwell",
+        "Ludwig Wittgenstein"
+      ]
     },
     {
       "id": "letters-to-a-young-poet",
@@ -1133,13 +2871,36 @@
       "year": 1929,
       "kind": "book",
       "url": null,
-      "themes": ["writing", "solitude", "art", "meaning", "work"],
-      "keywords": ["solitude", "patience", "vocation", "questions", "young", "letters", "necessity"],
+      "themes": [
+        "writing",
+        "solitude",
+        "art",
+        "meaning",
+        "work"
+      ],
+      "keywords": [
+        "solitude",
+        "patience",
+        "vocation",
+        "questions",
+        "young",
+        "letters",
+        "necessity"
+      ],
       "difficulty": "accessible",
       "lengthHours": 2,
       "why": "Ten letters from Rilke to a nineteen-year-old asking whether his poems were any good. The answer — that nobody outside can tell him, and that the real question is whether he would have to write anyway — is the most useful advice about vocation in print.",
-      "pairsWith": ["sovereignty-of-good", "invisible-cities", "staa-fast"],
-      "adjacentTo": ["Rainer Maria Rilke", "Søren Kierkegaard", "Marcus Aurelius", "Iris Murdoch"]
+      "pairsWith": [
+        "sovereignty-of-good",
+        "invisible-cities",
+        "staa-fast"
+      ],
+      "adjacentTo": [
+        "Rainer Maria Rilke",
+        "Søren Kierkegaard",
+        "Marcus Aurelius",
+        "Iris Murdoch"
+      ]
     },
     {
       "id": "the-elements-of-style",
@@ -1148,13 +2909,34 @@
       "year": 1959,
       "kind": "book",
       "url": null,
-      "themes": ["writing", "language", "beauty", "work"],
-      "keywords": ["style", "brevity", "grammar", "revision", "sentence", "words", "clarity"],
+      "themes": [
+        "writing",
+        "language",
+        "beauty",
+        "work"
+      ],
+      "keywords": [
+        "style",
+        "brevity",
+        "grammar",
+        "revision",
+        "sentence",
+        "words",
+        "clarity"
+      ],
       "difficulty": "accessible",
       "lengthHours": 1.5,
       "why": "Barely a hundred pages of rules, some of which are wrong, all of which are worth having argued with once. Read it beside Orwell's essay; between them your prose will be noticeably better inside a month, which is a better return than almost anything else here.",
-      "pairsWith": ["politics-and-the-english-language", "consider-the-lobster", "slouching-towards-bethlehem"],
-      "adjacentTo": ["George Orwell", "E. B. White", "David Foster Wallace"]
+      "pairsWith": [
+        "politics-and-the-english-language",
+        "consider-the-lobster",
+        "slouching-towards-bethlehem"
+      ],
+      "adjacentTo": [
+        "George Orwell",
+        "E. B. White",
+        "David Foster Wallace"
+      ]
     },
     {
       "id": "frygt-og-baeven",
@@ -1163,13 +2945,37 @@
       "year": 1843,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "meaning", "freedom", "solitude", "suffering"],
-      "keywords": ["faith", "abraham", "absurd", "resignation", "silence", "paradox", "knight", "sacrifice"],
+      "themes": [
+        "ethics",
+        "meaning",
+        "freedom",
+        "solitude",
+        "suffering"
+      ],
+      "keywords": [
+        "faith",
+        "abraham",
+        "absurd",
+        "resignation",
+        "silence",
+        "paradox",
+        "knight",
+        "sacrifice"
+      ],
       "difficulty": "hard",
       "lengthHours": 6,
       "why": "Kierkegaard on Abraham, and on whether there can be a duty higher than ethics itself — the place where he says faith begins precisely where thinking leaves off. Read him in Danish: the prose is doing work that translation flattens, and it is one of the real advantages you have.",
-      "pairsWith": ["sygdommen-til-doden", "enten-eller", "the-brothers-karamazov"],
-      "adjacentTo": ["Søren Kierkegaard", "Fyodor Dostoevsky", "Friedrich Nietzsche", "Jean-Paul Sartre"]
+      "pairsWith": [
+        "sygdommen-til-doden",
+        "enten-eller",
+        "the-brothers-karamazov"
+      ],
+      "adjacentTo": [
+        "Søren Kierkegaard",
+        "Fyodor Dostoevsky",
+        "Friedrich Nietzsche",
+        "Jean-Paul Sartre"
+      ]
     },
     {
       "id": "enten-eller",
@@ -1178,13 +2984,38 @@
       "year": 1843,
       "kind": "book",
       "url": null,
-      "themes": ["ethics", "freedom", "love", "meaning", "art", "character"],
-      "keywords": ["aesthetic", "ethical", "choice", "boredom", "seducer", "marriage", "either", "despair"],
+      "themes": [
+        "ethics",
+        "freedom",
+        "love",
+        "meaning",
+        "art",
+        "character"
+      ],
+      "keywords": [
+        "aesthetic",
+        "ethical",
+        "choice",
+        "boredom",
+        "seducer",
+        "marriage",
+        "either",
+        "despair"
+      ],
       "difficulty": "hard",
       "lengthHours": 30,
       "why": "The aesthetic life and the ethical life set against each other with no narrator to tell you which one wins, which is the entire design rather than an oversight. Most people start with Diapsalmata and The Seducer's Diary; Judge William's letters in Part Two are where the argument actually lives.",
-      "pairsWith": ["frygt-og-baeven", "hverken-eller", "sygdommen-til-doden"],
-      "adjacentTo": ["Søren Kierkegaard", "Villy Sørensen", "Friedrich Nietzsche", "Georg Wilhelm Friedrich Hegel"]
+      "pairsWith": [
+        "frygt-og-baeven",
+        "hverken-eller",
+        "sygdommen-til-doden"
+      ],
+      "adjacentTo": [
+        "Søren Kierkegaard",
+        "Villy Sørensen",
+        "Friedrich Nietzsche",
+        "Georg Wilhelm Friedrich Hegel"
+      ]
     },
     {
       "id": "sygdommen-til-doden",
@@ -1193,13 +3024,36 @@
       "year": 1849,
       "kind": "book",
       "url": null,
-      "themes": ["death", "meaning", "suffering", "solitude", "mind"],
-      "keywords": ["despair", "relation", "anxiety", "eternity", "consciousness", "sickness", "finite"],
+      "themes": [
+        "death",
+        "meaning",
+        "suffering",
+        "solitude",
+        "mind"
+      ],
+      "keywords": [
+        "despair",
+        "relation",
+        "anxiety",
+        "eternity",
+        "consciousness",
+        "sickness",
+        "finite"
+      ],
       "difficulty": "hard",
       "lengthHours": 6,
       "why": "Kierkegaard's anatomy of despair as a self that will not relate properly to itself, including the kind of despair that does not know it is despair. The opening paragraph is famously impossible; the rest is a good deal clearer than its reputation.",
-      "pairsWith": ["frygt-og-baeven", "confessions-augustine", "enten-eller"],
-      "adjacentTo": ["Søren Kierkegaard", "Martin Heidegger", "Fyodor Dostoevsky", "Augustine"]
+      "pairsWith": [
+        "frygt-og-baeven",
+        "confessions-augustine",
+        "enten-eller"
+      ],
+      "adjacentTo": [
+        "Søren Kierkegaard",
+        "Martin Heidegger",
+        "Fyodor Dostoevsky",
+        "Augustine"
+      ]
     },
     {
       "id": "hverken-eller",
@@ -1208,13 +3062,36 @@
       "year": 1961,
       "kind": "essay",
       "url": null,
-      "themes": ["politics", "ethics", "freedom", "language", "meaning"],
-      "keywords": ["ideology", "simplification", "welfare", "democracy", "existential", "criticism", "essays"],
+      "themes": [
+        "politics",
+        "ethics",
+        "freedom",
+        "language",
+        "meaning"
+      ],
+      "keywords": [
+        "ideology",
+        "simplification",
+        "welfare",
+        "democracy",
+        "existential",
+        "criticism",
+        "essays"
+      ],
       "difficulty": "demanding",
       "lengthHours": 8,
       "why": "Villy Sørensen answers Kierkegaard's title with a refusal, and argues from an existentialist position against ideological simplification of every kind. The essays on Kierkegaard and on Heidegger are the reason to pick it up, and it is Danish philosophical prose at close to its best.",
-      "pairsWith": ["enten-eller", "the-question-concerning-technology", "staa-fast"],
-      "adjacentTo": ["Søren Kierkegaard", "Villy Sørensen", "Martin Heidegger", "Georg Brandes"]
+      "pairsWith": [
+        "enten-eller",
+        "the-question-concerning-technology",
+        "staa-fast"
+      ],
+      "adjacentTo": [
+        "Søren Kierkegaard",
+        "Villy Sørensen",
+        "Martin Heidegger",
+        "Georg Brandes"
+      ]
     },
     {
       "id": "maerk-verden",
@@ -1223,13 +3100,36 @@
       "year": 1991,
       "kind": "book",
       "url": null,
-      "themes": ["mind", "science", "knowledge", "attention", "agency"],
-      "keywords": ["consciousness", "bandwidth", "exformation", "illusion", "delay", "awareness", "brain"],
+      "themes": [
+        "mind",
+        "science",
+        "knowledge",
+        "attention",
+        "agency"
+      ],
+      "keywords": [
+        "consciousness",
+        "bandwidth",
+        "exformation",
+        "illusion",
+        "delay",
+        "awareness",
+        "brain"
+      ],
       "difficulty": "demanding",
       "lengthHours": 16,
       "why": "Nørretranders on how little of what your brain handles ever reaches consciousness, and what the discarded bandwidth means for free will. Danish popular science at a level most countries do not manage, and it translated well enough to become a standard reference in English as The User Illusion.",
-      "pairsWith": ["thinking-fast-and-slow", "godel-escher-bach", "computing-machinery-and-intelligence"],
-      "adjacentTo": ["Tor Nørretranders", "Daniel Kahneman", "Douglas Hofstadter", "Daniel Dennett"]
+      "pairsWith": [
+        "thinking-fast-and-slow",
+        "godel-escher-bach",
+        "computing-machinery-and-intelligence"
+      ],
+      "adjacentTo": [
+        "Tor Nørretranders",
+        "Daniel Kahneman",
+        "Douglas Hofstadter",
+        "Daniel Dennett"
+      ]
     },
     {
       "id": "staa-fast",
@@ -1238,13 +3138,36 @@
       "year": 2014,
       "kind": "book",
       "url": null,
-      "themes": ["character", "work", "meaning", "time", "agency"],
-      "keywords": ["development", "resistance", "stoicism", "authenticity", "optimise", "saying", "roots"],
+      "themes": [
+        "character",
+        "work",
+        "meaning",
+        "time",
+        "agency"
+      ],
+      "keywords": [
+        "development",
+        "resistance",
+        "stoicism",
+        "authenticity",
+        "optimise",
+        "saying",
+        "roots"
+      ],
       "difficulty": "accessible",
       "lengthHours": 3,
       "why": "Brinkmann argues, against the entire self-development industry, that standing still and saying no is the harder and more useful discipline. Short, deliberately provocative, and aimed precisely at people your age who are being told to keep optimising themselves.",
-      "pairsWith": ["meditations", "letters-to-a-young-poet", "hverken-eller"],
-      "adjacentTo": ["Svend Brinkmann", "Marcus Aurelius", "Seneca", "Søren Kierkegaard"]
+      "pairsWith": [
+        "meditations",
+        "letters-to-a-young-poet",
+        "hverken-eller"
+      ],
+      "adjacentTo": [
+        "Svend Brinkmann",
+        "Marcus Aurelius",
+        "Seneca",
+        "Søren Kierkegaard"
+      ]
     },
     {
       "id": "logneren",
@@ -1253,13 +3176,36 @@
       "year": 1950,
       "kind": "book",
       "url": null,
-      "themes": ["character", "solitude", "love", "truth", "nature"],
-      "keywords": ["diary", "island", "teacher", "lying", "winter", "loneliness", "confession"],
+      "themes": [
+        "character",
+        "solitude",
+        "love",
+        "truth",
+        "nature"
+      ],
+      "keywords": [
+        "diary",
+        "island",
+        "teacher",
+        "lying",
+        "winter",
+        "loneliness",
+        "confession"
+      ],
       "difficulty": "demanding",
       "lengthHours": 5,
       "why": "A schoolteacher on the island of Sandø keeps a diary and lies in it, and you work out where as you go. One of the few Danish novels that repays exactly the kind of close reading you would give Dostoevsky, and it is short enough to reread immediately.",
-      "pairsWith": ["notes-from-underground", "middlemarch", "den-afrikanske-farm"],
-      "adjacentTo": ["Martin A. Hansen", "Fyodor Dostoevsky", "Karen Blixen", "Villy Sørensen"]
+      "pairsWith": [
+        "notes-from-underground",
+        "middlemarch",
+        "den-afrikanske-farm"
+      ],
+      "adjacentTo": [
+        "Martin A. Hansen",
+        "Fyodor Dostoevsky",
+        "Karen Blixen",
+        "Villy Sørensen"
+      ]
     },
     {
       "id": "den-afrikanske-farm",
@@ -1268,13 +3214,37 @@
       "year": 1937,
       "kind": "book",
       "url": null,
-      "themes": ["nature", "beauty", "solitude", "power", "history", "love"],
-      "keywords": ["africa", "farm", "landscape", "colonial", "loss", "storytelling", "kenya"],
+      "themes": [
+        "nature",
+        "beauty",
+        "solitude",
+        "power",
+        "history",
+        "love"
+      ],
+      "keywords": [
+        "africa",
+        "farm",
+        "landscape",
+        "colonial",
+        "loss",
+        "storytelling",
+        "kenya"
+      ],
       "difficulty": "accessible",
       "lengthHours": 9,
       "why": "Blixen's Kenya, written in prose so controlled it reads as though it were carved rather than drafted. Read it with the colonial situation in full view rather than politely around it — the book is better, not worse, for being argued with.",
-      "pairsWith": ["logneren", "speak-memory", "essays-montaigne"],
-      "adjacentTo": ["Karen Blixen", "Martin A. Hansen", "Vladimir Nabokov", "Ernest Hemingway"]
+      "pairsWith": [
+        "logneren",
+        "speak-memory",
+        "essays-montaigne"
+      ],
+      "adjacentTo": [
+        "Karen Blixen",
+        "Martin A. Hansen",
+        "Vladimir Nabokov",
+        "Ernest Hemingway"
+      ]
     },
     {
       "id": "erasmus-montanus",
@@ -1283,13 +3253,36 @@
       "year": 1731,
       "kind": "book",
       "url": null,
-      "themes": ["knowledge", "truth", "character", "language", "politics"],
-      "keywords": ["latin", "disputation", "logic", "village", "pedantry", "comedy", "learning"],
+      "themes": [
+        "knowledge",
+        "truth",
+        "character",
+        "language",
+        "politics"
+      ],
+      "keywords": [
+        "latin",
+        "disputation",
+        "logic",
+        "village",
+        "pedantry",
+        "comedy",
+        "learning"
+      ],
       "difficulty": "accessible",
       "lengthHours": 2,
       "why": "Holberg's student comes home from Copenhagen able to prove syllogistically that his mother is a stone, and gets beaten until he agrees the earth is flat. It is funny, it takes an evening, and it is about precisely the temptation that an education creates.",
-      "pairsWith": ["aristokratisk-radikalisme", "en-folkefiende", "what-is-this-thing-called-science"],
-      "adjacentTo": ["Ludvig Holberg", "Molière", "Henrik Ibsen", "Voltaire"]
+      "pairsWith": [
+        "aristokratisk-radikalisme",
+        "en-folkefiende",
+        "what-is-this-thing-called-science"
+      ],
+      "adjacentTo": [
+        "Ludvig Holberg",
+        "Molière",
+        "Henrik Ibsen",
+        "Voltaire"
+      ]
     },
     {
       "id": "aristokratisk-radikalisme",
@@ -1298,13 +3291,36 @@
       "year": 1889,
       "kind": "essay",
       "url": "https://www.henrikpontoppidan.dk/text/seclit/secartikler/brandes_georg/aristokratisk_radikalisme_1889.html",
-      "themes": ["politics", "ethics", "power", "character", "freedom"],
-      "keywords": ["nietzsche", "radicalism", "aristocratic", "morality", "individual", "criticism", "modern"],
+      "themes": [
+        "politics",
+        "ethics",
+        "power",
+        "character",
+        "freedom"
+      ],
+      "keywords": [
+        "nietzsche",
+        "radicalism",
+        "aristocratic",
+        "morality",
+        "individual",
+        "criticism",
+        "modern"
+      ],
       "difficulty": "demanding",
       "lengthHours": 2,
-      "why": "Brandes introduced Nietzsche to Europe with this essay, before anyone outside Germany had heard of him, and Nietzsche wrote back grateful and astonished. Worth reading as philosophy and as evidence of how much one critic working in Copenhagen once mattered.",
-      "pairsWith": ["hverken-eller", "erasmus-montanus", "ethics-and-the-limits-of-philosophy"],
-      "adjacentTo": ["Georg Brandes", "Friedrich Nietzsche", "Søren Kierkegaard", "Henrik Ibsen"]
+      "why": "Brandes lectured on Nietzsche in Copenhagen in 1888 and wrote them up here, which is how most of Europe outside Germany first heard of him; Nietzsche had already written back calling Brandes's phrase the cleverest thing said about him. Worth reading as philosophy and as evidence of how much one critic working in Copenhagen once mattered.",
+      "pairsWith": [
+        "hverken-eller",
+        "erasmus-montanus",
+        "ethics-and-the-limits-of-philosophy"
+      ],
+      "adjacentTo": [
+        "Georg Brandes",
+        "Friedrich Nietzsche",
+        "Søren Kierkegaard",
+        "Henrik Ibsen"
+      ]
     },
     {
       "id": "sult",
@@ -1313,13 +3329,36 @@
       "year": 1890,
       "kind": "book",
       "url": null,
-      "themes": ["suffering", "solitude", "mind", "writing", "money"],
-      "keywords": ["hunger", "kristiania", "pride", "starving", "wandering", "interior", "delirium"],
+      "themes": [
+        "suffering",
+        "solitude",
+        "mind",
+        "writing",
+        "money"
+      ],
+      "keywords": [
+        "hunger",
+        "kristiania",
+        "pride",
+        "starving",
+        "wandering",
+        "interior",
+        "delirium"
+      ],
       "difficulty": "demanding",
       "lengthHours": 6,
       "why": "Hamsun's narrator starves in Kristiania and narrates his own mind coming apart, which nobody had really done before. Hamsun's later politics are indefensible and worth knowing about; the 1890 novel is still where modern literary interiority starts.",
-      "pairsWith": ["notes-from-underground", "logneren", "en-folkefiende"],
-      "adjacentTo": ["Knut Hamsun", "Fyodor Dostoevsky", "Henrik Ibsen", "Franz Kafka"]
+      "pairsWith": [
+        "notes-from-underground",
+        "logneren",
+        "en-folkefiende"
+      ],
+      "adjacentTo": [
+        "Knut Hamsun",
+        "Fyodor Dostoevsky",
+        "Henrik Ibsen",
+        "Franz Kafka"
+      ]
     },
     {
       "id": "en-folkefiende",
@@ -1328,13 +3367,36 @@
       "year": 1882,
       "kind": "book",
       "url": null,
-      "themes": ["truth", "politics", "power", "character", "freedom"],
-      "keywords": ["majority", "truth", "baths", "doctor", "town", "compromise", "public"],
+      "themes": [
+        "truth",
+        "politics",
+        "power",
+        "character",
+        "freedom"
+      ],
+      "keywords": [
+        "majority",
+        "truth",
+        "baths",
+        "doctor",
+        "town",
+        "compromise",
+        "public"
+      ],
       "difficulty": "accessible",
       "lengthHours": 3,
       "why": "Ibsen's doctor discovers the town's baths are poisoned and finds out that being right protects him from nothing whatever. The fourth act is one of the best things ever written about a majority deciding, in public, what will count as true.",
-      "pairsWith": ["on-liberty", "erasmus-montanus", "politics-and-the-english-language"],
-      "adjacentTo": ["Henrik Ibsen", "John Stuart Mill", "Georg Brandes", "Knut Hamsun"]
+      "pairsWith": [
+        "on-liberty",
+        "erasmus-montanus",
+        "politics-and-the-english-language"
+      ],
+      "adjacentTo": [
+        "Henrik Ibsen",
+        "John Stuart Mill",
+        "Georg Brandes",
+        "Knut Hamsun"
+      ]
     }
   ]
 }

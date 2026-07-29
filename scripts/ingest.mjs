@@ -385,10 +385,25 @@ function readBulkEntry(entry, index, addedAt, warnings) {
   const themes = Array.isArray(entry.themes) ? entry.themes : [];
   const tags = Array.isArray(entry.tags) ? entry.tags.map(String) : [];
 
+  // Free-text fields have to be strings. Pasted JSON is not a form, so nothing
+  // upstream has already coerced them, and `makeQuote` passes an object or an
+  // array straight through — producing a data file that violates the
+  // repository's own schema while the validator still calls it fine.
+  const asText = (value, field) => {
+    if (value == null) return null;
+    if (typeof value === 'string') return value;
+    throw new IngestError(
+      `"${field}" has to be text, but the pasted JSON has ${Array.isArray(value) ? 'a list' : typeof value}.`,
+      'Check that field in the JSON you copied out of the importer.',
+    );
+  };
+
   return makeQuote({
     ...entry,
     text,
     author: author || 'Unknown',
+    work: asText(entry.work, 'work'),
+    note: asText(entry.note, 'note') ?? '',
     workKind: entry.workKind == null ? null : parseWorkKind(String(entry.workKind)),
     year: entry.year == null ? null : parseYear(String(entry.year)),
     themes: parseThemes(themes.join(',')),
@@ -396,8 +411,16 @@ function readBulkEntry(entry, index, addedAt, warnings) {
     lang: entry.lang == null ? 'en' : parseLang(String(entry.lang)),
     source: {
       kind: entry.source?.kind ?? 'import',
-      url: entry.source?.url ?? null,
-      locator: entry.source?.locator ?? null,
+      // The same rule as the typed-in form. Without this the bulk door accepts
+      // a `javascript:` address into a file the published site reads, which is
+      // inert today only because nothing renders source.url as a link.
+      url: parseSourceUrl(asText(entry.source?.url, 'source.url')),
+      locator: asText(entry.source?.locator, 'source.locator'),
+    },
+    verification: {
+      status: entry.verification?.status,
+      note: asText(entry.verification?.note, 'verification.note') ?? undefined,
+      checkedAt: asText(entry.verification?.checkedAt, 'verification.checkedAt') ?? undefined,
     },
     addedAt: typeof entry.addedAt === 'string' && entry.addedAt ? entry.addedAt : addedAt,
   });

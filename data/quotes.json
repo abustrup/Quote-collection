@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T19:09:14.486Z",
+  "updatedAt": "2026-07-29T19:40:36.364Z",
   "quotes": [
     {
       "id": "q_30f509e31888",
@@ -1844,8 +1844,8 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_e02fb041f3ae",
-      "text": "Normal science often suppresses fundamental novelties because they are necessarily subversive of its basic commitments.",
+      "id": "q_1c94386891f7",
+      "text": "Normal science, for example, often suppresses fundamental novelties because they are necessarily subversive of its basic commitments.",
       "author": "Thomas S. Kuhn",
       "work": "The Structure of Scientific Revolutions",
       "workKind": "book",
@@ -1869,7 +1869,7 @@
       "lang": "en",
       "verification": {
         "status": "reported",
-        "note": "Attribution certain: Kuhn's characterisation of normal science in the opening chapter, p. 5 of the second edition. Written in English. Quoted in this exact form by several independent sources; note that Kuhn's own sentence carries a parenthetical \"for example\" after \"Normal science\", which citations customarily drop. Elsewhere in the same passage he describes normal research as \"a strenuous and devoted attempt to force nature into the conceptual boxes supplied by professional education\", which is the same thought in sharper words. No printed edition consulted from this environment."
+        "note": "Wording restored to Kuhn's sentence including the interpolated \"for example\", which an earlier transcription silently dropped. Checked against the passage as reproduced in multiple independent sources, which agree; the printed book was not consulted from here."
       },
       "favorite": false,
       "note": "",

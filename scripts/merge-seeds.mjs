@@ -64,6 +64,31 @@ async function main() {
     report.push(`${name.padEnd(24)} ${String(incoming.length).padStart(4)} read  ${String(result.added.length).padStart(4)} new  ${String(result.enriched.length).padStart(4)} enriched`);
   }
 
+  // Retire curated quotes the seed files no longer contain.
+  //
+  // A quote's id is a hash of its own text, so *correcting* a quotation mints a
+  // new record rather than editing the old one. Without this step the mistake
+  // and its correction both sit in the collection, which is worse than the
+  // original error: it looks like the author said two slightly different
+  // things. Only curated records are eligible — anything imported from
+  // Goodreads or added by hand has no seed file to be absent from, and must
+  // never be swept up by this.
+  const seededIds = new Set(collection.filter((quote) => quote.source?.kind === 'curated').map((quote) => quote.id));
+  for (const name of seedFiles) {
+    const raw = JSON.parse(await readFile(path.join(SEED_DIR, name), 'utf8'));
+    for (const quote of Array.isArray(raw) ? raw : raw.quotes ?? []) {
+      seededIds.delete(makeQuote(quote).id);
+    }
+  }
+
+  const retired = collection.filter((quote) => seededIds.has(quote.id));
+  if (retired.length) {
+    collection = collection.filter((quote) => !seededIds.has(quote.id));
+    for (const quote of retired) {
+      console.log(`  retired  ${quote.id}  ${quote.author}: "${quote.text.slice(0, 56)}…"`);
+    }
+  }
+
   const merged = {
     schemaVersion: SCHEMA_VERSION,
     updatedAt: new Date().toISOString(),

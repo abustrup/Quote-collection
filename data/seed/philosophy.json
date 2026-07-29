@@ -10,8 +10,17 @@
       "url": null,
       "locator": "38a"
     },
-    "tags": ["socrates", "self-examination", "trial", "greek"],
-    "themes": ["knowledge", "meaning", "character"],
+    "tags": [
+      "socrates",
+      "self-examination",
+      "trial",
+      "greek"
+    ],
+    "themes": [
+      "knowledge",
+      "meaning",
+      "character"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -29,8 +38,17 @@
       "url": null,
       "locator": "bk. II, ch. 1, 1103a-b"
     },
-    "tags": ["virtue-ethics", "habituation", "practice", "greek"],
-    "themes": ["character", "ethics", "work"],
+    "tags": [
+      "virtue-ethics",
+      "habituation",
+      "practice",
+      "greek"
+    ],
+    "themes": [
+      "character",
+      "ethics",
+      "work"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -48,8 +66,17 @@
       "url": null,
       "locator": "bk. I, ch. 2, 1253a"
     },
-    "tags": ["polis", "political-animal", "community", "greek"],
-    "themes": ["politics", "nature", "freedom"],
+    "tags": [
+      "polis",
+      "political-animal",
+      "community",
+      "greek"
+    ],
+    "themes": [
+      "politics",
+      "nature",
+      "freedom"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -67,8 +94,17 @@
       "url": null,
       "locator": "part one, opening (AT VI 1)"
     },
-    "tags": ["reason", "method", "irony", "rationalism"],
-    "themes": ["mind", "knowledge", "certainty"],
+    "tags": [
+      "reason",
+      "method",
+      "irony",
+      "rationalism"
+    ],
+    "themes": [
+      "mind",
+      "knowledge",
+      "certainty"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -86,8 +122,17 @@
       "url": null,
       "locator": "bk. 2, pt. 3, sec. 3 (SBN 415)"
     },
-    "tags": ["empiricism", "motivation", "reason-and-desire", "scottish-enlightenment"],
-    "themes": ["mind", "ethics", "agency"],
+    "tags": [
+      "empiricism",
+      "motivation",
+      "reason-and-desire",
+      "scottish-enlightenment"
+    ],
+    "themes": [
+      "mind",
+      "ethics",
+      "agency"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -105,8 +150,17 @@
       "url": null,
       "locator": "bk. 3, pt. 1, sec. 1 (SBN 469)"
     },
-    "tags": ["is-ought", "fact-value", "guillotine", "meta-ethics"],
-    "themes": ["ethics", "truth", "knowledge"],
+    "tags": [
+      "is-ought",
+      "fact-value",
+      "guillotine",
+      "meta-ethics"
+    ],
+    "themes": [
+      "ethics",
+      "truth",
+      "knowledge"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -124,8 +178,17 @@
       "url": null,
       "locator": "opening sentence (Ak. 8:35)"
     },
-    "tags": ["enlightenment", "sapere-aude", "autonomy", "german-idealism"],
-    "themes": ["freedom", "knowledge", "agency"],
+    "tags": [
+      "enlightenment",
+      "sapere-aude",
+      "autonomy",
+      "german-idealism"
+    ],
+    "themes": [
+      "freedom",
+      "knowledge",
+      "agency"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -143,8 +206,17 @@
       "url": null,
       "locator": "second section (Ak. 4:429)"
     },
-    "tags": ["categorical-imperative", "formula-of-humanity", "dignity", "deontology"],
-    "themes": ["ethics", "freedom", "character"],
+    "tags": [
+      "categorical-imperative",
+      "formula-of-humanity",
+      "dignity",
+      "deontology"
+    ],
+    "themes": [
+      "ethics",
+      "freedom",
+      "character"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -162,8 +234,17 @@
       "url": null,
       "locator": "ch. 1"
     },
-    "tags": ["harm-principle", "liberalism", "paternalism", "self-determination"],
-    "themes": ["freedom", "politics", "power"],
+    "tags": [
+      "harm-principle",
+      "liberalism",
+      "paternalism",
+      "self-determination"
+    ],
+    "themes": [
+      "freedom",
+      "politics",
+      "power"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -181,8 +262,16 @@
       "url": null,
       "locator": "ch. 2"
     },
-    "tags": ["higher-pleasures", "utilitarianism", "quality-of-life"],
-    "themes": ["ethics", "meaning", "suffering"],
+    "tags": [
+      "higher-pleasures",
+      "utilitarianism",
+      "quality-of-life"
+    ],
+    "themes": [
+      "ethics",
+      "meaning",
+      "suffering"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -200,8 +289,17 @@
       "url": null,
       "locator": "sec. 9, aphorism 483"
     },
-    "tags": ["conviction", "scepticism", "free-spirits", "intellectual-honesty"],
-    "themes": ["truth", "knowledge", "character"],
+    "tags": [
+      "conviction",
+      "scepticism",
+      "free-spirits",
+      "intellectual-honesty"
+    ],
+    "themes": [
+      "truth",
+      "knowledge",
+      "character"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -219,8 +317,17 @@
       "url": null,
       "locator": "proposition 7"
     },
-    "tags": ["limits-of-language", "silence", "logical-atomism", "closing-line"],
-    "themes": ["language", "knowledge", "truth"],
+    "tags": [
+      "limits-of-language",
+      "silence",
+      "logical-atomism",
+      "closing-line"
+    ],
+    "themes": [
+      "language",
+      "knowledge",
+      "truth"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -238,8 +345,16 @@
       "url": null,
       "locator": "part I, §43"
     },
-    "tags": ["meaning-is-use", "language-games", "later-wittgenstein"],
-    "themes": ["language", "meaning", "knowledge"],
+    "tags": [
+      "meaning-is-use",
+      "language-games",
+      "later-wittgenstein"
+    ],
+    "themes": [
+      "language",
+      "meaning",
+      "knowledge"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -257,8 +372,17 @@
       "url": null,
       "locator": "ch. 5, on the empirical basis of science"
     },
-    "tags": ["foundations", "fallibilism", "empirical-basis", "philosophy-of-science"],
-    "themes": ["science", "certainty", "knowledge"],
+    "tags": [
+      "foundations",
+      "fallibilism",
+      "empirical-basis",
+      "philosophy-of-science"
+    ],
+    "themes": [
+      "science",
+      "certainty",
+      "knowledge"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -269,15 +393,24 @@
     "text": "A theory which is not refutable by any conceivable event is non-scientific. Irrefutability is not a virtue of a theory (as people often think) but a vice.",
     "author": "Karl Popper",
     "work": "Conjectures and Refutations",
-    "workKind": "essay",
+    "workKind": "book",
     "year": 1963,
     "source": {
       "kind": "curated",
       "url": null,
       "locator": "ch. 1, 'Science: Conjectures and Refutations', summary of conclusions"
     },
-    "tags": ["falsifiability", "demarcation", "pseudo-science", "philosophy-of-science"],
-    "themes": ["science", "truth", "knowledge"],
+    "tags": [
+      "falsifiability",
+      "demarcation",
+      "pseudo-science",
+      "philosophy-of-science"
+    ],
+    "themes": [
+      "science",
+      "truth",
+      "knowledge"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -285,7 +418,7 @@
     }
   },
   {
-    "text": "Normal science often suppresses fundamental novelties because they are necessarily subversive of its basic commitments.",
+    "text": "Normal science, for example, often suppresses fundamental novelties because they are necessarily subversive of its basic commitments.",
     "author": "Thomas S. Kuhn",
     "work": "The Structure of Scientific Revolutions",
     "workKind": "book",
@@ -295,12 +428,21 @@
       "url": null,
       "locator": "ch. 1"
     },
-    "tags": ["normal-science", "paradigm", "anomaly", "philosophy-of-science"],
-    "themes": ["science", "knowledge", "progress"],
+    "tags": [
+      "normal-science",
+      "paradigm",
+      "anomaly",
+      "philosophy-of-science"
+    ],
+    "themes": [
+      "science",
+      "knowledge",
+      "progress"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Kuhn's characterisation of normal science in the opening chapter, p. 5 of the second edition. Written in English. Quoted in this exact form by several independent sources that agree with each other. I could not check whether Kuhn's own sentence carries an intervening phrase such as \"for example\" that citations habitually drop, so treat the sentence as accurate in substance and near-certain in wording rather than confirmed word for word. Elsewhere in the same passage, and confirmed verbatim, he describes normal research as \"a strenuous and devoted attempt to force nature into the conceptual boxes supplied by professional education\". No printed edition consulted from this environment."
+      "note": "Wording restored to Kuhn's sentence including the interpolated \"for example\", which an earlier transcription silently dropped. Checked against the passage as reproduced in multiple independent sources, which agree; the printed book was not consulted from here."
     }
   },
   {
@@ -314,8 +456,17 @@
       "url": null,
       "locator": "ch. 15, on Eichmann's execution"
     },
-    "tags": ["banality-of-evil", "bureaucracy", "responsibility", "totalitarianism"],
-    "themes": ["ethics", "power", "history"],
+    "tags": [
+      "banality-of-evil",
+      "bureaucracy",
+      "responsibility",
+      "totalitarianism"
+    ],
+    "themes": [
+      "ethics",
+      "power",
+      "history"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -333,8 +484,17 @@
       "url": null,
       "locator": "ch. 5, sec. 33"
     },
-    "tags": ["promising", "action", "plurality", "contracts"],
-    "themes": ["agency", "freedom", "time"],
+    "tags": [
+      "promising",
+      "action",
+      "plurality",
+      "contracts"
+    ],
+    "themes": [
+      "agency",
+      "freedom",
+      "time"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -352,8 +512,17 @@
       "url": null,
       "locator": "part 3, ch. 3 ('Panopticism')"
     },
-    "tags": ["panopticon", "surveillance", "discipline", "organisation"],
-    "themes": ["power", "attention", "freedom"],
+    "tags": [
+      "panopticon",
+      "surveillance",
+      "discipline",
+      "organisation"
+    ],
+    "themes": [
+      "power",
+      "attention",
+      "freedom"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -371,8 +540,17 @@
       "url": null,
       "locator": "part 3, ch. 3 ('Panopticism')"
     },
-    "tags": ["discipline", "institutions", "management", "organisation"],
-    "themes": ["power", "work", "politics"],
+    "tags": [
+      "discipline",
+      "institutions",
+      "management",
+      "organisation"
+    ],
+    "themes": [
+      "power",
+      "work",
+      "politics"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -390,8 +568,17 @@
       "url": null,
       "locator": "'Discourse Ethics: Notes on a Program of Philosophical Justification', principle (D)"
     },
-    "tags": ["discourse-ethics", "legitimacy", "deliberation", "stakeholders"],
-    "themes": ["ethics", "politics", "language"],
+    "tags": [
+      "discourse-ethics",
+      "legitimacy",
+      "deliberation",
+      "stakeholders"
+    ],
+    "themes": [
+      "ethics",
+      "politics",
+      "language"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -409,8 +596,17 @@
       "url": null,
       "locator": "ch. 15"
     },
-    "tags": ["narrative", "virtue-ethics", "tradition", "identity"],
-    "themes": ["meaning", "character", "ethics"],
+    "tags": [
+      "narrative",
+      "virtue-ethics",
+      "tradition",
+      "identity"
+    ],
+    "themes": [
+      "meaning",
+      "character",
+      "ethics"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -428,8 +624,17 @@
       "url": null,
       "locator": "the 1945 lecture, published 1946"
     },
-    "tags": ["existentialism", "responsibility", "bad-faith", "choice"],
-    "themes": ["freedom", "agency", "meaning"],
+    "tags": [
+      "existentialism",
+      "responsibility",
+      "bad-faith",
+      "choice"
+    ],
+    "themes": [
+      "freedom",
+      "agency",
+      "meaning"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -447,8 +652,17 @@
       "url": null,
       "locator": "closing lines"
     },
-    "tags": ["absurd", "sisyphus", "revolt", "closing-line"],
-    "themes": ["meaning", "suffering", "work"],
+    "tags": [
+      "absurd",
+      "sisyphus",
+      "revolt",
+      "closing-line"
+    ],
+    "themes": [
+      "meaning",
+      "suffering",
+      "work"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -466,8 +680,17 @@
       "url": null,
       "locator": "closing pages of ch. 5"
     },
-    "tags": ["iron-cage", "capitalism", "vocation", "modernity"],
-    "themes": ["work", "money", "meaning"],
+    "tags": [
+      "iron-cage",
+      "capitalism",
+      "vocation",
+      "modernity"
+    ],
+    "themes": [
+      "work",
+      "money",
+      "meaning"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -485,8 +708,17 @@
       "url": null,
       "locator": "lecture at Munich, published 1919"
     },
-    "tags": ["disenchantment", "rationalization", "modernity", "vocation"],
-    "themes": ["science", "meaning", "progress"],
+    "tags": [
+      "disenchantment",
+      "rationalization",
+      "modernity",
+      "vocation"
+    ],
+    "themes": [
+      "science",
+      "meaning",
+      "progress"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -504,8 +736,17 @@
       "url": null,
       "locator": null
     },
-    "tags": ["frankfurt-school", "critical-theory", "instrumental-reason", "modernity"],
-    "themes": ["progress", "history", "knowledge"],
+    "tags": [
+      "frankfurt-school",
+      "critical-theory",
+      "instrumental-reason",
+      "modernity"
+    ],
+    "themes": [
+      "progress",
+      "history",
+      "knowledge"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -523,8 +764,17 @@
       "url": null,
       "locator": "part one, aphorism 18"
     },
-    "tags": ["frankfurt-school", "damaged-life", "complicity", "aphorism"],
-    "themes": ["ethics", "meaning", "suffering"],
+    "tags": [
+      "frankfurt-school",
+      "damaged-life",
+      "complicity",
+      "aphorism"
+    ],
+    "themes": [
+      "ethics",
+      "meaning",
+      "suffering"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -542,8 +792,17 @@
       "url": null,
       "locator": "sec. 1, opening"
     },
-    "tags": ["justice", "institutions", "fairness", "liberalism"],
-    "themes": ["politics", "ethics", "truth"],
+    "tags": [
+      "justice",
+      "institutions",
+      "fairness",
+      "liberalism"
+    ],
+    "themes": [
+      "politics",
+      "ethics",
+      "truth"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
@@ -559,10 +818,19 @@
     "source": {
       "kind": "curated",
       "url": null,
-      "locator": "ch. 1, opening"
+      "locator": "preface, opening"
     },
-    "tags": ["humanities", "education", "democracy", "profit"],
-    "themes": ["politics", "money", "knowledge"],
+    "tags": [
+      "humanities",
+      "education",
+      "democracy",
+      "profit"
+    ],
+    "themes": [
+      "politics",
+      "money",
+      "knowledge"
+    ],
     "lang": "en",
     "verification": {
       "status": "reported",
