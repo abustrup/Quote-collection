@@ -1,0 +1,12 @@
+{
+  "name": "quote-collection",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Alexander Bustrup's personal quote library — a static site with no build step.",
+  "scripts": {
+    "check": "node scripts/validate.mjs",
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "serve": "node scripts/serve.mjs"
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Quote collection">
+  <!--
+    An opening double quotation mark, drawn rather than set, so the icon does
+    not depend on a font being present wherever a tab bar renders it.
+
+    Currents colours follow the page: warm paper behind deep ink, matching the
+    default Paper edition. The mark is the only ornament the site allows itself.
+  -->
+  <rect width="32" height="32" rx="6" fill="#f6efe4"/>
+  <!-- The glyph is drawn in its closing form and turned half a turn, which is
+       exactly how a type designer derives one from the other. -->
+  <g fill="#1b1714" transform="rotate(180 15.9 15.6)">
+    <path id="mark" d="M8.6 7.5c3.6 0 5.9 2.5 5.9 5.7 0 4.4-3.2 8.1-7.5 9.8l-1.1-2.2c2.5-1.1 4.2-2.8 4.9-4.6-.4.1-.8.2-1.3.2-2.5 0-4.4-1.9-4.4-4.4 0-2.6 1.6-4.5 3.5-4.5z"/>
+    <use href="#mark" x="11"/>
+  </g>
+</svg>

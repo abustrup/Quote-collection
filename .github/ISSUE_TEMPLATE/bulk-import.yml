@@ -1,0 +1,40 @@
+# Many quotes at once, from the importer.
+#
+# The `Quotes` label below is how scripts/ingest.mjs finds the payload, and how
+# it tells a bulk issue from a single one. Renaming it breaks importing; see the
+# note at the top of add-quote.yml.
+name: Import quotes
+description: Add many quotes at once, from the JSON that import.html produces.
+title: "Import: "
+labels: ["quote-bulk"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open [the importer](https://abustrup.github.io/Quote-collection/import.html),
+        drop in a Goodreads export or a PDF, check what it found, then copy the
+        JSON it gives you and paste it below.
+
+        Quotes already in the collection are recognised and left alone, so an
+        import that overlaps an earlier one is safe to run.
+
+  - type: textarea
+    id: json
+    attributes:
+      label: Quotes
+      description: The whole block, from the opening bracket to the closing one.
+      # Rendering as JSON keeps the paste verbatim and readable in the issue.
+      # It also rules out `required: true`, which GitHub does not reliably
+      # enforce on a rendered textarea — so ingest.mjs checks for an empty
+      # import itself and says so in a comment.
+      render: json
+      placeholder: |
+        [
+          {
+            "text": "The unexamined life is not worth living.",
+            "author": "Socrates",
+            "work": "Apology",
+            "year": -399,
+            "themes": ["meaning", "knowledge"]
+          }
+        ]

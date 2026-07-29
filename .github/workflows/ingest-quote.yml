@@ -1,0 +1,174 @@
+# Turn an issue into a quote in data/quotes.json.
+#
+# This is the only workflow with write access to the collection, so it is worth
+# being clear about what stops it being abused. Anyone may open an issue on a
+# public repository and anyone may apply a label by opening the right form —
+# the guard is therefore on the *author*: nothing here runs for an issue opened
+# by anybody other than the owner of the repository.
+#
+# Two things to know if the repository ever moves. Under an organisation,
+# `github.repository_owner` becomes the organisation name and the guard would
+# match nobody, so it would need to name the person instead. And the guard is on
+# who opened the issue, not on who last edited it, so anyone given write access
+# could edit the owner's issue and have the result ingested.
+#
+# It also runs only while the issue is open. A successful run closes the issue,
+# so a later edit cannot quietly add a second, near-identical quote alongside
+# the first.
+name: Add quote from issue
+
+on:
+  issues:
+    types: [opened, edited]
+
+# Nothing by default; the one job below asks for exactly what it needs.
+permissions: {}
+
+# Opening an issue and immediately editing it would otherwise run twice at once
+# over the same file. The group is per issue rather than global on purpose: a
+# global group cancels a *pending* run when a third arrives, which would lose a
+# quote silently. Races between different issues are handled at the push instead.
+concurrency:
+  group: quote-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    name: Ingest
+    if: >-
+      github.event.issue.state == 'open'
+      && github.event.issue.user.login == github.repository_owner
+      && (contains(github.event.issue.labels.*.name, 'quote')
+      || contains(github.event.issue.labels.*.name, 'quote-bulk'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          # Full history, so that starting again from a freshly fetched branch
+          # works if another run reaches the branch first.
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Read the issue
+        id: ingest
+        continue-on-error: true
+        env:
+          # The issue body reaches Node through the environment and never through
+          # the shell, so a quotation containing backticks or $(…) is just text.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          MODE: ${{ contains(github.event.issue.labels.*.name, 'quote-bulk') && 'bulk' || 'single' }}
+          # Permalinks are built from GITHUB_REPOSITORY, which the runner always
+          # sets. If the collection ever moves to its own domain, set
+          # SITE_BASE_URL here and everything below follows.
+        run: |
+          node scripts/ingest.mjs \
+            --mode "$MODE" \
+            --body-env ISSUE_BODY \
+            --summary-file "$RUNNER_TEMP/comment.md"
+
+      - name: Check the collection still validates
+        id: check
+        if: steps.ingest.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/validate.mjs
+
+      - name: Commit the collection
+        id: commit
+        if: >-
+          steps.ingest.outcome == 'success'
+          && steps.check.outcome == 'success'
+          && steps.ingest.outputs.changed == 'true'
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          BRANCH: ${{ github.event.repository.default_branch }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          MODE: ${{ contains(github.event.issue.labels.*.name, 'quote-bulk') && 'bulk' || 'single' }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          # A push made with GITHUB_TOKEN starts no further workflow runs, which
+          # is what keeps this from triggering itself through validate.yml.
+          for attempt in 1 2 3; do
+            git add data/quotes.json
+            if git diff --cached --quiet; then
+              echo "Nothing left to commit — the quote is already on ${BRANCH}."
+              exit 0
+            fi
+            git commit --quiet --message "Add quotes from issue #${ISSUE_NUMBER}"
+            if git push; then exit 0; fi
+
+            # Something else reached the branch first. Rebasing here would replay
+            # a whole-file rewrite over their work and conflict; starting again
+            # from their state and re-reading the issue merges both properly.
+            echo "Push rejected, starting again from ${BRANCH} (attempt ${attempt})."
+            git fetch --quiet origin "${BRANCH}"
+            git reset --quiet --hard "origin/${BRANCH}"
+            node scripts/ingest.mjs \
+              --mode "$MODE" \
+              --body-env ISSUE_BODY \
+              --summary-file "$RUNNER_TEMP/comment.md" \
+              --quiet
+          done
+
+          echo "Could not push after three attempts."
+          exit 1
+
+      - name: Say what happened
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          INGEST: ${{ steps.ingest.outcome }}
+          CHECK: ${{ steps.check.outcome }}
+          COMMIT: ${{ steps.commit.outcome }}
+        run: |
+          COMMENT="$RUNNER_TEMP/comment.md"
+
+          # ingest.mjs writes its own explanation whether it succeeded or failed.
+          # These branches only cover the cases it could not speak for — where
+          # the quote itself was fine but something after it was not.
+          if [ "$COMMIT" = "failure" ]; then
+            {
+              printf 'I read the quote but could not save it.\n\n'
+              printf 'The collection is unchanged. The details are in [the run log](%s).\n' "$RUN_URL"
+            } > "$COMMENT"
+          elif [ "$CHECK" = "failure" ]; then
+            {
+              printf 'I could not add this one.\n\n'
+              printf '**The collection would not have validated afterwards**, so nothing was written.\n\n'
+              printf 'The details are in [the run log](%s).\n' "$RUN_URL"
+            } > "$COMMENT"
+          elif [ ! -s "$COMMENT" ]; then
+            {
+              printf 'Something went wrong before I could read the issue.\n\n'
+              printf 'The details are in [the run log](%s). Nothing was written.\n' "$RUN_URL"
+            } > "$COMMENT"
+          fi
+
+          gh issue comment "$ISSUE_NUMBER" --body-file "$COMMENT"
+
+      - name: Close the issue
+        if: steps.ingest.outcome == 'success' && steps.check.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue close "$ISSUE_NUMBER" --reason completed
+
+      # `continue-on-error` above kept the job alive long enough to comment;
+      # this is where a bad issue actually turns the run red.
+      - name: Fail if the quote was not added
+        if: steps.ingest.outcome != 'success' || steps.check.outcome != 'success'
+        run: exit 1

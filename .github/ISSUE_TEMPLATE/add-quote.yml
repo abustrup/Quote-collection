@@ -1,0 +1,149 @@
+# One quote, added from anywhere — a phone on a train counts.
+#
+# The labels below are the contract with scripts/ingest.mjs: it finds each field
+# by its `label`, so renaming one here without renaming it there would silently
+# drop that field. tests/ingest.test.mjs checks the two files still agree.
+name: Add a quote
+description: Add a single quotation to the collection.
+title: "Quote: "
+labels: ["quote"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything except the quote and the author is optional. A quote with
+        nothing but its words and a name is still worth keeping — the rest can
+        be filled in later, and re-adding the same quote will not duplicate it.
+
+  - type: textarea
+    id: text
+    attributes:
+      label: Quote
+      description: The words themselves. No quotation marks, no author line — those have their own fields.
+      placeholder: The unexamined life is not worth living.
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      description: As they are normally cited. If nobody knows, write Unknown.
+      placeholder: Hannah Arendt
+    validations:
+      required: true
+
+  - type: input
+    id: work
+    attributes:
+      label: Work
+      description: The book, essay or speech it comes from. Leave the subtitle out unless it earns its place.
+      placeholder: The Human Condition
+
+  - type: dropdown
+    id: work-kind
+    attributes:
+      label: Kind of work
+      options:
+        - book
+        - essay
+        - paper
+        - speech
+        - interview
+        - film
+        - poem
+        - letter
+        - document
+        - song
+        - other
+
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      description: When the work was published or delivered. For an ancient text, write it as 350 BC.
+      placeholder: "1958"
+
+  - type: dropdown
+    id: themes
+    attributes:
+      label: Themes
+      description: A fixed vocabulary, so that filtering stays coherent across hundreds of quotes. Pick as many as fit.
+      multiple: true
+      options:
+        - agency
+        - art
+        - attention
+        - beauty
+        - certainty
+        - character
+        - death
+        - ethics
+        - freedom
+        - friendship
+        - history
+        - knowledge
+        - language
+        - love
+        - meaning
+        - mind
+        - money
+        - nature
+        - politics
+        - power
+        - progress
+        - risk
+        - science
+        - solitude
+        - suffering
+        - technology
+        - time
+        - truth
+        - work
+        - writing
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Anything the themes above do not cover. Separate them with commas.
+      placeholder: stoicism, exam notes
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      description: The language of the quotation as written above, not of the original work.
+      default: 0
+      options:
+        - English (en)
+        - Danish (da)
+        - German (de)
+        - French (fr)
+        - Latin (la)
+        - Greek (el)
+        - Spanish (es)
+        - Italian (it)
+        - Swedish (sv)
+        - Norwegian (no)
+
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: Where it was found online, if it was found online.
+      placeholder: https://example.org/essay
+
+  - type: textarea
+    id: note
+    attributes:
+      label: Note
+      description: Your own thought about it. Kept apart from the quotation and shown underneath it.
+
+  - type: checkboxes
+    id: favourite
+    attributes:
+      label: Favourite
+      options:
+        - label: One of the ones worth coming back to
+          required: false

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6efe4">
+<meta name="color-scheme" content="light dark">
+<title>What to read next – Quote Collection</title>
+<meta name="description" content="Reading suggestions drawn from the shape of the collection.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<script>
+  (function () {
+    try {
+      var editions = ['paper', 'night', 'folio', 'index'];
+      var saved = localStorage.getItem('quotes-edition');
+      if (editions.indexOf(saved) < 0) {
+        saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'paper';
+      }
+      document.documentElement.dataset.edition = saved;
+      if (saved === 'night') document.querySelector('meta[name=theme-color]').setAttribute('content', '#14110d');
+    } catch (e) {
+      document.documentElement.dataset.edition = 'paper';
+    }
+  })();
+</script>
+
+<link rel="preload" href="assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  /* Page-specific: the recommendation card and the taste summary. Everything
+     else is inherited so this page is unmistakably part of the collection. */
+
+  .taste {
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+    padding: clamp(1.1rem, 3vw, 1.6rem);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+
+  .taste h2 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .taste p { margin: 0; font-size: 1.02rem; line-height: 1.6; max-width: 60ch; }
+  .taste strong { font-weight: 600; }
+
+  .suggestions {
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .work {
+    padding: clamp(1.6rem, 3.5vw, 2.4rem) 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .work:last-child { border-bottom: 0; }
+
+  .work-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .work-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .work-byline {
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.85rem;
+  }
+
+  .work-why {
+    max-width: 62ch;
+    margin: 0.7rem 0 0;
+    color: var(--body-soft);
+    font-size: 1.02rem;
+    line-height: 1.62;
+  }
+
+  .work-because {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    max-width: 62ch;
+    margin: 0.8rem 0 0;
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .work-because::before {
+    content: "→";
+    flex: none;
+    opacity: 0.6;
+  }
+
+  .work-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin: 0.85rem 0 0;
+  }
+
+  .work-link {
+    font-family: var(--font-label);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-ink);
+    text-decoration-color: color-mix(in srgb, var(--accent-ink) 35%, transparent);
+    text-underline-offset: 3px;
+  }
+
+  .settings {
+    margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+    padding: clamp(1.1rem, 3vw, 1.6rem);
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius);
+  }
+
+  .settings summary {
+    cursor: pointer;
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .settings summary:hover { color: var(--ink); }
+
+  .settings-body { max-width: 62ch; margin-top: 1rem; font-size: 0.92rem; line-height: 1.6; }
+  .settings-body p { margin: 0 0 0.8rem; color: var(--body-soft); }
+
+  .key-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.9rem;
+  }
+
+  .key-row input {
+    flex: 1 1 18rem;
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85rem;
+  }
+
+  .cost-note {
+    margin-top: 0.9rem;
+    padding-left: 0.8rem;
+    border-left: 2px solid var(--accent);
+    color: var(--body-soft);
+    font-size: 0.88rem;
+  }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#suggestions">Skip to the suggestions</a>
+
+<header class="masthead shell">
+  <p class="masthead-kicker">Quote Collection</p>
+  <h1>What to Read Next</h1>
+  <p class="masthead-dek">
+    Suggestions drawn from the shape of what you have already kept – the
+    authors you return to, and the questions your quotes keep circling.
+  </p>
+</header>
+
+<div class="controls">
+  <div class="shell controls-row">
+    <div class="control-group">
+      <label class="visually-hidden" for="filter-theme">Lean towards</label>
+      <select class="pill" id="filter-theme"><option value="">Follow my whole collection</option></select>
+
+      <label class="visually-hidden" for="difficulty">Difficulty</label>
+      <select class="pill" id="difficulty">
+        <option value="">Any difficulty</option>
+        <option value="accessible">Accessible</option>
+        <option value="demanding">Demanding</option>
+        <option value="hard">Hard</option>
+      </select>
+
+      <button class="pill" id="reroll" type="button">Suggest again</button>
+    </div>
+
+    <div class="control-group" style="margin-left:auto">
+      <a class="pill" href="index.html">← The collection</a>
+    </div>
+  </div>
+</div>
+
+<main class="shell">
+  <section class="taste" id="taste" hidden>
+    <h2>What the collection says about you</h2>
+    <p id="taste-text"></p>
+  </section>
+
+  <ol class="suggestions" id="suggestions"></ol>
+
+  <div class="empty" id="empty" hidden>
+    <p><strong>Not enough to go on yet.</strong></p>
+    <p id="empty-detail"></p>
+  </div>
+
+  <details class="settings">
+    <summary>Ask Claude instead (optional, uses your own API key)</summary>
+    <div class="settings-body">
+      <p>
+        The suggestions above are computed on this device from a hand-curated
+        library. They cost nothing, work offline, and can only ever recommend a
+        real book, because every candidate was checked by hand.
+      </p>
+      <p>
+        You can also send a summary of your collection to Claude for a more
+        conversational reading list. That runs against
+        <strong>your own Anthropic API key</strong>, billed to your account, and
+        the key is stored only in this browser – it is never committed to the
+        repository and never sent anywhere except Anthropic.
+      </p>
+      <div class="cost-note">
+        This costs real money, so it is off unless you turn it on. A single
+        suggestion request is a fraction of a cent. No key is bundled with this
+        site, and nothing is sent anywhere until you paste one in and press ask.
+      </div>
+      <div class="key-row">
+        <label class="visually-hidden" for="api-key">Anthropic API key</label>
+        <input id="api-key" type="password" placeholder="sk-ant-…" autocomplete="off" spellcheck="false">
+        <button class="pill" id="ask-claude" type="button">Ask Claude</button>
+        <button class="pill" id="forget-key" type="button">Forget key</button>
+      </div>
+      <p id="claude-status" style="margin-top:.8rem"></p>
+      <div id="claude-output"></div>
+    </div>
+  </details>
+</main>
+
+<footer class="page-footer">
+  <div class="shell footer-row">
+    <div>
+      <p style="margin:0">
+        <a href="index.html">The collection</a> ·
+        <a href="import.html">Import from Goodreads</a> ·
+        <a href="https://github.com/abustrup/Quote-collection">Source</a>
+      </p>
+    </div>
+    <div><p style="margin:0" id="library-stats"></p></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="assets/suggest.js"></script>
+</body>
+</html>

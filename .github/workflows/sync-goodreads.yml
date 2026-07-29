@@ -1,0 +1,105 @@
+# Keep the collection in step with the Goodreads list, without anyone doing anything.
+#
+# The drag-the-PDFs importer works, but it costs eight steps across three apps,
+# and steps that need a person to show up are where this kind of project dies.
+# This does the same job on a schedule instead. GitHub's runners can reach
+# goodreads.com, so the fetch happens here rather than on anyone's laptop.
+#
+# It needs one thing once: whose list to read. Run this workflow manually and
+# paste a Goodreads profile URL into the box; it remembers it in
+# data/sources.json and every run after that is automatic.
+name: Sync from Goodreads
+
+on:
+  schedule:
+    # 05:20 UTC daily, a few minutes off the hour so it does not queue behind
+    # everything else scheduled on the hour.
+    - cron: '20 5 * * *'
+  workflow_dispatch:
+    inputs:
+      profile_url:
+        description: 'Goodreads profile or quotes-list URL (only needed the first time)'
+        required: false
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: quotes-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Read the Goodreads list
+        id: sync
+        env:
+          PROFILE: ${{ inputs.profile_url }}
+        run: |
+          set +e
+          if [ -n "$PROFILE" ]; then
+            node scripts/sync-goodreads.mjs --profile "$PROFILE"
+          else
+            node scripts/sync-goodreads.mjs
+          fi
+          status=$?
+          set -e
+
+          # 78 means "no profile set yet", which is a waiting state rather than
+          # a fault. Anything else non-zero is a real failure and should be red.
+          if [ "$status" = "78" ]; then
+            echo "waiting=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::No Goodreads profile set yet. Run this workflow manually and paste your profile URL to start the sync."
+            exit 0
+          fi
+          exit "$status"
+
+      - name: Check the collection still validates
+        if: steps.sync.outputs.waiting != 'true'
+        run: node scripts/validate.mjs
+
+      - name: Commit anything new
+        if: steps.sync.outputs.waiting != 'true'
+        run: |
+          if git diff --quiet -- data/; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/
+          git commit --message "Sync ${{ steps.sync.outputs.added }} new quotes from Goodreads"
+
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          exit 1
+
+      - name: Say what happened
+        if: always()
+        run: |
+          {
+            if [ "${{ steps.sync.outputs.waiting }}" = "true" ]; then
+              echo "### Waiting for a Goodreads profile"
+              echo
+              echo "Run this workflow again and paste your Goodreads profile URL into the box."
+            else
+              echo "### Goodreads sync"
+              echo
+              echo "- ${{ steps.sync.outputs.added || 0 }} new"
+              echo "- ${{ steps.sync.outputs.total || 0 }} in the collection"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

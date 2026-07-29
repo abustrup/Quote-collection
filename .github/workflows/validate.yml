@@ -1,0 +1,42 @@
+# The collection is checked on the way in, not after publication.
+#
+# Push is limited to the default branch because every other branch reaches this
+# workflow through its pull request; running both would mean two identical runs
+# on every commit.
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Validate and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # No install step: the site and its tooling have no dependencies, which is
+      # what should still make this run in five years.
+      - name: Validate the collection
+        run: node scripts/validate.mjs
+
+      # Node 22 reads a bare `tests/` as a module to execute rather than a
+      # directory to search, so the pattern is spelled out. Quoted, so that Node
+      # expands it and the result does not depend on the shell's glob settings.
+      - name: Run the tests
+        run: node --test "tests/**/*.test.mjs"

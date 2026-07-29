@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6efe4">
+<meta name="color-scheme" content="light dark">
+<title>Import from Goodreads – Quote Collection</title>
+<meta name="description" content="Turn printed Goodreads quote pages back into the collection, without uploading anything.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<script>
+  (function () {
+    try {
+      var editions = ['paper', 'night', 'folio', 'index'];
+      var saved = localStorage.getItem('quotes-edition');
+      if (editions.indexOf(saved) < 0) {
+        saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'paper';
+      }
+      document.documentElement.dataset.edition = saved;
+      if (saved === 'night') document.querySelector('meta[name=theme-color]').setAttribute('content', '#14110d');
+    } catch (e) {
+      document.documentElement.dataset.edition = 'paper';
+    }
+  })();
+</script>
+
+<link rel="preload" href="assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  /* Page-specific: a drop target, a table of what was read, and the two ways
+     of getting it out again. A utility page, so it stays quieter than the
+     collection it feeds – no display sizes, no ornament, nothing that competes
+     with the job of checking 174 rows without losing your place. */
+
+  .lede { max-width: 62ch; color: var(--body-soft); }
+  .lede code {
+    font-family: var(--font-label);
+    font-size: 0.86em;
+    padding: 0.05em 0.3em;
+    background: var(--surface);
+    border-radius: var(--radius);
+  }
+
+  .dropzone {
+    margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+    padding: clamp(1.75rem, 6vw, 3rem) clamp(1.1rem, 4vw, 2rem);
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-align: center;
+    transition: border-color 160ms var(--ease), background-color 160ms var(--ease);
+  }
+
+  .dropzone[data-state="over"] {
+    border-color: var(--accent);
+    border-style: solid;
+    background: var(--bg);
+  }
+
+  .dropzone[data-state="busy"] { opacity: 0.7; }
+
+  .dropzone h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .dropzone p {
+    margin: 0 0 1rem;
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .files {
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .files li { padding: 0.2rem 0; }
+  .files li[data-ok="no"] { color: var(--accent); }
+  .files b { color: var(--ink); font-weight: 600; }
+
+  .summary {
+    margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+    padding: clamp(1.1rem, 3vw, 1.5rem);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+
+  .summary h2 {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .summary p { margin: 0 0 0.35rem; max-width: 62ch; }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary strong { font-weight: 600; }
+  .summary .quiet { font-family: var(--font-label); font-size: 0.82rem; color: var(--muted); }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.1rem 0 0;
+  }
+
+  .pill[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+  .table-wrap {
+    margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+    overflow-x: auto;
+    border-top: 1px solid var(--rule);
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+
+  th {
+    padding: 0.6rem 0.75rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: left;
+    font-family: var(--font-label);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.7rem 0.75rem 0.7rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tbody tr[data-flagged="yes"] td:first-child { box-shadow: inset 2px 0 0 var(--accent); padding-left: 0.7rem; }
+
+  .col-text { min-width: 24ch; max-width: 52ch; line-height: 1.5; }
+  .col-author, .col-work { min-width: 12ch; font-size: 0.88rem; color: var(--body-soft); }
+  .col-work { font-style: italic; }
+  .col-tags { min-width: 10ch; }
+  .col-notes { min-width: 12ch; }
+  .col-remove { width: 1%; }
+
+  .taglist { font-family: var(--font-label); font-size: 0.74rem; color: var(--muted); }
+
+  .note {
+    display: block;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--accent);
+  }
+
+  .note-quiet { color: var(--muted); }
+
+  .row-remove {
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: none;
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    padding: 0.15rem 0.6rem;
+    cursor: pointer;
+  }
+
+  .row-remove:hover { color: var(--accent); border-color: var(--accent); }
+
+  .json-out {
+    width: 100%;
+    min-height: 9rem;
+    margin: 1rem 0 0;
+    padding: 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.78rem;
+  }
+
+  .how { margin: clamp(2rem, 5vw, 3rem) 0 0; }
+  .how summary { cursor: pointer; font-family: var(--font-label); font-size: 0.8rem; color: var(--muted); }
+  .how ol { max-width: 62ch; padding-left: 1.2rem; color: var(--body-soft); }
+  .how li { margin: 0.4rem 0; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#dropzone">Skip to the importer</a>
+
+<header class="masthead shell">
+  <p class="masthead-kicker">Quote Collection</p>
+  <h1>Import from Goodreads</h1>
+  <p class="masthead-dek lede">
+    Goodreads has no export worth the name, but it will print. Drop the printed
+    pages here and they become quotes again – read in this browser, on this
+    device, and never sent anywhere.
+  </p>
+</header>
+
+<div class="controls">
+  <div class="shell controls-row">
+    <div class="control-group">
+      <a class="pill" href="index.html">← The collection</a>
+    </div>
+  </div>
+</div>
+
+<main class="shell">
+
+  <section class="dropzone" id="dropzone" data-state="idle" aria-labelledby="dropzone-title">
+    <h2 id="dropzone-title">Drop the PDFs here</h2>
+    <p>All six pages at once is fine. Nothing leaves this page.</p>
+    <button class="pill" type="button" id="choose">Choose files instead</button>
+    <input class="visually-hidden" type="file" id="file-input" accept="application/pdf,.pdf" multiple>
+    <ul class="files" id="files"></ul>
+  </section>
+
+  <div id="alert" class="summary" hidden>
+    <h2>Before you start</h2>
+    <p id="alert-text"></p>
+  </div>
+
+  <section class="summary" id="summary" hidden aria-live="polite">
+    <h2>What this adds</h2>
+    <p id="summary-main"></p>
+    <p class="quiet" id="summary-detail"></p>
+    <div class="actions">
+      <button class="pill" type="button" id="download" disabled>Download quotes.json</button>
+      <button class="pill" type="button" id="copy" disabled>Copy JSON to clipboard</button>
+    </div>
+    <textarea class="json-out" id="json-out" hidden readonly aria-label="The merged collection, to copy by hand"></textarea>
+  </section>
+
+  <div class="table-wrap" id="table-wrap" hidden>
+    <table>
+      <caption class="visually-hidden">Quotes read from the printed pages, with anything uncertain marked</caption>
+      <thead>
+        <tr>
+          <th scope="col">Quote</th>
+          <th scope="col">Author</th>
+          <th scope="col">Work</th>
+          <th scope="col">Tags</th>
+          <th scope="col">Worth a look</th>
+          <th scope="col"><span class="visually-hidden">Remove</span></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <details class="how">
+    <summary>How to make the PDFs</summary>
+    <ol>
+      <li>Open <code>goodreads.com/quotes/list</code> while signed in.</li>
+      <li>Print the page – Cmd-P on a Mac, Ctrl-P otherwise – and choose
+        <em>Save as PDF</em> as the destination. The headers, footers and page
+        numbers the browser adds are expected; they get stripped here.</li>
+      <li>Click through to the next page of the list and repeat, once per page.
+        The list holds thirty quotes to a page.</li>
+      <li>Drop all the files above. Importing the same page twice is harmless:
+        a quote already in the collection is recognised and left alone.</li>
+    </ol>
+  </details>
+
+</main>
+
+<footer class="page-footer shell">
+  <div class="footer-row">
+    <span>Read entirely in your browser. No upload, no network, no account.</span>
+  </div>
+</footer>
+
+<script type="module">
+  import { importPdf, loadPdfjs, dedupeRows, toRecord, flagIsQuiet } from './assets/import.js';
+  import { mergeQuotes, SCHEMA_VERSION } from './assets/quote-core.js';
+
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('file-input');
+  const filesList = document.getElementById('files');
+  const summary = document.getElementById('summary');
+  const summaryMain = document.getElementById('summary-main');
+  const summaryDetail = document.getElementById('summary-detail');
+  const tableWrap = document.getElementById('table-wrap');
+  const rowsBody = document.getElementById('rows');
+  const downloadButton = document.getElementById('download');
+  const copyButton = document.getElementById('copy');
+  const jsonOut = document.getElementById('json-out');
+  const alertBox = document.getElementById('alert');
+  const alertText = document.getElementById('alert-text');
+
+  /** Everything read so far, in the order it was read. Rows can be removed. */
+  let rows = [];
+  let existing = null;
+  let reading = false;
+
+  const plural = (count, one, many) => `${count} ${count === 1 ? one : many}`;
+
+  function say(message) {
+    alertText.textContent = message;
+    alertBox.hidden = false;
+  }
+
+  // Module workers and fetch are both blocked on file:// URLs, so the page
+  // cannot work when it is opened by double-clicking. Say so plainly rather
+  // than failing later with a stack trace nobody wants to read.
+  if (location.protocol === 'file:') {
+    say('This page has to be served over http to read a PDF at all. Open it from the '
+      + 'published site, or run "node scripts/serve.mjs" and open the address it prints.');
+  }
+
+  /**
+   * The collection as it stands, so the import can say what is genuinely new.
+   * A missing file is not an error: on a fresh checkout there is nothing yet.
+   */
+  async function loadExisting() {
+    if (existing) return existing;
+    try {
+      const response = await fetch('data/quotes.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error(String(response.status));
+      const parsed = await response.json();
+      existing = Array.isArray(parsed.quotes) ? parsed.quotes : [];
+    } catch {
+      existing = [];
+      say('The existing collection could not be read, so everything below counts as new. '
+        + 'Check data/quotes.json before replacing it.');
+    }
+    return existing;
+  }
+
+  function fileLine(name, text, ok = true) {
+    const item = document.createElement('li');
+    item.dataset.ok = ok ? 'yes' : 'no';
+    const label = document.createElement('b');
+    label.textContent = name;
+    item.append(label, ` – ${text}`);
+    filesList.append(item);
+    return item;
+  }
+
+  async function readFiles(list) {
+    const pdfs = [...list].filter((file) => /\.pdf$/i.test(file.name) || file.type === 'application/pdf');
+    const rejected = [...list].length - pdfs.length;
+    if (rejected) fileLine(plural(rejected, 'file', 'files'), 'not a PDF, skipped', false);
+    if (!pdfs.length) return;
+
+    reading = true;
+    dropzone.dataset.state = 'busy';
+    await loadExisting();
+
+    let pdfjs;
+    try {
+      pdfjs = await loadPdfjs();
+    } catch (error) {
+      say(`The PDF reader could not be loaded: ${error.message}`);
+      dropzone.dataset.state = 'idle';
+      reading = false;
+      return;
+    }
+
+    for (const file of pdfs) {
+      const line = fileLine(file.name, 'reading…');
+      try {
+        const { quotes, meta } = await importPdf(await file.arrayBuffer(), pdfjs);
+        // The key travels with the row through de-duplication, which copies
+        // rows rather than passing them through; without it "remove" would have
+        // nothing reliable to match on.
+        rows = rows.concat(quotes.map((quote, index) => ({
+          ...quote,
+          file: file.name,
+          key: `${file.name}#${index}`,
+        })));
+
+        // Goodreads prints its own count at the top of every page. When it is
+        // there it is the only independent check that nothing was dropped.
+        const claim = meta.expected === null
+          ? ''
+          : meta.expected === quotes.length
+            ? ` – the page says ${meta.expected}, and ${meta.expected} came through`
+            : ` – the page says ${meta.expected}, so ${meta.expected - quotes.length} did not come through`;
+        line.remove();
+        fileLine(
+          file.name,
+          quotes.length
+            ? `${plural(quotes.length, 'quote', 'quotes')}${claim}`
+            : 'no quotes found – is this a printed Goodreads quote list?',
+          quotes.length > 0,
+        );
+      } catch (error) {
+        line.remove();
+        fileLine(file.name, `could not be read: ${error.message}`, false);
+      }
+    }
+
+    dropzone.dataset.state = 'idle';
+    reading = false;
+    render();
+  }
+
+  /* ------------------------------------------------------------------------
+   * The preview
+   * ---------------------------------------------------------------------- */
+
+  function cell(row, className, text) {
+    const td = document.createElement('td');
+    td.className = className;
+    td.textContent = text;
+    row.append(td);
+    return td;
+  }
+
+  function renderTable(unique) {
+    rowsBody.replaceChildren();
+
+    unique.forEach((quote, index) => {
+      const tr = document.createElement('tr');
+      // The rule down the side of a row is for doubt about the reading, not for
+      // a quote that simply has no book behind it.
+      tr.dataset.flagged = quote.flags.some((flag) => !flagIsQuiet(flag)) ? 'yes' : 'no';
+
+      cell(tr, 'col-text', quote.text);
+      cell(tr, 'col-author', quote.author || '—');
+      cell(tr, 'col-work', quote.work || '—');
+
+      const tags = cell(tr, 'col-tags', '');
+      const tagText = document.createElement('span');
+      tagText.className = 'taglist';
+      tagText.textContent = quote.tags.length ? quote.tags.join(', ') : '—';
+      tags.append(tagText);
+
+      const notes = cell(tr, 'col-notes', '');
+      for (const flag of quote.flags) {
+        const note = document.createElement('span');
+        note.className = flagIsQuiet(flag) ? 'note note-quiet' : 'note';
+        note.textContent = flag;
+        notes.append(note);
+      }
+      if (!quote.flags.length) notes.textContent = '—';
+
+      const remove = document.createElement('td');
+      remove.className = 'col-remove';
+      const button = document.createElement('button');
+      button.className = 'row-remove';
+      button.type = 'button';
+      button.textContent = 'Remove';
+      button.setAttribute('aria-label', `Remove the quote beginning "${quote.text.slice(0, 40)}"`);
+      button.addEventListener('click', () => {
+        rows = rows.filter((row) => row.key !== quote.key);
+        render();
+      });
+      remove.append(button);
+      tr.append(remove);
+
+      rowsBody.append(tr);
+    });
+
+    tableWrap.hidden = unique.length === 0;
+  }
+
+  /** Build the merged collection and describe it in one sentence. */
+  function render() {
+    const { rows: unique, duplicates } = dedupeRows(rows);
+    const today = new Date().toISOString().slice(0, 10);
+    const records = unique.map((row) => toRecord(row, today));
+    const merged = mergeQuotes(existing ?? [], records);
+
+    const alreadyPresent = records.length - merged.added.length;
+    const flagged = unique.filter((row) => row.flags.length).length;
+
+    summary.hidden = unique.length === 0 && rows.length === 0;
+    summaryMain.replaceChildren();
+    summaryMain.append(
+      `${plural(merged.added.length, 'quote is', 'quotes are')} new. `,
+      `${plural(alreadyPresent, 'was', 'were')} already in the collection.`,
+    );
+
+    const detail = [];
+    if (merged.enriched.length) {
+      detail.push(`${plural(merged.enriched.length, 'existing quote gains', 'existing quotes gain')} a title or a tag it was missing.`);
+    }
+    if (duplicates) detail.push(`${plural(duplicates, 'row repeated', 'rows repeated')} across the files and were folded together.`);
+    if (flagged) detail.push(`${plural(flagged, 'row is', 'rows are')} marked below as worth a look before saving.`);
+    detail.push(`The file below holds the whole collection: ${plural(merged.quotes.length, 'quote', 'quotes')}.`);
+    summaryDetail.textContent = detail.join(' ');
+
+    const collection = {
+      schemaVersion: SCHEMA_VERSION,
+      updatedAt: new Date().toISOString(),
+      quotes: merged.quotes,
+    };
+    const json = `${JSON.stringify(collection, null, 2)}\n`;
+
+    downloadButton.disabled = unique.length === 0;
+    copyButton.disabled = unique.length === 0;
+    downloadButton.onclick = () => {
+      const url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'quotes.json';
+      link.click();
+      URL.revokeObjectURL(url);
+    };
+    copyButton.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(json);
+        copyButton.textContent = 'Copied';
+        setTimeout(() => { copyButton.textContent = 'Copy JSON to clipboard'; }, 1600);
+      } catch {
+        // Clipboard access is refused in plenty of ordinary situations. Showing
+        // the text is a worse experience but never a dead end.
+        jsonOut.hidden = false;
+        jsonOut.value = json;
+        jsonOut.select();
+      }
+    };
+
+    renderTable(unique);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Getting the files in
+   * ---------------------------------------------------------------------- */
+
+  for (const type of ['dragenter', 'dragover']) {
+    dropzone.addEventListener(type, (event) => {
+      event.preventDefault();
+      if (!reading) dropzone.dataset.state = 'over';
+    });
+  }
+
+  for (const type of ['dragleave', 'dragend']) {
+    dropzone.addEventListener(type, () => {
+      if (!reading) dropzone.dataset.state = 'idle';
+    });
+  }
+
+  dropzone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropzone.dataset.state = 'idle';
+    if (!reading) readFiles(event.dataTransfer?.files ?? []);
+  });
+
+  // A file dropped anywhere but the target would otherwise navigate away from
+  // the page, losing everything read so far.
+  for (const type of ['dragover', 'drop']) {
+    window.addEventListener(type, (event) => {
+      if (!dropzone.contains(event.target)) event.preventDefault();
+    });
+  }
+
+  document.getElementById('choose').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    // Copy the list before clearing the input: `value = ''` empties the very
+    // FileList that was just handed over. Clearing it at all is what lets the
+    // same file be chosen twice in a row after a mistake.
+    const chosen = [...fileInput.files];
+    fileInput.value = '';
+    if (!reading) readFiles(chosen);
+  });
+</script>
+
+</body>
+</html>
