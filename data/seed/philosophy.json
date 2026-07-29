@@ -15,7 +15,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Socrates' words at Apology 38a, one of the most securely located lines in Greek philosophy. Wording is G. M. A. Grube's translation (Hackett), which keeps the qualifying \"for men\" that most popular versions drop; Jowett has \"the life which is unexamined is not worth living\". Cross-checked against several independent sources that agree on Grube's phrasing. The Greek text and the Hackett edition were not consulted from this environment, which has no access to primary texts."
+      "note": "Attribution certain: Socrates' words at Apology 38a, one of the most securely located lines in Greek philosophy. Wording is G. M. A. Grube's translation (Hackett), which keeps the qualifying \"for men\" that most popular versions drop; Jowett has \"the life which is unexamined is not worth living\". In Grube the clause sits inside a longer sentence and so begins lowercase; only the initial letter is capitalised here so that it stands alone. Cross-checked against several independent sources that agree on Grube's phrasing. The Greek text and the Hackett edition were not consulted from this environment, which has no access to primary texts."
     }
   },
   {
@@ -300,11 +300,11 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: Kuhn's characterisation of normal science in the opening chapter, p. 5 of the second edition. Written in English. Quoted in this exact form by several independent sources; note that Kuhn's own sentence carries a parenthetical \"for example\" after \"Normal science\", which citations customarily drop. Elsewhere in the same passage he describes normal research as \"a strenuous and devoted attempt to force nature into the conceptual boxes supplied by professional education\", which is the same thought in sharper words. No printed edition consulted from this environment."
+      "note": "Attribution certain: Kuhn's characterisation of normal science in the opening chapter, p. 5 of the second edition. Written in English. Quoted in this exact form by several independent sources that agree with each other. I could not check whether Kuhn's own sentence carries an intervening phrase such as \"for example\" that citations habitually drop, so treat the sentence as accurate in substance and near-certain in wording rather than confirmed word for word. Elsewhere in the same passage, and confirmed verbatim, he describes normal research as \"a strenuous and devoted attempt to force nature into the conceptual boxes supplied by professional education\". No printed edition consulted from this environment."
     }
   },
   {
-    "text": "It was as though in those last minutes he was summing up the lesson that this long course in human wickedness had taught us — the lesson of the fearsome, word-and-thought-defying banality of evil.",
+    "text": "It was as though in those last minutes he was summing up the lesson that this long course in human wickedness had taught us—the lesson of the fearsome, word-and-thought-defying banality of evil.",
     "author": "Hannah Arendt",
     "work": "Eichmann in Jerusalem",
     "workKind": "book",
@@ -414,7 +414,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: MacIntyre's statement of the narrative self, in the chapter on the virtues and the unity of a life. Written in English. Wording cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment. It follows a few lines after \"man is in his actions and practice, as well as in his fictions, essentially a story-telling animal\"."
+      "note": "Attribution certain: MacIntyre's statement of the narrative self, in the chapter on the virtues and the unity of a life. Written in English. Wording cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment. It belongs to the same passage as MacIntyre's claim that man is essentially a story-telling animal, though I could not confirm that sentence's exact wording and so do not quote it."
     }
   },
   {
@@ -471,7 +471,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: the near-final lines of the book, where Weber quotes an unnamed source and then adds this judgement of his own age. Wording is Talcott Parsons's 1930 translation; American spelling \"civilization\" is Parsons's. Stephen Kalberg's later translation differs in phrasing. Cross-checked against several independent sources that agree on Parsons; no printed edition consulted from this environment."
+      "note": "Attribution certain: the near-final lines of the book. Wording is Talcott Parsons's 1930 translation; American spelling \"civilization\" is Parsons's, and Stephen Kalberg's later translation differs in phrasing. One nuance worth keeping: Weber does not assert these words flatly in his own voice but sets them in quotation marks, as what might truly be said of the last stage of this cultural development. The enclosing marks are dropped here because the schema stores none. Cross-checked against several independent sources that agree on Parsons's wording; no printed edition consulted from this environment."
     }
   },
   {
@@ -547,7 +547,7 @@
     "lang": "en",
     "verification": {
       "status": "reported",
-      "note": "Attribution certain: the opening sentence of the book. Written in English. It continues \"A theory however elegant and economical must be rejected or revised if it is untrue; likewise laws and institutions, no matter how efficient and well-arranged, must be reformed or abolished if they are unjust.\" Wording cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment."
+      "note": "Attribution certain: the opening sentence of the book. Written in English. The thought is completed a line later by \"laws and institutions, no matter how efficient and well-arranged, must be reformed or abolished if they are unjust\", which independent sources quote in that form. Wording of the stored sentence cross-checked against several independent sources that agree exactly; no printed edition consulted from this environment."
     }
   },
   {
