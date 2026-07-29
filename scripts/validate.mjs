@@ -23,7 +23,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
-import { SCHEMA_VERSION, validateCollection } from '../assets/quote-core.js';
+import { SCHEMA_VERSION, quoteId, validateCollection } from '../assets/quote-core.js';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const IN_ACTIONS = process.env.GITHUB_ACTIONS === 'true';
@@ -56,7 +56,30 @@ function asCollection(parsed) {
   return parsed;
 }
 
-async function checkFile(file, { required }) {
+/**
+ * Seed files are drafts, not collections.
+ *
+ * A curated set under `data/seed/` is written by hand and deliberately carries
+ * no `id` — the identifier is a hash of the quote's own text, and
+ * `merge-seeds.mjs` derives it on the way in. Demanding one here would fail
+ * every seed file on a field its format is defined not to have.
+ *
+ * Only the id is supplied. Every other field is left exactly as written, so
+ * that a misspelled theme or an implausible year in a draft is still caught
+ * rather than quietly normalised away before anyone looks at it.
+ */
+function withDerivedIds(collection) {
+  return {
+    ...collection,
+    quotes: (collection.quotes ?? []).map((quote) => (
+      quote?.id === undefined && typeof quote?.text === 'string'
+        ? { ...quote, id: quoteId(quote.text) }
+        : quote
+    )),
+  };
+}
+
+async function checkFile(file, { required, draft = false }) {
   const relative = path.relative(REPO_ROOT, file);
   let raw;
   try {
@@ -79,11 +102,14 @@ async function checkFile(file, { required }) {
     return { errors: [message], warnings: [] };
   }
 
-  const { errors, warnings } = validateCollection(asCollection(parsed));
+  const collection = asCollection(parsed);
+  const subject = draft ? withDerivedIds(collection) : collection;
+
+  const { errors, warnings } = validateCollection(subject);
   for (const error of errors) annotate('error', file, error);
   for (const warning of warnings) annotate('warning', file, warning);
 
-  const count = Array.isArray(asCollection(parsed).quotes) ? asCollection(parsed).quotes.length : 0;
+  const count = Array.isArray(collection.quotes) ? collection.quotes.length : 0;
   return { errors, warnings, count };
 }
 
@@ -118,18 +144,22 @@ function report(relative, result) {
 
 async function main() {
   const explicit = process.argv.slice(2).map((file) => path.resolve(file));
+  const seeds = await seedFiles();
+  const isSeed = (file) => seeds.includes(file)
+    || path.dirname(file) === path.join(REPO_ROOT, 'data', 'seed');
+
   const targets = explicit.length > 0
-    ? explicit.map((file) => ({ file, required: true }))
+    ? explicit.map((file) => ({ file, required: true, draft: isSeed(file) }))
     : [
-      { file: path.join(REPO_ROOT, 'data', 'quotes.json'), required: true },
-      ...(await seedFiles()).map((file) => ({ file, required: false })),
+      { file: path.join(REPO_ROOT, 'data', 'quotes.json'), required: true, draft: false },
+      ...seeds.map((file) => ({ file, required: false, draft: true })),
     ];
 
   let errorCount = 0;
   let warningCount = 0;
 
-  for (const { file, required } of targets) {
-    const result = await checkFile(file, { required });
+  for (const { file, required, draft } of targets) {
+    const result = await checkFile(file, { required, draft });
     if (result.skipped) continue;
     errorCount += result.errors.length;
     warningCount += result.warnings.length;

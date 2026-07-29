@@ -1,0 +1,390 @@
+[
+  {
+    "text": "Remember, above everything, the logic of the power law: the rewards for success will be massively greater than the costs of honorable setbacks.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "power law",
+      "asymmetry",
+      "failure"
+    ],
+    "themes": [
+      "risk",
+      "money",
+      "progress"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Mallaby's own words. Wording taken from reader-transcribed quotation pages for the book, which give this sentence together with its continuation: \"This invigorating set of axioms has turned America's venture-capital machine into an enduring pillar of national power.\" Quoted here only to the sentence boundary. The printed book is unavailable in this environment, so neither wording nor page was checked against it."
+    }
+  },
+  {
+    "text": "In consequence, quantifiable risks were multiplied by unquantifiable uncertainties; there were known unknowns and unknown unknowns; the bracing unpredictability of life could not be masked by neat financial models.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "uncertainty",
+      "models",
+      "forecasting"
+    ],
+    "themes": [
+      "risk",
+      "certainty",
+      "knowledge"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Found verbatim, twice and independently, on reader-transcribed quotation pages for the book; the surrounding passage concerns Tom Perkins backing Tandem and Genentech. The opening \"In consequence\" is kept because it is the sentence as written. Not checked against the printed book, which is unreachable from this environment."
+    }
+  },
+  {
+    "text": "The future can be discovered by means of iterative, venture-backed experiments. It cannot be predicted.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "experiment",
+      "forecasting",
+      "discovery"
+    ],
+    "themes": [
+      "progress",
+      "knowledge",
+      "certainty"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "This is the book's thesis in its most compressed form, and the source of the jacket line \"the future cannot be predicted, it can only be discovered.\" Wording taken from two separate readers' highlight transcriptions, which agree. Not checked against the printed book."
+    }
+  },
+  {
+    "text": "Experts may be the most likely source of incremental advances, but radical rethinks tend to come from outsiders.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "outsiders",
+      "expertise",
+      "innovation"
+    ],
+    "themes": [
+      "knowledge",
+      "progress",
+      "agency"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Quoted verbatim in the Council on Foreign Relations' own account of the book (Mallaby is a CFR fellow) and again in an independent reader transcription; both give the same wording, and both place Elon Musk, who was not an \"electric car person\" before Tesla, as the example that follows. Not checked against the printed book."
+    }
+  },
+  {
+    "text": "A brilliant person can do great things. A large group of people can try many things. Through an evolutionary process of trial, failure, and occasional breakthroughs, the group may advance faster than the individual.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "evolution",
+      "trial and error",
+      "collective",
+      "genius"
+    ],
+    "themes": [
+      "progress",
+      "knowledge",
+      "work"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Reader-transcribed quotation pages give a longer passage opening \"It was like going from a system driven by genius to one driven by evolution\"; that framing sentence is dropped here because it depends on its context, and the three sentences quoted are unaltered. Not checked against the printed book."
+    }
+  },
+  {
+    "text": "Proving skill is difficult in venture investing because, as we have seen, it hinges on subjective judgment calls rather than objective or quantifiable metrics.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "skill",
+      "luck",
+      "judgment",
+      "measurement"
+    ],
+    "themes": [
+      "knowledge",
+      "certainty",
+      "work"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Verbatim on reader-transcribed quotation pages for the book, from Mallaby's discussion of whether venture returns are luck or skill. The phrase \"as we have seen\" is Mallaby's and is kept, since it marks the sentence honestly as an excerpt. Not checked against the printed book."
+    }
+  },
+  {
+    "text": "You succeed in venture capital by backing the right deals, not by haggling over valuations.",
+    "author": "Sebastian Mallaby",
+    "work": "The Power Law",
+    "workKind": "book",
+    "year": 2022,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "valuation",
+      "Tom Perkins",
+      "conviction"
+    ],
+    "themes": [
+      "money",
+      "risk",
+      "work"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Filed under Mallaby, not Perkins, because the words are Mallaby's. In the book the clause appears in indirect speech and without quotation marks, introduced as \"another one of Tom Perkins's dictums\", so it is Mallaby's rendering of Perkins rather than anything Perkins is recorded as saying in these words. The only change is the capital on \"You\", lifted from mid-sentence. Not checked against the printed book."
+    }
+  },
+  {
+    "text": "Most people think improbable ideas are unimportant, but the only thing that’s important is something that’s improbable.",
+    "author": "Vinod Khosla",
+    "work": null,
+    "workKind": null,
+    "year": null,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "improbability",
+      "Khosla Ventures",
+      "epigraph"
+    ],
+    "themes": [
+      "progress",
+      "risk",
+      "agency"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Quoted as Khosla's in Sebastian Mallaby's The Power Law (2022), which splits it with \"he loved to add\" between the two halves; joined here into the single sentence. Two independent transcriptions of the book agree on the wording. The book's epigraph pairs this with \"All progress depends upon the unreasonable man\" — that half is George Bernard Shaw's, which Khosla is invoking, and is recorded separately under Shaw rather than under Khosla. Date and occasion of the original remark are unknown, so the year is left empty."
+    }
+  },
+  {
+    "text": "We don’t live in a normal world; we live under a power law.",
+    "author": "Peter Thiel",
+    "work": "Zero to One",
+    "workKind": "book",
+    "year": 2014,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "power law",
+      "distribution",
+      "startups",
+      "skew"
+    ],
+    "themes": [
+      "money",
+      "risk",
+      "knowledge"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Attribution not in doubt: the line was widely reported under Thiel's name on publication, including as the headline of a 2014 Forbes piece, and appears on quotation pages for the book. Zero to One is written with Blake Masters but is conventionally cited to Thiel. Reported to sit in the chapter \"Follow the Money\". Not checked against the printed book."
+    }
+  },
+  {
+    "text": "The biggest secret in venture capital is that the best investment in a successful fund equals or outperforms the entire rest of the fund combined.",
+    "author": "Peter Thiel",
+    "work": "Zero to One",
+    "workKind": "book",
+    "year": 2014,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "power law",
+      "skew",
+      "concentration"
+    ],
+    "themes": [
+      "money",
+      "risk"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Quoted verbatim and consistently across many independent sources, several of which cite page 68 of the 2014 edition. Written with Blake Masters, cited to Thiel by convention. Not checked against the printed book."
+    }
+  },
+  {
+    "text": "Uncertainty must be taken in a sense radically distinct from the familiar notion of Risk, from which it has never been properly separated.",
+    "author": "Frank H. Knight",
+    "work": "Risk, Uncertainty and Profit",
+    "workKind": "book",
+    "year": 1921,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": null
+    },
+    "tags": [
+      "Knightian uncertainty",
+      "economics",
+      "measurement"
+    ],
+    "themes": [
+      "risk",
+      "certainty",
+      "knowledge"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "The founding sentence of the risk/uncertainty distinction, and the idea standing behind Mallaby's line about quantifiable risks multiplied by unquantifiable uncertainties. Reproduced identically across many independent citations, which continue: \"The essential fact is that 'risk' means in some cases a quantity susceptible of measurement, while at other times it is something distinctly not of this character.\" Usually cited from the book's opening chapter; the chapter and page were not confirmed here, and the 1921 text is unreachable from this environment."
+    }
+  },
+  {
+    "text": "Most, probably, of our decisions to do something positive, the full consequences of which will be drawn out over many days to come, can only be taken as a result of animal spirits—of a spontaneous urge to action rather than inaction, and not as the outcome of a weighted average of quantitative benefits multiplied by quantitative probabilities.",
+    "author": "John Maynard Keynes",
+    "work": "The General Theory of Employment, Interest and Money",
+    "workKind": "book",
+    "year": 1936,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "ch. 12"
+    },
+    "tags": [
+      "animal spirits",
+      "enterprise",
+      "expectation",
+      "economics"
+    ],
+    "themes": [
+      "risk",
+      "agency",
+      "mind"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "From \"The State of Long-Term Expectation\", chapter 12, one of the most reproduced passages in modern economics; the wording here matches several independent full-text reproductions. Editions differ on whether the break before \"of a spontaneous urge\" is set as an em dash or a spaced hyphen; an em dash is used here. The printed text was not consulted."
+    }
+  },
+  {
+    "text": "The reasonable man adapts himself to the world: the unreasonable one persists in trying to adapt the world to himself. Therefore all progress depends on the unreasonable man.",
+    "author": "George Bernard Shaw",
+    "work": "Man and Superman",
+    "workKind": "other",
+    "year": 1903,
+    "source": {
+      "kind": "curated",
+      "url": null,
+      "locator": "Maxims for Revolutionists, \"Reason\""
+    },
+    "tags": [
+      "unreasonableness",
+      "progress",
+      "epigraph"
+    ],
+    "themes": [
+      "progress",
+      "agency",
+      "character"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Included because The Power Law opens on it: Mallaby's epigraph has Vinod Khosla invoking the line, and the book's introduction is titled \"Unreasonable People\". The maxim comes from \"Maxims for Revolutionists\", the appendix to the 1903 play, under the heading \"Reason\". The wording given here is the original; it circulates far more often in the smoothed paraphrase \"the unreasonable man persists in trying to adapt the world to himself\", and with a semicolon in place of the colon. The 1903 text was not consulted from this environment."
+    }
+  },
+  {
+    "text": "Good ideas and good products are a dime a dozen. Good execution and good management—in a word, good people—are rare.",
+    "author": "Arthur Rock",
+    "work": "Strategy vs. Tactics from a Venture Capitalist",
+    "workKind": "essay",
+    "year": 1987,
+    "source": {
+      "kind": "curated",
+      "url": "https://hbr.org/1987/11/strategy-vs-tactics-from-a-venture-capitalist",
+      "locator": null
+    },
+    "tags": [
+      "venture capital",
+      "founders",
+      "execution",
+      "judgment"
+    ],
+    "themes": [
+      "work",
+      "character",
+      "money"
+    ],
+    "lang": "en",
+    "verification": {
+      "status": "reported",
+      "note": "Rock financed Fairchild Semiconductor, Intel and Apple, and is one of the central figures of Mallaby's early chapters. The sentences are quoted consistently and verbatim from his own Harvard Business Review article of November 1987; the article is paywalled and was not read here. Note that the shorter line often hung on Rock, \"I invest in people, not ideas\", could not be traced to any text he wrote, and is deliberately left out."
+    }
+  }
+]
