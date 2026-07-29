@@ -55,8 +55,11 @@
   --ink: #ece6db;
   --muted: #8a8073;
   --body-soft: #c4bcae;
-  --rule: #322c24;
-  --rule-soft: #262019;
+  /* Lifted off the original handoff value: at #322c24 the hairline separating
+     one quote from the next was under 1.4:1 against the page and effectively
+     invisible on a phone in daylight. */
+  --rule: #3a342d;
+  --rule-soft: #2f2922;
   --accent: #e0a955;
   --accent-ink: #e8bd77;
   --teal: #54b9ab;
@@ -84,13 +87,17 @@
   --bg: #eef0f3;
   --surface: #ffffff;
   --ink: #14171c;
-  --muted: #6b7280;
+  /* Index is the scanning edition, so its greys sit on a lighter page than the
+     others and had to be deepened to stay legible: --muted measured 4.23:1 and
+     the verified badge only 2.93:1 against this background. Hue is unchanged;
+     only the depth moved. */
+  --muted: #676d7b;
   --body-soft: #3f4651;
-  --rule: #dfe3e8;
-  --rule-soft: #e9ecf0;
+  --rule: #c2c5ca;
+  --rule-soft: #d2d4d8;
   --accent: #c41230;
   --accent-ink: #c41230;
-  --teal: #18a06b;
+  --teal: #137d53;
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-label: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-quote: var(--font-display);

@@ -35,5 +35,8 @@ jobs:
       - name: Validate the collection
         run: node scripts/validate.mjs
 
+      # Node 22 reads a bare `tests/` as a module to execute rather than a
+      # directory to search, so the pattern is spelled out. Quoted, so that Node
+      # expands it and the result does not depend on the shell's glob settings.
       - name: Run the tests
-        run: node --test tests/
+        run: node --test "tests/**/*.test.mjs"

@@ -6,7 +6,7 @@
   "description": "Alexander Bustrup's personal quote library — a static site with no build step.",
   "scripts": {
     "check": "node scripts/validate.mjs",
-    "test": "node --test tests/",
+    "test": "node --test \"tests/**/*.test.mjs\"",
     "serve": "node scripts/serve.mjs"
   }
 }
