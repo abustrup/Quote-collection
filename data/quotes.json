@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T19:40:36.364Z",
+  "updatedAt": "2026-07-29T23:42:29.984Z",
   "quotes": [
     {
       "id": "q_30f509e31888",
@@ -61,6 +61,598 @@
       "verification": {
         "status": "reported",
         "note": "Attribution certain: the last two sentences of the essay. Wording is Justin O'Brien's translation (1955) of Le mythe de Sisyphe (1942); the French closes \"Il faut imaginer Sisyphe heureux.\" Cross-checked against several independent sources that agree; no printed edition consulted from this environment."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9641f066b009",
+      "text": "In a sense, and as in melodrama, killing yourself amounts to confessing. It is confessing that life is too much for you or that you do not understand it.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "being-overwhelmed",
+        "killing-yourself",
+        "life",
+        "suicide",
+        "understanding"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c2b4a1551540",
+      "text": "Man stands face to face with the irrational. He feels within him his longing for happiness and for reason. The absurd is born of this confrontation between the human need and the unreasonable silence of the world.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "absurdism"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_1c864de33239",
+      "text": "Seeking what is true is not seeking what is desirable.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_763d673f92a1",
+      "text": "The absurd does not liberate; it binds. It does not authorize all actions. \"Everything is permitted\" does not mean that nothing is forbidden.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "absurd",
+        "philosophy"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_54d0553ad5a1",
+      "text": "The best are led to make greater demands upon themselves. As for those who succumb, they did not deserve to survive.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_92f78e287444",
+      "text": "The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_42e5d524bd61",
+      "text": "There can be no question of holding forth on ethics. I have seen people behave badly with great morality and I note every day that integrity has no need of rules",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "existentialism",
+        "morality"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_6a890dff199e",
+      "text": "There is but one truly serious philosophical problem, and that is suicide. Judging whether life is or is not worth living amounts to answering the fundamental question of philosophy",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_01db74fc8a04",
+      "text": "Thinking is learning all over again how to see, directing one's consciousness, making of every image a privileged place.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "consciousness",
+        "the-myth-of-sisyphus",
+        "thinking",
+        "thought"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4263e81c090b",
+      "text": "This absurd, godless world is, then, peopled with men who think clearly and have ceased to hope. And I have not yet spoken of the most absurd character, who is the creator.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4f90dcad7607",
+      "text": "What is called a reason for living is also an excellent reason for dying.",
+      "author": "Albert Camus",
+      "work": "The Myth of Sisyphus and Other Essays",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b0bc8f4b4a7e",
+      "text": "I realized then that a man who had lived only one day could easily live for a hundred years in prison. He would have enough memories to keep him from being bored",
+      "author": "Albert Camus",
+      "work": "The Stranger",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_ca7dfcc4a045",
+      "text": "Mother died today. Or maybe yesterday; I can't be sure.",
+      "author": "Albert Camus",
+      "work": "The Stranger",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_1eb76d99d1ac",
+      "text": "A love of nature keeps no factories busy.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_f5881d272016",
+      "text": "Actual happiness always looks pretty squalid in comparison with the overcompensations for misery. And, of course, stability isn't nearly so spectacular as instability. And being contented has none of the glamour of a good fight against misfortune, none of the picturesqueness of a struggle with temptation, or a fatal overthrow by passion or doubt. Happiness is never grand.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "happiness"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5fb544228db5",
+      "text": "All right then,\" said the savage defiantly, I'm claiming the right to be unhappy.\" \"Not to mention the right to grow old and ugly and impotent; the right to have syphilis and cancer; the right to have too little to eat, the right to be lousy; the right to live in constant apprehension of what may happen tomorrow; the right to catch typhoid; the right to be tortured by unspeakable pains of every kind.\" There was a long silence. \"I claim them all,\" said the Savage at last.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c0322df2721c",
+      "text": "But I don't want comfort. I want God, I want poetry, I want real danger, I want freedom, I want goodness. I want sin.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "brave-new-world",
+        "hunger",
+        "thirst",
+        "yearning"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5fe9f5af1ce7",
+      "text": "I want to know what passion is. I want to feel something strongly.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "passion"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_87d96782966d",
+      "text": "I'm claiming the right to be unhappy.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_03cd7172b3dc",
+      "text": "If one's different, one's bound to be lonely.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "loneliness"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5a4c99cfdb9c",
+      "text": "Most human beings have an almost infinite capacity for taking things for granted.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5a06a721c462",
+      "text": "No social stability without individual stability.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "society"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_62ac0a781884",
+      "text": "One believes things because one has been conditioned to believe them.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "child-abuse",
+        "conditioning",
+        "indoctrination",
+        "mind-control",
+        "parenting"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5de2b6205427",
+      "text": "That is the secret of happiness and virtue -- liking what you've got to do.",
+      "author": "Aldous Huxley",
+      "work": "Brave New World",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "brave-new-world"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
@@ -314,6 +906,251 @@
       "verification": {
         "status": "reported",
         "note": "Rock financed Fairchild Semiconductor, Intel and Apple, and is one of the central figures of Mallaby's early chapters. The sentences are quoted consistently and verbatim from his own Harvard Business Review article of November 1987; the article is paywalled and was not read here. Note that the shorter line often hung on Rock, \"I invest in people, not ideas\", could not be traced to any text he wrote, and is deliberately left out."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b818fcd8ef33",
+      "text": "A child may not know how to feed itself, or what to eat, yet it knows hunger.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "inspirational"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_cf04ed09fc41",
+      "text": "But with the freedom came a sadness.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c21e397f7224",
+      "text": "I am afraid. Not of life, or death, or nothingness, but of wasting it as if I had never been.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "death",
+        "fear",
+        "life"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_cac50b1a95eb",
+      "text": "Intelligence is one of the greatest human gifts. But all too often a search for knowledge drives out the search for love. This is something else I've discovered for myself very recently. I present it to you as a hypothesis: Intelligence without the ability to give and receive affection leads to mental and moral breakdown, to neurosis, and possibly even psychosis. And I say that the mind absorbed in and involved in itself as a self-centered end, to the exclusion of human relationships, can only lead to violence and pain.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "intelligence",
+        "love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_486cb40298b8",
+      "text": "Its easy to make frends if you let pepul laff at you.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "friendship"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_691c577c45ed",
+      "text": "So this is how a person can come to despise himself-knowing he's doing the wrong thing and not being able to stop.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_fd679afca446",
+      "text": "Strange about learning; the farther I go the more I see that I never knew even existed. A short while ago I foolishly thought I could learn everything - all the knowledge in the world. Now I hope only to be able to know of its existence, and to understand one grain of it. Is there time?",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8c6f67da12c8",
+      "text": "Thank God for books and music and things I can think about.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "book",
+        "books",
+        "music"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_96ad536ef73e",
+      "text": "That's the thing about human life--there is no control group, no way to ever know how any of us would have turned out if any variables had been changed.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_1a90fc0dcc3f",
+      "text": "The more intelligent you become the more problems you’ll have, Charlie.",
+      "author": "Daniel Keyes",
+      "work": "Flowers for Algernon",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
@@ -730,6 +1567,268 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_3296caf82a4a",
+      "text": "We are told that our choice is between free markets and state control, when most adults live their working lives under a third thing entirely: private government.",
+      "author": "Elizabeth S. Anderson",
+      "work": "Private Government: How Employers Rule Our Lives (and Why We Don't Talk about It)",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_216d466309b0",
+      "text": "Every day is a new day. It is better to be lucky. But I would rather be exact. Then when luck comes you are ready.",
+      "author": "Ernest Hemingway",
+      "work": "The Old Man and the Sea",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_15633554c524",
+      "text": "Now is no time to think of what you do not have. Think of what you can do with that there is",
+      "author": "Ernest Hemingway",
+      "work": "The Old Man and the Sea",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_76864f5cb984",
+      "text": "How did you go bankrupt?\" Two ways. Gradually, then suddenly.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8775356bcfa2",
+      "text": "I am always in love.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5aa7ae76625f",
+      "text": "Isn't it pretty to think so.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b9fafcb4aa3d",
+      "text": "It is awfully easy to be hard-boiled about everything in the daytime, but at night it is another thing.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b6f00ed8285c",
+      "text": "Oh Jake,\" Brett said, \"We could have had such a damned good time together.\" Ahead was a mounted policeman in khaki directing traffic. He raised his baton. The car slowed suddenly, pressing Brett against me. Yes,\" I said. \"Isn't it pretty to think so?",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_6cbe03c5aa53",
+      "text": "This is a good place,\" he said. \"There's a lot of liquor,\" I agreed.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "alcoholism",
+        "humor",
+        "liquor"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_d05bc9c5445f",
+      "text": "you can't get away from yourself by moving from one place to another.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "denial",
+        "self-awareness"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_14015d76b7ae",
+      "text": "You know it makes one feel rather good deciding not to be a bitch.\" \"Yes.\" \"It's sort of what we have instead of God.",
+      "author": "Ernest Hemingway",
+      "work": "The Sun Also Rises",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_f723f2f03e42",
       "text": "Uncertainty must be taken in a sense radically distinct from the familiar notion of Risk, from which it has never been properly separated.",
       "author": "Frank H. Knight",
@@ -755,6 +1854,106 @@
       "verification": {
         "status": "reported",
         "note": "The founding sentence of the risk/uncertainty distinction, and the idea standing behind Mallaby's line about quantifiable risks multiplied by unquantifiable uncertainties. Reproduced identically across many independent citations, which continue: \"The essential fact is that 'risk' means in some cases a quantity susceptible of measurement, while at other times it is something distinctly not of this character.\" Usually cited from the book's opening chapter; the chapter and page were not confirmed here, and the 1921 text is unreachable from this environment."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_521452ea75a5",
+      "text": "As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into a gigantic insect.",
+      "author": "Franz Kafka",
+      "work": "The Metamorphosis",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "cockroaches",
+        "first-sentence",
+        "insects",
+        "transformation"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8f3cb8e04f7b",
+      "text": "I cannot make you understand. I cannot make anyone understand what is happening inside me. I cannot even explain it to myself.",
+      "author": "Franz Kafka",
+      "work": "The Metamorphosis",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_7aa5028f0f79",
+      "text": "The sister played so beautifully. Her face was tilted to one side and she followed the notes with soulful and probing eyes. Gregor advanced a little, keeping his eyes low so that they might possibly meet hers. Was he a beast if music could move him so?",
+      "author": "Franz Kafka",
+      "work": "The Metamorphosis",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_957115539340",
+      "text": "One loves ultimately one's desires, not the thing desired.",
+      "author": "Friedrich Nietzsche",
+      "work": "Beyond Good and Evil",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "desire",
+        "desires"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
@@ -793,6 +1992,835 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_974fbf0518e9",
+      "text": "I’m more ready to admit things to you than I am to myself",
+      "author": "Fyodor Dostoevsky",
+      "work": null,
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "lise-to-alyosha"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_3ebddaff0de2",
+      "text": "Man grows used to everything, the scoundrel!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5b1320343da1",
+      "text": "Pain and suffering are always inevitable for a large intelligence and a deep heart. The really great men must, I think, have great sadness on earth.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_45b43ec79ccf",
+      "text": "Taking a new step, uttering a new word, is what people fear most.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "change",
+        "fear-of-change"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_e5df00b2e4eb",
+      "text": "They sat side by side, sad and weary, like shipwrecked sailors on a deserted shore.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_7c6a2d0622cf",
+      "text": "To go wrong in one's own way is better than to go right in someone else's.",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "independent-thought",
+        "self-determination",
+        "self-expression"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c5197b80e1ca",
+      "text": "What do you think, would not one tiny crime be wiped out by thousands of good deeds?",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_df91b1b29dd2",
+      "text": "Where is it I've read that someone condemned to death says or thinks, an hour before his death, that if he had to live on some high rock, on such a narrow ledge that he'd only room to stand, and the ocean, everlasting darkness, everlasting solitude, everlasting tempest around him, if he had to remain standing on a square yard of space all his life, a thousand years, eternity, it were better to live so than to die at once. Only to live, to live and live! Life, whatever it may be!",
+      "author": "Fyodor Dostoevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "death"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_ddc5d89f7d92",
+      "text": "Above all, don't lie to yourself. The man who lies to himself and listens to his own lie comes to a point that he cannot distinguish the truth within him, or around him, and so loses all respect for himself and for others. And having no respect he ceases to love.",
+      "author": "Fyodor Dostoevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "lies",
+        "love",
+        "respect",
+        "self-deception",
+        "truth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5aeb43cdbe36",
+      "text": "I think the devil doesn't exist, but man has created him, he has created him in his own image and likeness.",
+      "author": "Fyodor Dostoevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_7bc25bf7408a",
+      "text": "Love in action is a harsh and dreadful thing compared to love in dreams.",
+      "author": "Fyodor Dostoevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_ab90c2d92d1e",
+      "text": "What is hell? I maintain that it is the suffering of being unable to love.",
+      "author": "Fyodor Dostoevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "hell",
+        "love",
+        "suffering"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_7c0fc00057aa",
+      "text": "You must know that there is nothing higher and stronger and more wholesome and good for life in the future than some good memory, especially a memory of childhood, of home. People talk to you a great deal about your education, but some good, sacred memory, preserved from childhood, is perhaps the best education. If a man carries many such memories with him into life, he is safe to the end of his days, and if one has only one good memory left in one's heart, even that may sometime be the means of saving us.",
+      "author": "Fyodor Dostoevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_eb219f1b01d2",
+      "text": "Here my tears are falling, Nastenka. Let them flow, let them flow - they don't hurt anybody. They will dry Nastenka.",
+      "author": "Fyodor Dostoevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_906a60af7730",
+      "text": "It was a wonderful night, such a night as is only possible when we are young, dear reader.",
+      "author": "Fyodor Dostoevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "night",
+        "youth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_3415685f9897",
+      "text": "My God, a moment of bliss. Why, isn't that enough for a whole lifetime?",
+      "author": "Fyodor Dostoevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "happiness",
+        "lasting",
+        "pleasure",
+        "temporary"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_635244e35041",
+      "text": "From a hundred rabbits you can’t make a horse, a hundred suspicions don’t make a proof,",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0a72d224228c",
+      "text": "I wanted to find out then and quickly whether I was a louse like everybody else or a man. Whether I can step over barriers or not, whether I dare stoop to pick up or not, whether I am a trembling creature or whether I have the right...F",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a034bffc4506",
+      "text": "It is almost better to tell your own lies than somebody else's truth; in the first case you are a man, in the second you are no better than a parrot!",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "truth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a02beaa0e8e6",
+      "text": "It takes something more than intelligence to act intelligently.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "intelligence",
+        "intelligent-action"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0eda5c164429",
+      "text": "Man has it all in his hands, and it all slips through his fingers from sheer cowardice.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_82b852cfd593",
+      "text": "The people who have nothing to lock up are the happy ones, aren't they?",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9847e87702ad",
+      "text": "We have facts,’ they say. But facts are not everything—at least half the business lies in how you interpret them!",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Crime and Punishment",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_059a2908bf9d",
+      "text": "an intelligent man cannot become anything seriously, and it is only the fool who becomes anything.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from the Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0debd938c8e0",
+      "text": "I swear, gentlemen, that to be too conscious is an illness--a real thorough-going illness.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from the Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_da9dde0f30bf",
+      "text": "the whole work of man really seems to consist in nothing but proving to himself every minute that he is a man and not a piano-key!",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from the Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_85ed596607e9",
+      "text": "And that is not all: even if man really were nothing but a piano-key, even if this were proved to him by natural science and mathematics, even then he would not become reasonable, but would purposely do something perverse out of simple ingratitude, simply to gain his point. And if he does not find means he will contrive destruction and chaos, will contrive sufferings of all sorts, only to gain his point! He will launch a curse upon the world, and as only man can curse (it is his privilege, the primary distinction between him and other animals), may be by his curse alone he will attain his object--that is, convince himself that he is a man and not a piano-key! If you say that all this, too, can be calculated and tabulated--chaos and darkness and curses, so that the mere possibility of calculating it all beforehand would stop it all, and reason would reassert itself, then man would purposely go mad in order to be rid of reason and gain his point!",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9f51b5b578d5",
+      "text": "How can a man of consciousness have the slightest respect for himself",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_10c78ba2b35c",
+      "text": "I'll go this minute!' Of course, I remained.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "desperation",
+        "frustration",
+        "indignation"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c93a39ee67d5",
+      "text": "The best definition of man is: a being that goes on two legs and is ungrateful.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "Notes from Underground",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a4a566e65299",
+      "text": "I love mankind, he said, \"but I find to my amazement that the more I love mankind as a whole, the less I love man in particular.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "The Brothers Karamazov",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "humanity",
+        "individuals",
+        "love",
+        "mankind"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a4722fd76ffd",
+      "text": "I don’t know how to be silent when my heart is speaking.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_f78c1ce39de6",
+      "text": "I like revisiting, at certain times, spots where I was once happy; I like to shape the present in the image of the irretrievable past.",
+      "author": "Fyodor Dostoyevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_1f4a68e18355",
+      "text": "Oh, how unbearable is a happy person sometimes!",
+      "author": "Fyodor Dostoyevsky",
+      "work": "White Nights",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "happiness"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_ad5fb09a9891",
       "text": "The reasonable man adapts himself to the world: the unreasonable one persists in trying to adapt the world to himself. Therefore all progress depends on the unreasonable man.",
       "author": "George Bernard Shaw",
@@ -807,7 +2835,10 @@
       "tags": [
         "unreasonableness",
         "progress",
-        "epigraph"
+        "epigraph",
+        "life",
+        "philosophy",
+        "philosophy-of-life"
       ],
       "themes": [
         "progress",
@@ -818,6 +2849,1092 @@
       "verification": {
         "status": "reported",
         "note": "Included because The Power Law opens on it: Mallaby's epigraph has Vinod Khosla invoking the line, and the book's introduction is titled \"Unreasonable People\". The maxim comes from \"Maxims for Revolutionists\", the appendix to the 1903 play, under the heading \"Reason\". The wording given here is the original; it circulates far more often in the smoothed paraphrase \"the unreasonable man persists in trying to adapt the world to himself\", and with a semicolon in place of the colon. The 1903 text was not consulted from this environment."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_d00302f797dd",
+      "text": "Being in a minority, even in a minority of one, did not make you mad. There was truth and there was untruth, and if you clung to the truth even against the whole world, you were not mad.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "truth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9780f364db21",
+      "text": "Big Brother is Watching You.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a8e303491dd9",
+      "text": "But it was alright, everything was alright, the struggle was finished. He had won the victory over himself. He loved Big Brother.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "closing-line"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_89a0898e0cbe",
+      "text": "But you could not have pure love or pure lust nowadays. No emotion was pure, because everything was mixed up with fear and hatred. Their embrace had been a battle, the climax a victory. It was a blow struck against the Party. It was a political act.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "1984"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_d4304b8a7e97",
+      "text": "Don’t you see that the whole aim of Newspeak is to narrow the range of thought? In the end we shall make thoughtcrime literally impossible, because there will be no words in which to express it.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "1984"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_2480f82fc9c8",
+      "text": "Doublethink means the power of holding two contradictory beliefs in one's mind simultaneously, and accepting both of them.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c3f16f4471f5",
+      "text": "Everything faded into mist. The past was erased, the erasure was forgotten, the lie became truth.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_e1abbce7dee1",
+      "text": "Freedom is the freedom to say that two plus two make four.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_797860386e7a",
+      "text": "Freedom is the freedom to say that two plus two make four. If that is granted, all else follows.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "political"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_607af7fa6ea7",
+      "text": "If you loved someone, you loved him, and when you had nothing else to give, you still gave him love.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_159a3315f2db",
+      "text": "In general, the greater the understanding, the greater the delusion; the more intelligent, the less sane.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b56ed3397770",
+      "text": "In the face of pain there are no heroes.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "1984"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8ed6f0479bde",
+      "text": "Perhaps one did not want to be loved so much as to be understood.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "truth"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_f11bebc21066",
+      "text": "Power is in tearing human minds to pieces and putting them together again in new shapes of your own choosing.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4514c7f8b18e",
+      "text": "Reality exists in the human mind, and nowhere else.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "1984",
+        "human",
+        "intellectual",
+        "mind",
+        "reality"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c7fb92958fcb",
+      "text": "Sanity is not statistical.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9312635688b9",
+      "text": "The aims of these three groups are entirely irreconcilable. The aim of the High is to remain where they are. The aim of the Middle is to change places with the High. The aim of the Low, when they have an aim-for it is an abiding characteristic of the Low that they are too much crushed by drudgery to be more than intermittently conscious of anything outside their daily lives -is to abolish all distinctions and create a society in which all men shall be equal.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "kindlehighlight"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_ab67473361ab",
+      "text": "The choice for mankind lies between freedom and happiness and for the great bulk of mankind, happiness is better.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "1984"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_2cdbc399b415",
+      "text": "The Ministry of Peace concerns itself with war, the Ministry of Truth with lies, the Ministry of Love with torture and the Ministry of Plenty with starvation. These contradictions are not accidental, nor do they result from from ordinary hypocrisy: they are deliberate exercises in doublethink",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "contradiction",
+        "doublethink",
+        "hypocrisy"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_168e85710b48",
+      "text": "The Party told you to reject the evidence of your eyes and ears. It was their final, most essential command.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4a906c993158",
+      "text": "The past is whatever the records and the memories agree upon.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_73335dd1982a",
+      "text": "War is peace. Freedom is slavery. Ignorance is strength.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "freedom",
+        "ignorance",
+        "inspirational",
+        "war"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_abbbef9ed5fd",
+      "text": "We know that no one ever seizes power with the intention of relinquishing it.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "power"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_ec46549ece06",
+      "text": "We shall meet in the place where there is no darkness.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_f73ea446031d",
+      "text": "Who controls the past controls the future. Who controls the present controls the past.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "inspirational"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_7259b2331a21",
+      "text": "You're only a rebel from the waist downwards,’ he told her.",
+      "author": "George Orwell",
+      "work": "1984",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "rebel",
+        "waist"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_20422afa789b",
+      "text": "...out from the door of the farmhouse came a long file of pigs, all walking on their hind legs...out came Napoleon himself, majestically upright, casting haughty glances from side to side, and with his dogs gambolling round him. He carried a whip in his trotter. There was a deadly silence. Amazed, terrified, huddling together, the animals watched the long line of pigs march slowly round the yard. It was as though the world had turned upside-down. Then there came a moment when the first shock had worn off and when, in spite of everything-in spite of their terror of the dogs, and of the habit, developed through long years, of never complaining, never criticising, no matter what happened-they might have uttered some word of protest. But just at that moment, as though at a signal, all the sheep burst out into a tremendous bleating of- \"Four legs good, two legs better! Four legs good, two legs better! Four legs good, two legs better!\" It went on for five minutes without stopping. And by the time the sheep had quieted down, the chance to utter any protest had passed, for the pigs had marched back into the farmhouse.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c9c2ecc12106",
+      "text": "All animals are equal, but some animals are more equal than others.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "animal-farm"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0354a16d4626",
+      "text": "All men are enemies. All animals are comrades",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_dae541bd750c",
+      "text": "And remember also that in fighting against man we must not come to resemble him. Even when you have conquered him, do not adopt his vices.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "animal-equality",
+        "animal-farm",
+        "george-orwell",
+        "man"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_dc01ba1e4eef",
+      "text": "Between pigs and human beings there was not and there need not be any clash of interest whatsoever.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0eca5877d5a6",
+      "text": "His answer to every problem, every setback was “I will work harder!” —which he had adopted as his personal motto.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_dc5f0551c188",
+      "text": "Man is the only real enemy we have. Remove Man from the scene, and the root cause of hunger and overwork is abolished forever.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9933b0505187",
+      "text": "Man serves the interests of no creature except himself.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "animal-farm",
+        "george-orwell",
+        "man"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_251014ca3b90",
+      "text": "Never listen when they tell you that Man and the animals have a common interest, that the prosperity of the one is the prosperity of the others. It is all lies. Man serves the interest of no creature except himself.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_48d5750d80cd",
+      "text": "No one believes more firmly than Comrade Napoleon that all animals are equal. He would be only too happy to let you make your decisions for yourselves. But sometimes you might make the wrong decisions, comrades, and then where should we be?",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "dystopia",
+        "political"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_30dc46ecec26",
+      "text": "Several of them would have protested if they could have found the right arguments.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_312c560adc1f",
+      "text": "Somehow it seemed as though the farm had grown richer without making the animals themselves any richer—except, of course, for the pigs and the dogs.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_2cbc0b439841",
+      "text": "The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "animal-farm",
+        "animals",
+        "closing-line",
+        "man",
+        "satirical"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_81994c113849",
+      "text": "The distinguishing mark of man is the hand, the instrument with which he does all his mischief.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "animal-farm",
+        "evil",
+        "man"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4ee2eff2618b",
+      "text": "The Seven Commandments: Whatever goes upon two legs is an enemy. Whatever goes upon four legs, or has wings, is a friend. No animal shall wear clothes. No animal shall sleep in a bed. No animal shall drink alcohol. No animal shall kill any other animal. All animals are equal.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_11a6910765a9",
+      "text": "There, comrades, is the answer to all our problems. It is summed up in a single word-- Man",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_297bcf4c1330",
+      "text": "This work was strictly voluntary, but any animal who absented himself from it would have his rations reduced by half.",
+      "author": "George Orwell",
+      "work": "Animal Farm",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "life",
+        "satire",
+        "tyranny"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_6b0fc0559fd9",
+      "text": "But if thought corrupts language, language can also corrupt thought.",
+      "author": "George Orwell",
+      "work": "Politics and the English Language",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "1946",
+        "language",
+        "power-of-words",
+        "propaganda",
+        "thought"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
@@ -882,6 +3999,331 @@
       "verification": {
         "status": "reported",
         "note": "Attribution certain: Arendt's pairing of forgiving (the remedy for irreversibility) with promising (the remedy for unpredictability), in the chapter on action. Written in English. Wording cross-checked against several independent sources that agree exactly; the companion sentence on forgiving was left out because sources disagree on how much of its middle clause is elided when it is quoted. No printed edition consulted from this environment."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_11ecaa6c9ac7",
+      "text": "...most people in the world don't really use their brains to think. And people who don't think are the ones who don't listen to others.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "listening",
+        "thinking"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_44b8ba538f14",
+      "text": "A person learns how to love himself through the simple acts of loving and being loved by someone else.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "love",
+        "self-love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b3cc0ff33650",
+      "text": "Even if we could turn back, we'd probably never end up where we started.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_05d65c695d9e",
+      "text": "I can bear any pain as long as it has meaning.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "pain"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8ac9aff2a11e",
+      "text": "I'm a coward when it comes to matters of the heart. That is my fatal flaw.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "matters-of-the-heart"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4de507690162",
+      "text": "If you can love someone with your whole heart, even one person, then there's salvation in life. Even if you can't get together with that person.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "hope",
+        "love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_ee3df997158e",
+      "text": "If you can't understand it without an explanation, you can't understand it with an explanation.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "explanations",
+        "understanding"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_e282eb8d97bc",
+      "text": "It is not that the meaning cannot be explained. But there are certain meanings that are lost forever the moment they are explained in words.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "meanings",
+        "words"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_c772217e7356",
+      "text": "Life is not like water. Things in life don't necessarily flow over the shortest possible route.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "destiny",
+        "life"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_a59e0af76f22",
+      "text": "Please remember: things are not what they seem.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_61a86e1a3731",
+      "text": "Such wounds to the heart will probably never heal. But we cannot simply sit and stare at our wounds forever.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "wounds-to-the-heart"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_249c6ea279cf",
+      "text": "They sat on a park bench, held hands, and told each other their stories hour after hour. They were not lonely anymore. They had found and been found by their 100% perfect other. What a wonderful thing it is to find and be found by your 100% perfect other. It's a miracle, a cosmic miracle.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_d01d8844c63f",
+      "text": "Wasn't it better if they kept this desire to see each other hidden within them, and never actually got together? That way, there would always be hope in their hearts. That hope would be a small, yet vital flame that warmed them to their core-- a tiny flame to cup one's hands around and protect from the wind, a flame that the violent winds of reality might easily extinguish.",
+      "author": "Haruki Murakami",
+      "work": "1Q84",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "hope"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
@@ -1207,6 +4649,265 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_b58e0c445118",
+      "text": "If we admit that human life can be ruled by reason, then all possibility of life is destroyed.",
+      "author": "leo tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "life",
+        "reason"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9151e6dfa8ce",
+      "text": "A man on a thousand mile walk has to forget his goal and say to himself every morning, 'Today I'm going to cover twenty-five miles and then rest up and sleep.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "endurance",
+        "pacing",
+        "war-and-peace"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_33788506260d",
+      "text": "Everything depends on upbringing.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "parenting",
+        "upbringing"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8af70fe8f185",
+      "text": "Nothing is so necessary for a young man as the company of intelligent women.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "men-women"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4f82cd256c08",
+      "text": "The strongest of all warriors are these two — Time and Patience.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "patience",
+        "time"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_518074f43e19",
+      "text": "The whole world is divided for me into two parts: one is she, and there is all happiness, hope, light; the other is where she is not, and there is dejection and darkness...",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "love",
+        "world"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4b9502310163",
+      "text": "We are asleep until we fall in Love!",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_48d5b75ff2bd",
+      "text": "We can know only that we know nothing. And that is the highest degree of human wisdom.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "humanity",
+        "nothing",
+        "wisdom"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4b4630481a8c",
+      "text": "We love people not so much for the good they've done us, as for the good we've done them.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "love"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_014ec3a23cea",
+      "text": "Writing laws is easy, but governing is difficult.",
+      "author": "Leo Tolstoy",
+      "work": "War and Peace",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "government",
+        "laws"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_b43090762080",
       "text": "For a large class of cases—though not for all—in which we employ the word 'meaning' it can be defined thus: the meaning of a word is its use in the language.",
       "author": "Ludwig Wittgenstein",
@@ -1264,6 +4965,142 @@
       "verification": {
         "status": "reported",
         "note": "Attribution certain: the seventh and final proposition of the Tractatus. Wording is C. K. Ogden's 1922 translation, prepared with Wittgenstein's own involvement. Pears and McGuinness render it \"What we cannot speak about we must pass over in silence\". The German is \"Wovon man nicht sprechen kann, darüber muß man schweigen\". No primary edition consulted from this environment; the translator attribution rests on independent secondary sources that agree."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5d624d9fca50",
+      "text": "I have often wondered how it is that every man loves himself more than all the rest of men, but yet sets less value on his own opinion of himself than on the opinion of others.",
+      "author": "Marcus Aurelius",
+      "work": "Meditations",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "confidence"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_92ba44204f52",
+      "text": "Our life is what our thoughts make it.",
+      "author": "Marcus Aurelius",
+      "work": "Meditations",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "attitude",
+        "inspirational",
+        "life"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4c19309528c3",
+      "text": "When you arise in the morning think of what a privilege it is to be alive, to think, to enjoy, to love ...",
+      "author": "Marcus Aurelius",
+      "work": "Meditations",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "carpe-diem",
+        "inspirational",
+        "life",
+        "seize-the-day"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_60d462d37f09",
+      "text": "Whenever you are about to find fault with someone, ask yourself the following question: What fault of mine most nearly resembles the one I am about to criticize?",
+      "author": "Marcus Aurelius",
+      "work": "Meditations",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "empathy",
+        "honesty",
+        "self-awareness"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9a7a36edd725",
+      "text": "You have power over your mind - not outside events. Realize this, and you will find strength.",
+      "author": "Marcus Aurelius",
+      "work": "Meditations",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "ataraxy",
+        "inner-strength",
+        "inspiration",
+        "self-control",
+        "strength"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
@@ -1557,6 +5394,75 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_8d6c22e7e3bc",
+      "text": "A 2019 study showed that a neural net analyzing natural-language clinical metrics was able to diagnose pediatric diseases better than eight junior physicians exposed to the same data—and outperformed all twenty human doctors in some areas.",
+      "author": "Ray Kurzweil",
+      "work": "The Singularity Is Nearer: When We Merge with AI",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_438562d0fd1a",
+      "text": "A key capability in the 2030s will be to connect the upper ranges of our neocortices to the cloud, which will directly extend our thinking. In this way, rather than AI being a competitor, it will become an extension of ourselves. By the time this happens, the nonbiological portions",
+      "author": "Ray Kurzweil",
+      "work": "The Singularity Is Nearer: When We Merge with AI",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_e338e1639f54",
+      "text": "But by far the most important application of AI to medicine in 2020 was the key role it played in designing safe and effective COVID-19 vaccines in record time. On January 11, 2020, Chinese authorities released the virus’s genetic sequence.[11] Moderna scientists got to work with powerful machine-learning tools that analyzed what vaccine would work best against it, and just two days later they had created the sequence for its mRNA vaccine.[12] On February 7 the first clinical batch was produced. After preliminary testing, it was sent to the National Institutes of Health on February 24. And on March 16—just sixty-three days after sequence selection—the first dose went into a trial participant’s arm. Before the pandemic, vaccines typically took five to ten years to develop. Achieving this breakthrough so quickly surely saved millions of lives.",
+      "author": "Ray Kurzweil",
+      "work": "The Singularity Is Nearer: When We Merge with AI",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_e9c3121db8c9",
       "text": "Good sense is the best distributed thing in the world: for everyone thinks himself so well endowed with it that even those who are the hardest to please in everything else do not usually desire more of it than they possess.",
       "author": "René Descartes",
@@ -1812,6 +5718,236 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_071385dd70f3",
+      "text": "If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. If you know neither the enemy nor yourself, you will succumb in every battle.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "strategy"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_daaf49976225",
+      "text": "One may know how to conquer without being able to do it.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_b86ddf37404b",
+      "text": "So in war, the way is to avoid what is strong, and strike at what is weak.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0a946090db28",
+      "text": "The greatest victory is that which requires no battle.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_d7c0054c69af",
+      "text": "There are not more than five musical notes, yet the combinations of these five give rise to more melodies than can ever be heard. There are not more than five primary colours, yet in combination they produce more hues than can ever been seen. There are not more than five cardinal tastes, yet combinations of them yield more flavours than can ever be tasted.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "colors",
+        "creativity",
+        "diversity",
+        "idic",
+        "innovation",
+        "inspirational",
+        "invention",
+        "music",
+        "problem-solving"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_7182677effcb",
+      "text": "There is no instance of a nation benefitting from prolonged warfare.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "benefit",
+        "war"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_61dc7f585c60",
+      "text": "Thus the expert in battle moves the enemy, and is not moved by him.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "chapter-6",
+        "roger-ames"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_59ba72dabcd6",
+      "text": "Treat your men as you would your own beloved sons. And they will follow you into the deepest valley.",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "art-of-war",
+        "sun-tzu"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_e82aaa705030",
+      "text": "Victorious warriors win first and then go to war, while defeated warriors go to war first and then seek to win",
+      "author": "Sun Tzu",
+      "work": "The Art of War",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "strategy"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
       "id": "q_59284dd4e44b",
       "text": "Wrong life cannot be lived rightly.",
       "author": "Theodor W. Adorno",
@@ -1902,6 +6038,151 @@
       "verification": {
         "status": "reported",
         "note": "Quoted as Khosla's in Sebastian Mallaby's The Power Law (2022), which splits it with \"he loved to add\" between the two halves; joined here into the single sentence. Two independent transcriptions of the book agree on the wording. The book's epigraph pairs this with \"All progress depends upon the unreasonable man\" — that half is George Bernard Shaw's, which Khosla is invoking, and is recorded separately under Shaw rather than under Khosla. Date and occasion of the original remark are unknown, so the year is left empty."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_aedefe2f7e25",
+      "text": "Knives and bombs do not themselves decide whom to kill. They are dumb tools, lacking the intelligence necessary to process information and make independent decisions. In contrast, AI can process information by itself, and thereby replace humans in decision making. AI isn’t a tool—it’s an agent.",
+      "author": "Yuval Noah Harari",
+      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_2c18e3e52872",
+      "text": "As far as we can tell from a purely scientific viewpoint, human life has absolutely no meaning. Humans are the outcome of blind evolutionary processes that operate without goal or purpose. Our actions are not part of some divine cosmic plan, and if planet earth were to blow up tomorrow morning, the universe would probably keep going about its business as usual. As far as we can tell at this point, human subjectivity would not be missed. Hence any meaning that people inscribe to their lives is just a delusion.",
+      "author": "Yuval Noah Harari",
+      "work": "Sapiens: A Brief History of Humankind",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "meaning-of-life",
+        "scientific-viewpoint"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4739a8666b62",
+      "text": "Large numbers of strangers can cooperate successfully by believing in common myths. Any large-scale human cooperation – whether a modern state, a medieval church, an ancient city or an archaic tribe – is rooted in common myths that exist only in people’s collective imagination.",
+      "author": "Yuval Noah Harari",
+      "work": "Sapiens: A Brief History of Humankind",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_4d263e570113",
+      "text": "So, monotheism explains order, but is mystified by evil. Dualism explains evil, but is puzzled by order. There is one logical way of solving the riddle: to argue that there is a single omnipotent God who created the entire universe – and He’s evil. But nobody in history has had the stomach for such a belief.",
+      "author": "Yuval Noah Harari",
+      "work": "Sapiens: A Brief History of Humankind",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_84fc435bca05",
+      "text": "There are no gods, no nations, no money and no human rights, except in our collective imagination.",
+      "author": "Yuval Noah Harari",
+      "work": "Sapiens: A Brief History of Humankind",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [
+        "human",
+        "sapiens",
+        "science"
+      ],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_58165ac1081f",
+      "text": "We did not domesticate wheat. It domesticated us.",
+      "author": "Yuval Noah Harari",
+      "work": "Sapiens: A Brief History of Humankind",
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "goodreads",
+        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
+        "locator": null
+      },
+      "tags": [],
+      "themes": [],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "Imported from Goodreads; wording not independently checked."
       },
       "favorite": false,
       "note": "",
