@@ -263,3 +263,57 @@ test('an author alias is applied on the way in, so one person stays one person',
   const result = await edit(`### Quote id\n\n${quoteId(ONE)}\n\n### Author\n\nFyodor Dostoyevsky\n`, { data });
   assert.equal(result.after.author, 'Fyodor Dostoevsky');
 });
+
+/* --------------------------------------------------------------------------
+ * Seeds add; they never take away
+ * ------------------------------------------------------------------------ */
+
+test('merge-seeds does not delete curated quotes that no seed file contains', async () => {
+  const source = await readFile(path.join(REPO_ROOT, 'scripts', 'merge-seeds.mjs'), 'utf8');
+
+  // It used to sweep out any `curated` quote missing from a seed file, on the
+  // assumption that curated meant seeded. The quote-mine skill files its picks
+  // through the issue workflow with the same source kind, so on 30 Jul 2026 one
+  // run of this script silently deleted sixteen hand-picked quotes: 205 in,
+  // 189 out. Removal belongs to curate.mjs, which leaves a record and can be
+  // undone.
+  assert.doesNotMatch(source, /retired/,
+    'merge-seeds is additive: removal goes through curate.mjs and data/removed.json');
+  assert.doesNotMatch(source, /collection\.filter\(\(quote\) => !seededIds/,
+    'the retire sweep is back, and it cannot tell a seeded quote from a hand-picked one');
+});
+
+test('every curated quote left in the collection is one the owner asked to keep', async () => {
+  const collection = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'quotes.json'), 'utf8'));
+  const keepers = ['Claude’s Constitution', 'Machines of Loving Grace', 'The Adolescence of Technology'];
+  const strays = collection.quotes
+    .filter((q) => q.source?.kind === 'curated' && !keepers.includes(q.work))
+    .map((q) => `${q.work ?? '(no work)'} — ${q.id}`);
+  assert.deepEqual(strays, [], 'curated quotes outside the three works he named on 30 Jul 2026');
+});
+
+test('every removed quote is really gone, and every tombstone keeps its text', async () => {
+  const collection = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'quotes.json'), 'utf8'));
+  const tombs = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'removed.json'), 'utf8'));
+  const live = new Set(collection.quotes.map((q) => q.id));
+
+  for (const entry of tombs.removed) {
+    assert.ok(!live.has(entry.id), `${entry.id} is tombstoned but still in the collection`);
+    // Without the text a tombstone is a hash nobody can turn back into a quote,
+    // which would make the deletion final rather than reversible.
+    assert.ok(entry.text && entry.text.length > 1, `${entry.id} has no text to restore from`);
+    assert.equal(quoteId(entry.text), entry.id, `${entry.id} does not match its own stored text`);
+  }
+});
+
+test('no Goodreads-sourced quote was removed', async () => {
+  const tombs = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'removed.json'), 'utf8'));
+  const collection = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'quotes.json'), 'utf8'));
+
+  // Checked against the live Goodreads list from a runner on 30 Jul 2026: all
+  // 173 saved quotes are still on it. The 36 that did not appear in the printed
+  // pages were page one, which was not in the upload — deleting on that
+  // evidence would have destroyed thirty quotes still on his shelf.
+  assert.equal(collection.quotes.filter((q) => q.source?.kind === 'goodreads').length, 173);
+  assert.equal(tombs.removed.length, 44);
+});

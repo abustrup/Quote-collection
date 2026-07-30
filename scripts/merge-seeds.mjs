@@ -70,30 +70,23 @@ async function main() {
     report.push(`${name.padEnd(24)} ${String(read.length).padStart(4)} read  ${String(result.added.length).padStart(4)} new  ${String(result.enriched.length).padStart(4)} enriched${skipped.length ? `  ${skipped.length} removed` : ''}`);
   }
 
-  // Retire curated quotes the seed files no longer contain.
+  // This script only ever adds.
   //
-  // A quote's id is a hash of its own text, so *correcting* a quotation mints a
-  // new record rather than editing the old one. Without this step the mistake
-  // and its correction both sit in the collection, which is worse than the
-  // original error: it looks like the author said two slightly different
-  // things. Only curated records are eligible — anything imported from
-  // Goodreads or added by hand has no seed file to be absent from, and must
-  // never be swept up by this.
-  const seededIds = new Set(collection.filter((quote) => quote.source?.kind === 'curated').map((quote) => quote.id));
-  for (const name of seedFiles) {
-    const raw = JSON.parse(await readFile(path.join(SEED_DIR, name), 'utf8'));
-    for (const quote of Array.isArray(raw) ? raw : raw.quotes ?? []) {
-      seededIds.delete(makeQuote(quote).id);
-    }
-  }
-
-  const retired = collection.filter((quote) => seededIds.has(quote.id));
-  if (retired.length) {
-    collection = collection.filter((quote) => !seededIds.has(quote.id));
-    for (const quote of retired) {
-      console.log(`  retired  ${quote.id}  ${quote.author}: "${quote.text.slice(0, 56)}…"`);
-    }
-  }
+  // It used to also retire: any quote marked `curated` that no longer appeared
+  // in a seed file was deleted, on the reasoning that correcting a quotation
+  // mints a new record — the id is a hash of the text — so without a sweep the
+  // mistake and its correction would both sit in the collection.
+  //
+  // That reasoning rested on "curated means it came from a seed file", and that
+  // stopped being true the day the quote-mine skill started filing picks
+  // through the issue workflow with the same `curated` source. Running this
+  // script then deleted sixteen quotes chosen by hand, silently, because they
+  // were absent from a file they had never been in. Measured on 30 Jul 2026:
+  // 205 quotes in, 189 out.
+  //
+  // Corrections now go through `scripts/curate.mjs`, which records what it
+  // removed and why in `data/removed.json` and can be undone. One removal path,
+  // auditable and reversible, beats two where the second is neither.
 
   const merged = {
     schemaVersion: SCHEMA_VERSION,
