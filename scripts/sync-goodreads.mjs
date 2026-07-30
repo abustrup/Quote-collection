@@ -29,6 +29,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { SCHEMA_VERSION, makeQuote, mergeQuotes, validateCollection } from '../assets/quote-core.js';
+import { readTombstones, withoutRemoved } from './tombstones.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCES_FILE = path.join(REPO_ROOT, 'data', 'sources.json');
@@ -265,7 +266,15 @@ async function main() {
     verification: { status: 'unverified', note: 'Imported from Goodreads; wording not independently checked.' },
   }));
 
-  const { quotes, added, enriched } = mergeQuotes(existing.quotes ?? [], records);
+  // Anything deliberately removed stays removed. Without this the sync would
+  // re-file every deleted quote the next morning, since the id is derived from
+  // the text and Goodreads still has it.
+  const { kept, skipped } = withoutRemoved(records, await readTombstones());
+  if (skipped.length) {
+    console.log(`Skipped ${skipped.length} previously removed ${skipped.length === 1 ? 'quote' : 'quotes'}.`);
+  }
+
+  const { quotes, added, enriched } = mergeQuotes(existing.quotes ?? [], kept);
 
   // Only move the timestamp when the quotes moved. Otherwise a daily run that
   // finds nothing still rewrites the file, and the workflow commits it — a junk

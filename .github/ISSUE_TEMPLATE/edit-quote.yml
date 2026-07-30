@@ -1,0 +1,78 @@
+# Correct a quote already in the collection.
+#
+# The labels below are how scripts/curate.mjs finds each field;
+# tests/curate.test.mjs asserts they match EDIT_FIELDS, so renaming one fails
+# CI rather than silently dropping a field.
+#
+# A field left blank is left alone. That is deliberate: the form arrives
+# prefilled from the site, and an accidental clear would be indistinguishable
+# from an intended one.
+name: Edit a quote
+description: Fix the wording, attribution or details of a quote already in the collection.
+title: "Edit: "
+labels: ["quote-edit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Come here from the collection: press **Curate** and use the **Edit**
+        link under the quote, which fills this in with what the record says now.
+
+        **Anything you leave blank stays as it is.** Change only what is wrong.
+
+  - type: input
+    id: id
+    attributes:
+      label: Quote id
+      description: Shown under the quote in Curate mode. Looks like `q_1a2b3c4d5e6f`.
+    validations:
+      required: true
+
+  - type: textarea
+    id: text
+    attributes:
+      label: Quote
+      description: |
+        Only if the wording itself is wrong. **Changing the words gives the quote a new
+        link**, because a quote's identity is a hash of its own text – that is what
+        keeps an import from creating duplicates. The old link stops resolving, and
+        the reply will tell you the new one.
+
+  - type: input
+    id: author
+    attributes:
+      label: Author
+
+  - type: input
+    id: work
+    attributes:
+      label: Work
+
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      description: A number. Negative for BC, so Aristotle is -350.
+
+  - type: input
+    id: themes
+    attributes:
+      label: Themes
+      description: Comma separated. Anything outside the controlled list is refused rather than dropped quietly.
+
+  - type: input
+    id: note
+    attributes:
+      label: Note
+      description: Your own line about the quote, shown under it on the site.
+
+  - type: dropdown
+    id: verification
+    attributes:
+      label: Verification
+      description: How far the wording has actually been checked.
+      options:
+        - verified
+        - reported
+        - unverified
+        - disputed

@@ -68,8 +68,14 @@
         <label class="visually-hidden" for="filter-author">Filter by author</label>
         <select class="pill" id="filter-author"><option value="">All authors</option></select>
 
-        <label class="visually-hidden" for="filter-theme">Filter by theme</label>
-        <select class="pill" id="filter-theme"><option value="">All themes</option></select>
+        <label class="visually-hidden" for="filter-work">Filter by work</label>
+        <select class="pill" id="filter-work"><option value="">All works</option></select>
+
+        <label class="visually-hidden" for="filter-subject">Filter by subject</label>
+        <select class="pill" id="filter-subject"><option value="">All subjects</option></select>
+
+        <label class="visually-hidden" for="filter-era">Filter by era</label>
+        <select class="pill" id="filter-era"><option value="">All eras</option></select>
 
         <label class="visually-hidden" for="sort">Sort</label>
         <select class="pill" id="sort">
@@ -88,6 +94,7 @@
           Favourites <span class="pill-count" id="favorites-count"></span>
         </button>
         <button class="pill" id="open-focus" type="button" title="Read one at a time (F)">Focus</button>
+        <button class="pill" id="toggle-curate" type="button" aria-pressed="false" title="Show edit and remove controls (C)">Curate</button>
         <label class="visually-hidden" for="edition">Edition</label>
         <select class="pill" id="edition" title="Change how the collection is set">
           <option value="paper">Paper</option>
@@ -99,6 +106,16 @@
     </div>
 
     <div class="active-filters" id="active-filters" hidden></div>
+
+    <!-- Only ever visible in curate mode. Removal is a batch operation on
+         purpose: deleting Goodreads chaff one issue at a time is the kind of
+         chore that does not get done. -->
+    <div class="curate-bar" id="curate-bar" hidden>
+      <span id="curate-count">Nothing selected</span>
+      <button class="pill" id="curate-remove" type="button" disabled>Remove selected…</button>
+      <button class="pill" id="curate-clear" type="button" disabled>Deselect</button>
+      <span class="curate-hint">Tick the quotes to drop, then open one issue for all of them.</span>
+    </div>
   </div>
 </div>
 
@@ -117,13 +134,15 @@
   <div class="shell footer-row">
     <div>
       <p style="margin:0">
-        <a href="import.html">Import from Goodreads</a> ·
+        <a href="works.html">The shelf</a> ·
         <a href="suggest.html">What to read next</a> ·
-        <a id="add-quote-link" href="https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml">Add a quote</a>
+        <a id="add-quote-link" href="https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml">Add a quote</a> ·
+        <a href="import.html">Import from Goodreads</a>
       </p>
       <p style="margin:.4rem 0 0">
         Press <kbd>/</kbd> to search, <kbd>J</kbd> and <kbd>K</kbd> to move,
-        <kbd>F</kbd> for focus, <kbd>R</kbd> for a random line.
+        <kbd>F</kbd> for focus, <kbd>R</kbd> for a random line,
+        <kbd>C</kbd> to curate.
       </p>
     </div>
     <div>

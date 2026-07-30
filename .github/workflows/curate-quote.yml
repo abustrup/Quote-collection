@@ -1,0 +1,160 @@
+# Remove or correct quotes, from an issue.
+#
+# Kept apart from ingest-quote.yml on purpose. That workflow adds, and a wrong
+# addition is undone by deleting it. This one destroys the only copy of
+# something, so it gets its own file, its own concurrency group, and its own
+# reasoning about what could go wrong.
+#
+# The guard is the same and matters more: nothing here runs for an issue opened
+# by anybody other than the owner of the repository. Anyone may open an issue on
+# a public repository and anyone may apply a label by choosing the right form,
+# so authorship is the only thing worth trusting. Under an organisation,
+# `github.repository_owner` becomes the organisation name and this would match
+# nobody, so it would have to name the person instead.
+#
+# Removals are recoverable by design: every one is written to data/removed.json
+# with the quote's full text, and deleting the entry there restores it with its
+# original id and permalink.
+name: Remove or edit a quote
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions: {}
+
+concurrency:
+  group: quote-curate-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  curate:
+    name: Curate
+    if: >-
+      github.event.issue.state == 'open'
+      && github.event.issue.user.login == github.repository_owner
+      && (contains(github.event.issue.labels.*.name, 'quote-remove')
+      || contains(github.event.issue.labels.*.name, 'quote-edit'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Read the issue
+        id: curate
+        continue-on-error: true
+        env:
+          # The body reaches Node through the environment and never through the
+          # shell, so a quotation containing backticks or $(…) is just text.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          MODE: ${{ contains(github.event.issue.labels.*.name, 'quote-remove') && 'remove' || 'edit' }}
+        run: |
+          node scripts/curate.mjs \
+            --mode "$MODE" \
+            --body-env ISSUE_BODY \
+            --summary-file "$RUNNER_TEMP/comment.md"
+
+      - name: Check the collection still validates
+        id: check
+        if: steps.curate.outcome == 'success'
+        continue-on-error: true
+        run: npm run check
+
+      - name: Commit the change
+        id: commit
+        if: >-
+          steps.curate.outcome == 'success'
+          && steps.check.outcome == 'success'
+          && steps.curate.outputs.changed == 'true'
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          BRANCH: ${{ github.event.repository.default_branch }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          MODE: ${{ contains(github.event.issue.labels.*.name, 'quote-remove') && 'remove' || 'edit' }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          for attempt in 1 2 3; do
+            git add data/quotes.json data/removed.json
+            if git diff --cached --quiet; then
+              echo "Nothing left to commit — already applied on ${BRANCH}."
+              exit 0
+            fi
+            git commit --quiet --message "${MODE^} quotes from issue #${ISSUE_NUMBER}"
+            if git push; then exit 0; fi
+
+            # Something else reached the branch first. Rebasing would replay a
+            # whole-file rewrite over their work; starting again from their
+            # state and re-reading the issue merges both properly.
+            echo "Push rejected, starting again from ${BRANCH} (attempt ${attempt})."
+            git fetch --quiet origin "${BRANCH}"
+            git reset --quiet --hard "origin/${BRANCH}"
+            node scripts/curate.mjs \
+              --mode "$MODE" \
+              --body-env ISSUE_BODY \
+              --summary-file "$RUNNER_TEMP/comment.md" \
+              --quiet
+          done
+
+          echo "Could not push after three attempts."
+          exit 1
+
+      - name: Say what happened
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CHECK: ${{ steps.check.outcome }}
+          COMMIT: ${{ steps.commit.outcome }}
+        run: |
+          COMMENT="$RUNNER_TEMP/comment.md"
+
+          # curate.mjs writes its own explanation either way. These branches
+          # only cover what it could not speak for.
+          if [ "$COMMIT" = "failure" ]; then
+            {
+              printf 'I read the issue but could not save the change.\n\n'
+              printf 'The collection is unchanged. The details are in [the run log](%s).\n' "$RUN_URL"
+            } > "$COMMENT"
+          elif [ "$CHECK" = "failure" ]; then
+            {
+              printf 'I could not do that.\n\n'
+              printf '**The collection would not have validated afterwards**, so nothing was written.\n\n'
+              printf 'The details are in [the run log](%s).\n' "$RUN_URL"
+            } > "$COMMENT"
+          elif [ ! -s "$COMMENT" ]; then
+            {
+              printf 'Something went wrong before I could read the issue.\n\n'
+              printf 'The details are in [the run log](%s). Nothing was written.\n' "$RUN_URL"
+            } > "$COMMENT"
+          fi
+
+          gh issue comment "$ISSUE_NUMBER" --body-file "$COMMENT"
+
+      - name: Close the issue
+        if: steps.curate.outcome == 'success' && steps.check.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue close "$ISSUE_NUMBER" --reason completed
+
+      # `continue-on-error` above kept the job alive long enough to comment;
+      # this is where a bad issue actually turns the run red.
+      - name: Fail if nothing was applied
+        if: steps.curate.outcome != 'success' || steps.check.outcome != 'success'
+        run: exit 1

@@ -1,0 +1,48 @@
+# Take quotes out of the collection.
+#
+# The `Quote ids` and `Reason` labels below are how scripts/curate.mjs finds the
+# payload; tests/curate.test.mjs asserts they match REMOVE_FIELDS, so renaming a
+# label fails CI rather than silently dropping a field.
+#
+# Nothing here deletes anything on its own. The workflow only runs for an issue
+# opened by the repository owner, and every removal is recorded in
+# data/removed.json with the full text, so it can be undone.
+name: Remove quotes
+description: Take one or more quotes out of the collection.
+title: "Remove: "
+labels: ["quote-remove"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The easy way in is from the collection itself: press **Curate**, tick
+        the quotes you want gone, and press **Remove selected**. That fills this
+        form in for you.
+
+        Removals are reversible. The full text of each one is written to
+        `data/removed.json`, and deleting its entry there brings the quote back
+        with its original link.
+
+  - type: textarea
+    id: ids
+    attributes:
+      label: Quote ids
+      description: One per line. Each looks like `q_1a2b3c4d5e6f` and is shown under the quote in Curate mode.
+      placeholder: |
+        q_1a2b3c4d5e6f
+        q_0f9e8d7c6b5a
+    validations:
+      required: true
+
+  - type: input
+    id: reason
+    attributes:
+      label: Reason
+      description: Optional, and only for you – it is stored with the removal so a later you knows why.
+      placeholder: Misattributed, and I could not find it in the source.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: What these are
+      description: Filled in automatically when you come from the site. It is not read by anything; it is here so the issue is readable on its own.

@@ -1,0 +1,265 @@
+/**
+ * Tests for removing and correcting quotes.
+ *
+ * This is the only path in the repository that destroys data, and the owner
+ * drives it from a web form without ever seeing the result until afterwards.
+ * Two failure modes are worth more than the rest: a removal that does not stick
+ * because the next sync re-files the quote, and an id that stops matching its
+ * own text after an edit, which breaks every permalink at once.
+ */
+
+import assert from 'node:assert/strict';
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import test from 'node:test';
+import { fileURLToPath } from 'node:url';
+
+import { quoteId, validateCollection } from '../assets/quote-core.js';
+import { EDIT_FIELDS, REMOVE_FIELDS, edit, readEdit, readIds, remove } from '../scripts/curate.mjs';
+import { readTombstones, withoutRemoved } from '../scripts/tombstones.mjs';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+const ONE = 'The unexamined life is not worth living.';
+const TWO = 'Man is condemned to be free.';
+
+function quote(text, extra = {}) {
+  return {
+    id: quoteId(text),
+    text,
+    author: 'Someone',
+    work: null,
+    workKind: null,
+    year: null,
+    source: { kind: 'curated', url: null, locator: null },
+    tags: [],
+    themes: [],
+    lang: 'en',
+    verification: { status: 'unverified' },
+    favorite: false,
+    note: '',
+    addedAt: '2026-01-01',
+    ...extra,
+  };
+}
+
+async function sandbox(quotes) {
+  const dir = await mkdtemp(path.join(tmpdir(), 'curate-'));
+  const data = path.join(dir, 'quotes.json');
+  const removedFile = path.join(dir, 'removed.json');
+  await writeFile(data, JSON.stringify({ schemaVersion: 1, quotes }, null, 2));
+  await writeFile(removedFile, JSON.stringify({ schemaVersion: 1, removed: [] }, null, 2));
+  return { data, removedFile };
+}
+
+const removalIssue = (ids, reason) => [
+  '### Quote ids', '', ids.join('\n'), '',
+  ...(reason ? ['### Reason', '', reason, ''] : []),
+].join('\n');
+
+/* --------------------------------------------------------------------------
+ * The forms and the fields must stay in step
+ * ------------------------------------------------------------------------ */
+
+test('every remove and edit field has a heading in its issue form', async () => {
+  const forms = {
+    'remove-quote.yml': REMOVE_FIELDS,
+    'edit-quote.yml': EDIT_FIELDS,
+  };
+
+  for (const [file, fields] of Object.entries(forms)) {
+    const yaml = await readFile(path.join(REPO_ROOT, '.github', 'ISSUE_TEMPLATE', file), 'utf8');
+    const labels = [...yaml.matchAll(/^\s*label:\s*(.+)$/gm)]
+      .map((match) => match[1].trim().replace(/^["']|["']$/g, '').toLowerCase());
+
+    for (const label of Object.keys(fields)) {
+      assert.ok(
+        labels.includes(label),
+        `${file} has no "${label}" field, but curate.mjs reads one`,
+      );
+    }
+  }
+});
+
+/* --------------------------------------------------------------------------
+ * Reading the forms
+ * ------------------------------------------------------------------------ */
+
+test('ids are found however they are written', () => {
+  const shapes = [
+    'q_1a2b3c4d5e6f\nq_0f9e8d7c6b5a',
+    'q_1a2b3c4d5e6f, q_0f9e8d7c6b5a',
+    'https://abustrup.github.io/Quote-collection/#q_1a2b3c4d5e6f and #q_0f9e8d7c6b5a',
+  ];
+  for (const body of shapes) {
+    const { ids } = readIds(`### Quote ids\n\n${body}\n`);
+    assert.deepEqual(ids, ['q_1a2b3c4d5e6f', 'q_0f9e8d7c6b5a'], `failed on: ${body}`);
+  }
+});
+
+test('the same id twice is one removal, not two', () => {
+  const { ids } = readIds('### Quote ids\n\nq_1a2b3c4d5e6f\nq_1a2b3c4d5e6f\n');
+  assert.deepEqual(ids, ['q_1a2b3c4d5e6f']);
+});
+
+test('a removal issue with no id says so instead of removing nothing quietly', () => {
+  assert.throws(() => readIds('### Quote ids\n\nthe Socrates one\n'), /could not find a quote id/i);
+});
+
+test('an edit that changes nothing is refused', () => {
+  assert.throws(() => readEdit('### Quote id\n\nq_1a2b3c4d5e6f\n'), /does not change anything/i);
+});
+
+test('an edit is refused rather than silently dropping an unknown theme', () => {
+  const body = '### Quote id\n\nq_1a2b3c4d5e6f\n\n### Themes\n\nvibes, knowledge\n';
+  assert.throws(() => readEdit(body), /not a theme/i);
+});
+
+test('a blank field means leave it alone, not clear it', () => {
+  const body = [
+    '### Quote id', '', 'q_1a2b3c4d5e6f', '',
+    '### Quote', '', '_No response_', '',
+    '### Author', '', 'Hannah Arendt', '',
+  ].join('\n');
+  const { changes } = readEdit(body);
+  assert.deepEqual(Object.keys(changes), ['author']);
+});
+
+/* --------------------------------------------------------------------------
+ * Removal
+ * ------------------------------------------------------------------------ */
+
+test('removing a quote takes it out and writes a tombstone that keeps the text', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE), quote(TWO)]);
+  const result = await remove(removalIssue([quoteId(ONE)], 'Misattributed.'), {
+    data, removedFile, removedAt: '2026-07-30',
+  });
+
+  for (const { file, contents } of result.files) await writeFile(file, contents);
+
+  const after = JSON.parse(await readFile(data, 'utf8'));
+  assert.equal(after.quotes.length, 1);
+  assert.equal(after.quotes[0].text, TWO);
+  assert.deepEqual(validateCollection(after).errors, []);
+
+  const tombs = JSON.parse(await readFile(removedFile, 'utf8'));
+  assert.equal(tombs.removed.length, 1);
+  assert.equal(tombs.removed[0].id, quoteId(ONE));
+  // The text is what makes the deletion reversible; without it the tombstone
+  // is a hash nobody can turn back into a quote.
+  assert.equal(tombs.removed[0].text, ONE);
+  assert.equal(tombs.removed[0].reason, 'Misattributed.');
+  assert.equal(tombs.removed[0].removedAt, '2026-07-30');
+});
+
+test('removing several at once is one operation', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE), quote(TWO)]);
+  const result = await remove(removalIssue([quoteId(ONE), quoteId(TWO)]), { data, removedFile });
+  assert.equal(result.removed.length, 2);
+  assert.equal(result.totalCount, 0);
+});
+
+test('an id that is not in the collection is reported, not ignored', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE)]);
+  const result = await remove(removalIssue([quoteId(ONE), 'q_000000000000']), { data, removedFile });
+  assert.deepEqual(result.missing, ['q_000000000000']);
+  assert.equal(result.removed.length, 1);
+});
+
+test('removing only unknown ids fails rather than reporting a successful no-op', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE)]);
+  await assert.rejects(
+    remove(removalIssue(['q_000000000000']), { data, removedFile }),
+    /none of those ids are in the collection/i,
+  );
+});
+
+/* --------------------------------------------------------------------------
+ * The tombstone is the whole point
+ * ------------------------------------------------------------------------ */
+
+test('a removed quote is not re-imported, which is what makes deletion stick', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE), quote(TWO)]);
+  const result = await remove(removalIssue([quoteId(ONE)]), { data, removedFile });
+  for (const { file, contents } of result.files) await writeFile(file, contents);
+
+  // Exactly what tomorrow's Goodreads sync would hand over: the same text,
+  // and therefore the same id.
+  const incoming = [quote(ONE), quote(TWO)];
+  const { kept, skipped } = withoutRemoved(incoming, await readTombstones(removedFile));
+
+  assert.equal(skipped.length, 1);
+  assert.equal(skipped[0].text, ONE);
+  assert.equal(kept.length, 1);
+});
+
+test('an empty tombstone list bars nothing', async () => {
+  const { removedFile } = await sandbox([]);
+  const { kept, skipped } = withoutRemoved([quote(ONE)], await readTombstones(removedFile));
+  assert.equal(kept.length, 1);
+  assert.equal(skipped.length, 0);
+});
+
+test('a missing tombstone file is not an error', async () => {
+  const barred = await readTombstones(path.join(tmpdir(), 'definitely-not-here-removed.json'));
+  assert.equal(barred.size, 0);
+});
+
+/* --------------------------------------------------------------------------
+ * Editing
+ * ------------------------------------------------------------------------ */
+
+test('editing metadata leaves the id, and therefore the permalink, alone', async () => {
+  const { data } = await sandbox([quote(ONE, { author: 'Socrates' })]);
+  const body = `### Quote id\n\n${quoteId(ONE)}\n\n### Author\n\nPlato\n\n### Year\n\n-399\n`;
+  const result = await edit(body, { data });
+
+  assert.equal(result.newId, null);
+  assert.equal(result.after.id, quoteId(ONE));
+  assert.equal(result.after.author, 'Plato');
+  assert.equal(result.after.year, -399);
+  assert.deepEqual(validateCollection(JSON.parse(result.files[0].contents)).errors, []);
+});
+
+test('editing the wording mints a new id and says the old link is gone', async () => {
+  const { data } = await sandbox([quote(ONE)]);
+  const fixed = 'The unexamined life is not worth living for a human being.';
+  const result = await edit(`### Quote id\n\n${quoteId(ONE)}\n\n### Quote\n\n${fixed}\n`, { data });
+
+  assert.equal(result.newId, quoteId(fixed));
+  assert.notEqual(result.newId, quoteId(ONE));
+  // The invariant that keeps every permalink honest: the id is the hash of the
+  // text it is attached to, before and after any edit.
+  const written = JSON.parse(result.files[0].contents);
+  for (const record of written.quotes) assert.equal(record.id, quoteId(record.text));
+  assert.deepEqual(validateCollection(written).errors, []);
+});
+
+test('a punctuation-only correction keeps the permalink', async () => {
+  const clumsy = 'All men are enemies. All animals are comrades';
+  const { data } = await sandbox([quote(clumsy)]);
+  const fixed = `${clumsy}.`;
+  const result = await edit(`### Quote id\n\n${quoteId(clumsy)}\n\n### Quote\n\n${fixed}\n`, { data });
+
+  // The id normalises punctuation away, so this genuinely is the same quote.
+  // Reporting a new link here would be a false alarm, and a false alarm on the
+  // one warning that is sometimes real is worse than no warning.
+  assert.equal(result.after.text, fixed);
+  assert.equal(result.after.id, quoteId(clumsy));
+  assert.equal(result.newId, null);
+});
+
+test('editing a quote that is not there says so', async () => {
+  const { data } = await sandbox([quote(ONE)]);
+  await assert.rejects(
+    edit('### Quote id\n\nq_000000000000\n\n### Author\n\nPlato\n', { data }),
+    /no quote with the id/i,
+  );
+});
+
+test('an author alias is applied on the way in, so one person stays one person', async () => {
+  const { data } = await sandbox([quote(ONE)]);
+  const result = await edit(`### Quote id\n\n${quoteId(ONE)}\n\n### Author\n\nFyodor Dostoyevsky\n`, { data });
+  assert.equal(result.after.author, 'Fyodor Dostoevsky');
+});

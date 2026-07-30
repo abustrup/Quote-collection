@@ -22,6 +22,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { SCHEMA_VERSION, makeQuote, mergeQuotes, validateCollection } from '../assets/quote-core.js';
+import { readTombstones, withoutRemoved } from './tombstones.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SEED_DIR = path.join(REPO_ROOT, 'data', 'seed');
@@ -56,12 +57,17 @@ async function main() {
   const before = collection.length;
   const report = [];
 
+  // A seed file still listing something that was deliberately removed must not
+  // put it back, or every merge would undo the last deletion.
+  const removed = await readTombstones();
+
   for (const name of seedFiles) {
     const raw = JSON.parse(await readFile(path.join(SEED_DIR, name), 'utf8'));
-    const incoming = (Array.isArray(raw) ? raw : raw.quotes ?? []).map((quote) => makeQuote(quote));
+    const read = (Array.isArray(raw) ? raw : raw.quotes ?? []).map((quote) => makeQuote(quote));
+    const { kept: incoming, skipped } = withoutRemoved(read, removed);
     const result = mergeQuotes(collection, incoming);
     collection = result.quotes;
-    report.push(`${name.padEnd(24)} ${String(incoming.length).padStart(4)} read  ${String(result.added.length).padStart(4)} new  ${String(result.enriched.length).padStart(4)} enriched`);
+    report.push(`${name.padEnd(24)} ${String(read.length).padStart(4)} read  ${String(result.added.length).padStart(4)} new  ${String(result.enriched.length).padStart(4)} enriched${skipped.length ? `  ${skipped.length} removed` : ''}`);
   }
 
   // Retire curated quotes the seed files no longer contain.

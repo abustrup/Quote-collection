@@ -8,7 +8,7 @@ step and no server: the quotations live in one JSON file, and the site reads it.
 
 ---
 
-## The three things you will actually do
+## The four things you will actually do
 
 ### 1. Add a quote (no terminal, works from a phone)
 
@@ -18,6 +18,27 @@ robot files it into the collection, the site rebuilds, and it replies with a
 direct link to your new quote. Then it closes the issue.
 
 That is the whole loop. You never touch a file.
+
+### 1b. Remove or fix one (press **Curate**)
+
+On the collection, press **Curate** (or the <kbd>C</kbd> key). Every quote grows
+a tick box, an **Edit** link and its id. Tick the ones you want gone, press
+**Remove selected**, and submit the issue it opens. One issue removes any number
+of quotes.
+
+Removals stick, and that is less obvious than it sounds. A quote's id is a hash
+of its own text, so simply deleting one would not work: the next morning's
+Goodreads sync would derive the same id from the same words, find it missing,
+and file it again. So every removal is written to `data/removed.json` with the
+full text, and every importer consults that list first.
+
+Which also makes it reversible. Delete an entry from `data/removed.json` and the
+next sync brings the quote back with its original link.
+
+**Edit** opens the same kind of form, prefilled with what the record says now.
+Anything you leave blank stays as it is. Changing the *wording* can give the
+quote a new link – identity is a hash of the text – and the reply tells you
+when it did.
 
 ### 2. Nothing, for Goodreads
 
@@ -66,12 +87,41 @@ bills your own account, so it stays switched off until you turn it on.
 | | |
 |---|---|
 | **Search** | Type anything – words in the quote, an author, a book |
-| **Filter** | Click an author or a theme to see only those |
+| **Filter** | By author, **work**, **subject** or **era**. Every filter is in the URL, so any view can be sent to someone |
+| **The shelf** | [works.html](https://abustrup.github.io/Quote-collection/works.html) – every book quoted here, arranged by subject, era, author or how often you quote it |
 | **Editions** | *Paper* to read slowly, *Night* for the dark, *Folio* for one line at a time, *Index* to scan hundreds fast |
 | **Focus** | One quote, nothing else. Press <kbd>F</kbd>, or the Focus button |
-| **Keyboard** | <kbd>/</kbd> search · <kbd>J</kbd>/<kbd>K</kbd> move · <kbd>F</kbd> focus · <kbd>R</kbd> random · <kbd>Esc</kbd> clear |
+| **Keyboard** | <kbd>/</kbd> search · <kbd>J</kbd>/<kbd>K</kbd> move · <kbd>F</kbd> focus · <kbd>R</kbd> random · <kbd>C</kbd> curate · <kbd>Esc</kbd> clear |
 | **Links** | Every quote has its own permanent link, so you can send one to someone |
 | **Favourites** | The star keeps a quote in your own shortlist, stored on your device |
+
+---
+
+## Subjects, eras, and why they are not themes
+
+The filters you would reach for first are the ones nobody has to agree with you
+about:
+
+| | Where it comes from | Judgement involved |
+|---|---|---|
+| **Work** | the quote's own attribution | none |
+| **Era** | arithmetic on the work's year | none |
+| **Subject** | `data/works.json`, one field per book | one decision per book, checkable against a library record |
+
+**Subject belongs to the work, not to the line.** Asking "what is this sentence
+about?" gets a different answer from every honest reader – *meaning*,
+*character*, *certainty* are readings, not facts. Asking "what field is this
+book in?" is the question a library catalogue already answers. So fifty-nine
+books get classified once, instead of several hundred sentences getting
+interpreted one at a time, and anyone can check the whole taxonomy in an
+afternoon.
+
+Era is not stored at all. It is computed from the year, so it cannot drift out
+of step with the date, and a work with no year simply has no era rather than
+being guessed into one.
+
+The old `themes` are still on each quote and still clickable, but they have been
+demoted out of the filter row to what they always were: one reader's tags.
 
 ---
 
@@ -98,14 +148,17 @@ show no badge at all – the badge appears only when there is something to say.
 
 ```
 index.html          the collection
+works.html          the shelf – every book quoted here
 import.html         the Goodreads importer
 suggest.html        reading suggestions
 data/quotes.json    every quotation – the only file that really matters
+data/works.json     one record per work: its subject, year and kind
+data/removed.json   quotes deliberately deleted, so no importer re-adds them
 data/sources.json   which Goodreads profile the daily sync reads
 data/library.json   the curated works the recommender can suggest
 data/schema.json    the shape data/quotes.json must keep to
 assets/             styles, fonts, and the code the pages run
-scripts/            the validator and the issue-to-quote importer
+scripts/            the validators, the issue-to-quote importer, and curate.mjs
 .github/            the issue forms, the daily Goodreads sync, and the checks
 ```
 
