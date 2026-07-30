@@ -67,66 +67,9 @@ In order:
 3. **Ask him to paste or drop it.** Only when the first two fail — normal for
    unpublished or paywalled work, not a failure. Say which step failed and wait.
 
-## 2. Find what the world already quotes
+## 2. Learn what he actually keeps
 
-One reader's judgement is a narrow instrument. Before choosing, find out which
-lines from this work other people actually pull out — that is real evidence
-about what carries, gathered from thousands of readers rather than one pass.
-
-Where to look, best first:
-
-- **Goodreads' page for the work** (`goodreads.com/work/quotes/<id>`, reachable
-  from its book page). The like counts are an honest popularity ranking, and it
-  is the only source here that is structured rather than anecdotal. Goodreads
-  refuses some automated clients with a 403; if that happens, do not retry it,
-  just fall back to the next two.
-- **Web search for distinctive phrases from the work.** Search a few striking
-  fragments you found in §1 and see which come back with the most independent
-  discussion. Also search `"<title>" quotes` and `"<title>" "most quoted"` —
-  for a work with no Goodreads page this is the whole of the signal.
-- **Coverage and commentary.** For a recent essay — the usual case for the
-  things he reads — what reviewers, newsletters and critics chose to pull out
-  is the same signal in a different form. Two independent write-ups landing on
-  the same sentence is a real result.
-
-### The rule that makes this safe
-
-**Popularity decides what to look for. The source decides the words.**
-
-Never file text taken from a quote page, a listicle, a review, or a search
-result. Find the line's *location* in the primary text and quote what is
-actually there.
-
-This is not a hypothetical risk, it is the normal case. Of the four
-most-circulated lines from Claude's Constitution, checked against Anthropic's
-own CC0 text, **three were wrong**:
-
-| What circulates | What the text says |
-|---|---|
-| "more like a trellis than a cage: it provides structure and support while **also** leaving room for organic growth" | "A constitution in this sense is **less like a cage and more like a trellis**: **something that** provides structure and support while leaving room for organic growth" |
-| "Claude can be like a brilliant friend who **also** has the knowledge of a doctor, lawyer, and financial advisor, who will speak frankly … and treat users like intelligent adults capable of deciding what is good for them" | Two sentences from **different sections**, welded into one. The real one: "Think about what it means to have access to a brilliant friend who **happens to** have the knowledge of a doctor, lawyer, financial advisor, **and expert in whatever you need**." |
-| "we **want** all current Claude models to **be** … **Broadly safe**: not undermining appropriate human mechanisms to oversee AI during the current phase of development" | "we **believe** all current Claude models **should** be … not undermining appropriate human mechanisms to oversee **the dispositions and actions of** AI during the current phase of development" |
-| "never engage or assist in an attempt to kill or disempower the vast majority of humanity or the human species as whole" | Verbatim. This one is real. |
-
-Every wrong version reads perfectly. That is the point: a smoothed paraphrase
-is *more* quotable than the original, which is exactly why it out-competes it
-online. Filing any of the first three would have put a paraphrase in the
-collection wearing a **verified** badge.
-
-So: search to find out *which sentence* matters, then go back to the text and
-copy the sentence.
-
-### When a popular line is wrong or absent
-
-Say so, prominently, in a short **Misquotes found** section under the
-shortlist. A line the internet attributes to a work in words the work does not
-use is worth more to him than another candidate: it is a mistake he would
-otherwise have repeated in public. Give the circulating version, the real one,
-and where you checked.
-
-## 3. Learn what he actually keeps
-
-Now read his collection:
+Before choosing, read his collection:
 
 ```
 https://raw.githubusercontent.com/abustrup/Quote-collection/main/data/quotes.json
@@ -139,19 +82,22 @@ he already holds from this work and this area, and read those quotes — they se
 the bar in §3. Skim twenty others before choosing; the collection is a better
 brief than anything written here.
 
-## 4. Choose
+## 3. Choose
 
-Twelve candidates unless he said otherwise, drawn from both signals. Read the
-whole work first; do not propose from the first section you happen to load.
+Twenty-four candidates unless he said otherwise, **ranked strongest first —
+never in the order they appear in the work.** He reads down the list and stops
+when the lines stop earning their place, so the ranking is what carries his
+attention; document order throws that away and makes him do the sorting.
 
-Roughly: a third that the world quotes most, a third that fit his collection,
-a third that do both. **The overlap is the strongest thing on the list** —
-a line that strangers keep pulling out *and* that matches what he already keeps
-is the closest this gets to a sure thing, so lead with those.
+Twenty-four is a ceiling, not a quota. **Stop where the ore runs out and say
+where you stopped** — "everything below 15 is weaker than what you already
+keep" is worth more than nine lines of padding, and on a second pass over a
+mined work the list will legitimately run short. Twelve strong beats
+twenty-four with a soft tail.
 
-Keep a widely quoted line even when it is not obviously his taste. He asked for
-this signal precisely so the shortlist is not only a mirror of what he already
-has.
+Read the whole work first; do not propose from the first section you happen to
+load. Twenty-four is enough that skimming shows: it forces you to the parts of
+the work you would otherwise have passed over.
 
 He keeps lines with **a turn of thought** in them, not statements of position.
 The failure that rule exists to catch is the well-turned platitude: a sentence
@@ -165,7 +111,7 @@ most-quoted line of a work, and those lines commit.
 work's average line, it is the lines he already kept.** A candidate has to beat
 those, not merely be good: a second pass over a mined work returns thinner ore,
 and "these are weaker than your existing five" is a better answer than padding
-the list to twelve.
+the list out to its ceiling.
 
 Then, secondarily:
 
@@ -175,27 +121,35 @@ Then, secondarily:
 - Range across register — aphoristic, argumentative, some that sit oddly beside
   what he already keeps.
 
-Avoid: throat-clearing, anything whose interest is only local to its chapter,
-and lines already in the collection — check before proposing.
+Avoid: definitions, throat-clearing, anything whose interest is only local to
+its chapter, and lines already in the collection — check before proposing.
 
-**What §2 turned up is also a discovery channel, not only a ranking.**
-String-match the passages press and commentary quoted back against the source:
-it surfaces things you skimmed past on the first read.
+**What the world already quotes is a discovery channel.** String-match press and
+commentary passages back against the source; it surfaces things you skimmed
+past. Flag which candidates are widely quoted and let him weigh it.
 
-## 5. Present the shortlist
+## 4. Present the shortlist
 
-Numbered, tight enough to scan on a phone. For each: the quote, where it sits,
-one clause on why it is here, and which signal put it there. Do not explain the
-quote back to him.
-
-Mark provenance plainly — `widely quoted`, `fits your collection`, or `both`:
+Numbered in rank order — **1 is the strongest line in the work, not the first
+one in it.** Tight enough to scan on a phone: at twenty-four the reason has to
+stay one clause, or the list stops being scannable and the ranking stops being
+readable. For each: the quote, where it sits, and that one clause. Do not
+explain the quote back to him.
 
 ```
 3.  "We simply need to break the link between the generation of economic value
      and self-worth and meaning."
-     §5, on meaning after work · both · names the mechanism and what to do to
-     it, and it is the line the commentary kept pulling out
+     The Adolescence of Technology, §5 · names the mechanism and what to do to it
 ```
+
+Name the work in the locator when the collection holds more than one by that
+author. Both Amodei essays have a section 5 about work and meaning, and a bare
+"§5, on meaning after work" has already read as if it came from whichever essay
+was being mined.
+
+After the list, say plainly where the quality fell off, and how the top of it
+compares to what he already holds from this work. That sentence is the one
+piece of judgement he cannot reconstruct from the list itself.
 
 Then one line: *Reply with the numbers you want. "3, 7, 11" or "all" or
 "3-5, 9".*
@@ -203,11 +157,7 @@ Then one line: *Reply with the numbers you want. "3, 7, 11" or "all" or
 If a candidate is arguably a passage rather than a quote, or the wording is
 uncertain, say so on that line. He can decide.
 
-Under the list, if §2 turned any up, a short **Misquotes found** section: the
-circulating wording, the real wording, and where you checked. Keep it to a
-table. It is not part of the numbering and nothing there gets filed.
-
-## 6. File the picks
+## 5. File the picks
 
 Build a record per pick:
 
@@ -250,7 +200,7 @@ Then, in order of preference:
 Before filing, string-match every picked quote against the source text you
 loaded. If one does not match exactly, fix it or drop it — do not file it.
 
-## 7. Confirm
+## 6. Confirm
 
 Say how many landed and link the collection. If the sync ran, each quote has its
 own permalink at `https://abustrup.github.io/Quote-collection/#<id>`.
