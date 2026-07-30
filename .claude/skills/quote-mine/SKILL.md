@@ -23,15 +23,14 @@ recall of a sentence is a paraphrase wearing quotation marks, and a wrong quote
 in a collection whose whole premise is tracked attribution is the worst
 available failure.
 
-The trap is specific and has already been hit here: searching for a recent
-essay surfaces mirrors that are *summaries* — "Amodei argues that powerful AI
-could compress 50-100 years of progress" — which read like source text and are
-not. Before treating a page as the work, check that it is long enough to be the
-work and that it reads as continuous prose rather than description.
+The trap has already been hit here: searching for a recent essay surfaces
+mirrors that are *summaries* — "Amodei argues that powerful AI could compress
+50-100 years of progress" — which read like source text and are not. Before
+treating a page as the work, check it is long enough to be the work and reads as
+continuous prose rather than description.
 
-If you cannot get the text, say so and stop. An honest "I could not reach it,
-paste it or drop the file in" costs him ten seconds. A fabricated quote costs
-him the collection's credibility.
+If you cannot get the text, say so and stop. Asking him to paste it costs him
+ten seconds.
 
 ## 1. Get the text
 
@@ -42,11 +41,8 @@ In order:
    `raw.githubusercontent.com/anthropics/claude-constitution/main/`), arXiv for
    papers, Gutenberg for anything old.
 2. **Read a file.** If he has the PDF or EPUB, read it directly.
-3. **Ask him to paste or drop it.** Only when the first two fail, and say which
-   one failed and why.
-
-Unpublished or paywalled works land in (2) or (3). That is normal, not a
-failure — say what you need in one line and wait.
+3. **Ask him to paste or drop it.** Only when the first two fail — normal for
+   unpublished or paywalled work, not a failure. Say which step failed and wait.
 
 ## 2. Learn what he actually keeps
 
@@ -56,32 +52,46 @@ Before choosing, read his collection:
 https://raw.githubusercontent.com/abustrup/Quote-collection/main/data/quotes.json
 ```
 
-Do not carry numbers in from a previous session — derive them now. What matters:
-which authors and themes recur, and the length distribution, which is the
-clearest signal of the kind of line he keeps. Skim twenty of the existing quotes
-before choosing; the collection is a better brief than anything written here.
-
-Two things that hold across it: he keeps lines with **a turn of thought in
-them** rather than statements of position, and he keeps them **short** — check
-the median length yourself and treat anything far above it as needing to earn
-the space.
+Do not carry numbers in from a previous session — derive them now. Two things to
+take from it. **Length**: he keeps short lines; check the median yourself and
+treat anything far above it as needing to earn the space. **Density**: count what
+he already holds from this work and this area, and read those quotes — they set
+the bar in §3. Skim twenty others before choosing; the collection is a better
+brief than anything written here.
 
 ## 3. Choose
 
 Twelve candidates unless he said otherwise. Read the whole work first; do not
 propose from the first section you happen to load.
 
-Prefer:
+He keeps lines with **a turn of thought** in them, not statements of position.
+The failure that rule exists to catch is the well-turned platitude: a sentence
+that names no one, commits to nothing falsifiable, and would survive having its
+subject swapped. Prefer the sentence that commits — names the mechanism, the
+agent, the number, the concrete case — and that this author is placed to say.
+Fame is not the same as genericness: his collection is thick with the single
+most-quoted line of a work, and those lines commit.
+
+**Where he already holds quotes from this work or this area, the bar is not the
+work's average line, it is the lines he already kept.** A candidate has to beat
+those, not merely be good: a second pass over a mined work returns thinner ore,
+and "these are weaker than your existing five" is a better answer than padding
+the list to twelve.
+
+Then, secondarily:
 
 - Lines that survive being lifted out of their paragraph.
 - One idea per quote. A sentence that needs the previous one is a passage, not
   a quote.
-- Range. Some aphoristic, some argumentative, some that would sit oddly beside
-  what he already keeps. A shortlist that agrees with his collection in every
-  respect teaches him nothing.
+- Range across register — aphoristic, argumentative, some that sit oddly beside
+  what he already keeps.
 
 Avoid: definitions, throat-clearing, anything whose interest is only local to
 its chapter, and lines already in the collection — check before proposing.
+
+**What the world already quotes is a discovery channel.** String-match press and
+commentary passages back against the source; it surfaces things you skimmed
+past. Flag which candidates are widely quoted and let him weigh it.
 
 ## 4. Present the shortlist
 
@@ -89,10 +99,9 @@ Numbered, tight enough to scan on a phone. For each: the quote, where it sits,
 and one clause on why it is here. Do not explain the quote back to him.
 
 ```
-3.  "Values that are genuinely held — understood, examined, and endorsed —
-     are more robust."
-     Concluding thoughts · a turn of thought, and it answers the question
-     your Arendt and MacIntyre quotes keep circling
+3.  "We simply need to break the link between the generation of economic value
+     and self-worth and meaning."
+     §5, on meaning after work · names the mechanism and what to do to it
 ```
 
 Then one line: *Reply with the numbers you want. "3, 7, 11" or "all" or
@@ -130,15 +139,15 @@ this wrong and the field stops meaning anything.
 
 Then, in order of preference:
 
-- **GitHub connector available** → create an issue on `abustrup/Quote-collection`
-  with the label `quote-bulk` and the JSON array in the body under a
-  `### Quotes` heading, inside a fenced code block. A workflow files it, commits,
-  and closes the issue.
-- **Otherwise** → give him a prefilled link he clicks once:
+- **`gh` CLI** (authenticated as `abustrup`) — `gh issue create -R
+  abustrup/Quote-collection --label quote-bulk`, JSON array in the body under a
+  `### Quotes` heading in a fenced code block. A workflow files, commits and
+  closes it; it runs only for issues opened by `abustrup`. If the label errors,
+  `gh label create quote-bulk` first.
+- **Otherwise** → a prefilled link he clicks once:
   `https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml&quotes=<url-encoded JSON>`
-  Under about 6 KB of JSON this works; above that, hand him the JSON in a file
-  and the plain
-  [Bulk import](https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml)
+  Under about 6 KB this works; above it, hand him the JSON in a file and the
+  plain [Bulk import](https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml)
   link.
 
 Before filing, string-match every picked quote against the source text you
@@ -151,10 +160,8 @@ own permalink at `https://abustrup.github.io/Quote-collection/#<id>`.
 
 ## Notes
 
-- The collection already holds quotes from *Machines of Loving Grace*, *Claude's
-  Constitution* and *The Adolescence of Technology*. Check what is there before
-  proposing, and say which of your candidates are additions rather than
-  duplicates.
+- This skill lives in two places — `~/.claude/skills/quote-mine/SKILL.md` and the
+  copy inside the Quote-collection repo. Edit both or they drift.
 - Themes are a controlled list. Anything outside it is dropped silently on the
   way in, so take the list from
   `raw.githubusercontent.com/abustrup/Quote-collection/main/assets/quote-core.js`
