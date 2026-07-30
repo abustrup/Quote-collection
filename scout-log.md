@@ -64,6 +64,18 @@ that is what the source URL points at. And nobelprize.org renders nothing to a
 plain fetch, so Ostrom's lecture was set aside rather than guessed at — a
 candidate for a later board, from the PDF.
 
+**A latent bug the first tick would have hit.** The `quote-board` label did not
+exist on the repository, and GitHub applies a template's declared label only if
+it is already there — so the first real selection would have opened an
+unlabelled issue, the importer's author-and-label guard would not have fired,
+and nothing would have happened, silently. Found by opening a deliberately
+invalid pick (issue #9) and watching the workflow rather than trusting it: the
+guard fired, the importer resolved board mode, refused the unknown id with the
+right message, and wrote nothing. The success path with a real id was verified
+against a copy of the collection locally, not live — filing a real quote would
+have meant adding one he had not chosen, which is the one thing this routine
+exists not to do.
+
 **What would falsify the approach.** If the four-doors idea is wrong, it shows
 fast: acceptances concentrating in one seam while the other three go 0 for 2
 across both showings. If nothing at all is kept from this board, see the
