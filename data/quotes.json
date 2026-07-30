@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T13:13:44.906Z",
+  "updatedAt": "2026-07-30T13:52:21.568Z",
   "quotes": [
     {
       "id": "q_30f509e31888",
@@ -6567,6 +6567,132 @@
       "verification": {
         "status": "verified",
         "note": "Read on the primary page at darioamodei.com on 2026-07-30 and string-matched character for character against the full essay text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_608a90d8882c",
+      "text": "an air force needs both planes and pilots, and hiring more pilots doesn’t help much if you’re out of planes",
+      "author": "Dario Amodei",
+      "work": "Machines of Loving Grace",
+      "workKind": "essay",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+        "locator": "Basic assumptions and framework"
+      },
+      "tags": [
+        "returns to intelligence",
+        "bottlenecks",
+        "factors of production"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in Alexander's local copy of the essay, then each line string-matched character-for-character against Dario Amodei's own published page at darioamodei.com (17,334 words, the complete essay with footnotes, not a summary) on 2026-07-30. Both sources agree exactly, including the curly quotation marks."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_cbe1ae58164e",
+      "text": "powerful AI could at least 10x the rate of these discoveries, giving us the next 50-100 years of biological progress in 5-10 years",
+      "author": "Dario Amodei",
+      "work": "Machines of Loving Grace",
+      "workKind": "essay",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+        "locator": "1. Biology and health"
+      },
+      "tags": [
+        "compressed 21st century",
+        "biology",
+        "forecast"
+      ],
+      "themes": [
+        "science",
+        "progress",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in Alexander's local copy of the essay, then each line string-matched character-for-character against Dario Amodei's own published page at darioamodei.com (17,334 words, the complete essay with footnotes, not a summary) on 2026-07-30. Both sources agree exactly, including the curly quotation marks."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_f84a9c1a1cb3",
+      "text": "Repressive governments survive by denying people a certain kind of common knowledge, keeping them from realizing that “the emperor has no clothes”.",
+      "author": "Dario Amodei",
+      "work": "Machines of Loving Grace",
+      "workKind": "essay",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+        "locator": "4. Peace and governance"
+      },
+      "tags": [
+        "authoritarianism",
+        "common knowledge",
+        "censorship"
+      ],
+      "themes": [
+        "politics",
+        "power",
+        "freedom",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in Alexander's local copy of the essay, then each line string-matched character-for-character against Dario Amodei's own published page at darioamodei.com (17,334 words, the complete essay with footnotes, not a summary) on 2026-07-30. Both sources agree exactly, including the curly quotation marks."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_96a1824cc097",
+      "text": "if we want AI to favor democracy and individual rights, we are going to have to fight for that outcome",
+      "author": "Dario Amodei",
+      "work": "Machines of Loving Grace",
+      "workKind": "essay",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+        "locator": "4. Peace and governance"
+      },
+      "tags": [
+        "democracy",
+        "contingency",
+        "nothing is inevitable"
+      ],
+      "themes": [
+        "politics",
+        "freedom",
+        "agency",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in Alexander's local copy of the essay, then each line string-matched character-for-character against Dario Amodei's own published page at darioamodei.com (17,334 words, the complete essay with footnotes, not a summary) on 2026-07-30. Both sources agree exactly, including the curly quotation marks."
       },
       "favorite": false,
       "note": "",
