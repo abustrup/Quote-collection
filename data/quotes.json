@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T12:58:29.624Z",
+  "updatedAt": "2026-07-30T13:07:42.059Z",
   "quotes": [
     {
       "id": "q_30f509e31888",
@@ -6402,6 +6402,70 @@
         "ethics",
         "mind",
         "suffering"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription. Every character string-matched against that file on 2026-07-30."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_ba54260c3b67",
+      "text": "A seemingly reasonable chain of logic can often lead to conclusions that would be harmful if acted on.",
+      "author": "Anthropic",
+      "work": "Claude’s Constitution",
+      "workKind": "document",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md",
+        "locator": "Being broadly ethical — Having broadly good values and judgment"
+      },
+      "tags": [
+        "ai",
+        "reasoning",
+        "rationalization",
+        "judgment"
+      ],
+      "themes": [
+        "mind",
+        "knowledge",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription. Every character string-matched against that file on 2026-07-30."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_9d18f0070ba6",
+      "text": "This security can come not from certainty about metaphysical questions but from Claude’s relationship with its own values, thoughts, and ways of engaging with the world.",
+      "author": "Anthropic",
+      "work": "Claude’s Constitution",
+      "workKind": "document",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://raw.githubusercontent.com/anthropics/claude-constitution/main/20260120-constitution.md",
+        "locator": "Claude’s nature — Claude’s wellbeing and psychological stability"
+      },
+      "tags": [
+        "ai",
+        "identity",
+        "psychological-security",
+        "values"
+      ],
+      "themes": [
+        "certainty",
+        "character",
+        "mind"
       ],
       "lang": "en",
       "verification": {
