@@ -1,6 +1,6 @@
 ---
 name: quote-mine
-description: Propose quotations from a named work for Alexander to pick from, then file the ones he picks into his quote collection. Use when he wants quotes from a book, essay, paper or talk — "add quotes from X", "find me quotes in X", "what's worth keeping from X" — including works too new or too unpublished to be in a model's memory. Do NOT use for adding a quote he already has in hand; that is a one-line issue, not this.
+description: Propose quotations from a named work for Alexander to pick from, then file the ones he picks into his quote collection. Use when he wants quotes from an essay, paper, document, talk or book — "add quotes from X", "find me quotes in X", "what's worth keeping from X" — and above all for works too new or too unpublished to be in a model's memory, which is where it earns its keep; his Goodreads sync already covers the books on his shelf. Do NOT use for adding a quote he already has in hand; that is a one-line issue, not this.
 ---
 
 # Mining a work for quotes
@@ -16,21 +16,44 @@ on the site without typing anything but a few digits.
 
 ## The one rule
 
-**Never propose a quotation you have not read in the source this session.**
+**Never propose wording you produced from recall alone.** A model's memory of a
+sentence is a paraphrase wearing quotation marks, and a wrong quote in a
+collection whose whole premise is tracked attribution is the worst available
+failure.
 
-Not from memory, not from a summary, not from a page that quotes it. A model's
-recall of a sentence is a paraphrase wearing quotation marks, and a wrong quote
-in a collection whose whole premise is tracked attribution is the worst
-available failure.
+That is the prohibition, and it is deliberately narrower than "only quote what
+you read this session". Measured 2026-07-30: **43 of the 62 curated quotes here
+were never read in a source from this environment, and they are good.** Hume's
+archaic "surpriz'd" is kept and flagged as his own spelling rather than a typo;
+the Aristotle entry excludes the famous "we are what we repeatedly do" because
+that is Will Durant summarising him, not Aristotle. A rule forbidding those
+would delete the collection's most productive mode.
+
+So there are two honest ways to reach a quotation, and the difference is the
+whole point of `verification.status`:
+
+- **Read it in the work** — the essay, the PDF, the publisher's own copy.
+  → `verified`.
+- **Cross-check the wording** against several independent sources that agree,
+  where the text is stable and widely reproduced. → `reported`, with a note
+  saying plainly what you did and did not consult, and the translator where one
+  exists.
+
+Cross-checking is trustworthy for the canon and untrustworthy for anything
+recent or obscure, where the few sources mostly copy each other. **For a work
+published in the last couple of years, read it or drop it** — there is no third
+option, and that is where the trap below lives.
 
 The trap has already been hit here: searching for a recent essay surfaces
 mirrors that are *summaries* — "Amodei argues that powerful AI could compress
 50-100 years of progress" — which read like source text and are not. Before
 treating a page as the work, check it is long enough to be the work and reads as
-continuous prose rather than description.
+continuous prose rather than description. The general form, worth carrying: **a
+search snippet is not evidence, and a subagent's summary of a page is not the
+page.**
 
-If you cannot get the text, say so and stop. Asking him to paste it costs him
-ten seconds.
+If you can neither read it nor honestly cross-check it, say so and stop. Asking
+him to paste it costs him ten seconds.
 
 ## 1. Get the text
 
@@ -166,6 +189,14 @@ own permalink at `https://abustrup.github.io/Quote-collection/#<id>`.
   way in, so take the list from
   `raw.githubusercontent.com/abustrup/Quote-collection/main/assets/quote-core.js`
   rather than guessing.
-- His Goodreads list syncs itself every morning. Do not propose quotes that are
-  already coming in that way; this skill is for works he is reading, not for
-  things already on his shelf.
+- His Goodreads list syncs itself every morning and is by far the collection's
+  largest channel — 173 of 235 quotes on 2026-07-30, all of them `unverified`.
+  Do not propose quotes already coming in that way. This skill's real niche is
+  what Goodreads cannot reach: essays, papers, documents, and unpublished work.
+  Re-derive that split from `quotes.json` rather than quoting the number here.
+- A cloud session in this repo sees the repo and nothing else — no global
+  contract, no harness log, no memory. `.claude/rules/working-with-alexander.md`
+  is the only channel, so anything a future session must know belongs there or
+  in this file. This skill was written in exactly that blind state on
+  2026-07-30, which is how its original rule came to forbid two-thirds of the
+  collection.
