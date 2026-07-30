@@ -3,7 +3,7 @@
   "updatedAt": "2026-07-30",
   "board": {
     "runId": "2026-07-30",
-    "note": "First board. The collection reads as three seams — the novels, the CBS philosophy canon, and technology and capital — so this one deliberately enters through doors none of them use: an economist on why no single mind can hold the facts, the Dane you somehow do not have, an investor writing to his own shareholders, and the 1945 report that invented the case for funding research nobody can yet justify. All nine were read in a primary source and string-matched, which is why the list stops at nine rather than reaching for more."
+    "note": "First board, and it was built twice: the collection was stripped back to the Goodreads shelf plus Claude's Constitution and the two Amodei essays while this was being assembled, so the philosophy canon it was originally aimed around is gone. What is left has no economics, no Dane, and nothing on capital or research policy — so these nine enter through four doors the collection does not have: an economist on why no single mind holds the facts, the countryman it somehow lacks, an investor writing to his own shareholders, and the 1945 report that invented the case for funding research nobody can yet justify. All nine were read in a primary source and string-matched, which is why the list stops at nine rather than reaching for more."
   },
   "proposals": [
     {
@@ -65,7 +65,7 @@
         "status": "verified",
         "note": "Read in the full text of the essay as published by the Econlib library from the American Economic Review XXXV, No. 4 (September 1945). String-matched against the loaded text."
       },
-      "why": "redefines the whole field in one clause, and you hold Knight and Keynes but no Hayek",
+      "why": "redefines a whole field in one clause, and the collection now holds no economics at all",
       "lang": "en",
       "shownOn": [
         "2026-07-30"
@@ -229,7 +229,7 @@
         "status": "verified",
         "note": "Read in Berkshire Hathaway’s own PDF of the letter (dated 24 February 2024, covering 2023) and confirmed a second time by extracting the PDF’s text, which drops the letter’s apostrophes and en dashes; typography here follows the printed page."
       },
-      "why": "the flat version of what Mallaby spends The Power Law establishing",
+      "why": "an admission of ignorance from the person least obliged to make one",
       "lang": "en",
       "shownOn": [
         "2026-07-30"

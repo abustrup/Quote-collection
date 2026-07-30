@@ -12,47 +12,59 @@ made. Everything else is an explanation of it.
 
 ## 2026-07-30 · first board · 9 proposed, hit rate not yet measurable
 
-Nothing to grade yet. The board is new, so this entry is a baseline rather than
-a result.
+Nothing to grade yet. This is a baseline, not a result.
 
-**What the collection looked like going in.** 249 quotes, 173 of them arriving
-by themselves from Goodreads and unverified, 76 curated. 62 works. Three seams,
-and they barely touch: the novels (Orwell 44, Dostoevsky 34, Murakami, Camus,
-Huxley, Tolstoy, Hemingway, Kafka), the CBS philosophy canon at one or two lines
-each (Kant, Mill, Rawls, Popper, Weber, Arendt, Adorno, Habermas, Wittgenstein,
-Foucault, MacIntyre, Nussbaum, Anderson), and technology and capital (Amodei 20,
-Anthropic 12, Mallaby 7, Harari 6, Kurzweil, Thiel, Knight, Keynes, Rock).
-Median quote length 108 characters; shortest 20, longest 1,127.
+**The collection changed underneath this board while it was being built, and
+that is the finding.** The taste analysis started against 249 quotes across 62
+works, with a large philosophy seam — Kant, Mill, Rawls, Popper, Weber, Arendt,
+Adorno, Habermas, Wittgenstein, Foucault, MacIntyre, plus Keynes, Knight,
+Mallaby and Thiel, mostly one line each. Halfway through, PR #8 merged: 44
+curated quotes removed on the owner's own request, leaving 205 quotes across 27
+works — his Goodreads shelf (173) plus exactly three works he had chosen to mine
+himself, Claude's Constitution and the two Amodei essays (32).
 
-**What that implied, and what was chosen.** The philosophy seam is one line per
-thinker, which reads like exam preparation rather than reading — so the useful
-move was not a fourth Dostoevsky but a door none of the three seams uses. Four
-were opened: Hayek on why no single mind holds the facts, Kierkegaard (a Dane,
-and the collection had none), Buffett writing to his own shareholders, and
-Vannevar Bush's 1945 report arguing for research nobody can yet justify. The
-last two are a seam his reading path will not hand
-him on its own.
+Two of this board's stated reasons referred to authors that no longer exist here
+and were rewritten. More importantly, the strategy was rebuilt: the collection
+now has **no economics, no Danish writing, and nothing on capital allocation or
+research policy at all**, so the four doors below are wider open than they were
+an hour earlier, not narrower.
+
+**The uncomfortable reading, recorded so it is not discovered twice.** What
+survived the purge was his own reading, or a work he decided to go into. What
+did not survive was material a machine supplied in bulk. This routine is a
+machine supplying material. The two are not the same thing — nothing here enters
+without him ticking it, one line at a time, which is precisely the mechanism the
+removed 44 never went through — but the bar it sets is high and specific: a
+candidate has to be strong enough that he would plausibly have gone looking for
+that work himself. If acceptances stay at zero through 2026-09-27, the honest
+conclusion is not that the seams were wrong. It is that he wants this collection
+to be his reading only, and the right answer is to stop.
+
+**What was chosen, and why.** Not a fourth Dostoevsky — adjacency is the cheap
+move. Four doors none of the remaining seams use: Hayek on why no single mind
+holds the facts; Kierkegaard, because the collection of a Dane contained no
+Danish writing; Buffett writing to his own shareholders; and Vannevar Bush's
+1945 report arguing for research nobody can yet justify.
 
 **Method note, worth keeping.** Nine of nine were read in a primary source and
 string-matched against the loaded text before reaching the board, so all nine
 are `verified` rather than `reported`. That was possible because the sources
-chosen were ones that publish themselves: econlib for Hayek, Gutenberg for
-Hollander's 1923 Kierkegaard translation, Berkshire's own PDF for the letter,
-and NSF's hosted copy of the Bush report. Where a work is in copyright and
-unfetchable — Mazzucato, Taleb, Marks, Kahneman, all of them apt — there was no
-honest route to a quote this week, and none was proposed. That constraint will
-shape every board: **what is fetchable in full skews public-domain and
-self-published, and what is most apt often does not.** Naming candidates that
-had to be dropped is more useful than pretending the field was searched evenly.
+chosen publish themselves: Econlib for Hayek, Gutenberg for Hollander's 1923
+Kierkegaard translation, Berkshire's own PDF for the letter, NSF's hosted copy
+of the Bush report. Where a work is in copyright and unfetchable — Mazzucato,
+Taleb, Marks, Kahneman, Hirschman, all of them apt — there was no honest route
+to a quote this week and none was proposed. That constraint will shape every
+board: **what is fetchable in full skews public-domain and self-published, and
+what is most apt often does not.** Naming what had to be dropped is more useful
+than implying the field was searched evenly.
 
 Two smaller things found on the way. `nsf.gov` no longer serves the Bush report
 at its old address; the Internet Archive's capture of NSF's own page does, and
-that is what the source URL points at. And the Nobel Prize site's lecture pages
-render nothing to a plain fetch, so Ostrom was set aside rather than guessed at
-— a candidate for a later board, from the PDF.
+that is what the source URL points at. And nobelprize.org renders nothing to a
+plain fetch, so Ostrom's lecture was set aside rather than guessed at — a
+candidate for a later board, from the PDF.
 
-**What would falsify the approach.** If the four-doors idea is wrong, the
-pattern will be visible fast: acceptances concentrating in one seam and the
-other three going 0 for 2 across both showings. If nothing at all is kept from
-this board after two showings, the problem is not the seams — it is that a
-machine cannot pick for him at all, and that is worth knowing by 2026-09-27.
+**What would falsify the approach.** If the four-doors idea is wrong, it shows
+fast: acceptances concentrating in one seam while the other three go 0 for 2
+across both showings. If nothing at all is kept from this board, see the
+uncomfortable reading above.
