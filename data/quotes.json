@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T13:07:42.059Z",
+  "updatedAt": "2026-07-30T13:13:44.906Z",
   "quotes": [
     {
       "id": "q_30f509e31888",
@@ -6471,6 +6471,102 @@
       "verification": {
         "status": "verified",
         "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription. Every character string-matched against that file on 2026-07-30."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_70955d192fc9",
+      "text": "Even tiny transaction costs could make it not worth it for AI to trade with humans.",
+      "author": "Dario Amodei",
+      "work": "The Adolescence of Technology",
+      "workKind": "essay",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "locator": "4. Player piano — Labor market disruption, on comparative advantage"
+      },
+      "tags": [
+        "ai",
+        "comparative-advantage",
+        "labour",
+        "economics"
+      ],
+      "themes": [
+        "work",
+        "money",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read on the primary page at darioamodei.com on 2026-07-30 and string-matched character for character against the full essay text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_3a1558a8cbf7",
+      "text": "AI is increasingly matching the general cognitive profile of humans, which means it will also be good at the new jobs that would ordinarily be created in response to the old ones being automated.",
+      "author": "Dario Amodei",
+      "work": "The Adolescence of Technology",
+      "workKind": "essay",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "locator": "4. Player piano — Labor market disruption, cognitive breadth"
+      },
+      "tags": [
+        "ai",
+        "labour",
+        "automation",
+        "cognitive-breadth"
+      ],
+      "themes": [
+        "work",
+        "technology",
+        "mind"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read on the primary page at darioamodei.com on 2026-07-30 and string-matched character for character against the full essay text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_f04a15ccf5a8",
+      "text": "In my view, this is like selling nuclear weapons to North Korea and then bragging that the missile casings are made by Boeing and so the US is “winning.”",
+      "author": "Dario Amodei",
+      "work": "The Adolescence of Technology",
+      "workKind": "essay",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "locator": "3. The odious apparatus — Defenses, on chip export controls"
+      },
+      "tags": [
+        "ai",
+        "export-controls",
+        "china",
+        "semiconductors"
+      ],
+      "themes": [
+        "power",
+        "politics",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read on the primary page at darioamodei.com on 2026-07-30 and string-matched character for character against the full essay text."
       },
       "favorite": false,
       "note": "",
