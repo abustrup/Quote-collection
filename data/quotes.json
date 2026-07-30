@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T07:43:19.042Z",
+  "updatedAt": "2026-07-30T12:45:48.641Z",
   "quotes": [
     {
       "id": "q_30f509e31888",
@@ -6187,6 +6187,70 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_6818eaf280f9",
+      "text": "The first step is for those closest to the technology to simply tell the truth about the situation humanity is in",
+      "author": "Dario Amodei",
+      "work": "The Adolescence of Technology",
+      "workKind": "essay",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "locator": "Humanity’s test, closing section"
+      },
+      "tags": [
+        "ai",
+        "honesty",
+        "responsibility",
+        "candour"
+      ],
+      "themes": [
+        "truth",
+        "technology",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read on the primary page at darioamodei.com on 2026-07-30 and string-matched character for character. Quoted as an exact prefix of a longer sentence, which continues “, which I have always tried to do; I’m doing so more explicitly and with greater urgency with this essay.”"
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
+    },
+    {
+      "id": "q_02b5e41d92a3",
+      "text": "We simply need to break the link between the generation of economic value and self-worth and meaning.",
+      "author": "Dario Amodei",
+      "work": "The Adolescence of Technology",
+      "workKind": "essay",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "locator": "5. Black seas of infinity — Indirect effects, Human purpose"
+      },
+      "tags": [
+        "ai",
+        "purpose",
+        "labour",
+        "self-worth"
+      ],
+      "themes": [
+        "meaning",
+        "work",
+        "money"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read on the primary page at darioamodei.com on 2026-07-30 and string-matched character for character."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-30"
     }
   ]
 }
