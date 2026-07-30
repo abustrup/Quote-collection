@@ -40,6 +40,8 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
+import { readTombstones, withoutRemoved } from './tombstones.mjs';
+
 import {
   SCHEMA_VERSION,
   THEMES,
@@ -665,10 +667,29 @@ export async function ingest(body, options = {}) {
     throw new IngestError('The issue is empty.', 'Use one of the issue forms so I know what to read.');
   }
 
-  const { quotes: incoming, warnings } =
+  const { quotes: read, warnings } =
     mode === 'bulk'
       ? readBulkQuotes(body, addedAt)
       : { quotes: [readSingleQuote(body, addedAt)], warnings: [] };
+
+  // A bulk import is a machine re-reading a source, so anything deliberately
+  // removed stays removed. Typing a quote into the single form is a person
+  // asking for that quote specifically, which is a decision that outranks an
+  // earlier deletion — so it revives, and the comment says that it did.
+  const removed = await readTombstones(options.removedFile);
+  const { kept: incoming, skipped } = mode === 'bulk'
+    ? withoutRemoved(read, removed)
+    : { kept: read, skipped: [] };
+  const revived = mode === 'bulk' ? [] : read.filter((quote) => removed.has(quote.id));
+
+  if (mode === 'bulk' && !incoming.length && skipped.length) {
+    throw new IngestError(
+      skipped.length === 1
+        ? 'That quote was removed from the collection on purpose, so I left it out.'
+        : `All ${skipped.length} of those were removed from the collection on purpose, so I left them out.`,
+      'To bring one back, delete its entry from `data/removed.json`.',
+    );
+  }
 
   const dataFile = options.data ?? path.join(REPO_ROOT, 'data', 'quotes.json');
   const existing = await readCollection(dataFile);
@@ -695,13 +716,24 @@ export async function ingest(body, options = {}) {
     );
   }
 
+  const notices = [
+    skipped.length
+      ? `${skipped.length} ${skipped.length === 1 ? 'quote was' : 'quotes were'} left out because ${skipped.length === 1 ? 'it was' : 'they were'} removed from the collection on purpose.`
+      : null,
+    revived.length
+      ? `${revived.length} of these had been removed before. Adding ${revived.length === 1 ? 'it' : 'them'} by hand brings ${revived.length === 1 ? 'it' : 'them'} back; the entry in data/removed.json is now stale.`
+      : null,
+  ].filter(Boolean);
+
   return {
     mode,
     added,
     enriched,
     unchanged,
     changed,
-    warnings: [...warnings, ...structural],
+    skipped,
+    revived,
+    warnings: [...warnings, ...structural, ...notices],
     contents: serializeCollection(collection),
     dataFile,
     existingCount: existing.quotes.length,

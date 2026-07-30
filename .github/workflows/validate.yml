@@ -35,6 +35,12 @@ jobs:
       - name: Validate the collection
         run: node scripts/validate.mjs
 
+      # A work missing from the registry is invisible rather than broken: its
+      # quotes keep reading fine but disappear from every subject and era
+      # filter, which looks like "no quotes from that book".
+      - name: Validate the work registry
+        run: node scripts/validate-works.mjs
+
       # The library had no guard at all until three entries drifted out of the
       # shared vocabulary unnoticed, because nothing reads the field they broke.
       - name: Validate the library

@@ -25,6 +25,47 @@ export const WORK_KINDS = [
   'document', 'song', 'other',
 ];
 
+/**
+ * Subjects — the objective half of the vocabulary.
+ *
+ * `THEMES` above asks what a line is *about*, which is a reading, and two
+ * honest people give different answers for the same sentence. `SUBJECTS` asks
+ * what field a *work* belongs to, which is the question a library catalogue
+ * already answers and which does not change with the mood of whoever is
+ * filing. The list is the standard set of humanities and social-science
+ * classes, trimmed to what this collection actually contains.
+ *
+ * Crucially, a subject attaches to a work in `data/works.json`, never to an
+ * individual quote. Sixty-odd works get classified once, instead of several
+ * hundred lines getting interpreted one at a time — and a reader can check any
+ * one of them against a library record rather than having to trust a taste.
+ */
+export const SUBJECTS = [
+  'literature', 'philosophy', 'ethics', 'politics', 'economics', 'psychology',
+  'sociology', 'science', 'technology', 'history', 'military', 'religion',
+  'law', 'education',
+];
+
+/**
+ * Eras, as year ranges. Nothing here is a judgement: a work's era is a
+ * consequence of its date, so it is computed rather than assigned, and a work
+ * with no known date simply has no era instead of being guessed into one.
+ */
+export const ERAS = [
+  { id: 'antiquity', label: 'Antiquity', from: -800, to: 500 },
+  { id: 'medieval', label: 'Medieval', from: 501, to: 1500 },
+  { id: 'early-modern', label: 'Early modern', from: 1501, to: 1800 },
+  { id: 'c19', label: '19th century', from: 1801, to: 1900 },
+  { id: 'c20', label: '20th century', from: 1901, to: 2000 },
+  { id: 'contemporary', label: 'Contemporary', from: 2001, to: 2200 },
+];
+
+/** The era a year falls in, or null when the year is unknown. */
+export function eraFor(year) {
+  if (!Number.isInteger(year)) return null;
+  return ERAS.find((era) => year >= era.from && year <= era.to)?.id ?? null;
+}
+
 export const VERIFICATION_STATUSES = ['verified', 'reported', 'unverified', 'disputed'];
 
 /** How each verification status should be described to a reader, in plain words. */
@@ -301,6 +342,33 @@ export function canonicalAuthor(name) {
   return AUTHOR_ALIASES.get(tidied.toLowerCase()) ?? tidied;
 }
 
+/**
+ * One title per work.
+ *
+ * The same book arrives under whichever title the edition on the shelf used —
+ * a translator's article, an omnibus title, a subtitle that one printing
+ * carried and another dropped. Left alone it splits a work in two: the
+ * collection reported four quotes from *Notes from Underground* and three from
+ * *Notes from the Underground*, which is one book and seven quotes.
+ *
+ * This matters more than the author equivalent, because a work filter is only
+ * useful if selecting a book actually returns the whole book. Same shape as
+ * `AUTHOR_ALIASES` and the same reasoning: an explicit list, never a
+ * similarity heuristic, since two titles that look alike are often two books.
+ */
+export const WORK_ALIASES = new Map(Object.entries({
+  'notes from the underground': 'Notes from Underground',
+  'the myth of sisyphus and other essays': 'The Myth of Sisyphus',
+  'crime & punishment': 'Crime and Punishment',
+}));
+
+/** Resolve a title to the collection's one title for that work. */
+export function canonicalWork(title) {
+  const tidied = tidyWhitespace(title);
+  if (!tidied) return null;
+  return WORK_ALIASES.get(tidied.toLowerCase()) ?? tidied;
+}
+
 /* ---------------------------------------------------------------------------
  * Records
  * ------------------------------------------------------------------------- */
@@ -322,7 +390,7 @@ export function makeQuote(partial = {}) {
     id: partial.id && /^q_[0-9a-f]{12}$/.test(partial.id) ? partial.id : quoteId(text),
     text,
     author: canonicalAuthor(partial.author) || 'Unknown',
-    work: partial.work ? tidyWhitespace(partial.work) : null,
+    work: canonicalWork(partial.work),
     workKind,
     year: Number.isInteger(partial.year) ? partial.year : null,
     source: {
@@ -488,7 +556,82 @@ export function validateCollection(collection) {
       }
       authorsByKey.set(key, quote.author);
     }
+
+    // A title left un-canonicalised splits one book across two filter entries,
+    // which is the exact failure the work filter exists to prevent.
+    if (quote.work && WORK_ALIASES.has(quote.work.toLowerCase())) {
+      errors.push(`${where}: work "${quote.work}" should be "${WORK_ALIASES.get(quote.work.toLowerCase())}"`);
+    }
   });
+
+  return { errors, warnings };
+}
+
+/**
+ * Structural check over the work registry.
+ *
+ * Separate from `validateCollection` because the two files fail in different
+ * ways: a broken quote is a broken quote, but a broken registry silently
+ * empties a filter, which looks like "no quotes from that book" rather than
+ * like an error. The cross-check against the collection is the part that
+ * matters — a work with quotes and no registry entry gets no subject and no
+ * era, and disappears from every facet on the page.
+ */
+export function validateWorks(registry, collection) {
+  const errors = [];
+  const warnings = [];
+
+  if (!registry || !Array.isArray(registry.works)) {
+    return { errors: ['works must be an array'], warnings };
+  }
+
+  const seen = new Map();
+  for (const [index, work] of registry.works.entries()) {
+    const where = `works[${index}]`;
+    if (typeof work.title !== 'string' || !work.title.trim()) {
+      errors.push(`${where}: title is missing`);
+      continue;
+    }
+    if (seen.has(work.title)) {
+      errors.push(`${where}: duplicate title "${work.title}"`);
+    }
+    seen.set(work.title, index);
+
+    if (WORK_ALIASES.has(work.title.toLowerCase())) {
+      errors.push(`${where}: "${work.title}" is an alias of "${WORK_ALIASES.get(work.title.toLowerCase())}"`);
+    }
+    if (typeof work.author !== 'string' || !work.author.trim()) {
+      errors.push(`${where}: author is missing`);
+    }
+    if (!SUBJECTS.includes(work.subject)) {
+      errors.push(`${where}: unknown subject "${work.subject}"`);
+    }
+    if (work.kind != null && !WORK_KINDS.includes(work.kind)) {
+      errors.push(`${where}: unknown kind "${work.kind}"`);
+    }
+    if (work.year != null && (!Number.isInteger(work.year) || work.year < -800 || work.year > 2100)) {
+      errors.push(`${where}: implausible year ${work.year}`);
+    }
+    if (work.url != null && !/^https:\/\//.test(work.url)) {
+      errors.push(`${where}: url must be https, found "${work.url}"`);
+    }
+  }
+
+  const quotes = collection?.quotes ?? [];
+  const quoted = new Set(quotes.map((quote) => quote.work).filter(Boolean));
+
+  // A quoted work with no registry entry is a warning rather than an error, and
+  // the distinction is load-bearing. Adding a quote from a book nobody has
+  // classified yet is a normal thing to do from a phone; turning CI red for it
+  // would mean the only no-terminal way into the collection could break the
+  // repository. So the quote lands, keeps working, and shows up unclassified on
+  // the shelf until someone gives it a subject.
+  for (const title of quoted) {
+    if (!seen.has(title)) warnings.push(`work "${title}" is quoted but not in the registry, so it has no subject or era`);
+  }
+  for (const title of seen.keys()) {
+    if (!quoted.has(title)) warnings.push(`work "${title}" is in the registry but has no quotes`);
+  }
 
   return { errors, warnings };
 }

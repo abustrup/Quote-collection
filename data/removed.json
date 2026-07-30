@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "note": "Quotes deliberately taken out of the collection. Every importer consults this list, which is what stops the next Goodreads sync putting a deleted quote straight back. Deleting an entry here and re-running the sync restores the quote with its original id and permalink.",
+  "removed": []
+}

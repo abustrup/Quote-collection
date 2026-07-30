@@ -339,6 +339,14 @@ button {
 }
 
 select.pill {
+  /* A select sizes itself to its longest option. The work filter carries
+     titles like "Nexus: A Brief History of Information Networks from the Stone
+     Age to AI", which made the control 545px wide and pushed the page 174px
+     past the viewport on a phone. The cap is on the closed control only; the
+     open menu still shows each title in full. */
+  max-width: min(100%, 15rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding-right: 1.6rem;
   background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
     linear-gradient(135deg, currentColor 50%, transparent 50%);
@@ -790,4 +798,88 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   body { font-size: 11pt; }
   .quote { padding: 1.4rem 0; break-inside: avoid; }
   .quote-text { font-size: 13pt; }
+}
+
+/* ==========================================================================
+   Curate mode
+   --------------------------------------------------------------------------
+   Everything here is hidden until the reader asks for it. The page's argument
+   is that the writing should be the only thing on it, so the machinery for
+   changing the collection is opt-in and leaves no trace when switched off.
+   ========================================================================== */
+
+.curate-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.curate-bar .pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.curate-hint {
+  flex: 1 1 14rem;
+  min-width: 0;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.quote-curate {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--rule-soft);
+  font-family: var(--font-label);
+  font-size: 0.74rem;
+}
+
+.curate-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: var(--tap-min);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.curate-select input { accent-color: var(--accent); }
+.curate-select:hover { color: var(--accent-ink); }
+
+.curate-link {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration-color: var(--rule);
+}
+
+.curate-link:hover { color: var(--accent-ink); }
+
+.curate-id {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.68rem;
+  opacity: 0.7;
+}
+
+/* A selected quote is struck through rather than dimmed: the point is to see
+   what the collection looks like without it before committing. */
+.quote[data-selected="true"] .quote-text {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
 }
