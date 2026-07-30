@@ -21,6 +21,11 @@ on:
         description: 'Goodreads profile or quotes-list URL (only needed the first time)'
         required: false
         type: string
+      reconcile:
+        description: 'Only report which saved quotes are no longer on Goodreads. Writes nothing.'
+        required: false
+        default: false
+        type: boolean
 
 permissions: {}
 
@@ -47,12 +52,17 @@ jobs:
         id: sync
         env:
           PROFILE: ${{ inputs.profile_url }}
+          # Reconcile reports and writes nothing, so it is safe to run at any
+          # time and cannot be the reason a commit appears.
+          RECONCILE: ${{ inputs.reconcile }}
         run: |
           set +e
+          MODE=""
+          if [ "$RECONCILE" = "true" ]; then MODE="--reconcile"; fi
           if [ -n "$PROFILE" ]; then
-            node scripts/sync-goodreads.mjs --profile "$PROFILE"
+            node scripts/sync-goodreads.mjs --profile "$PROFILE" $MODE
           else
-            node scripts/sync-goodreads.mjs
+            node scripts/sync-goodreads.mjs $MODE
           fi
           status=$?
           set -e

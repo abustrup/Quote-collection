@@ -292,6 +292,19 @@ function lengthClass(text) {
   return 'medium';
 }
 
+/**
+ * A finer grade, used only by focus mode.
+ *
+ * The list can live with three bands because every quote there is set near
+ * reading size. Focus sets one quotation as large as it will go, and there the
+ * difference between forty characters and a hundred and sixty is the difference
+ * between a title and a paragraph. Three bands put both at the same size.
+ */
+const FOCUS_SCALES = [[60, 'xs'], [120, 's'], [200, 'm'], [320, 'l']];
+function focusScale(text) {
+  return FOCUS_SCALES.find(([limit]) => text.length <= limit)?.[1] ?? 'xl';
+}
+
 function buildAttribution(quote, { linked = true } = {}) {
   const attribution = document.createElement('figcaption');
   attribution.className = 'attribution';
@@ -641,6 +654,7 @@ function renderFocus() {
   if (!quote) return;
 
   dom.focusQuote.dataset.length = lengthClass(quote.text);
+  dom.focusQuote.dataset.scale = focusScale(quote.text);
   const blockquote = document.createElement('blockquote');
   blockquote.className = 'quote-text';
   blockquote.style.margin = '0';

@@ -224,6 +224,7 @@ async function readJson(file, fallback) {
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
+  const reconcile = process.argv.includes('--reconcile');
   const sources = await readJson(SOURCES_FILE, { schemaVersion: 1, goodreads: { profileUrl: null } });
   const profile = arg('profile') ?? sources.goodreads?.profileUrl ?? null;
   const htmlFile = arg('html');
@@ -257,6 +258,36 @@ async function main() {
   }
 
   const existing = await readJson(DATA_FILE, { schemaVersion: SCHEMA_VERSION, quotes: [] });
+
+  // Reconcile: say which quotes the collection holds that the live list no
+  // longer does, and write nothing.
+  //
+  // This exists because the obvious way to answer "which of these did I not
+  // actually save on Goodreads?" is to compare against printed pages, and that
+  // answer is only as complete as the pages someone remembered to print. One
+  // missing page reads as thirty spurious quotes. Asking the source directly
+  // has no such blind spot — and since a removal is irreversible in the way an
+  // import is not, the difference is worth a mode of its own.
+  if (reconcile) {
+    const live = new Set(incoming.map((quote) => makeQuote(quote).id));
+    const mine = (existing.quotes ?? []).filter((quote) => quote.source?.kind === 'goodreads');
+    const orphans = mine.filter((quote) => !live.has(quote.id));
+
+    process.stdout.write(
+      `\nLive list: ${live.size} quotes.\n`
+      + `Collection holds ${mine.length} marked as coming from Goodreads.\n`
+      + `Not on the live list: ${orphans.length}.\n\n`,
+    );
+    for (const quote of orphans) {
+      const opening = quote.text.length > 88 ? `${quote.text.slice(0, 88).trimEnd()}…` : quote.text;
+      process.stdout.write(`${quote.id}  ${quote.author}${quote.work ? ` — ${quote.work}` : ''}\n    ${opening}\n`);
+    }
+    if (!orphans.length) {
+      process.stdout.write('Every Goodreads-sourced quote in the collection is still on the live list.\n');
+    }
+    process.stdout.write('\nNothing was written. This mode only reports.\n');
+    return;
+  }
   const records = incoming.map((quote) => makeQuote({
     ...quote,
     source: { kind: 'goodreads', url: profile ? listUrlFor(profile) : null },
