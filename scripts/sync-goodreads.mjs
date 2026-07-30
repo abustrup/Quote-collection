@@ -266,9 +266,15 @@ async function main() {
   }));
 
   const { quotes, added, enriched } = mergeQuotes(existing.quotes ?? [], records);
+
+  // Only move the timestamp when the quotes moved. Otherwise a daily run that
+  // finds nothing still rewrites the file, and the workflow commits it — a junk
+  // commit every morning, forever, burying the real ones.
+  const changed = added.length > 0 || enriched.length > 0;
+
   const merged = {
     schemaVersion: SCHEMA_VERSION,
-    updatedAt: new Date().toISOString(),
+    updatedAt: changed ? new Date().toISOString() : existing.updatedAt,
     quotes: quotes.sort((a, b) =>
       a.author.localeCompare(b.author, 'en')
       || (a.work ?? '').localeCompare(b.work ?? '', 'en')
