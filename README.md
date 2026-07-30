@@ -68,6 +68,28 @@ paste, and submit.
 
 </details>
 
+### 2b. Tick what is worth keeping (the board)
+
+**[The board](https://abustrup.github.io/Quote-collection/scout.html)** is where
+lines arrive that nobody went looking for. Once a week a routine reads the
+collection, works out what it implies, goes and finds quotes from works that are
+*not* in here, and posts what it found. Tick the ones worth keeping and press
+**Add to the collection**; it opens an issue already filled in, and the same
+robot files them.
+
+Nothing on the board is in the collection until you put it there. The routine
+cannot add a quote itself – it may only propose, and that is enforced rather
+than promised: `data/quotes.json` is not among the files it may write.
+
+A line gets **two showings**. If it is still sitting there after the second, it
+is retired and never proposed again, so the board stays mostly new instead of
+becoming a list you have already said no to.
+
+The picks travel as ids rather than as quotations, because a prefilled link
+carrying whole records runs out of URL after about five of them. The words come
+back out of `data/proposals.json`, which is also what lets the page show which
+past proposals you kept and which you let go.
+
 ### 3. Find something to read next
 
 **[What to read next](https://abustrup.github.io/Quote-collection/suggest.html)**
@@ -147,19 +169,22 @@ show no badge at all – the badge appears only when there is something to say.
 ## What is in here
 
 ```
-index.html          the collection
-works.html          the shelf – every book quoted here
-import.html         the Goodreads importer
-suggest.html        reading suggestions
-data/quotes.json    every quotation – the only file that really matters
-data/works.json     one record per work: its subject, year and kind
-data/removed.json   quotes deliberately deleted, so no importer re-adds them
-data/sources.json   which Goodreads profile the daily sync reads
-data/library.json   the curated works the recommender can suggest
-data/schema.json    the shape data/quotes.json must keep to
-assets/             styles, fonts, and the code the pages run
-scripts/            the validators, the issue-to-quote importer, and curate.mjs
-.github/            the issue forms, the daily Goodreads sync, and the checks
+index.html            the collection
+works.html            the shelf – every book quoted here
+scout.html            the board – proposed lines, waiting to be kept or let go
+import.html           the Goodreads importer
+suggest.html          reading suggestions
+data/quotes.json      every quotation – the only file that really matters
+data/proposals.json   the board: what has been proposed, and what became of it
+data/works.json       one record per work: its subject, year and kind
+data/removed.json     quotes deliberately deleted, so no importer re-adds them
+data/sources.json     which Goodreads profile the daily sync reads
+data/library.json     the curated works the recommender can suggest
+data/schema.json      the shape data/quotes.json must keep to
+scout-log.md          what the weekly scout tried, and how often it was right
+assets/               styles, fonts, and the code the pages run
+scripts/              the validators, the issue-to-quote importer, and curate.mjs
+.github/              the issue forms, the daily Goodreads sync, and the checks
 ```
 
 `data/quotes.json` is plain text and will still open in any editor in twenty

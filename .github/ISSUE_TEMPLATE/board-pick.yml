@@ -1,0 +1,40 @@
+# The lines ticked on the board.
+#
+# The `Picks` label below is how scripts/ingest.mjs recognises a board pick and
+# finds the ids. Renaming it breaks the board; see the note at the top of
+# add-quote.yml.
+#
+# Ids rather than quotes, because a prefilled link carrying whole records runs
+# out of URL after four or five of them, and the fallback is pasting kilobytes
+# of JSON on a phone. The records themselves are already in data/proposals.json.
+name: Keep lines from the board
+description: Ticked on the board — this form is filled in for you.
+title: "Keep: "
+labels: ["quote-board"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is normally opened for you by
+        [the board](https://abustrup.github.io/Quote-collection/scout.html),
+        already filled in. Submit it and the lines are filed into the
+        collection within a minute or two.
+
+  - type: textarea
+    id: ids
+    attributes:
+      label: Picks
+      description: One id per line. The board fills these in; there is nothing to type.
+      placeholder: |
+        q_f9b54da991a3
+        q_77f681e91ec8
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: What these are
+      description: Ignored by the importer — it is here so the issue reads as something rather than as a list of hashes.
+    validations:
+      required: false

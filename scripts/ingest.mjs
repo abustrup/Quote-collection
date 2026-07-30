@@ -23,6 +23,7 @@
  *   --body-env NAME           read the issue body from an environment variable
  *                             (preferred in CI: nothing passes through a shell)
  *   --data PATH               collection file (default: data/quotes.json)
+ *   --proposals PATH          the board, for board picks (default: data/proposals.json)
  *   --summary-file PATH       write the Markdown comment body here
  *   --dry-run                 report what would change, write nothing
  *   --quiet                   suppress the human summary on stdout
@@ -89,6 +90,23 @@ const SINGLE_FIELDS = {
 
 const BULK_FIELDS = {
   quotes: 'json',
+};
+
+/**
+ * The board hands over ids, not quotes.
+ *
+ * A prefilled issue link carrying whole records blows past what a URL can hold
+ * after four or five picks — measured at 6.2 KB for five — and the fallback is
+ * asking someone to paste 11 KB of JSON on a phone. Ids are ~14 characters
+ * each, so the link works whether one line is ticked or forty, and the records
+ * come from `data/proposals.json`, which the scout wrote and CI can read.
+ */
+const BOARD_FIELDS = {
+  picks: 'ids',
+  // Listed although nothing reads it: a heading absent from this map is not a
+  // boundary, so the section below it would be swallowed into the ids and every
+  // pick would fail on a line of prose.
+  'what these are': 'context',
 };
 
 /** GitHub's placeholder for an optional field the author left alone. */
@@ -352,6 +370,58 @@ function readBulkQuotes(body, addedAt) {
   return { quotes, warnings };
 }
 
+/**
+ * Turn a list of ids ticked on the board into the quotes they stand for.
+ *
+ * Everything is resolved before anything is built, so a single unknown id fails
+ * the whole issue rather than half-importing a selection — the reader ticked a
+ * set, and getting back a different set silently is worse than being told.
+ */
+async function readBoardPicks(body, addedAt, proposalsFile) {
+  const fields = splitSections(body, BOARD_FIELDS);
+  const ids = splitList(stripCodeFence(fields.get('ids') ?? ''))
+    .map((line) => line.trim().split(/\s+/)[0])
+    .filter(Boolean);
+
+  if (!ids.length) {
+    throw new IngestError(
+      'No lines were ticked, so there is nothing to add.',
+      'Go back to the board, tick what you want, and press "Add to the collection" again.',
+    );
+  }
+
+  const file = proposalsFile ?? path.join(REPO_ROOT, 'data', 'proposals.json');
+  let board;
+  try {
+    board = JSON.parse(await readFile(file, 'utf8'));
+  } catch (error) {
+    throw new IngestError(
+      `I could not read the board (${error.message}).`,
+      'The picks are stored as ids, so the board file has to be readable to turn them back into quotes.',
+    );
+  }
+
+  const byId = new Map((board?.proposals ?? []).map((proposal) => [proposal.id, proposal]));
+  const unknown = ids.filter((id) => !byId.has(id));
+  if (unknown.length) {
+    throw new IngestError(
+      unknown.length === 1
+        ? `The board has no line with the id ${unknown[0]}.`
+        : `The board has no lines with these ids: ${unknown.join(', ')}.`,
+      'This happens if the board was replaced between opening the page and submitting. Reload the board and tick again.',
+    );
+  }
+
+  const warnings = [];
+  const quotes = ids.map((id, index) => {
+    // The scout's own bookkeeping is not part of the quote and must not travel
+    // into the collection with it.
+    const { why, shownOn, status, ...record } = byId.get(id);
+    return readBulkEntry(record, index, addedAt, warnings);
+  });
+  return { quotes, warnings };
+}
+
 function readBulkEntry(entry, index, addedAt, warnings) {
   const where = `Entry ${index + 1}`;
   if (entry === null || typeof entry !== 'object' || Array.isArray(entry)) {
@@ -610,6 +680,7 @@ function parseArgs(argv) {
     bodyFile: null,
     bodyEnv: null,
     data: path.join(REPO_ROOT, 'data', 'quotes.json'),
+    proposals: path.join(REPO_ROOT, 'data', 'proposals.json'),
     summaryFile: null,
     dryRun: false,
     quiet: false,
@@ -629,6 +700,7 @@ function parseArgs(argv) {
       case '--body-file': options.bodyFile = value(); break;
       case '--body-env': options.bodyEnv = value(); break;
       case '--data': options.data = path.resolve(value()); break;
+      case '--proposals': options.proposals = path.resolve(value()); break;
       case '--summary-file': options.summaryFile = path.resolve(value()); break;
       case '--dry-run': options.dryRun = true; break;
       case '--quiet': options.quiet = true; break;
@@ -636,8 +708,8 @@ function parseArgs(argv) {
     }
   }
 
-  if (!['auto', 'single', 'bulk'].includes(options.mode)) {
-    throw new Error(`--mode must be auto, single or bulk (got ${options.mode})`);
+  if (!['auto', 'single', 'bulk', 'board'].includes(options.mode)) {
+    throw new Error(`--mode must be auto, single, bulk or board (got ${options.mode})`);
   }
   return options;
 }
@@ -654,8 +726,12 @@ async function readBody(options) {
   return Buffer.concat(chunks).toString('utf8');
 }
 
-/** A bulk issue is the one carrying a `### Quotes` heading; anything else is single. */
+/**
+ * Which form filled this in, read from the headings it left behind: `### Picks`
+ * is the board, `### Quotes` is the importer, anything else is the typed form.
+ */
 function detectMode(body) {
+  if (splitSections(body, BOARD_FIELDS).has('ids')) return 'board';
   return splitSections(body, BULK_FIELDS).size > 0 ? 'bulk' : 'single';
 }
 
@@ -667,15 +743,23 @@ export async function ingest(body, options = {}) {
     throw new IngestError('The issue is empty.', 'Use one of the issue forms so I know what to read.');
   }
 
-  const { quotes: read, warnings } =
-    mode === 'bulk'
-      ? readBulkQuotes(body, addedAt)
-      : { quotes: [readSingleQuote(body, addedAt)], warnings: [] };
+  let read;
+  let warnings;
+  if (mode === 'board') {
+    ({ quotes: read, warnings } = await readBoardPicks(body, addedAt, options.proposals));
+  } else if (mode === 'bulk') {
+    ({ quotes: read, warnings } = readBulkQuotes(body, addedAt));
+  } else {
+    read = [readSingleQuote(body, addedAt)];
+    warnings = [];
+  }
 
   // A bulk import is a machine re-reading a source, so anything deliberately
   // removed stays removed. Typing a quote into the single form is a person
   // asking for that quote specifically, which is a decision that outranks an
-  // earlier deletion — so it revives, and the comment says that it did.
+  // earlier deletion — so it revives, and the comment says that it did. Ticking
+  // a line on the board is the same kind of decision: the scout only proposes,
+  // and the tick is the person choosing, so a pick revives too.
   const removed = await readTombstones(options.removedFile);
   const { kept: incoming, skipped } = mode === 'bulk'
     ? withoutRemoved(read, removed)

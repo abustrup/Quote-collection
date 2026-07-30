@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-30",
+  "board": {
+    "runId": "2026-07-30",
+    "note": "First board. The collection reads as three seams — the novels, the CBS philosophy canon, and technology and capital — so this one deliberately enters through doors none of them use: an economist on why no single mind can hold the facts, the Dane you somehow do not have, an investor writing to his own shareholders, and the 1945 report that invented the case for funding research nobody can yet justify. All nine were read in a primary source and string-matched, which is why the list stops at nine rather than reaching for more."
+  },
+  "proposals": [
+    {
+      "id": "q_f9b54da991a3",
+      "text": "Today it is almost heresy to suggest that scientific knowledge is not the sum of all knowledge.",
+      "author": "Friedrich A. Hayek",
+      "work": "The Use of Knowledge in Society",
+      "workKind": "essay",
+      "year": 1945,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.econlib.org/library/Essays/hykKnw.html",
+        "locator": "§III"
+      },
+      "themes": [
+        "knowledge",
+        "science",
+        "certainty"
+      ],
+      "tags": [
+        "epistemology",
+        "expertise",
+        "planning"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the essay as published by the Econlib library from the American Economic Review XXXV, No. 4 (September 1945). String-matched against the loaded text."
+      },
+      "why": "the sentence under every argument about what a central model can be trusted to know",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_e076ed10ef76",
+      "text": "It is, perhaps, worth stressing that economic problems arise always and only in consequence of change.",
+      "author": "Friedrich A. Hayek",
+      "work": "The Use of Knowledge in Society",
+      "workKind": "essay",
+      "year": 1945,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.econlib.org/library/Essays/hykKnw.html",
+        "locator": "§IV"
+      },
+      "themes": [
+        "knowledge",
+        "money",
+        "time"
+      ],
+      "tags": [
+        "economics",
+        "change",
+        "planning"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the essay as published by the Econlib library from the American Economic Review XXXV, No. 4 (September 1945). String-matched against the loaded text."
+      },
+      "why": "redefines the whole field in one clause, and you hold Knight and Keynes but no Hayek",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_77f681e91ec8",
+      "text": "Of all ridiculous things the most ridiculous seems to me, to be busy—to be a man who is brisk about his food and his work.",
+      "author": "Søren Kierkegaard",
+      "work": "Either/Or",
+      "workKind": "book",
+      "year": 1843,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.gutenberg.org/files/60333/60333-0.txt",
+        "locator": "Diapsalmata"
+      },
+      "themes": [
+        "work",
+        "meaning",
+        "time"
+      ],
+      "tags": [
+        "danish",
+        "busyness",
+        "aphorism"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in L. M. Hollander’s translation, \"Selections from the Writings of Kierkegaard\" (University of Texas Bulletin No. 2326, 1923), which prints the Diapsalmata that open Either/Or. The double hyphens of the Gutenberg transcription are set here as em dashes; no other change. Not checked against Kierkegaard’s Danish."
+      },
+      "why": "the collection has no Kierkegaard at all, and this is his line on busyness",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_bbbb4a839d52",
+      "text": "What is a poet? An unhappy man who conceals profound anguish in his heart, but whose lips are so fashioned that when sighs and groans pass over them they sound like beautiful music.",
+      "author": "Søren Kierkegaard",
+      "work": "Either/Or",
+      "workKind": "book",
+      "year": 1843,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.gutenberg.org/files/60333/60333-0.txt",
+        "locator": "Diapsalmata, opening"
+      },
+      "themes": [
+        "art",
+        "suffering",
+        "writing"
+      ],
+      "tags": [
+        "danish",
+        "aphorism",
+        "widely-quoted"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in L. M. Hollander’s translation, \"Selections from the Writings of Kierkegaard\" (University of Texas Bulletin No. 2326, 1923), which prints the Diapsalmata that open Either/Or. The double hyphens of the Gutenberg transcription are set here as em dashes; no other change. Not checked against Kierkegaard’s Danish."
+      },
+      "why": "the most-quoted sentence Denmark has produced, and you have none of it",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_fbe58a20b023",
+      "text": "Whatever foolishness can be marketed will be vigorously marketed – not by everyone but always by someone.",
+      "author": "Warren Buffett",
+      "work": "Berkshire Hathaway 2023 Shareholder Letter",
+      "workKind": "letter",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.berkshirehathaway.com/letters/2023ltr.pdf",
+        "locator": "“Our Not-So-Secret Weapon”"
+      },
+      "themes": [
+        "money",
+        "risk",
+        "truth"
+      ],
+      "tags": [
+        "markets",
+        "incentives",
+        "widely-quoted"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in Berkshire Hathaway’s own PDF of the letter (dated 24 February 2024, covering 2023) and confirmed a second time by extracting the PDF’s text. The sentence opens “At such times, whatever foolishness…”; the introductory clause is dropped here because it depends on the preceding paragraph. Nothing else altered."
+      },
+      "why": "names the mechanism rather than the villain, which is the half most market criticism skips",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_8eb22f2ac11a",
+      "text": "The casino now resides in many homes and daily tempts the occupants.",
+      "author": "Warren Buffett",
+      "work": "Berkshire Hathaway 2023 Shareholder Letter",
+      "workKind": "letter",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.berkshirehathaway.com/letters/2023ltr.pdf",
+        "locator": "“Our Not-So-Secret Weapon”"
+      },
+      "themes": [
+        "money",
+        "risk",
+        "technology"
+      ],
+      "tags": [
+        "markets",
+        "speculation"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in Berkshire Hathaway’s own PDF of the letter (dated 24 February 2024, covering 2023) and confirmed a second time by extracting the PDF’s text."
+      },
+      "why": "one image doing the work of an essay on retail trading apps",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_6f45dd650277",
+      "text": "It’s harder than you would think to predict which will be the winners and losers. And those who tell you they know the answer are usually either self-delusional or snake-oil salesmen.",
+      "author": "Warren Buffett",
+      "work": "Berkshire Hathaway 2023 Shareholder Letter",
+      "workKind": "letter",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.berkshirehathaway.com/letters/2023ltr.pdf",
+        "locator": "“What We Do”"
+      },
+      "themes": [
+        "certainty",
+        "money",
+        "knowledge"
+      ],
+      "tags": [
+        "forecasting",
+        "humility",
+        "venture"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in Berkshire Hathaway’s own PDF of the letter (dated 24 February 2024, covering 2023) and confirmed a second time by extracting the PDF’s text, which drops the letter’s apostrophes and en dashes; typography here follows the printed page."
+      },
+      "why": "the flat version of what Mallaby spends The Power Law establishing",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_194f0a135915",
+      "text": "Scientific progress on a broad front results from the free play of free intellects, working on subjects of their own choice, in the manner dictated by their curiosity for exploration of the unknown.",
+      "author": "Vannevar Bush",
+      "work": "Science, The Endless Frontier",
+      "workKind": "document",
+      "year": 1945,
+      "source": {
+        "kind": "curated",
+        "url": "https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm",
+        "locator": "Summary of the Report"
+      },
+      "themes": [
+        "science",
+        "freedom",
+        "progress"
+      ],
+      "tags": [
+        "research-policy",
+        "state-capital",
+        "widely-quoted"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the report as hosted by the U.S. National Science Foundation, retrieved through the Internet Archive because nsf.gov no longer serves that page. Public domain (U.S. Government Printing Office, 1945). String-matched against the loaded text."
+      },
+      "why": "the founding argument for funding research nobody can yet justify",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_0575edcf15b1",
+      "text": "Basic research is a long-term process — it ceases to be basic if immediate results are expected on short-term support.",
+      "author": "Vannevar Bush",
+      "work": "Science, The Endless Frontier",
+      "workKind": "document",
+      "year": 1945,
+      "source": {
+        "kind": "curated",
+        "url": "https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm",
+        "locator": "ch. 6, “The Importance of Basic Research”"
+      },
+      "themes": [
+        "science",
+        "time",
+        "progress"
+      ],
+      "tags": [
+        "research-policy",
+        "state-capital",
+        "patience"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the report as hosted by the U.S. National Science Foundation, retrieved through the Internet Archive because nsf.gov no longer serves that page. Public domain (U.S. Government Printing Office, 1945). The transcription sets the dash as a hyphen; it is an em dash here and nothing else is changed."
+      },
+      "why": "a falsifiable claim about patient capital, written by someone who had to defend it to Congress",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-30"
+      ],
+      "status": "open"
+    }
+  ]
+}

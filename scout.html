@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6efe4">
+<meta name="color-scheme" content="light dark">
+<title>The board – Quote Collection</title>
+<meta name="description" content="Lines proposed for the collection, waiting to be kept or let go.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<script>
+  (function () {
+    try {
+      var editions = ['paper', 'night', 'folio', 'index'];
+      var saved = localStorage.getItem('quotes-edition');
+      if (editions.indexOf(saved) < 0) {
+        saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'paper';
+      }
+      document.documentElement.dataset.edition = saved;
+      if (saved === 'night') document.querySelector('meta[name=theme-color]').setAttribute('content', '#14110d');
+    } catch (e) {
+      document.documentElement.dataset.edition = 'paper';
+    }
+  })();
+</script>
+
+<link rel="preload" href="assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  /* Page-specific: the board and its action bar. Everything else is inherited,
+     so a proposal reads like a quote long before it becomes one. */
+
+  .board {
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+    padding: 0 0 6rem;
+    list-style: none;
+  }
+
+  .board-note {
+    max-width: 62ch;
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--accent);
+    color: var(--body-soft);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .stats {
+    margin: 0.9rem 0 0;
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  .proposal {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.75rem, 2.5vw, 1.4rem);
+    padding: clamp(1.5rem, 3.5vw, 2.3rem) 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .proposal:last-child { border-bottom: 0; }
+
+  .proposal-pick {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    min-width: var(--tap-min);
+    min-height: var(--tap-min);
+    margin-left: -0.6rem;
+    cursor: pointer;
+  }
+
+  .proposal-pick input {
+    width: 1.15rem;
+    height: 1.15rem;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .proposal-body { margin: 0; min-width: 0; flex: 1 1 auto; }
+
+  .proposal-body blockquote {
+    margin: 0;
+    max-width: var(--measure);
+    font-family: var(--font-quote);
+    font-size: var(--quote-size);
+    font-weight: var(--quote-weight);
+    line-height: var(--quote-leading);
+    letter-spacing: var(--quote-tracking);
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .proposal-body figcaption {
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.85rem;
+  }
+
+  .proposal-author { color: var(--body-soft); font-weight: 600; }
+  .proposal-work { font-style: italic; }
+
+  .proposal-why {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    max-width: 62ch;
+    margin: 0.7rem 0 0;
+    color: var(--body-soft);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .proposal-why::before {
+    content: "→";
+    flex: none;
+    opacity: 0.55;
+  }
+
+  .proposal-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.85rem 0 0;
+  }
+
+  .proposal-badge {
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: help;
+  }
+
+  .proposal-badge-last {
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    color: var(--accent-ink);
+    cursor: default;
+  }
+
+  .proposal-link {
+    font-family: var(--font-label);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--accent-ink);
+    text-decoration-color: color-mix(in srgb, var(--accent-ink) 35%, transparent);
+    text-underline-offset: 3px;
+  }
+
+  [data-last="true"] .proposal-body blockquote {
+    border-left: 2px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    padding-left: 0.9rem;
+    margin-left: -1.1rem;
+  }
+
+  /* The bar only exists once something is ticked, so it never sits in the way
+     of reading, which is what this page is mostly for. */
+  .action-bar {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(0.9rem, 3vw, 1.6rem);
+    z-index: 40;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: calc(100% - 2rem);
+    padding: 0.6rem 0.7rem 0.6rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
+  }
+
+  .action-bar[hidden] { display: none; }
+
+  .selected-count {
+    color: var(--body-soft);
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .action-bar .primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .action-bar .primary:hover { border-color: var(--accent); color: #fff; opacity: 0.9; }
+
+  .kept {
+    margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+    padding: clamp(1.1rem, 3vw, 1.6rem);
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius);
+  }
+
+  .kept summary {
+    cursor: pointer;
+    font-family: var(--font-label);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .kept summary:hover { color: var(--ink); }
+
+  .kept ul {
+    max-width: 70ch;
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .kept li { margin-bottom: 0.45rem; }
+  .kept-who { color: var(--muted); font-family: var(--font-label); font-size: 0.82rem; }
+
+  .how {
+    max-width: 62ch;
+    margin: clamp(2rem, 5vw, 3rem) 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#board">Skip to the board</a>
+
+<header class="masthead shell">
+  <p class="masthead-kicker">Quote Collection</p>
+  <h1>The Board</h1>
+  <p class="masthead-dek">
+    Lines from works the collection does not hold yet, found by reading the
+    shape of what it does. Tick the ones worth keeping. Nothing here is in the
+    collection until you put it there.
+  </p>
+</header>
+
+<div class="controls">
+  <div class="shell controls-row">
+    <div class="control-group">
+      <a class="pill" href="index.html">← The collection</a>
+      <a class="pill" href="suggest.html">What to read next</a>
+    </div>
+  </div>
+</div>
+
+<main class="shell">
+  <p class="board-note" id="board-note" hidden></p>
+  <p class="stats" id="stats"></p>
+
+  <ol class="board" id="board"></ol>
+
+  <div class="empty" id="empty" hidden>
+    <p><strong>Nothing waiting.</strong></p>
+    <p id="empty-detail"></p>
+  </div>
+
+  <details class="kept" id="kept" hidden>
+    <summary>What has come off this board and into the collection</summary>
+    <ul id="kept-list"></ul>
+  </details>
+
+  <p class="how">
+    A line gets two showings. If it is still here after the second, it is
+    retired and never proposed again, so the board stays mostly new. Ticking
+    opens an issue with your picks already filled in – submit it and the same
+    robot that handles everything else files them, exactly as if you had added
+    them by hand.
+  </p>
+</main>
+
+<div class="action-bar" id="action-bar" hidden>
+  <span class="selected-count" id="selected-count"></span>
+  <button class="pill" id="clear-selection" type="button">Clear</button>
+  <button class="pill primary" id="add-selected" type="button">Add to the collection</button>
+</div>
+
+<footer class="page-footer">
+  <div class="shell footer-row">
+    <div>
+      <p style="margin:0">
+        <a href="index.html">The collection</a> ·
+        <a href="works.html">The shelf</a> ·
+        <a href="suggest.html">What to read next</a>
+      </p>
+    </div>
+    <div>
+      <p style="margin:0">
+        <a href="https://github.com/abustrup/Quote-collection">Source</a> ·
+        <a href="https://abustrup.github.io/alexanders-brief/">Alexanders Brief</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <p class="shell" style="margin-top:2rem">
+    The board is read from <code>data/proposals.json</code> in the browser, so it
+    needs JavaScript. The file itself is plain text and readable
+    <a href="https://github.com/abustrup/Quote-collection/blob/main/data/proposals.json">on GitHub</a>.
+  </p>
+</noscript>
+
+<script type="module" src="assets/scout.js"></script>
+</body>
+</html>
