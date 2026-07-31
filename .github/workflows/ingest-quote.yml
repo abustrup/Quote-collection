@@ -42,6 +42,13 @@ jobs:
     # removal issues the same way. The heading is set by the form and travels
     # in the body, where nothing can quietly drop it.
     #
+    # The `### Quote id` exclusion is not fussiness. Headings nest: `### Quote`
+    # is a substring of `### Quote ids`, so without it a removal issue matches
+    # this workflow as well as the right one, and issue #10 got a confusing
+    # "this does not look like it came from the Add a quote form" alongside its
+    # successful removal, plus a red run. Two workflows claiming one issue is
+    # its own bug, and tests/routing.test.mjs now checks for it directly.
+    #
     # Routing only. The author check above is the guard, and it is untouched.
     if: >-
       github.event.issue.state == 'open'
@@ -51,7 +58,8 @@ jobs:
       || contains(github.event.issue.labels.*.name, 'quote-board')
       || contains(github.event.issue.body, '### Quotes')
       || contains(github.event.issue.body, '### Picks')
-      || contains(github.event.issue.body, '### Quote'))
+      || (contains(github.event.issue.body, '### Quote')
+      && !contains(github.event.issue.body, '### Quote id')))
     runs-on: ubuntu-latest
     permissions:
       contents: write

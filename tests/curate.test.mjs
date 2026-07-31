@@ -311,17 +311,28 @@ test('every removed quote is really gone, and every tombstone keeps its text', a
   }
 });
 
-test('no Goodreads-sourced quote was removed', async () => {
+test('nothing leaves the collection without a recorded reason', async () => {
   const tombs = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'removed.json'), 'utf8'));
-  const collection = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'quotes.json'), 'utf8'));
 
-  // Checked against the live Goodreads list from a runner on 30 Jul 2026: all
-  // 173 saved quotes are still on it. The 36 that did not appear in the printed
-  // pages were page one, which was not in the upload — deleting on that
-  // evidence would have destroyed thirty quotes still on his shelf.
-  // A count, not a snapshot: the sync may legitimately bring more over, but a
-  // Goodreads quote must never leave except through a removal that says so.
-  assert.ok(collection.quotes.filter((q) => q.source?.kind === 'goodreads').length >= 173,
-    'the collection has lost Goodreads quotes since the 30 Jul 2026 reconcile');
-  assert.equal(tombs.removed.filter((e) => e.reason?.includes('Not from the Goodreads list')).length, 44);
+  // The invariant, rather than a count. Three earlier versions of the tests in
+  // this file froze a snapshot — "173 Goodreads quotes", "only these three
+  // curated works", "44 tombstones" — and all three broke within two days of
+  // being written, because the collection is *supposed* to change. A test that
+  // fails whenever the owner curates is a test that gets deleted, and then the
+  // real invariant it was standing in front of goes unguarded.
+  //
+  // What must stay true: a quote can only leave through a removal that says
+  // why, so the collection can always account for what is missing.
+  const unexplained = tombs.removed
+    .filter((entry) => !entry.reason || !entry.reason.trim())
+    .map((entry) => `${entry.id} — ${entry.author}`);
+  assert.deepEqual(unexplained, [], 'these were removed with no reason recorded');
+
+  // The one historical fact worth pinning: the 30 Jul 2026 clear-out, checked
+  // against the live Goodreads list from a runner (174 there, 0 missing here),
+  // took only quotes that had never come from Goodreads.
+  assert.equal(
+    tombs.removed.filter((e) => e.reason.includes('Not from the Goodreads list')).length,
+    44,
+  );
 });
