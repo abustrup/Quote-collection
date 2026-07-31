@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T17:35:37.261Z",
+  "updatedAt": "2026-07-31T18:21:33.707Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -80,32 +80,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_763d673f92a1",
-      "text": "The absurd does not liberate; it binds. It does not authorize all actions. \"Everything is permitted\" does not mean that nothing is forbidden.",
-      "author": "Albert Camus",
-      "work": "The Myth of Sisyphus",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "absurd",
-        "philosophy"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_54d0553ad5a1",
       "text": "The best are led to make greater demands upon themselves. As for those who succumb, they did not deserve to survive.",
       "author": "Albert Camus",
@@ -141,32 +115,6 @@
         "locator": null
       },
       "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_42e5d524bd61",
-      "text": "There can be no question of holding forth on ethics. I have seen people behave badly with great morality and I note every day that integrity has no need of rules",
-      "author": "Albert Camus",
-      "work": "The Myth of Sisyphus",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "existentialism",
-        "morality"
-      ],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -218,29 +166,6 @@
         "thinking",
         "thought"
       ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_4263e81c090b",
-      "text": "This absurd, godless world is, then, peopled with men who think clearly and have ceased to hope. And I have not yet spoken of the most absurd character, who is the creator.",
-      "author": "Albert Camus",
-      "work": "The Myth of Sisyphus",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
       "themes": [],
       "lang": "en",
       "verification": {
