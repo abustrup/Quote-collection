@@ -17,6 +17,7 @@
     {"title": "Politics and the English Language", "author": "George Orwell", "year": 1946, "kind": "essay", "subject": "politics"},
     {"title": "Private Government: How Employers Rule Our Lives (and Why We Don't Talk about It)", "author": "Elizabeth S. Anderson", "year": 2017, "kind": "book", "subject": "politics"},
     {"title": "Sapiens: A Brief History of Humankind", "author": "Yuval Noah Harari", "year": 2011, "kind": "book", "subject": "history"},
+    {"title": "Science, The Endless Frontier", "author": "Vannevar Bush", "year": 1945, "kind": "document", "subject": "science", "url": "https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm"},
     {"title": "The Adolescence of Technology", "author": "Dario Amodei", "year": 2026, "kind": "essay", "subject": "technology"},
     {"title": "The Art of War", "author": "Sun Tzu", "year": -500, "kind": "book", "subject": "military"},
     {"title": "The Brothers Karamazov", "author": "Fyodor Dostoevsky", "year": 1880, "kind": "book", "subject": "literature"},

@@ -10,6 +10,63 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-07-31 · no new board · first acceptance, 1 kept of 1 resolved
+
+**The routine has its first hit.** He kept Vannevar Bush on basic research
+ceasing to be basic when short-term results are expected — filed 2026-07-31
+through the issue workflow, one day after the board went up.
+
+**Stated honestly, the number is 1 kept, 0 let go, 8 still undecided.** Calling
+it "1 of 9" would flatter the denominator in the wrong direction and flatter the
+seams in the right one; eight lines have had exactly one showing and have not
+been answered. Only one proposal is resolved, and it was kept. That is a real
+signal about *which door* worked and no signal at all about the other three.
+
+The door that worked is the one his reading cannot supply on its own: research
+policy and the argument for patient capital. Of the four doors tried, it was the
+one furthest from anything in the collection and the one aimed most squarely at
+what he does rather than what he reads. Worth noting and not yet worth acting
+on — n=1.
+
+**No board was posted this run, deliberately.** The standing board is one day
+old. The prompt's guard is written as "younger than a few days *and* nothing
+ticked", and something was ticked, so the letter of it did not bind — but the
+purpose did. Replacing or extending a board he engaged with 24 hours ago either
+burns the second showing of eight lines that have barely had their first, or
+pads a board he has not cleared. Both are the failure mode the prompt names:
+being measured by what is proposed rather than what is kept. Silence was the
+stronger run.
+
+**Two pieces of maintenance, one of which was invisible and load-bearing.**
+
+The kept Bush quote had no entry in `data/works.json`, so its work had no
+subject and no era and dropped out of the shelf's filters while reading
+perfectly well — exactly the failure the prompt warns is never noticed because
+the collection treats it as a warning, not an error. Registered as
+science / document / 1945. That single line took the test suite from three
+failures to one: `the shipped registry and collection agree` and `every work the
+collection quotes has a subject and an era` both went green with it.
+
+The remaining failure is not the scout's to fix and is flagged rather than
+touched. `every curated quote left in the collection is one the owner asked to
+keep` (in `tests/curate.test.mjs`) hard-codes the three works that survived the
+30 Jul purge, and now trips on his own accepted quote, because the importer
+files scout picks with `source.kind: "curated"` — the same kind the purge was
+guarding against. The guard cannot tell a machine-supplied bulk quote from one
+he ticked himself. It will fail on every future acceptance. Editing that file is
+outside what this routine is granted, so it is reported, not repaired.
+
+**One more thing, also reported rather than changed: the cadence is not what
+anything here says it is.** The scheduler's cron is `0 9 * * 0,2,4,6` — Sunday,
+Tuesday, Thursday and Saturday, four runs a week — while the task description
+says "Weekly (Sun 09:05)", this log's own header says "weekly scout", and the
+two-showing rule was designed around weekly spacing. At four runs a week a
+candidate can take both its showings and expire inside four days, which is not a
+fair hearing and is not what the rule is for. The schedule is his and not the
+routine's to change, so it is named here and in his report. Until it is settled,
+the correct behaviour is the one taken today: post a board when there is one
+worth posting, not because a run fired.
+
 ## 2026-07-30 · first board · 9 proposed, hit rate not yet measurable
 
 Nothing to grade yet. This is a baseline, not a result.
