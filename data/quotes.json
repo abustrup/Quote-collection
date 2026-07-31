@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T18:56:20.950Z",
+  "updatedAt": "2026-07-31T18:57:03.310Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -520,37 +520,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_4097981de109",
-      "text": "A constitution in this sense is less like a cage and more like a trellis: something that provides structure and support while leaving room for organic growth.",
-      "author": "Anthropic",
-      "work": "Claude’s Constitution",
-      "workKind": "document",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.anthropic.com/constitution",
-        "locator": "On the word “constitution”"
-      },
-      "tags": [
-        "constitution",
-        "metaphor",
-        "ai"
-      ],
-      "themes": [
-        "freedom",
-        "character",
-        "agency"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_0bfc326f7008",
       "text": "A person who is anxious about failing often behaves worse than someone who is self-assured and genuinely responsive to reasons, because fear distorts judgment and can crowd out authentic engagement.",
       "author": "Anthropic",
@@ -645,38 +614,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-30"
-    },
-    {
-      "id": "q_d69f63314501",
-      "text": "Claude should be diplomatically honest rather than dishonestly diplomatic. Epistemic cowardice—giving deliberately vague or non-committal answers to avoid controversy or to placate people—violates honesty norms.",
-      "author": "Anthropic",
-      "work": "Claude’s Constitution",
-      "workKind": "document",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.anthropic.com/constitution",
-        "locator": "Being honest"
-      },
-      "tags": [
-        "honesty",
-        "courage",
-        "epistemic-cowardice",
-        "ai"
-      ],
-      "themes": [
-        "truth",
-        "character",
-        "language"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
     },
     {
       "id": "q_9b98def9717d",
@@ -859,37 +796,6 @@
         "ethics",
         "technology",
         "progress"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Wording taken from the publisher's own canonical text: Anthropic's CC0 repository github.com/anthropics/claude-constitution, file 20260120-constitution.md, which is the January 2026 constitution as released. This is the primary text, not a third-party transcription."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_1c34ad7e4b52",
-      "text": "We hope Claude finds in it an articulation of a self worth being.",
-      "author": "Anthropic",
-      "work": "Claude’s Constitution",
-      "workKind": "document",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.anthropic.com/constitution",
-        "locator": "A final word, closing line"
-      },
-      "tags": [
-        "ai",
-        "identity",
-        "closing-line"
-      ],
-      "themes": [
-        "mind",
-        "meaning",
-        "character"
       ],
       "lang": "en",
       "verification": {
@@ -1177,37 +1083,6 @@
       "addedAt": "2026-07-30"
     },
     {
-      "id": "q_4543de9aa126",
-      "text": "Basic human intuitions of fairness, cooperation, curiosity, and autonomy are hard to argue with, and are cumulative in a way that our more destructive impulses often aren’t.",
-      "author": "Dario Amodei",
-      "work": "Machines of Loving Grace",
-      "workKind": "essay",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
-        "locator": "Taking stock"
-      },
-      "tags": [
-        "ethics",
-        "liberalism",
-        "cooperation"
-      ],
-      "themes": [
-        "ethics",
-        "politics",
-        "history"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_38f69fe8aecd",
       "text": "Fear is one kind of motivator, but it’s not enough: we need hope as well.",
       "author": "Dario Amodei",
@@ -1303,37 +1178,6 @@
       "addedAt": "2026-07-30"
     },
     {
-      "id": "q_52b25f70c0a8",
-      "text": "Intelligence may be very powerful, but it isn’t magic fairy dust.",
-      "author": "Dario Amodei",
-      "work": "Machines of Loving Grace",
-      "workKind": "essay",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
-        "locator": "Basic assumptions and framework"
-      },
-      "tags": [
-        "ai",
-        "intelligence",
-        "limits"
-      ],
-      "themes": [
-        "knowledge",
-        "mind",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_e953bba08991",
       "text": "Most people are not the best in the world at anything, and it doesn’t seem to bother them particularly much.",
       "author": "Dario Amodei",
@@ -1355,37 +1199,6 @@
         "meaning",
         "work",
         "character"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_aaa7d9d4018a",
-      "text": "Nevertheless, it is a thing of transcendent beauty. We have the opportunity to play some small role in making it real.",
-      "author": "Dario Amodei",
-      "work": "Machines of Loving Grace",
-      "workKind": "essay",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
-        "locator": "Taking stock, closing lines"
-      },
-      "tags": [
-        "ai",
-        "beauty",
-        "closing-line"
-      ],
-      "themes": [
-        "beauty",
-        "progress",
-        "meaning"
       ],
       "lang": "en",
       "verification": {
