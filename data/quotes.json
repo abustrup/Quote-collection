@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T18:57:03.310Z",
+  "updatedAt": "2026-07-31T19:02:59.449Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -200,52 +200,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_b0bc8f4b4a7e",
-      "text": "I realized then that a man who had lived only one day could easily live for a hundred years in prison. He would have enough memories to keep him from being bored",
-      "author": "Albert Camus",
-      "work": "The Stranger",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_ca7dfcc4a045",
-      "text": "Mother died today. Or maybe yesterday; I can't be sure.",
-      "author": "Albert Camus",
-      "work": "The Stranger",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_1eb76d99d1ac",
       "text": "A love of nature keeps no factories busy.",
       "author": "Aldous Huxley",
@@ -334,54 +288,6 @@
         "thirst",
         "yearning"
       ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_5fe9f5af1ce7",
-      "text": "I want to know what passion is. I want to feel something strongly.",
-      "author": "Aldous Huxley",
-      "work": "Brave New World",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "passion"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_87d96782966d",
-      "text": "I'm claiming the right to be unhappy.",
-      "author": "Aldous Huxley",
-      "work": "Brave New World",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -995,29 +901,6 @@
         "books",
         "music"
       ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_96ad536ef73e",
-      "text": "That's the thing about human life--there is no control group, no way to ever know how any of us would have turned out if any variables had been changed.",
-      "author": "Daniel Keyes",
-      "work": "Flowers for Algernon",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -1777,33 +1660,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_6cbe03c5aa53",
-      "text": "This is a good place,\" he said. \"There's a lot of liquor,\" I agreed.",
-      "author": "Ernest Hemingway",
-      "work": "The Sun Also Rises",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "alcoholism",
-        "humor",
-        "liquor"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_d05bc9c5445f",
       "text": "you can't get away from yourself by moving from one place to another.",
       "author": "Ernest Hemingway",
@@ -1967,29 +1823,6 @@
       "tags": [
         "lise-to-alyosha"
       ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_635244e35041",
-      "text": "From a hundred rabbits you can’t make a horse, a hundred suspicions don’t make a proof,",
-      "author": "Fyodor Dostoevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -2205,33 +2038,6 @@
         "locator": null
       },
       "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_7c6a2d0622cf",
-      "text": "To go wrong in one's own way is better than to go right in someone else's.",
-      "author": "Fyodor Dostoevsky",
-      "work": "Crime and Punishment",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "independent-thought",
-        "self-determination",
-        "self-expression"
-      ],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -2611,77 +2417,8 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_7c0fc00057aa",
-      "text": "You must know that there is nothing higher and stronger and more wholesome and good for life in the future than some good memory, especially a memory of childhood, of home. People talk to you a great deal about your education, but some good, sacred memory, preserved from childhood, is perhaps the best education. If a man carries many such memories with him into life, he is safe to the end of his days, and if one has only one good memory left in one's heart, even that may sometime be the means of saving us.",
-      "author": "Fyodor Dostoevsky",
-      "work": "The Brothers Karamazov",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_eb219f1b01d2",
       "text": "Here my tears are falling, Nastenka. Let them flow, let them flow - they don't hurt anybody. They will dry Nastenka.",
-      "author": "Fyodor Dostoevsky",
-      "work": "White Nights",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_a4722fd76ffd",
-      "text": "I don’t know how to be silent when my heart is speaking.",
-      "author": "Fyodor Dostoevsky",
-      "work": "White Nights",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_f78c1ce39de6",
-      "text": "I like revisiting, at certain times, spots where I was once happy; I like to shape the present in the image of the irretrievable past.",
       "author": "Fyodor Dostoevsky",
       "work": "White Nights",
       "workKind": null,
@@ -2745,31 +2482,6 @@
         "lasting",
         "pleasure",
         "temporary"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_1f4a68e18355",
-      "text": "Oh, how unbearable is a happy person sometimes!",
-      "author": "Fyodor Dostoevsky",
-      "work": "White Nights",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "happiness"
       ],
       "themes": [],
       "lang": "en",
@@ -2930,29 +2642,6 @@
     {
       "id": "q_c3f16f4471f5",
       "text": "Everything faded into mist. The past was erased, the erasure was forgotten, the lie became truth.",
-      "author": "George Orwell",
-      "work": "1984",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_e1abbce7dee1",
-      "text": "Freedom is the freedom to say that two plus two make four.",
       "author": "George Orwell",
       "work": "1984",
       "workKind": null,
@@ -3147,29 +2836,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_c7fb92958fcb",
-      "text": "Sanity is not statistical.",
-      "author": "George Orwell",
-      "work": "1984",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_9312635688b9",
       "text": "The aims of these three groups are entirely irreconcilable. The aim of the High is to remain where they are. The aim of the Middle is to change places with the High. The aim of the Low, when they have an aim-for it is an abiding characteristic of the Low that they are too much crushed by drudgery to be more than intermittently conscious of anything outside their daily lives -is to abolish all distinctions and create a society in which all men shall be equal.",
       "author": "George Orwell",
@@ -3282,34 +2948,6 @@
         "locator": null
       },
       "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_73335dd1982a",
-      "text": "War is peace. Freedom is slavery. Ignorance is strength.",
-      "author": "George Orwell",
-      "work": "1984",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "freedom",
-        "ignorance",
-        "inspirational",
-        "war"
-      ],
       "themes": [],
       "lang": "en",
       "verification": {
@@ -3519,29 +3157,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_dc01ba1e4eef",
-      "text": "Between pigs and human beings there was not and there need not be any clash of interest whatsoever.",
-      "author": "George Orwell",
-      "work": "Animal Farm",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_0eca5877d5a6",
       "text": "His answer to every problem, every setback was “I will work harder!” —which he had adopted as his personal motto.",
       "author": "George Orwell",
@@ -3615,29 +3230,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_251014ca3b90",
-      "text": "Never listen when they tell you that Man and the animals have a common interest, that the prosperity of the one is the prosperity of the others. It is all lies. Man serves the interest of no creature except himself.",
-      "author": "George Orwell",
-      "work": "Animal Farm",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_48d5750d80cd",
       "text": "No one believes more firmly than Comrade Napoleon that all animals are equal. He would be only too happy to let you make your decisions for yourselves. But sometimes you might make the wrong decisions, comrades, and then where should we be?",
       "author": "George Orwell",
@@ -3666,29 +3258,6 @@
     {
       "id": "q_30dc46ecec26",
       "text": "Several of them would have protested if they could have found the right arguments.",
-      "author": "George Orwell",
-      "work": "Animal Farm",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_312c560adc1f",
-      "text": "Somehow it seemed as though the farm had grown richer without making the animals themselves any richer—except, of course, for the pigs and the dogs.",
       "author": "George Orwell",
       "work": "Animal Farm",
       "workKind": null,
@@ -4362,33 +3931,6 @@
       },
       "tags": [
         "love"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_48d5b75ff2bd",
-      "text": "We can know only that we know nothing. And that is the highest degree of human wisdom.",
-      "author": "Leo Tolstoy",
-      "work": "War and Peace",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "humanity",
-        "nothing",
-        "wisdom"
       ],
       "themes": [],
       "lang": "en",
