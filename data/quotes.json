@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31T18:21:33.707Z",
+  "updatedAt": "2026-07-31T18:56:20.950Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -4938,39 +4938,6 @@
       "addedAt": "2026-07-29"
     },
     {
-      "id": "q_d7c0054c69af",
-      "text": "There are not more than five musical notes, yet the combinations of these five give rise to more melodies than can ever be heard. There are not more than five primary colours, yet in combination they produce more hues than can ever been seen. There are not more than five cardinal tastes, yet combinations of them yield more flavours than can ever be tasted.",
-      "author": "Sun Tzu",
-      "work": "The Art of War",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [
-        "colors",
-        "creativity",
-        "diversity",
-        "idic",
-        "innovation",
-        "inspirational",
-        "invention",
-        "music",
-        "problem-solving"
-      ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
       "id": "q_7182677effcb",
       "text": "There is no instance of a nation benefitting from prolonged warfare.",
       "author": "Sun Tzu",
@@ -5063,29 +5030,6 @@
       "tags": [
         "strategy"
       ],
-      "themes": [],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "Imported from Goodreads; wording not independently checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_aedefe2f7e25",
-      "text": "Knives and bombs do not themselves decide whom to kill. They are dumb tools, lacking the intelligence necessary to process information and make independent decisions. In contrast, AI can process information by itself, and thereby replace humans in decision making. AI isn’t a tool—it’s an agent.",
-      "author": "Yuval Noah Harari",
-      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "goodreads",
-        "url": "https://www.goodreads.com/quotes/list/149695942?page=1",
-        "locator": null
-      },
-      "tags": [],
       "themes": [],
       "lang": "en",
       "verification": {
