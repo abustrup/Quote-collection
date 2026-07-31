@@ -19,7 +19,12 @@ name: Remove or edit a quote
 
 on:
   issues:
-    types: [opened, edited]
+    # `reopened` is here because reopening is what a person does when a run
+    # did not happen. Without it the issue comes back with no run behind it,
+    # which looks exactly like the silent failure it is trying to recover
+    # from. Measured: four removal issues were reopened on 31 Jul 2026 and
+    # nothing fired.
+    types: [opened, edited, reopened]
 
 permissions: {}
 

@@ -232,14 +232,29 @@ export async function remove(body, options = {}) {
     else if (!alreadyGone.has(id)) missing.push(id);
   }
 
+  // Every id already tombstoned is a *success*, not a failure. Removal is
+  // idempotent by construction, and re-running a removal is exactly what
+  // reopening an issue does — so treating "already gone" as an error would
+  // turn the obvious way to retry into a red run and a comment saying
+  // something went wrong when nothing did.
+  const already = ids.filter((id) => alreadyGone.has(id) && !byId.has(id));
+  if (!gone.length && !missing.length) {
+    return {
+      mode: 'remove',
+      removed: [],
+      missing: [],
+      already,
+      changed: false,
+      files: [],
+      totalCount: collection.quotes.length,
+      existingCount: collection.quotes.length,
+    };
+  }
+
   if (!gone.length) {
     throw new IngestError(
-      missing.length
-        ? `None of those ids are in the collection: ${missing.join(', ')}.`
-        : 'Those were already removed, so nothing changed.',
-      missing.length
-        ? 'Check the id against the one shown under the quote in Curate mode.'
-        : null,
+      `None of those ids are in the collection: ${missing.join(', ')}.`,
+      'Check the id against the one shown under the quote in Curate mode.',
     );
   }
 
@@ -269,6 +284,7 @@ export async function remove(body, options = {}) {
     mode: 'remove',
     removed: gone,
     missing,
+    already,
     changed: true,
     files: [
       { file: dataFile, contents: serializeCollection(next) },
@@ -360,7 +376,15 @@ function opening(quote, limit = 72) {
 export function summarize(result, { dryRun = false } = {}) {
   const lines = [];
 
-  if (result.mode === 'remove') {
+  if (result.mode === 'remove' && !result.removed.length) {
+    lines.push(
+      result.already.length === 1
+        ? 'That one was already removed, so nothing changed.'
+        : `All ${result.already.length} of those were already removed, so nothing changed.`,
+      '',
+      'The collection is unchanged. Nothing here needs doing.',
+    );
+  } else if (result.mode === 'remove') {
     lines.push(
       result.removed.length === 1
         ? 'Removed from the collection.'

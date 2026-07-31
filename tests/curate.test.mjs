@@ -16,7 +16,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { quoteId, validateCollection } from '../assets/quote-core.js';
-import { EDIT_FIELDS, REMOVE_FIELDS, edit, readEdit, readIds, remove } from '../scripts/curate.mjs';
+import { EDIT_FIELDS, REMOVE_FIELDS, edit, readEdit, readIds, remove, summarize } from '../scripts/curate.mjs';
 import { readTombstones, withoutRemoved } from '../scripts/tombstones.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -334,5 +334,31 @@ test('nothing leaves the collection without a recorded reason', async () => {
   assert.equal(
     tombs.removed.filter((e) => e.reason.includes('Not from the Goodreads list')).length,
     44,
+  );
+});
+
+test('removing something already removed is a no-op, not a failure', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE), quote(TWO)]);
+  const first = await remove(removalIssue([quoteId(ONE)]), { data, removedFile });
+  for (const { file, contents } of first.files) await writeFile(file, contents);
+
+  // Reopening an issue is the obvious way to retry one that did nothing, and
+  // it re-runs the removal. If that came back red with "I could not do that",
+  // the only recovery gesture available would look like a fresh failure.
+  const again = await remove(removalIssue([quoteId(ONE)]), { data, removedFile });
+  assert.equal(again.changed, false);
+  assert.deepEqual(again.removed, []);
+  assert.deepEqual(again.already, [quoteId(ONE)]);
+  assert.match(summarize(again), /already removed, so nothing changed/i);
+});
+
+test('a mix of already-removed and unknown ids still reports the unknown one', async () => {
+  const { data, removedFile } = await sandbox([quote(ONE)]);
+  const first = await remove(removalIssue([quoteId(ONE)]), { data, removedFile });
+  for (const { file, contents } of first.files) await writeFile(file, contents);
+
+  await assert.rejects(
+    remove(removalIssue([quoteId(ONE), 'q_000000000000']), { data, removedFile }),
+    /none of those ids are in the collection: q_000000000000/i,
   );
 });
