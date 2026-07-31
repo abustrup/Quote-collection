@@ -30,11 +30,29 @@ concurrency:
 jobs:
   curate:
     name: Curate
+    # Routed by what the issue *says*, not only by its label.
+    #
+    # A label is a promise the repository has to keep, and it did not: GitHub
+    # applies a template's declared label only if that label already exists,
+    # and `quote-remove` and `quote-edit` never did. So four removal issues
+    # (#10, #11, #14, #15 — 30 quotes) opened unlabelled, this condition never
+    # matched, and nothing ran. No error, no comment, no clue. Exactly the
+    # failure mode that costs most here, because the owner cannot read a
+    # workflow file to find out why.
+    #
+    # The heading is set by the form and travels in the body, so it cannot be
+    # dropped the way a label can. The label check stays as the fast path; the
+    # body is the one that cannot silently go missing.
+    #
+    # This is routing, not authorisation. The guard that matters is the author
+    # check above, and it is untouched.
     if: >-
       github.event.issue.state == 'open'
       && github.event.issue.user.login == github.repository_owner
       && (contains(github.event.issue.labels.*.name, 'quote-remove')
-      || contains(github.event.issue.labels.*.name, 'quote-edit'))
+      || contains(github.event.issue.labels.*.name, 'quote-edit')
+      || contains(github.event.issue.body, '### Quote ids')
+      || contains(github.event.issue.body, '### Quote id'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -58,7 +76,7 @@ jobs:
           # The body reaches Node through the environment and never through the
           # shell, so a quotation containing backticks or $(…) is just text.
           ISSUE_BODY: ${{ github.event.issue.body }}
-          MODE: ${{ contains(github.event.issue.labels.*.name, 'quote-remove') && 'remove' || 'edit' }}
+          MODE: ${{ (contains(github.event.issue.labels.*.name, 'quote-remove') || contains(github.event.issue.body, '### Quote ids')) && 'remove' || 'edit' }}
         run: |
           node scripts/curate.mjs \
             --mode "$MODE" \
@@ -81,7 +99,7 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           BRANCH: ${{ github.event.repository.default_branch }}
           ISSUE_BODY: ${{ github.event.issue.body }}
-          MODE: ${{ contains(github.event.issue.labels.*.name, 'quote-remove') && 'remove' || 'edit' }}
+          MODE: ${{ (contains(github.event.issue.labels.*.name, 'quote-remove') || contains(github.event.issue.body, '### Quote ids')) && 'remove' || 'edit' }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
