@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T16:31:55.452Z",
+  "updatedAt": "2026-07-31T17:35:37.261Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5292,6 +5292,37 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_0575edcf15b1",
+      "text": "Basic research is a long-term process — it ceases to be basic if immediate results are expected on short-term support.",
+      "author": "Vannevar Bush",
+      "work": "Science, The Endless Frontier",
+      "workKind": "document",
+      "year": 1945,
+      "source": {
+        "kind": "curated",
+        "url": "https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm",
+        "locator": "ch. 6, “The Importance of Basic Research”"
+      },
+      "tags": [
+        "research-policy",
+        "state-capital",
+        "patience"
+      ],
+      "themes": [
+        "science",
+        "time",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the report as hosted by the U.S. National Science Foundation, retrieved through the Internet Archive because nsf.gov no longer serves that page. Public domain (U.S. Government Printing Office, 1945). The transcription sets the dash as a hyphen; it is an em dash here and nothing else is changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-07-31"
     }
   ]
 }
