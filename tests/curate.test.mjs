@@ -283,13 +283,18 @@ test('merge-seeds does not delete curated quotes that no seed file contains', as
     'the retire sweep is back, and it cannot tell a seeded quote from a hand-picked one');
 });
 
-test('every curated quote left in the collection is one the owner asked to keep', async () => {
+test('nothing removed on 30 Jul 2026 has crept back in', async () => {
   const collection = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'quotes.json'), 'utf8'));
-  const keepers = ['Claude’s Constitution', 'Machines of Loving Grace', 'The Adolescence of Technology'];
-  const strays = collection.quotes
-    .filter((q) => q.source?.kind === 'curated' && !keepers.includes(q.work))
-    .map((q) => `${q.work ?? '(no work)'} — ${q.id}`);
-  assert.deepEqual(strays, [], 'curated quotes outside the three works he named on 30 Jul 2026');
+  const tombs = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'removed.json'), 'utf8'));
+  const live = new Set(collection.quotes.map((q) => q.id));
+
+  // Deliberately about the removal, not about a whitelist of works. An earlier
+  // version of this test froze "only these three works may be curated", which
+  // was true the day it was written and wrong two days later when a board pick
+  // added a fourth. A test that has to be edited every time the collection
+  // grows is a test that gets deleted.
+  const back = tombs.removed.filter((entry) => live.has(entry.id)).map((entry) => entry.id);
+  assert.deepEqual(back, [], 'these were removed and are in the collection again');
 });
 
 test('every removed quote is really gone, and every tombstone keeps its text', async () => {
@@ -314,6 +319,9 @@ test('no Goodreads-sourced quote was removed', async () => {
   // 173 saved quotes are still on it. The 36 that did not appear in the printed
   // pages were page one, which was not in the upload — deleting on that
   // evidence would have destroyed thirty quotes still on his shelf.
-  assert.equal(collection.quotes.filter((q) => q.source?.kind === 'goodreads').length, 173);
-  assert.equal(tombs.removed.length, 44);
+  // A count, not a snapshot: the sync may legitimately bring more over, but a
+  // Goodreads quote must never leave except through a removal that says so.
+  assert.ok(collection.quotes.filter((q) => q.source?.kind === 'goodreads').length >= 173,
+    'the collection has lost Goodreads quotes since the 30 Jul 2026 reconcile');
+  assert.equal(tombs.removed.filter((e) => e.reason?.includes('Not from the Goodreads list')).length, 44);
 });
