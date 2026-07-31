@@ -102,3 +102,51 @@ test('the longer heading is tested first, or the shorter one swallows it', async
     }
   }
 });
+
+test('no issue body can claim two workflows at once', async () => {
+  const workflows = await routingConditions();
+  const forms = await issueForms();
+
+  // Issue #10 hit this. Adding a `### Quote` fallback to the add workflow made
+  // it match removal issues too, because `### Quote` is a substring of
+  // `### Quote ids`. The removal ran correctly *and* the add workflow posted
+  // "this does not look like it came from the Add a quote form" and turned the
+  // run red. A body that reaches two workflows is a bug even when one of them
+  // does the right thing.
+  const routers = ['ingest-quote.yml', 'curate-quote.yml'];
+
+  /** The `if:` block of a workflow's single job, flattened to one line. */
+  const condition = (text) => {
+    const start = text.indexOf('\n    if: >-');
+    const rest = text.slice(start + 1).split('\n');
+    const lines = [rest[0]];
+    for (const line of rest.slice(1)) {
+      if (!/^\s{6}/.test(line)) break;
+      lines.push(line);
+    }
+    return lines.join(' ').replace(/\s+/g, ' ');
+  };
+
+  /** Does this condition match a body, ignoring labels? */
+  const matches = (cond, body) => {
+    // Evaluate the body-shape clauses only: every `contains(...body, 'X')`,
+    // honouring a leading `!`.
+    const clauses = [...cond.matchAll(/(!?)contains\(github\.event\.issue\.body, '([^']+)'\)/g)];
+    if (!clauses.length) return false;
+    // Reconstruct just enough boolean structure: a negated clause that fails
+    // vetoes, an affirmative clause that holds admits.
+    const vetoed = clauses.some(([, bang, needle]) => bang === '!' && body.includes(needle));
+    const admitted = clauses.some(([, bang, needle]) => bang !== '!' && body.includes(needle));
+    return admitted && !vetoed;
+  };
+
+  const conditions = new Map(routers.map((f) => [f, condition(workflows.get(f))]));
+
+  for (const form of forms) {
+    // What GitHub writes into the body: one `### Heading` per field.
+    const body = form.headings.map((h) => `### ${h}\n\nsomething\n`).join('\n');
+    const claimed = routers.filter((f) => matches(conditions.get(f), body));
+    assert.ok(claimed.length <= 1,
+      `${form.name} is claimed by ${claimed.join(' and ')} — one of them will post a spurious failure`);
+  }
+});
