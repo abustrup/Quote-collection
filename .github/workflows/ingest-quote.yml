@@ -19,7 +19,9 @@ name: Add quote from issue
 
 on:
   issues:
-    types: [opened, edited]
+    # `reopened` too: reopening an issue is the natural way to retry one that
+    # did nothing, and a retry that also does nothing is the worst answer.
+    types: [opened, edited, reopened]
 
 # Nothing by default; the one job below asks for exactly what it needs.
 permissions: {}
