@@ -311,28 +311,31 @@ test('every removed quote is really gone, and every tombstone keeps its text', a
   }
 });
 
-test('nothing leaves the collection without a recorded reason', async () => {
+test('every removal is traceable back to the quote it took', async () => {
   const tombs = JSON.parse(await readFile(path.join(REPO_ROOT, 'data', 'removed.json'), 'utf8'));
 
-  // The invariant, rather than a count. Three earlier versions of the tests in
-  // this file froze a snapshot — "173 Goodreads quotes", "only these three
-  // curated works", "44 tombstones" — and all three broke within two days of
-  // being written, because the collection is *supposed* to change. A test that
-  // fails whenever the owner curates is a test that gets deleted, and then the
-  // real invariant it was standing in front of goes unguarded.
+  // The fourth of my tests here to demand more than the design promises. This
+  // one required a reason on every tombstone — but the Reason field on the
+  // removal form is explicitly optional, and pressing Remove without typing one
+  // is the normal case. Twenty-seven perfectly good removals failed it.
   //
-  // What must stay true: a quote can only leave through a removal that says
-  // why, so the collection can always account for what is missing.
-  const unexplained = tombs.removed
-    .filter((entry) => !entry.reason || !entry.reason.trim())
-    .map((entry) => `${entry.id} — ${entry.author}`);
-  assert.deepEqual(unexplained, [], 'these were removed with no reason recorded');
+  // What the design does guarantee, and what actually matters, is that a
+  // removal can be undone: a date, and text that still hashes to its own id.
+  // Without the text a tombstone is a hash nobody can turn back into a quote.
+  const broken = [];
+  for (const entry of tombs.removed) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.removedAt ?? '')) broken.push(`${entry.id}: no date`);
+    if (!entry.text) broken.push(`${entry.id}: no text to restore from`);
+    else if (quoteId(entry.text) !== entry.id) broken.push(`${entry.id}: text does not hash to its id`);
+    if (!entry.author) broken.push(`${entry.id}: no author`);
+  }
+  assert.deepEqual(broken, [], 'these removals cannot be undone from what was recorded');
 
   // The one historical fact worth pinning: the 30 Jul 2026 clear-out, checked
   // against the live Goodreads list from a runner (174 there, 0 missing here),
   // took only quotes that had never come from Goodreads.
   assert.equal(
-    tombs.removed.filter((e) => e.reason.includes('Not from the Goodreads list')).length,
+    tombs.removed.filter((e) => e.reason?.includes('Not from the Goodreads list')).length,
     44,
   );
 });
