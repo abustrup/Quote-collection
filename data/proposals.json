@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30",
+  "updatedAt": "2026-07-31",
   "board": {
-    "runId": "2026-07-30",
-    "note": "First board — and it was built twice, because the collection was stripped back to the Goodreads shelf mid-assembly and the philosophy seam it was aimed around is gone. What is left has no economics, no Dane, and nothing on capital or research policy, so these nine come through four doors it does not have; all nine were read in a primary source rather than recalled."
+    "runId": "2026-07-31",
+    "note": "He kept one line from the first board and, by his own rule, that answers the other eight — so they are retired here rather than shown again. What landed was a definition that bites rather than a fine sentiment, so the seams that produced fine sentiments are closed (Buffett 0 for 3, Kierkegaard 0 for 2, Hayek 0 for 2) and these five are all the keeper’s shape: people inside institutions arguing about what money and haste do to inquiry. Ostrom’s Nobel lecture was read in full and produced nothing that beat what you already hold, so nothing from it is here."
   },
   "proposals": [
     {
@@ -37,7 +37,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_e076ed10ef76",
@@ -70,7 +70,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_77f681e91ec8",
@@ -103,7 +103,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_bbbb4a839d52",
@@ -136,7 +136,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_fbe58a20b023",
@@ -169,7 +169,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_8eb22f2ac11a",
@@ -201,7 +201,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_6f45dd650277",
@@ -234,7 +234,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_194f0a135915",
@@ -267,7 +267,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_0575edcf15b1",
@@ -299,6 +299,171 @@
       "lang": "en",
       "shownOn": [
         "2026-07-30"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_7b0b7ed47798",
+      "text": "For a successful technology, reality must take precedence over public relations, for nature cannot be fooled.",
+      "author": "Richard P. Feynman",
+      "work": "Personal Observations on Reliability of Shuttle",
+      "workKind": "document",
+      "year": 1986,
+      "source": {
+        "kind": "curated",
+        "url": "https://history.nasa.gov/rogersrep/v2appf.htm",
+        "locator": "Appendix F, closing line"
+      },
+      "themes": [
+        "truth",
+        "technology",
+        "risk"
+      ],
+      "tags": [
+        "engineering",
+        "institutions",
+        "widely-quoted"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of Appendix F to the Report of the Presidential Commission on the Space Shuttle Challenger Accident, Volume 2, as hosted by NASA. Public domain (U.S. Government, 1986). String-matched against the loaded text. Note the transcription prints “nature” in lower case; the sentence is very often reproduced with it capitalised."
+      },
+      "why": "the last line of a report by someone who had just taken an institution apart",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-31"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_e6a986a8db98",
+      "text": "Partly because of the huge costs involved, a government contract becomes virtually a substitute for intellectual curiosity.",
+      "author": "Dwight D. Eisenhower",
+      "work": "Farewell Address",
+      "workKind": "speech",
+      "year": 1961,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.archives.gov/milestone-documents/president-dwight-d-eisenhowers-farewell-address",
+        "locator": "on the technological revolution and the free university"
+      },
+      "themes": [
+        "money",
+        "science",
+        "power"
+      ],
+      "tags": [
+        "research-policy",
+        "state-capital",
+        "incentives"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the address as published by the U.S. National Archives (Milestone Documents). Public domain (U.S. Government). String-matched against the loaded text."
+      },
+      "why": "the counterweight to the Bush line you kept, argued from the paying side",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-31"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_bf031b5e8182",
+      "text": "Yet, in holding scientific research and discovery in respect, as we should, we must also be alert to the equal and opposite danger that public policy could itself become the captive of a scientific-technological elite.",
+      "author": "Dwight D. Eisenhower",
+      "work": "Farewell Address",
+      "workKind": "speech",
+      "year": 1961,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.archives.gov/milestone-documents/president-dwight-d-eisenhowers-farewell-address",
+        "locator": "immediately following the military-industrial complex passage"
+      },
+      "themes": [
+        "politics",
+        "science",
+        "power"
+      ],
+      "tags": [
+        "research-policy",
+        "expertise",
+        "statecraft"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the address as published by the U.S. National Archives (Milestone Documents). Public domain (U.S. Government). String-matched against the loaded text."
+      },
+      "why": "the half of that speech nobody quotes, and the harder one to act on",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-31"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_5a8a5fbffa0e",
+      "text": "It's not the consequence that makes a problem important, it is that you have a reasonable attack.",
+      "author": "Richard W. Hamming",
+      "work": "You and Your Research",
+      "workKind": "speech",
+      "year": 1986,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+        "locator": "on important problems"
+      },
+      "themes": [
+        "knowledge",
+        "work",
+        "science"
+      ],
+      "tags": [
+        "research",
+        "judgement",
+        "prioritisation"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in J. F. Kaiser’s transcription of the Bell Communications Research Colloquium Seminar of 7 March 1986, as hosted by the University of Virginia. String-matched against the loaded text; the transcription’s doubled backquotes for speech marks do not occur inside this sentence."
+      },
+      "why": "a definition that bites, in exactly the shape of the line you kept",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-31"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_a3dfdd005d37",
+      "text": "He who works with the door open gets all kinds of interruptions, but he also occasionally gets clues as to what the world is and what might be important.",
+      "author": "Richard W. Hamming",
+      "work": "You and Your Research",
+      "workKind": "speech",
+      "year": 1986,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+        "locator": "on the open door"
+      },
+      "themes": [
+        "work",
+        "attention",
+        "knowledge"
+      ],
+      "tags": [
+        "research",
+        "trade-offs",
+        "institutions"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in J. F. Kaiser’s transcription of the Bell Communications Research Colloquium Seminar of 7 March 1986, as hosted by the University of Virginia. String-matched against the loaded text; the transcription’s doubled backquotes for speech marks do not occur inside this sentence."
+      },
+      "why": "a ten-year trade-off he observed rather than asserted",
+      "lang": "en",
+      "shownOn": [
+        "2026-07-31"
       ],
       "status": "open"
     }

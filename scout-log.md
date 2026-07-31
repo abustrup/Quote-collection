@@ -10,62 +10,90 @@ made. Everything else is an explanation of it.
 
 ---
 
-## 2026-07-31 · no new board · first acceptance, 1 kept of 1 resolved
+## 2026-07-31 · second board · 1 kept of 9 resolved (11%)
 
-**The routine has its first hit.** He kept Vannevar Bush on basic research
-ceasing to be basic when short-term results are expected — filed 2026-07-31
-through the issue workflow, one day after the board went up.
+**First acceptance, and a rule from him that resolved the whole board at once.**
+He kept Vannevar Bush on basic research ceasing to be basic when short-term
+results are demanded — one line, filed the day after the board went up.
 
-**Stated honestly, the number is 1 kept, 0 let go, 8 still undecided.** Calling
-it "1 of 9" would flatter the denominator in the wrong direction and flatter the
-seams in the right one; eight lines have had exactly one showing and have not
-been answered. Only one proposal is resolved, and it was kept. That is a real
-signal about *which door* worked and no signal at all about the other three.
+This run first recorded that as "1 kept, 0 let go, 8 undecided" and held the
+board on the theory that eight lines were still pending. He corrected it, and
+the correction is the most useful thing this routine has been told so far:
 
-The door that worked is the one his reading cannot supply on its own: research
-policy and the argument for patient capital. Of the four doors tried, it was the
-one furthest from anything in the collection and the one aimed most squarely at
-what he does rather than what he reads. Worth noting and not yet worth acting
-on — n=1.
+> "if there has been a run where x of y has been implemented, assume that the
+> other quotes have been read and the user don't want them implemented."
 
-**No board was posted this run, deliberately.** The standing board is one day
-old. The prompt's guard is written as "younger than a few days *and* nothing
-ticked", and something was ticked, so the letter of it did not bind — but the
-purpose did. Replacing or extending a board he engaged with 24 hours ago either
-burns the second showing of eight lines that have barely had their first, or
-pads a board he has not cleared. Both are the failure mode the prompt names:
-being measured by what is proposed rather than what is kept. Silence was the
-stronger run.
+**The reason is structural, not a preference. Accepting is the only signal he
+can send.** There is no reject button on the board, so "he ignored it" and "he
+worked through it and passed" are identical in the data and opposite in his
+head. His tick is the only thing that separates them — which means the moment
+one line is filed, every other line on that board has been answered. Waiting for
+a second showing does not gather more information; it just delays. Both step 1
+and the two-showing rule in the prompt have been amended accordingly, and the
+old reading cost this run a full pass.
 
-**Two pieces of maintenance, one of which was invisible and load-bearing.**
+**So the honest grade is 1 of 9, and it decomposes usefully.** Bush 1 of 2,
+Hayek 0 of 2, Kierkegaard 0 of 2, Buffett 0 of 3.
 
-The kept Bush quote had no entry in `data/works.json`, so its work had no
-subject and no era and dropped out of the shelf's filters while reading
-perfectly well — exactly the failure the prompt warns is never noticed because
-the collection treats it as a warning, not an error. Registered as
-science / document / 1945. That single line took the test suite from three
-failures to one: `the shipped registry and collection agree` and `every work the
-collection quotes has a subject and an era` both went green with it.
+**The controlled comparison is the finding.** Two Bush lines from the same
+report, same run, same verification — he kept one and dropped the other:
 
-The remaining failure is not the scout's to fix and is flagged rather than
-touched. `every curated quote left in the collection is one the owner asked to
-keep` (in `tests/curate.test.mjs`) hard-codes the three works that survived the
-30 Jul purge, and now trips on his own accepted quote, because the importer
-files scout picks with `source.kind: "curated"` — the same kind the purge was
-guarding against. The guard cannot tell a machine-supplied bulk quote from one
-he ticked himself. It will fail on every future acceptance. Editing that file is
-outside what this routine is granted, so it is reported, not repaired.
+- **Kept:** *"Basic research is a long-term process — it ceases to be basic if
+  immediate results are expected on short-term support."*
+- **Dropped:** *"Scientific progress on a broad front results from the free play
+  of free intellects, working on subjects of their own choice..."*
 
-**One more thing, also reported rather than changed: the cadence is not what
-anything here says it is.** The scheduler's cron is `0 9 * * 0,2,4,6` — Sunday,
-Tuesday, Thursday and Saturday, four runs a week — while the task description
-says "Weekly (Sun 09:05)", this log's own header says "weekly scout", and the
-two-showing rule was designed around weekly spacing. At four runs a week a
-candidate can take both its showings and expire inside four days, which is not a
-fair hearing and is not what the rule is for. The schedule is his and not the
-routine's to change, so it is named here and in his report. Until it is settled,
-the correct behaviour is the one taken today: post a board when there is one
-worth posting, not because a run fired.
+The second is the more famous and the more beautiful. It is also an assertion of
+a value: nothing in the world could contradict it. The first is a definition
+that bites — it says what happens to a thing when you do something to it, and
+it would be wrong if the world were otherwise. **He keeps mechanisms and drops
+sentiments**, and the eight rejections all read as sentiment once you look:
+Buffett's casino image, his marketed-foolishness aphorism, his hedge about
+predicting winners; Kierkegaard's two aphorisms; Hayek's rhetorical heresy.
+That is a sharper instrument than "he likes economics" and it survived a real
+test — it was derived from a rejection inside the one seam that scored, not
+from the seams that failed.
+
+**Buffett is closed at 0 for 3** and will not be mined again: the most fetchable
+finance source available produced three lines and none of them committed to
+anything falsifiable. Kierkegaard and Hayek are parked at 0 for 2 — too thin to
+call a seam dead, and the Danish door stays open because it was tried once, in
+one aphoristic register, not fairly.
+
+**This board is five lines, all in the keeper's shape**, from people inside
+institutions arguing about what money and haste do to inquiry: Feynman's closing
+sentence to the Challenger commission; Eisenhower on a government contract
+becoming a substitute for intellectual curiosity, and on public policy becoming
+captive to a scientific-technological elite; Hamming on what actually makes a
+problem important, and on the ten-year cost of a closed door. Five of five were
+read in a primary source — NASA's hosted report, the National Archives, the
+Virginia transcription of the Bell Labs seminar — and string-matched against the
+loaded text, so all five are `verified`.
+
+**One work was read in full and produced nothing.** Elinor Ostrom's 2009 Nobel
+lecture was the attempt at a fifth door — different field, different voice, same
+subject of allocation and institutions. Her prose is academic and her best
+candidate (*"a core goal of public policy should be to facilitate the
+development of institutions that bring out the best in humans"*) is exactly the
+value-assertion shape he just rejected twice. Nothing from it was proposed.
+Worth recording that the fetch nearly went wrong in a way the standard predicts:
+nobelprize.org's lecture page is a 3,700-character landing page, and only the
+PDF is the actual lecture. A run that trusted the first page would have quoted
+navigation furniture.
+
+**Maintenance, and two things reported rather than fixed.** The kept Bush quote
+had no entry in `data/works.json`, so its work had no subject and no era and
+dropped silently out of the shelf's filters; registered as science / document /
+1945, which took the test suite from three failures to one. The remaining
+failure is `every curated quote left in the collection is one the owner asked to
+keep`, which hard-codes the three works that survived the 30 Jul purge and now
+trips on his own acceptance, because the importer files board picks with the
+same `curated` kind the purge targeted. It will fail on every future
+acceptance. And the routine's real cadence is `0 9 * * 0,2,4,6` — four runs a
+week — while its description, this log's header and the prompt all say weekly;
+at four runs a week the two-showing ceiling can expire a line in four days.
+Neither the test file nor the schedule is this routine's to change, so both went
+to him and to harness-priorities.
 
 ## 2026-07-30 · first board · 9 proposed, hit rate not yet measurable
 
