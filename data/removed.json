@@ -75,6 +75,7 @@
     {"id":"q_312c560adc1f","text":"Somehow it seemed as though the farm had grown richer without making the animals themselves any richer—except, of course, for the pigs and the dogs.","author":"George Orwell","work":"Animal Farm","removedAt":"2026-07-31"},
     {"id":"q_c7fb92958fcb","text":"Sanity is not statistical.","author":"George Orwell","work":"1984","removedAt":"2026-07-31"},
     {"id":"q_73335dd1982a","text":"War is peace. Freedom is slavery. Ignorance is strength.","author":"George Orwell","work":"1984","removedAt":"2026-07-31"},
-    {"id":"q_48d5b75ff2bd","text":"We can know only that we know nothing. And that is the highest degree of human wisdom.","author":"Leo Tolstoy","work":"War and Peace","removedAt":"2026-07-31"}
+    {"id":"q_48d5b75ff2bd","text":"We can know only that we know nothing. And that is the highest degree of human wisdom.","author":"Leo Tolstoy","work":"War and Peace","removedAt":"2026-07-31"},
+    {"id":"q_f84a9c1a1cb3","text":"Repressive governments survive by denying people a certain kind of common knowledge, keeping them from realizing that “the emperor has no clothes”.","author":"Dario Amodei","work":"Machines of Loving Grace","removedAt":"2026-08-01"}
   ]
 }

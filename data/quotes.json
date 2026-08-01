@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T10:34:24.247Z",
+  "updatedAt": "2026-08-01T10:34:52.489Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -1113,38 +1113,6 @@
         "science",
         "progress",
         "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in full in Alexander's local copy of the essay, then each line string-matched character-for-character against Dario Amodei's own published page at darioamodei.com (17,334 words, the complete essay with footnotes, not a summary) on 2026-07-30. Both sources agree exactly, including the curly quotation marks."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-07-30"
-    },
-    {
-      "id": "q_f84a9c1a1cb3",
-      "text": "Repressive governments survive by denying people a certain kind of common knowledge, keeping them from realizing that “the emperor has no clothes”.",
-      "author": "Dario Amodei",
-      "work": "Machines of Loving Grace",
-      "workKind": "essay",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
-        "locator": "4. Peace and governance"
-      },
-      "tags": [
-        "authoritarianism",
-        "common knowledge",
-        "censorship"
-      ],
-      "themes": [
-        "politics",
-        "power",
-        "freedom",
-        "truth"
       ],
       "lang": "en",
       "verification": {
