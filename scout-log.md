@@ -10,6 +10,70 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-01 · held the board · no new proposals · still 1 kept of 9 resolved (11%)
+
+**Nothing posted, and that is the intended outcome.** The second board went up
+at 20:28 on 2026-07-31 and was thirteen hours old at this run, with zero of its
+five lines filed. Both halves of the hold condition are satisfied — young, and
+no signal — so replacing it would have burned five showings on lines that have
+had one evening on a page he may not have opened. No board, no notification.
+
+**First, a check that the silence was real rather than a missed import.** Two
+board issues were opened five seconds apart on 31 Jul (#12 and #13), both
+titled "Keep: 1 line from the board", and only #12 produced a commit. That
+looked like an acceptance the importer had dropped. It was not: both name the
+same id, `q_0575edcf15b1`, and the workflow answered #13 with "This one was
+already in the collection, so nothing changed." A double-click, handled
+correctly. The first board's grade stands at 1 of 9, and the second board's at
+0 of 5 so far.
+
+**The finding is in `removed.json`, not in anything proposed.** Between 19:21
+and 21:02 that same evening he removed 27 more quotes of his own (issues #14
+and #15, no reason given), taking the collection from 203 to 176. This is the
+second cull in two days and it went after his own reading, not after curated
+material — the 30 Jul purge had already removed everything a machine supplied.
+
+**What he cut is the anthology layer, and it falsifies something this routine
+had written down as taste.** Gone: *War is peace. Freedom is slavery. Ignorance
+is strength.* — *Freedom is the freedom to say that two plus two make four.* —
+*Mother died today. Or maybe yesterday; I can't be sure.* — *We can know only
+that we know nothing.* Those are the most-quoted lines of their works, and the
+prompt's standing advice said in as many words that fame was not a problem
+because "his collection is thick with the single most-quoted line of a work".
+It was, until it wasn't. That sentence has been replaced today with the
+opposite test: **if a line would already be on a quote-of-the-day page, he has
+probably met it, and meeting it here adds nothing.**
+
+**The cut reaches his own mined works, which is the part worth sitting with.**
+Three lines went from Claude's Constitution and three from *Machines of Loving
+Grace* — works nobody supplied to him, that he went into himself. Among them
+the constitution's *less like a cage and more like a trellis* and *We hope
+Claude finds in it an articulation of a self worth being*. What survived in
+those works is uniformly argumentative and specific: *Even tiny transaction
+costs could make it not worth it for AI to trade with humans*, *Current
+autocracies are limited in how repressive they can be by the need to have
+humans carry out their orders*. So the mechanism-over-sentiment reading from
+2026-07-31 is not just intact, it is now the rule he is applying retroactively
+to lines he had already kept. One honest caveat against over-fitting: he also
+cut *diplomatically honest rather than dishonestly diplomatic*, which does
+commit. Quotability, not just vagueness, is doing some of the work.
+
+**Maintenance.** The test suite is green, 139 of 139 — PR #19 fixed the
+hard-coded curated-quote test that failed here last run, so that is closed and
+does not need reporting again. `works.json` covers every work the collection
+quotes. One defect remains and is not this routine's to fix: quote
+`q_974fbf0518e9` (Dostoevsky, *"I'm more ready to admit things to you than I am
+to myself"*, tagged `lise-to-alyosha`) came in from Goodreads with `work: null`,
+so it has no year, no subject and no era and sits outside every filter on the
+shelf. It is *The Brothers Karamazov*; fixing it means editing `quotes.json`,
+which is his file.
+
+**What the next run should do.** These five lines have had showing one. Under
+the cadence note added to the prompt today, the run on Tuesday 4 Aug replaces
+the board and carries them onto their second and final showing — unless he
+files one before then, in which case the rest are answered and retire the same
+run.
+
 ## 2026-07-31 · second board · 1 kept of 9 resolved (11%)
 
 **First acceptance, and a rule from him that resolved the whole board at once.**
