@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-08-02",
   "board": {
-    "runId": "2026-07-31",
-    "note": "He kept one line from the first board and, by his own rule, that answers the other eight — so they are retired here rather than shown again. What landed was a definition that bites rather than a fine sentiment, so the seams that produced fine sentiments are closed (Buffett 0 for 3, Kierkegaard 0 for 2, Hayek 0 for 2) and these five are all the keeper’s shape: people inside institutions arguing about what money and haste do to inquiry. Ostrom’s Nobel lecture was read in full and produced nothing that beat what you already hold, so nothing from it is here."
+    "runId": "2026-08-02",
+    "note": "Nothing was ticked off the last board, so its five lines are here on their second and final showing — after this they are answered and retired. The four new ones come from hunting the shape of the only line you have kept from me: an argument about how things actually get built, not a fine sentiment about it. Hirschman's 1967 essay is the find, and it is strange in a way I did not expect — it argues that we take on hard projects only because we misjudge them, and that the misjudgement is what turns a cautious person into someone who can bear risk. The Danish door stayed shut: Bohr's Open Letter to the United Nations is behind five dead links and a borrowing-only scan, so there is nothing from it here rather than something half-checked."
   },
   "proposals": [
     {
@@ -331,7 +331,8 @@
       "why": "the last line of a report by someone who had just taken an institution apart",
       "lang": "en",
       "shownOn": [
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "status": "open"
     },
@@ -364,7 +365,8 @@
       "why": "the counterweight to the Bush line you kept, argued from the paying side",
       "lang": "en",
       "shownOn": [
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "status": "open"
     },
@@ -397,7 +399,8 @@
       "why": "the half of that speech nobody quotes, and the harder one to act on",
       "lang": "en",
       "shownOn": [
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "status": "open"
     },
@@ -430,7 +433,8 @@
       "why": "a definition that bites, in exactly the shape of the line you kept",
       "lang": "en",
       "shownOn": [
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "status": "open"
     },
@@ -463,7 +467,140 @@
       "why": "a ten-year trade-off he observed rather than asserted",
       "lang": "en",
       "shownOn": [
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_24fd794d5ebe",
+      "text": "The Hiding Hand is essentially a mechanism which makes a risk-averter take risks and turns him into less of a risk-averter in the process.",
+      "author": "Albert O. Hirschman",
+      "work": "The Principle of the Hiding Hand",
+      "workKind": "essay",
+      "year": 1967,
+      "source": {
+        "kind": "curated",
+        "url": "https://iwpbooks.me/wp-content/uploads/2023/04/hiding.pdf",
+        "locator": "Section V"
+      },
+      "themes": [
+        "risk",
+        "agency",
+        "progress"
+      ],
+      "tags": [
+        "development projects",
+        "self-deception",
+        "appetite for risk"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in a complete transcription of the Public Interest article (6,207 words, sections I–VII, carrying the original footnote to Sawyer 1952) and string-matched character-for-character against that loaded text. The host is a re-typeset copy rather than the publisher's own scan — nationalaffairs.com returns 403 — so its fidelity was tested separately: three passages quoted independently in Flyvbjerg and Sunstein's peer-reviewed paper (arXiv:1509.01526) match this copy exactly, curly apostrophes included. The proposed sentences themselves were not found reproduced elsewhere and rest on the full text read here."
+      },
+      "why": "taking the risk is what manufactures the appetite for risk, not the other way round",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_a8bf4da94fb1",
+      "text": "Creativity always comes as a surprise to us; therefore we can never count on it and we dare not believe in it until it has happened.",
+      "author": "Albert O. Hirschman",
+      "work": "The Principle of the Hiding Hand",
+      "workKind": "essay",
+      "year": 1967,
+      "source": {
+        "kind": "curated",
+        "url": "https://iwpbooks.me/wp-content/uploads/2023/04/hiding.pdf",
+        "locator": "Section II"
+      },
+      "themes": [
+        "mind",
+        "certainty",
+        "work"
+      ],
+      "tags": [
+        "creativity",
+        "planning",
+        "forecasting"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in a complete transcription of the Public Interest article (6,207 words, sections I–VII, carrying the original footnote to Sawyer 1952) and string-matched character-for-character against that loaded text. The host is a re-typeset copy rather than the publisher's own scan — nationalaffairs.com returns 403 — so its fidelity was tested separately: three passages quoted independently in Flyvbjerg and Sunstein's peer-reviewed paper (arXiv:1509.01526) match this copy exactly, curly apostrophes included. The proposed sentences themselves were not found reproduced elsewhere and rest on the full text read here."
+      },
+      "why": "why no plan can budget for the thing that ends up rescuing the plan",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_9016a4dccb39",
+      "text": "Language itself conspires toward this sort of asymmetry: we fall into error, but do not usually speak of falling into truth.",
+      "author": "Albert O. Hirschman",
+      "work": "The Principle of the Hiding Hand",
+      "workKind": "essay",
+      "year": 1967,
+      "source": {
+        "kind": "curated",
+        "url": "https://iwpbooks.me/wp-content/uploads/2023/04/hiding.pdf",
+        "locator": "Section II"
+      },
+      "themes": [
+        "language",
+        "truth",
+        "knowledge"
+      ],
+      "tags": [
+        "accident",
+        "attribution",
+        "hindsight"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in a complete transcription of the Public Interest article (6,207 words, sections I–VII, carrying the original footnote to Sawyer 1952) and string-matched character-for-character against that loaded text. The host is a re-typeset copy rather than the publisher's own scan — nationalaffairs.com returns 403 — so its fidelity was tested separately: three passages quoted independently in Flyvbjerg and Sunstein's peer-reviewed paper (arXiv:1509.01526) match this copy exactly, curly apostrophes included. The proposed sentences themselves were not found reproduced elsewhere and rest on the full text read here."
+      },
+      "why": "the Orwell line you keep, arriving from development economics instead of politics",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_25e2d8e048ad",
+      "text": "Among possible complex forms, hierarchies are the ones that have the time to evolve.",
+      "author": "Herbert A. Simon",
+      "work": "The Architecture of Complexity",
+      "workKind": "paper",
+      "year": 1962,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.cs.brandeis.edu/~cs146a/handouts/papers/simon-complexity.pdf",
+        "locator": "Conclusion: The Evolutionary Explanation of Hierarchy"
+      },
+      "themes": [
+        "nature",
+        "time",
+        "science"
+      ],
+      "tags": [
+        "complexity",
+        "hierarchy",
+        "survivorship"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in two independent scans of the Proceedings of the American Philosophical Society paper (Iowa State's copy, 13,060 words; Brandeis's copy, 12,655 words) and string-matched against both, which agree exactly. The Iowa State scan has OCR damage elsewhere in the paper — 'EVOLUTIONARY EXPLAKATIOX' — so the Brandeis copy, which is clean at this sentence, was used as the check rather than the other way round."
+      },
+      "why": "a survivorship argument for why so much of the world is shaped in layers",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
       ],
       "status": "open"
     }

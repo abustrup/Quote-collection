@@ -12,6 +12,7 @@
     {"title":"Flowers for Algernon","author":"Daniel Keyes","year":1966,"kind":"book","subject":"literature"},
     {"title":"Machines of Loving Grace","author":"Dario Amodei","year":2024,"kind":"essay","subject":"technology","url":"https://www.darioamodei.com/essay/machines-of-loving-grace"},
     {"title":"Meditations","author":"Marcus Aurelius","year":180,"kind":"book","subject":"philosophy"},
+    {"title":"Nexus: A Brief History of Information Networks from the Stone Age to AI","author":"Yuval Noah Harari","year":2024,"kind":"book","subject":"history"},
     {"title":"Notes from Underground","author":"Fyodor Dostoevsky","year":1864,"kind":"book","subject":"literature"},
     {"title":"Politics and the English Language","author":"George Orwell","year":1946,"kind":"essay","subject":"politics"},
     {"title":"Private Government: How Employers Rule Our Lives (and Why We Don't Talk about It)","author":"Elizabeth S. Anderson","year":2017,"kind":"book","subject":"politics"},

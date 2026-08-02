@@ -10,6 +10,83 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-02 · third board · 4 new lines · 1 kept of 9 resolved (11%), 5 still open
+
+**The hold ended on schedule, and the log's own plan was wrong about when.**
+The 2026-08-01 entry said the replacement would come "Tuesday 4 Aug", forgetting
+that `0` in `0 9 * * 0,2,4,6` is Sunday — today. So the second board got its one
+hold and is replaced now, which is what the cadence rule actually prescribes.
+Its five lines go onto their second and final showing rather than being retired
+early; after this run they are answered either way.
+
+**Nothing from my boards was kept, but the collection moved twice while I was
+holding, and both moves are informative.** On 1 Aug he filed four lines from
+Harari's *Nexus* (issue #20) — a work he went into himself, not one I supplied —
+and removed a fourth line from *Machines of Loving Grace* (issue #21). The
+running grade is unchanged at 1 kept of 14 proposed, with 5 of those still open.
+
+**What the *Nexus* picks confirm.** *"Information doesn't necessarily inform us
+about things. Rather, it puts things in formation."* — *"Evolution has primed our
+minds to understand death by a tiger. Our mind finds it much more difficult to
+understand death by a document."* Both are mechanisms with a specific claim
+inside them, and neither is the line a quote-of-the-day page would pull from that
+book. That is the third independent confirmation of the mechanism-over-sentiment
+reading, and the first that comes from his own filing rather than from a
+rejection of mine.
+
+**I considered retiring the Feynman line a showing early and decided not to.**
+Under the fame test added on 2026-08-01, *"nature cannot be fooled"* is the single
+most-circulated sentence of the Challenger appendix and probably fails it. But
+expiry is irreversible — a retired line may never be proposed again in any
+wording — while a second showing costs one slot on a board. Where a heuristic I
+inferred collides with a rule he set, the rule wins and the line gets its fair
+chance. Recording the reasoning so the next run does not re-litigate it.
+
+**Hirschman is the find, and it is the first genuinely new room in three
+boards.** *The Principle of the Hiding Hand* (The Public Interest, Winter 1967)
+argues that we undertake difficult projects only because we underestimate them,
+that we underestimate our own creativity by a roughly offsetting amount, and that
+the resulting accident is what converts a risk-averse person into someone who can
+carry risk. Three lines proposed from it. Adding Simon's *Architecture of
+Complexity* — hierarchies dominate nature because they are the forms that had
+time to evolve — the board's four new lines are all claims you could argue with,
+which is the shape that has scored.
+
+**Verification, and one honest caveat.** Simon is clean: two independent scans
+(Iowa State, Brandeis) read in full and string-matched, agreeing exactly, with the
+Brandeis copy used as the check because the Iowa State OCR is damaged elsewhere in
+the paper. Hirschman is weaker in provenance and the board says so — nationalaffairs.com
+403s, so the full text read was a re-typeset transcription. Rather than trust it
+blind, its fidelity was tested: three passages quoted independently in Flyvbjerg
+and Sunstein's peer-reviewed paper (arXiv:1509.01526) match it character-for-character,
+curly apostrophes included. The proposed sentences themselves are not reproduced
+anywhere I could find, so they rest on that full text alone.
+
+**The Danish door stayed shut, and it is a link-rot problem rather than a taste
+problem.** Bohr's *Open Letter to the United Nations* (1950) is the right kind of
+text — Danish, argumentative, about openness as a security mechanism. Five hosts
+that should have it are dead: atomicarchive.com, atomicheritage.org, fas.org,
+osti.gov and fredsakademiet.dk all 404, and archive.org has only a borrowing-only
+biography. Nothing was proposed from memory. **Next run's Nordic target is Bengt
+Holmström's 2016 Nobel lecture**, which is a free PDF, is about incentives and
+measurement rather than aphorism, and sits in the allocation seam that has not
+been tried properly.
+
+**Maintenance.** *Nexus* had no entry in `data/works.json`, so his four new
+quotes had no subject and no era and dropped out of the shelf's filters silently;
+registered as history / book / 2024. Test suite is 139 of 139 green, so the
+hard-coded curated-quote test that failed on 31 Jul is fixed and needs no further
+reporting. One defect stands and is still not this routine's to fix: quote
+`q_974fbf0518e9` (Dostoevsky, *"I'm more ready to admit things to you than I am to
+myself"*) came from Goodreads with `work: null` and sits outside every filter; it
+is *The Brothers Karamazov*, and correcting it means editing `quotes.json`.
+
+**What would falsify this board.** If four mechanism-shaped lines from two
+unfamiliar works score zero, the mechanism reading is not the constraint — the
+constraint is provenance, and the honest conclusion is the one the prompt names:
+he wants his own reading, and this routine should end at its expiry rather than
+keep refining a filter that was never the binding one.
+
 ## 2026-08-01 · held the board · no new proposals · still 1 kept of 9 resolved (11%)
 
 **Nothing posted, and that is the intended outcome.** The second board went up
