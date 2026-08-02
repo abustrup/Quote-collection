@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-02T18:02:59.226Z",
+  "updatedAt": "2026-08-02T20:23:39.906Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -4665,6 +4665,156 @@
       "verification": {
         "status": "verified",
         "note": "Read in full in the Nobel Foundation's own English text of 'Light and Thread', delivered at the Swedish Academy on 7 December 2024 (4,005 words) and string-matched against it. Translated from the Korean by e. yaewon and Paige Aniyah Morris."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
+    },
+    {
+      "id": "q_8aef4a975ee4",
+      "text": "I ought never to act except in such a way that I could also will that my maxim should become a universal law.",
+      "author": "Immanuel Kant",
+      "work": "Groundwork of the Metaphysics of Morals",
+      "workKind": "book",
+      "year": 1785,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Section I, Ak. 4:402"
+      },
+      "tags": [
+        "categorical imperative",
+        "maxim",
+        "universalisability"
+      ],
+      "themes": [
+        "ethics",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Cambridge edition, tr. Mary Gregor, 2026-08-02. The PDF's text layer renders the opening 'I' as '/' in the main text at Ak. 4:402; confirmed as 'I' against the second occurrence in the editor's introduction, which quotes the same Gregor sentence intact."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
+    },
+    {
+      "id": "q_1ad4b5290a0b",
+      "text": "A thing must be burnt in so that it stays in the memory: only something that continues to hurt stays in the memory",
+      "author": "Friedrich Nietzsche",
+      "work": "On the Genealogy of Morality",
+      "workKind": "book",
+      "year": 1887,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Second essay, §3"
+      },
+      "tags": [
+        "memory",
+        "cruelty",
+        "mnemonics"
+      ],
+      "themes": [
+        "suffering",
+        "mind"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Cambridge Texts edition, tr. Carol Diethe, ed. Keith Ansell-Pearson, 2026-08-02, and string-matched verbatim. Nietzsche sets these words in single quotation marks as a proposition he is stating; the enclosing marks are dropped here per the collection's format, and the words are his own."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
+    },
+    {
+      "id": "q_6a2dbb3fa5b9",
+      "text": "it needs an aim –, and it prefers to will nothingness rather than not will.",
+      "author": "Friedrich Nietzsche",
+      "work": "On the Genealogy of Morality",
+      "workKind": "book",
+      "year": 1887,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Third essay, §28 (closing)"
+      },
+      "tags": [
+        "will",
+        "nihilism",
+        "ascetic ideal"
+      ],
+      "themes": [
+        "meaning",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Cambridge edition, tr. Carol Diethe, 2026-08-02, and string-matched verbatim including Diethe's unusual dash-comma. This is a contiguous fragment of a longer sentence that begins 'That the ascetic ideal has meant so much to man reveals a basic fact of human will, its horror vacui;' — filed at the length Alexander chose."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
+    },
+    {
+      "id": "q_0bc98ac23771",
+      "text": "everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way.",
+      "author": "Viktor E. Frankl",
+      "work": "Man's Search for Meaning",
+      "workKind": "book",
+      "year": 1946,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Part One, Experiences in a Concentration Camp"
+      },
+      "tags": [
+        "attitude",
+        "choice",
+        "camps"
+      ],
+      "themes": [
+        "freedom",
+        "suffering"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Alexander's own copy of the book and string-matched verbatim, 2026-08-02. Wording is exact; the dash is normalised to an em dash because that PDF's text layer collapses em dashes to spaced hyphens systematically (212 spaced hyphens against 3 surviving em dashes), so the hyphen was an extraction artefact rather than the printed punctuation."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
+    },
+    {
+      "id": "q_14f523b35409",
+      "text": "What man actually needs is not a tensionless state but rather the striving and struggling for a worthwhile goal, a freely chosen task.",
+      "author": "Viktor E. Frankl",
+      "work": "Man's Search for Meaning",
+      "workKind": "book",
+      "year": 1946,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Part Two, Logotherapy in a Nutshell"
+      },
+      "tags": [
+        "tension",
+        "purpose",
+        "logotherapy"
+      ],
+      "themes": [
+        "meaning",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Alexander's own copy and string-matched verbatim, 2026-08-02."
       },
       "favorite": false,
       "note": "",
