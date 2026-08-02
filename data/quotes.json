@@ -4395,6 +4395,129 @@
       "addedAt": "2026-07-31"
     },
     {
+      "id": "q_f4574e15c25c",
+      "text": "AI isn’t progressing toward human-level intelligence. It is evolving an entirely different type of intelligence.",
+      "author": "Yuval Noah Harari",
+      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "workKind": "book",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Chapter 6: The New Members — “What Are the Implications?”"
+      },
+      "tags": [
+        "ai",
+        "alien-intelligence"
+      ],
+      "themes": [
+        "technology",
+        "mind",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-01"
+    },
+    {
+      "id": "q_1b669a19e0a9",
+      "text": "Democracies die not only when people are not free to talk but also when people are not willing or able to listen.",
+      "author": "Yuval Noah Harari",
+      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "workKind": "book",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Chapter 5: Decisions — “Measuring the Strength of Democracies”"
+      },
+      "tags": [
+        "democracy",
+        "conversation",
+        "listening"
+      ],
+      "themes": [
+        "politics",
+        "freedom",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-01"
+    },
+    {
+      "id": "q_dadf08ffe5af",
+      "text": "Evolution has primed our minds to understand death by a tiger. Our mind finds it much more difficult to understand death by a document.",
+      "author": "Yuval Noah Harari",
+      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "workKind": "book",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Chapter 3: Documents: The Bite of the Paper Tigers — “The Biological Dramas”"
+      },
+      "tags": [
+        "bureaucracy",
+        "kafka",
+        "cognition"
+      ],
+      "themes": [
+        "mind",
+        "death",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-01"
+    },
+    {
+      "id": "q_7d3cdcfcea41",
+      "text": "Information doesn’t necessarily inform us about things. Rather, it puts things in formation.",
+      "author": "Yuval Noah Harari",
+      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "workKind": "book",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Chapter 1: What Is Information? — “What Information Does”"
+      },
+      "tags": [
+        "information",
+        "networks",
+        "connection"
+      ],
+      "themes": [
+        "knowledge",
+        "language",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-01"
+    },
+    {
       "id": "q_2c18e3e52872",
       "text": "As far as we can tell from a purely scientific viewpoint, human life has absolutely no meaning. Humans are the outcome of blind evolutionary processes that operate without goal or purpose. Our actions are not part of some divine cosmic plan, and if planet earth were to blow up tomorrow morning, the universe would probably keep going about its business as usual. As far as we can tell at this point, human subjectivity would not be missed. Hence any meaning that people inscribe to their lives is just a delusion.",
       "author": "Yuval Noah Harari",
@@ -4515,129 +4638,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_7d3cdcfcea41",
-      "text": "Information doesn’t necessarily inform us about things. Rather, it puts things in formation.",
-      "author": "Yuval Noah Harari",
-      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-      "workKind": "book",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Chapter 1: What Is Information? — “What Information Does”"
-      },
-      "tags": [
-        "information",
-        "networks",
-        "connection"
-      ],
-      "themes": [
-        "knowledge",
-        "language",
-        "truth"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-01"
-    },
-    {
-      "id": "q_1b669a19e0a9",
-      "text": "Democracies die not only when people are not free to talk but also when people are not willing or able to listen.",
-      "author": "Yuval Noah Harari",
-      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-      "workKind": "book",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Chapter 5: Decisions — “Measuring the Strength of Democracies”"
-      },
-      "tags": [
-        "democracy",
-        "conversation",
-        "listening"
-      ],
-      "themes": [
-        "politics",
-        "freedom",
-        "truth"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-01"
-    },
-    {
-      "id": "q_dadf08ffe5af",
-      "text": "Evolution has primed our minds to understand death by a tiger. Our mind finds it much more difficult to understand death by a document.",
-      "author": "Yuval Noah Harari",
-      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-      "workKind": "book",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Chapter 3: Documents: The Bite of the Paper Tigers — “The Biological Dramas”"
-      },
-      "tags": [
-        "bureaucracy",
-        "kafka",
-        "cognition"
-      ],
-      "themes": [
-        "mind",
-        "death",
-        "power"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-01"
-    },
-    {
-      "id": "q_f4574e15c25c",
-      "text": "AI isn’t progressing toward human-level intelligence. It is evolving an entirely different type of intelligence.",
-      "author": "Yuval Noah Harari",
-      "work": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-      "workKind": "book",
-      "year": 2024,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Chapter 6: The New Members — “What Are the Implications?”"
-      },
-      "tags": [
-        "ai",
-        "alien-intelligence"
-      ],
-      "themes": [
-        "technology",
-        "mind",
-        "knowledge"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the full text of the Random House 2024 edition (592-page PDF of the print edition) and string-matched verbatim against it. No web source consulted for the wording."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-01"
     }
   ]
 }
