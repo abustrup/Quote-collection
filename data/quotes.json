@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T10:34:52.489Z",
+  "updatedAt": "2026-08-02T18:02:59.226Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -4638,6 +4638,37 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9dc0bebc286a",
+      "text": "When I reach the end of these questions – which is not the same as when I find answers to them – is when I reach the end of the writing process.",
+      "author": "Han Kang",
+      "work": "Nobel Lecture",
+      "workKind": "speech",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/literature/2024/han/lecture/",
+        "locator": "Light and Thread"
+      },
+      "tags": [
+        "method",
+        "questions",
+        "completion"
+      ],
+      "themes": [
+        "writing",
+        "knowledge",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in the Nobel Foundation's own English text of 'Light and Thread', delivered at the Swedish Academy on 7 December 2024 (4,005 words) and string-matched against it. Translated from the Korean by e. yaewon and Paige Aniyah Morris."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
     }
   ]
 }
