@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-02T20:23:39.906Z",
+  "updatedAt": "2026-08-02T21:44:13.283Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -4815,6 +4815,36 @@
       "verification": {
         "status": "verified",
         "note": "Read in Alexander's own copy and string-matched verbatim, 2026-08-02."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-02"
+    },
+    {
+      "id": "q_e7f2c4c1bdbd",
+      "text": "Autonomy of the will is the property of the will by which it is a law to itself",
+      "author": "Immanuel Kant",
+      "work": "Groundwork of the Metaphysics of Morals",
+      "workKind": "book",
+      "year": 1785,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Section II, Ak. 4:440"
+      },
+      "tags": [
+        "autonomy",
+        "self-legislation",
+        "will"
+      ],
+      "themes": [
+        "freedom",
+        "ethics"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Cambridge Texts in the History of Philosophy edition, tr. Mary Gregor, 2026-08-02, and string-matched verbatim. The PDF's text layer carries a superscript footnote marker after 'property' (Gregor's note on the German Beschaffenheit); it is a translator's apparatus, not part of the sentence, and is omitted here. Position confirmed as Ak. 4:440 from the page markers either side of it in the same edition. The sentence continues '(independently of any property of the objects of volition)'; filed at the length Alexander chose."
       },
       "favorite": false,
       "note": "",
