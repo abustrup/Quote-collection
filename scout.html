@@ -56,6 +56,39 @@
     letter-spacing: 0.02em;
   }
 
+  /* Saying no. Deliberately quiet — it sits below the board rather than beside
+     "Add to the collection", because the cost of a mis-click is nine lines
+     answered at once and never offered again. */
+  .retire-all-row {
+    margin: 1.6rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.6rem;
+  }
+
+  .linkish {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .linkish:hover { color: var(--ink); }
+
+  .retire-all-hint {
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-size: 0.76rem;
+    opacity: 0.75;
+  }
+
   .proposal {
     display: flex;
     align-items: flex-start;
@@ -270,6 +303,11 @@
 
   <ol class="board" id="board"></ol>
 
+  <p class="retire-all-row" id="retire-all-row" hidden>
+    <button class="linkish" id="retire-all" type="button">Retire the whole board</button>
+    <span class="retire-all-hint">Says no to everything above, so the scout stops guessing and goes looking elsewhere.</span>
+  </p>
+
   <div class="empty" id="empty" hidden>
     <p><strong>Nothing waiting.</strong></p>
     <p id="empty-detail"></p>
@@ -292,6 +330,7 @@
 <div class="action-bar" id="action-bar" hidden>
   <span class="selected-count" id="selected-count"></span>
   <button class="pill" id="clear-selection" type="button">Clear</button>
+  <button class="pill" id="retire-selected" type="button">Retire these</button>
   <button class="pill primary" id="add-selected" type="button">Add to the collection</button>
 </div>
 

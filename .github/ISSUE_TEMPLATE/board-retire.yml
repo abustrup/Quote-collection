@@ -1,0 +1,54 @@
+# Lines rejected on the board.
+#
+# The counterpart to board-pick.yml, and the reason it exists: accepting was the
+# only signal the board could carry. With no way to say no, "he never opened the
+# page" and "he read every line and passed" were the same event in the data and
+# opposite events in his head, so the scout had to guess by waiting two showings.
+# This form lets him say no directly.
+#
+# Handled by retire-proposals.yml, not by ingest-quote.yml. The two are kept
+# apart on purpose: the keep path needs write access to the collection, while
+# this one may only flip a `status` field in data/proposals.json, so the worst a
+# bug here can do is stop a suggestion being offered.
+name: Retire lines from the board
+description: Ticked on the board as not wanted — this form is filled in for you.
+title: "Retire: "
+labels: ["quote-board-retire"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is normally opened for you by
+        [the board](https://abustrup.github.io/Quote-collection/scout.html),
+        already filled in. Submit it and these lines come off the board within a
+        minute or two, and are never proposed again in any wording.
+
+        Nothing is deleted from the collection by this form. It only tells the
+        scout that these *proposals* are answered.
+
+  - type: textarea
+    id: ids
+    attributes:
+      label: Retire
+      description: One id per line. The board fills these in; there is nothing to type.
+      placeholder: |
+        q_f9b54da991a3
+        q_77f681e91ec8
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: What these are
+      description: Ignored by the scout — it is here so the issue reads as something rather than as a list of hashes.
+    validations:
+      required: false
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why, in as many or as few words as you like
+      description: Optional, and the most useful box on the page. The scout is measured by what you keep, so a line about *why* something missed is worth more to it than the rejection itself.
+    validations:
+      required: false

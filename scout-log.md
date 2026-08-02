@@ -10,82 +10,93 @@ made. Everything else is an explanation of it.
 
 ---
 
-## 2026-08-02 · third board · 4 new lines · 1 kept of 9 resolved (11%), 5 still open
+## 2026-08-02 · third board · rebuilt mid-run after a fair complaint · 1 kept of 14 proposed (7%)
 
-**The hold ended on schedule, and the log's own plan was wrong about when.**
-The 2026-08-01 entry said the replacement would come "Tuesday 4 Aug", forgetting
-that `0` in `0 9 * * 0,2,4,6` is Sunday — today. So the second board got its one
-hold and is replaced now, which is what the cadence rule actually prescribes.
-Its five lines go onto their second and final showing rather than being retired
-early; after this run they are answered either way.
+**The board went up, he read it, and the first thing he said was that every
+line on it was written between 1961 and 1986.** He was right, and it is the
+most useful correction this routine has had after his rule about acceptance
+being the only signal. Nine lines: Eisenhower 1961, Simon 1962, Hirschman 1967,
+Feynman 1986, Hamming 1986. That is not a taste, it is a rut — I found one shape
+that had scored once (people inside institutions arguing about what money and
+haste do to inquiry), and that shape happens to live almost entirely in
+mid-century America. **Optimising hard for a single confirmed signal is how a
+recommender collapses onto one era without noticing**, and nothing in the
+process caught it, because every individual line passed every test I was
+applying. The test I was not applying was to the board as a whole.
 
-**Nothing from my boards was kept, but the collection moved twice while I was
-holding, and both moves are informative.** On 1 Aug he filed four lines from
-Harari's *Nexus* (issue #20) — a work he went into himself, not one I supplied —
-and removed a fourth line from *Machines of Loving Grace* (issue #21). The
-running grade is unchanged at 1 kept of 14 proposed, with 5 of those still open.
+**He also set floors: at least 35 per cent of quotes from this century, at least
+15 per cent from the last five years.** Measured against the collection those are
+demanding but not absurd — it stands at 28 per cent and 18 per cent — and the
+first version of this board was 0 and 0, so it was actively dragging both down.
+The rebuild is 44 per cent and 33 per cent, deliberately above the floors,
+because a proposal only moves the collection if it is kept.
 
-**What the *Nexus* picks confirm.** *"Information doesn't necessarily inform us
-about things. Rather, it puts things in formation."* — *"Evolution has primed our
-minds to understand death by a tiger. Our mind finds it much more difficult to
-understand death by a document."* Both are mechanisms with a specific claim
-inside them, and neither is the line a quote-of-the-day page would pull from that
-book. That is the third independent confirmation of the mechanism-over-sentiment
-reading, and the first that comes from his own filing rather than from a
-rejection of mine.
+**What was retired early, and why that overrode a decision made an hour
+earlier.** All five carried lines — the 1961–1986 block — were retired without a
+second showing. Earlier in this same run I had argued the opposite for the
+Feynman line: that expiry is irreversible and the two-showing rule is his, so a
+heuristic of mine should not cut a showing short. That reasoning was sound and it
+is now superseded, because the instruction is his too and it is more recent and
+more specific. Worth recording the shape of it: **a rule inferred from evidence
+yields to the owner saying something directly, and the fact that I had just
+written the opposite down is not a reason to hold.**
 
-**I considered retiring the Feynman line a showing early and decided not to.**
-Under the fame test added on 2026-08-01, *"nature cannot be fooled"* is the single
-most-circulated sentence of the Challenger appendix and probably fails it. But
-expiry is irreversible — a retired line may never be proposed again in any
-wording — while a second showing costs one slot on a board. Where a heuristic I
-inferred collides with a rule he set, the rule wins and the line gets its fair
-chance. Recording the reasoning so the next run does not re-litigate it.
+**The rebuilt board spans 1792 to 2024**: Wollstonecraft on why power would
+rationally choose to keep people ignorant; Simon and Hirschman kept from the
+morning's work; Sutton's *Bitter Lesson* on thirty years of researchers losing to
+their own cleverness, which is the Bush line he kept restated as a design rule;
+and three lectures from the last five years — Ressa on who is choosing the shape
+of the information ecosystem, Fosse on the line between writing that informs and
+writing that exists, Han Kang on finishing being a different event from
+answering. All five new lines were read in full in a primary source and
+string-matched; none is a translation without its translator named.
 
-**Hirschman is the find, and it is the first genuinely new room in three
-boards.** *The Principle of the Hiding Hand* (The Public Interest, Winter 1967)
-argues that we undertake difficult projects only because we underestimate them,
-that we underestimate our own creativity by a roughly offsetting amount, and that
-the resulting accident is what converts a risk-averse person into someone who can
-carry risk. Three lines proposed from it. Adding Simon's *Architecture of
-Complexity* — hierarchies dominate nature because they are the forms that had
-time to evolve — the board's four new lines are all claims you could argue with,
-which is the shape that has scored.
+**A second concentration nobody had measured: seventeen of the eighteen authors
+in the collection are men.** One line, from Elizabeth Anderson. That is not
+something he asked about and it is not something the collection could tell me
+without being asked the question — but "diversify in other ways you may find" is
+the licence, and it is the largest single skew in the data. A third of the
+rebuilt board is women, and it spans England, the United States, the
+Philippines, Norway and South Korea instead of the Anglo-Russian monoculture the
+shelf currently is. **Rule for future runs: grade the board as a set before
+posting it — era, origin, voice, field — not just line by line.** Every line on
+the first version passed on its own merits.
 
-**Verification, and one honest caveat.** Simon is clean: two independent scans
-(Iowa State, Brandeis) read in full and string-matched, agreeing exactly, with the
-Brandeis copy used as the check because the Iowa State OCR is damaged elsewhere in
-the paper. Hirschman is weaker in provenance and the board says so — nationalaffairs.com
-403s, so the full text read was a re-typeset transcription. Rather than trust it
-blind, its fidelity was tested: three passages quoted independently in Flyvbjerg
-and Sunstein's peer-reviewed paper (arXiv:1509.01526) match it character-for-character,
-curly apostrophes included. The proposed sentences themselves are not reproduced
-anywhere I could find, so they rest on that full text alone.
+**Three sources failed in ways worth naming, because two of them look like
+successes.** Bohr's *Open Letter to the United Nations* is behind five dead hosts
+(atomicarchive, atomicheritage, fas.org, osti.gov, fredsakademiet) and a
+borrowing-only scan, so the Danish door stayed shut again. Worse: **the Nobel
+Foundation's "lecture" page for Goldin 2023 and Acemoglu 2024 serves presentation
+slides, not prose** — Acemoglu's is 2,539 words of bullet fragments beginning
+"I Use potential settler mortality directly as an instrument". A run that
+trusted the filename would have quoted a slide bullet as a sentence. And
+Holmström's 2016 lecture is genuine full prose and still yielded nothing: it is a
+technical economics paper, and its quotable ideas only exist as equations. The
+literature and peace lectures are the reliable seam here; the economics ones are
+not.
 
-**The Danish door stayed shut, and it is a link-rot problem rather than a taste
-problem.** Bohr's *Open Letter to the United Nations* (1950) is the right kind of
-text — Danish, argumentative, about openness as a security mechanism. Five hosts
-that should have it are dead: atomicarchive.com, atomicheritage.org, fas.org,
-osti.gov and fredsakademiet.dk all 404, and archive.org has only a borrowing-only
-biography. Nothing was proposed from memory. **Next run's Nordic target is Bengt
-Holmström's 2016 Nobel lecture**, which is a free PDF, is about incentives and
-measurement rather than aphorism, and sits in the allocation seam that has not
-been tried properly.
+**New capability, and it is his idea: the board can now say no.** Two buttons —
+"Retire these" for ticked lines, "Retire the whole board" behind a confirm — open
+a prefilled issue that a new workflow applies to `data/proposals.json`. This
+removes the guess the two-showing rule existed to paper over: silence from a page
+he never opened and silence from a page he worked through were the same event in
+the data, and now they are not. The workflow is deliberately separate from
+`ingest-quote.yml`; the keep path can write the collection, this one may only
+flip a `status` field, so a bug here costs a suggestion rather than a quote. The
+repository's own `tests/routing.test.mjs` caught the first attempt, which shipped
+the form with no workflow behind it — an invariant worth having, and it was right.
 
-**Maintenance.** *Nexus* had no entry in `data/works.json`, so his four new
-quotes had no subject and no era and dropped out of the shelf's filters silently;
-registered as history / book / 2024. Test suite is 139 of 139 green, so the
-hard-coded curated-quote test that failed on 31 Jul is fixed and needs no further
-reporting. One defect stands and is still not this routine's to fix: quote
-`q_974fbf0518e9` (Dostoevsky, *"I'm more ready to admit things to you than I am to
-myself"*) came from Goodreads with `work: null` and sits outside every filter; it
-is *The Brothers Karamazov*, and correcting it means editing `quotes.json`.
+**Maintenance.** *Nexus* had no entry in `data/works.json`, so his four quotes
+filed on 1 Aug had no subject and no era and were dropping out of the shelf's
+filters silently; registered as history / book / 2024. Suite is 139 of 139 green.
+The `q_974fbf0518e9` Dostoevsky defect (`work: null`, from Goodreads) still
+stands and is still not this routine's to fix.
 
-**What would falsify this board.** If four mechanism-shaped lines from two
-unfamiliar works score zero, the mechanism reading is not the constraint — the
-constraint is provenance, and the honest conclusion is the one the prompt names:
-he wants his own reading, and this routine should end at its expiry rather than
-keep refining a filter that was never the binding one.
+**What would falsify this board.** If a set that spans 232 years, five countries
+and four fields still scores zero, then neither shape nor spread is the binding
+constraint, and the honest conclusion is the one the prompt already names: he
+wants his own reading, and this routine should end at its expiry rather than
+keep tuning a filter that was never the problem.
 
 ## 2026-08-01 · held the board · no new proposals · still 1 kept of 9 resolved (11%)
 

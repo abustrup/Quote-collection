@@ -3,7 +3,7 @@
   "updatedAt": "2026-08-02",
   "board": {
     "runId": "2026-08-02",
-    "note": "Nothing was ticked off the last board, so its five lines are here on their second and final showing — after this they are answered and retired. The four new ones come from hunting the shape of the only line you have kept from me: an argument about how things actually get built, not a fine sentiment about it. Hirschman's 1967 essay is the find, and it is strange in a way I did not expect — it argues that we take on hard projects only because we misjudge them, and that the misjudgement is what turns a cautious person into someone who can bear risk. The Danish door stayed shut: Bohr's Open Letter to the United Nations is behind five dead links and a borrowing-only scan, so there is nothing from it here rather than something half-checked."
+    "note": "Rebuilt after a fair complaint: the first version of this board was nine lines and every one of them was written between 1961 and 1986, which is a record of where I went looking rather than of anything about you. The five most concentrated of those are retired here. What is left spans 1792 to 2024 — Wollstonecraft on why power would rationally keep people ignorant, Hirschman and Simon on how projects and systems actually survive, Sutton on thirty years of researchers losing to their own cleverness, and three lectures from the last five years by a Filipino journalist, a Norwegian playwright and a Korean novelist. Four of the nine are from this century and three from the last five years, against a collection that runs 28 per cent and 18 per cent. Also worth saying plainly: seventeen of the eighteen authors you currently hold are men, so a third of this board is not."
   },
   "proposals": [
     {
@@ -331,10 +331,9 @@
       "why": "the last line of a report by someone who had just taken an institution apart",
       "lang": "en",
       "shownOn": [
-        "2026-07-31",
-        "2026-08-02"
+        "2026-07-31"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_e6a986a8db98",
@@ -365,10 +364,9 @@
       "why": "the counterweight to the Bush line you kept, argued from the paying side",
       "lang": "en",
       "shownOn": [
-        "2026-07-31",
-        "2026-08-02"
+        "2026-07-31"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_bf031b5e8182",
@@ -399,10 +397,9 @@
       "why": "the half of that speech nobody quotes, and the harder one to act on",
       "lang": "en",
       "shownOn": [
-        "2026-07-31",
-        "2026-08-02"
+        "2026-07-31"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_5a8a5fbffa0e",
@@ -433,10 +430,9 @@
       "why": "a definition that bites, in exactly the shape of the line you kept",
       "lang": "en",
       "shownOn": [
-        "2026-07-31",
-        "2026-08-02"
+        "2026-07-31"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_a3dfdd005d37",
@@ -467,10 +463,9 @@
       "why": "a ten-year trade-off he observed rather than asserted",
       "lang": "en",
       "shownOn": [
-        "2026-07-31",
-        "2026-08-02"
+        "2026-07-31"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_24fd794d5ebe",
@@ -598,6 +593,171 @@
         "note": "Read in full in two independent scans of the Proceedings of the American Philosophical Society paper (Iowa State's copy, 13,060 words; Brandeis's copy, 12,655 words) and string-matched against both, which agree exactly. The Iowa State scan has OCR damage elsewhere in the paper — 'EVOLUTIONARY EXPLAKATIOX' — so the Brandeis copy, which is clean at this sentence, was used as the check rather than the other way round."
       },
       "why": "a survivorship argument for why so much of the world is shaped in layers",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_799b9d618996",
+      "text": "Strengthen the female mind by enlarging it, and there will be an end to blind obedience; but, as blind obedience is ever sought for by power, tyrants and sensualists are in the right when they endeavour to keep women in the dark, because the former only want slaves, and the latter a play-thing.",
+      "author": "Mary Wollstonecraft",
+      "work": "A Vindication of the Rights of Woman",
+      "workKind": "book",
+      "year": 1792,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.gutenberg.org/cache/epub/3420/pg3420.txt",
+        "locator": "Chapter IV"
+      },
+      "themes": [
+        "power",
+        "knowledge",
+        "freedom"
+      ],
+      "tags": [
+        "education",
+        "obedience",
+        "dependence"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in Project Gutenberg's plain-text edition of the 1792 first edition (89,552 words, the complete book with its dedication to Talleyrand) and string-matched character-for-character against that loaded text."
+      },
+      "why": "the oldest line on the board, and the only one that says why power would rationally choose ignorance",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_d5ede79828e6",
+      "text": "We want AI agents that can discover like we can, not which contain what we have discovered.",
+      "author": "Richard S. Sutton",
+      "work": "The Bitter Lesson",
+      "workKind": "essay",
+      "year": 2019,
+      "source": {
+        "kind": "curated",
+        "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+        "locator": "closing paragraph"
+      },
+      "themes": [
+        "knowledge",
+        "technology",
+        "mind"
+      ],
+      "tags": [
+        "research strategy",
+        "scaling",
+        "method"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full on Sutton's own page at incompleteideas.net (1,125 words, the complete essay) and string-matched against it. Published 13 March 2019; no secondary source consulted for the wording."
+      },
+      "why": "the Bush line you kept, restated as a design rule by someone who lost the argument for thirty years",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_fa75d36d5eeb",
+      "text": "Facebook is the world’s largest distributor of news, and yet studies have shown that lies laced with anger and hate spread faster and further than facts on social media.",
+      "author": "Maria Ressa",
+      "work": "Nobel Lecture",
+      "workKind": "speech",
+      "year": 2021,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/peace/2021/ressa/lecture/",
+        "locator": "on the problem we all face"
+      },
+      "themes": [
+        "truth",
+        "politics",
+        "technology"
+      ],
+      "tags": [
+        "information ecosystem",
+        "journalism",
+        "distribution"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in the Nobel Foundation's own English text of the lecture as delivered in Oslo on 10 December 2021 (2,524 words, continuous prose, not a summary) and string-matched against it."
+      },
+      "why": "your Nexus lines argue that information takes a shape; this one names who is choosing the shape",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_b0a574a36620",
+      "text": "The spoken language is often a monological communication of a message that something should be like this or like that, or it is a rhetorical communication of a message with persuasion or conviction. The literary language is never like that – it doesn’t inform, it is meaning rather than communication, it has its own existence.",
+      "author": "Jon Fosse",
+      "work": "Nobel Lecture",
+      "workKind": "speech",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/literature/2023/fosse/lecture/",
+        "locator": "A Silent Language"
+      },
+      "themes": [
+        "language",
+        "writing",
+        "meaning"
+      ],
+      "tags": [
+        "literature",
+        "rhetoric",
+        "persuasion"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in the Nobel Foundation's own English text of 'A Silent Language', delivered at the Swedish Academy on 7 December 2023 (2,809 words) and string-matched against it. Translated from the Norwegian by Damion Searls. Both sentences are quoted because the second begins 'never like that' and is meaningless without the first."
+      },
+      "why": "a Norwegian drawing a hard line between writing that informs and writing that exists",
+      "lang": "en",
+      "shownOn": [
+        "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_9dc0bebc286a",
+      "text": "When I reach the end of these questions – which is not the same as when I find answers to them – is when I reach the end of the writing process.",
+      "author": "Han Kang",
+      "work": "Nobel Lecture",
+      "workKind": "speech",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/literature/2024/han/lecture/",
+        "locator": "Light and Thread"
+      },
+      "themes": [
+        "writing",
+        "knowledge",
+        "work"
+      ],
+      "tags": [
+        "method",
+        "questions",
+        "completion"
+      ],
+      "verification": {
+        "status": "verified",
+        "note": "Read in full in the Nobel Foundation's own English text of 'Light and Thread', delivered at the Swedish Academy on 7 December 2024 (4,005 words) and string-matched against it. Translated from the Korean by e. yaewon and Paige Aniyah Morris."
+      },
+      "why": "finishing and answering are different events, which is the rarer claim",
       "lang": "en",
       "shownOn": [
         "2026-08-02"

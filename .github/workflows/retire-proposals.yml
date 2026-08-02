@@ -1,0 +1,109 @@
+# Mark lines from the board as answered, so the scout stops offering them.
+#
+# Sibling of ingest-quote.yml, and deliberately much smaller. That workflow can
+# write the collection; this one can only flip a `status` field in
+# data/proposals.json, which holds the scout's suggestions rather than anything
+# the owner chose. scripts/retire-proposals.mjs opens data/quotes.json read-only
+# and for exactly one reason: to refuse to "retire" a line that was in fact kept.
+#
+# Same author guard as its sibling, for the same reason: anyone may open an issue
+# on a public repository and anyone may apply a label by opening the right form,
+# so the guard is on who opened the issue, not on what it says.
+#
+# Routed by heading as well as by label. GitHub applies a template's declared
+# label only if that label already exists on the repository, and three labels in
+# this repository never did — the forms opened unlabelled issues and nothing ran,
+# silently, for two days. `### Retire` is written by the form and travels in the
+# body, where nothing can quietly drop it. tests/routing.test.mjs enforces this.
+name: Retire board proposals
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions: {}
+
+concurrency:
+  group: retire-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  retire:
+    name: Retire
+    if: >-
+      github.event.issue.state == 'open'
+      && github.event.issue.user.login == github.repository_owner
+      && (contains(github.event.issue.labels.*.name, 'quote-board-retire')
+      || contains(github.event.issue.body, '### Retire'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Read the issue
+        id: retire
+        continue-on-error: true
+        env:
+          # The body reaches Node through the environment and never through the
+          # shell, so an id list containing backticks or $(…) is just text.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          node scripts/retire-proposals.mjs \
+            --body-env ISSUE_BODY \
+            --summary-file "$RUNNER_TEMP/comment.md"
+
+      - name: Check the collection still validates
+        id: check
+        if: steps.retire.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/validate.mjs
+
+      - name: Commit the board
+        id: commit
+        if: >-
+          steps.retire.outcome == 'success'
+          && steps.check.outcome == 'success'
+        run: |
+          if git diff --quiet -- data/proposals.json; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Staged by name. This workflow has contents:write, and the one file it
+          # is allowed to change is the one named here.
+          git add data/proposals.json
+          git commit -m "Retire board lines from issue #${{ github.event.issue.number }}"
+          git push origin HEAD:${{ github.event.repository.default_branch }}
+
+      - name: Say what happened
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f "$RUNNER_TEMP/comment.md" ]; then
+            gh issue comment "${{ github.event.issue.number }}" \
+              --repo "${{ github.repository }}" \
+              --body-file "$RUNNER_TEMP/comment.md"
+          else
+            gh issue comment "${{ github.event.issue.number }}" \
+              --repo "${{ github.repository }}" \
+              --body "I could not read any board ids under a \`### Retire\` heading, so nothing changed."
+          fi
+
+      - name: Close the issue
+        if: steps.commit.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close "${{ github.event.issue.number }}" --repo "${{ github.repository }}"

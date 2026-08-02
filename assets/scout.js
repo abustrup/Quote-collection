@@ -15,6 +15,12 @@
  * second, the routine retires it and never offers it again, so the board is
  * always mostly new. Which of the two showings a line is on is written on it,
  * because "last chance" is information you want before you skim past.
+ *
+ * Two showings was always a workaround for a missing signal: with only a
+ * "keep" button, a page never opened and a page read-and-passed looked
+ * identical, so the routine had to infer a no by waiting. The retire buttons
+ * remove the guess — see `retireUrl` for why they take a slower route than
+ * picks do.
  */
 
 import { quoteId, VERIFICATION_LABELS } from './quote-core.js';
@@ -44,7 +50,10 @@ const dom = {
   bar: el('action-bar'),
   count: el('selected-count'),
   add: el('add-selected'),
+  retire: el('retire-selected'),
   clear: el('clear-selection'),
+  retireAllRow: el('retire-all-row'),
+  retireAll: el('retire-all'),
   kept: el('kept'),
   keptList: el('kept-list'),
   toast: el('toast'),
@@ -118,6 +127,7 @@ function render() {
 
   const showing = open.length > 0;
   dom.empty.hidden = showing;
+  dom.retireAllRow.hidden = !showing;
   dom.boardNote.hidden = !state.note;
   dom.boardNote.textContent = state.note || '';
 
@@ -287,6 +297,52 @@ function handOver() {
   toast('Submit the issue that just opened and the robot files them.');
 }
 
+/**
+ * Saying no.
+ *
+ * Until this existed, accepting was the only signal the board could carry, so
+ * "never opened the page" and "read it all and passed" were the same event in
+ * the data. The scout had to tell them apart by showing a line twice and
+ * waiting. This hands it the answer directly.
+ *
+ * It opens its own form rather than reusing the pick one, and that form is
+ * handled by its own workflow rather than by `ingest-quote.yml`. Keeping the
+ * two apart is the point: the keep path can write the collection, this one can
+ * only flip a `status` field in data/proposals.json, so a bug here costs a
+ * suggestion rather than a quote.
+ */
+function retireUrl(chosen) {
+  const params = new URLSearchParams({
+    template: 'board-retire.yml',
+    title: `Retire: ${pluralise(chosen.length, 'line')} from the board`,
+    ids: chosen.map((proposal) => identityOf(proposal)).join('\n'),
+    context: chosen
+      .map((proposal) => `${proposal.author}: ${proposal.text.slice(0, 80)}${proposal.text.length > 80 ? '…' : ''}`)
+      .join('\n'),
+  });
+  return `${REPO}/issues/new?${params}`;
+}
+
+function retire(chosen, { confirmFirst = false } = {}) {
+  if (chosen.length === 0) return;
+  if (confirmFirst) {
+    const question = `Retire ${pluralise(chosen.length, 'line')}? They are never proposed again, in any wording.`;
+    if (!window.confirm(question)) return;
+  }
+  window.open(retireUrl(chosen), '_blank', 'noopener');
+  toast('Submit the issue that just opened and they come off the board.');
+}
+
+function retireSelected() {
+  retire(picked());
+}
+
+/** Everything currently on the board — the lines the page is showing, not the
+ *  whole proposal history, which is mostly already answered. */
+function retireWholeBoard() {
+  retire(state.proposals.filter((proposal) => stateOf(proposal) === 'open'), { confirmFirst: true });
+}
+
 /* ---------------------------------------------------------------------------
  * Wiring
  * ------------------------------------------------------------------------- */
@@ -329,6 +385,8 @@ async function start() {
 
 dom.board.addEventListener('change', onBoardChange);
 dom.add.addEventListener('click', handOver);
+dom.retire.addEventListener('click', retireSelected);
+dom.retireAll.addEventListener('click', retireWholeBoard);
 dom.clear.addEventListener('click', clearSelection);
 
 start();
