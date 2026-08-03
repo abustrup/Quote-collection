@@ -9,6 +9,7 @@
     {"title":"Brave New World","author":"Aldous Huxley","year":1932,"kind":"book","subject":"literature"},
     {"title":"Claude’s Constitution","author":"Anthropic","year":2026,"kind":"document","subject":"technology","url":"https://www.anthropic.com/constitution"},
     {"title":"Crime and Punishment","author":"Fyodor Dostoevsky","year":1866,"kind":"book","subject":"literature"},
+    {"title":"Elon Musk","author":"Walter Isaacson","year":2023,"kind":"book","subject":"technology"},
     {"title":"Flowers for Algernon","author":"Daniel Keyes","year":1966,"kind":"book","subject":"literature"},
     {"title":"Machines of Loving Grace","author":"Dario Amodei","year":2024,"kind":"essay","subject":"technology","url":"https://www.darioamodei.com/essay/machines-of-loving-grace"},
     {"title":"Meditations","author":"Marcus Aurelius","year":180,"kind":"book","subject":"philosophy"},
