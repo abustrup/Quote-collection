@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-02T21:44:13.283Z",
+  "updatedAt": "2026-08-03T21:07:10.657Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -4849,6 +4849,170 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_418f2fa1156e",
+      "text": "We will be the first species ever to design our own descendants.",
+      "author": "Sam Altman",
+      "work": "The Merge",
+      "workKind": "essay",
+      "year": 2017,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/the-merge",
+        "locator": "on designing our own successors"
+      },
+      "tags": [
+        "ai",
+        "evolution",
+        "species",
+        "descendants",
+        "the-merge"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "nature"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full on Altman's own blog (blog.samaltman.com/the-merge, published 2017-12-07) via the site's Atom feed; string-matched verbatim against that text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_9c2b1c33e61d",
+      "text": "Plans should be measured in decades, execution should be measured in weeks.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "eleventh aphorism"
+      },
+      "tags": [
+        "planning",
+        "execution",
+        "tempo",
+        "long-term"
+      ],
+      "themes": [
+        "time",
+        "work",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full on Altman's own blog (blog.samaltman.com/what-i-wish-someone-had-told-me, published 2023-12-21) via the site's Atom feed; string-matched verbatim against that text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_a2fba4e3a8f2",
+      "text": "the bottleneck is not the progress of the AI models. the bottleneck is diffusing that through the rest of the world",
+      "author": "Alexandr Wang",
+      "work": "This is a Once-in-a-Civilization Opportunity",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity",
+        "locator": "Y Combinator Startup School 2026, on why this is the best time to start a company"
+      },
+      "tags": [
+        "ai",
+        "diffusion",
+        "bottleneck",
+        "adoption",
+        "agents"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against a transcript of the interview supplied by the collector; the transcript was identified as this talk because the phrase that titles it appears verbatim within. Not checked against YC's own audio or video, and machine transcripts carry errors, hence reported rather than verified. Two lowercase sentence-starts are as transcribed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_82157dfdf6c9",
+      "text": "the verification I think is probably the single most important thing that people largely do not get right",
+      "author": "Boris Cherny",
+      "work": "Building Claude Code",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
+        "locator": "Y Combinator Startup School 2026, on what replaced prompt engineering"
+      },
+      "tags": [
+        "ai",
+        "agents",
+        "verification",
+        "autonomy",
+        "harness"
+      ],
+      "themes": [
+        "knowledge",
+        "work",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_8f520ed517f5",
+      "text": "every six months, delete your CLAUDE.md, delete your skills, delete your hooks, see what the model does, and it might surprise you",
+      "author": "Boris Cherny",
+      "work": "Building Claude Code",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
+        "locator": "Y Combinator Startup School 2026, on ablating the harness at each model release"
+      },
+      "tags": [
+        "ai",
+        "ablation",
+        "prompting",
+        "claude-code",
+        "empiricism"
+      ],
+      "themes": [
+        "knowledge",
+        "technology",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
     }
   ]
 }
