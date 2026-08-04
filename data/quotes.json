@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-04T18:08:03.177Z",
+  "updatedAt": "2026-08-04T18:36:27.982Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5401,6 +5401,161 @@
       "verification": {
         "status": "reported",
         "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_a8a02f45e2e9",
+      "text": "Optimism, obsession, self-belief, raw horsepower and personal connections are how things get started. Cohesive teams, the right combination of calmness and urgency, and unreasonable commitment are how things get finished. Long-term orientation is in short supply; try not to worry about what people think in the short term, which will get easier over time.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "first and second aphorisms"
+      },
+      "tags": [
+        "startups",
+        "execution",
+        "long-term"
+      ],
+      "themes": [
+        "work",
+        "time",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_c441fc6f7ae1",
+      "text": "Concentrate your resources on a small number of high-conviction bets; this is easy to say but evidently hard to do. You can delete more stuff than you think.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "fifth aphorism"
+      },
+      "tags": [
+        "focus",
+        "conviction",
+        "prioritization"
+      ],
+      "themes": [
+        "work",
+        "agency",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_5ecc84261c68",
+      "text": "Fight bullshit and bureaucracy every time you see it and get other people to fight it too. Do not let the org chart get in the way of people working productively together.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "seventh aphorism"
+      },
+      "tags": [
+        "bureaucracy",
+        "organizations",
+        "management"
+      ],
+      "themes": [
+        "work",
+        "power",
+        "freedom"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_7151d25037eb",
+      "text": "Superstars are even more valuable than they seem, but you have to evaluate people on their net impact on the performance of the organization.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "tenth aphorism"
+      },
+      "tags": [
+        "talent",
+        "hiring",
+        "teams"
+      ],
+      "themes": [
+        "work",
+        "knowledge",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_77c3813a7cc2",
+      "text": "Don’t fight the business equivalent of the laws of physics.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "twelfth aphorism"
+      },
+      "tags": [
+        "constraints",
+        "realism",
+        "strategy"
+      ],
+      "themes": [
+        "work",
+        "nature",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
       },
       "favorite": false,
       "note": "",
