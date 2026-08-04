@@ -426,6 +426,39 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_a2fba4e3a8f2",
+      "text": "the bottleneck is not the progress of the AI models. the bottleneck is diffusing that through the rest of the world",
+      "author": "Alexandr Wang",
+      "work": "This is a Once-in-a-Civilization Opportunity",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity",
+        "locator": "Y Combinator Startup School 2026, on why this is the best time to start a company"
+      },
+      "tags": [
+        "ai",
+        "diffusion",
+        "bottleneck",
+        "adoption",
+        "agents"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against a transcript of the interview supplied by the collector; the transcript was identified as this talk because the phrase that titles it appears verbatim within. Not checked against YC's own audio or video, and machine transcripts carry errors, hence reported rather than verified. Two lowercase sentence-starts are as transcribed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
       "id": "q_0bfc326f7008",
       "text": "A person who is anxious about failing often behaves worse than someone who is self-assured and genuinely responsive to reasons, because fear distorts judgment and can crowd out authentic engagement.",
       "author": "Anthropic",
@@ -711,6 +744,72 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8f520ed517f5",
+      "text": "every six months, delete your CLAUDE.md, delete your skills, delete your hooks, see what the model does, and it might surprise you",
+      "author": "Boris Cherny",
+      "work": "Building Claude Code",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
+        "locator": "Y Combinator Startup School 2026, on ablating the harness at each model release"
+      },
+      "tags": [
+        "ai",
+        "ablation",
+        "prompting",
+        "claude-code",
+        "empiricism"
+      ],
+      "themes": [
+        "knowledge",
+        "technology",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_82157dfdf6c9",
+      "text": "the verification I think is probably the single most important thing that people largely do not get right",
+      "author": "Boris Cherny",
+      "work": "Building Claude Code",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
+        "locator": "Y Combinator Startup School 2026, on what replaced prompt engineering"
+      },
+      "tags": [
+        "ai",
+        "agents",
+        "verification",
+        "autonomy",
+        "harness"
+      ],
+      "themes": [
+        "knowledge",
+        "work",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
     },
     {
       "id": "q_b818fcd8ef33",
@@ -1463,6 +1562,133 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_9e3b0f08117c",
+      "text": "A common mistake is to simplify and optimize a part or a process that should not exist.",
+      "author": "Elon Musk",
+      "work": "Elon Musk",
+      "workKind": "book",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Ch. 46, “Fremont Factory Hell” — “the algorithm”, step 3"
+      },
+      "tags": [
+        "the algorithm",
+        "simplification",
+        "engineering",
+        "process"
+      ],
+      "themes": [
+        "work",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Part of the numbered list of “the algorithm”, given in Musk’s own first-person voice rather than inside quotation marks. Checked 2026-08-03."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_9cb1aff5ffda",
+      "text": "Requirements from smart people are the most dangerous, because people are less likely to question them.",
+      "author": "Elon Musk",
+      "work": "Elon Musk",
+      "workKind": "book",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Ch. 46, “Fremont Factory Hell” — “the algorithm”, step 1"
+      },
+      "tags": [
+        "the algorithm",
+        "engineering",
+        "authority",
+        "first principles"
+      ],
+      "themes": [
+        "knowledge",
+        "certainty",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Isaacson sets the five steps of “the algorithm” as a numbered list in Musk’s own first-person voice — step 1 ends “even if the requirement came from me” — rather than inside quotation marks, so these are Musk’s words as transcribed by his biographer. Checked 2026-08-03."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_444b3b557fa0",
+      "text": "The only rules are the ones dictated by the laws of physics. Everything else is a recommendation.",
+      "author": "Elon Musk",
+      "work": "Elon Musk",
+      "workKind": "book",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Ch. 46, “Fremont Factory Hell” — corollaries to “the algorithm”"
+      },
+      "tags": [
+        "the algorithm",
+        "physics",
+        "rules",
+        "engineering"
+      ],
+      "themes": [
+        "science",
+        "knowledge",
+        "freedom"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Listed among the corollaries Isaacson records after “the algorithm”, in Musk’s own imperative voice rather than inside quotation marks. Checked 2026-08-03."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_0136c7b60e83",
+      "text": "When you are no longer in a survive-or-die mode, it’s not that easy to get motivated every day.",
+      "author": "Elon Musk",
+      "work": "Elon Musk",
+      "workKind": "book",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "Ch. 67, “Money” — “What money can’t buy”"
+      },
+      "tags": [
+        "motivation",
+        "crisis",
+        "survival",
+        "self-knowledge"
+      ],
+      "themes": [
+        "work",
+        "meaning",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Musk speaking, set by Isaacson as a block quotation drawn from a conversation of more than two hours in late 2021. Checked 2026-08-03."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
     },
     {
       "id": "q_216d466309b0",
@@ -4318,6 +4544,71 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_418f2fa1156e",
+      "text": "We will be the first species ever to design our own descendants.",
+      "author": "Sam Altman",
+      "work": "The Merge",
+      "workKind": "essay",
+      "year": 2017,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/the-merge",
+        "locator": "on designing our own successors"
+      },
+      "tags": [
+        "ai",
+        "evolution",
+        "species",
+        "descendants",
+        "the-merge"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "nature"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full on Altman's own blog (blog.samaltman.com/the-merge, published 2017-12-07) via the site's Atom feed; string-matched verbatim against that text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_9c2b1c33e61d",
+      "text": "Plans should be measured in decades, execution should be measured in weeks.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "eleventh aphorism"
+      },
+      "tags": [
+        "planning",
+        "execution",
+        "tempo",
+        "long-term"
+      ],
+      "themes": [
+        "time",
+        "work",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in full on Altman's own blog (blog.samaltman.com/what-i-wish-someone-had-told-me, published 2023-12-21) via the site's Atom feed; string-matched verbatim against that text."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-03"
+    },
+    {
       "id": "q_071385dd70f3",
       "text": "If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. If you know neither the enemy nor yourself, you will succumb in every battle.",
       "author": "Sun Tzu",
@@ -4849,297 +5140,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_418f2fa1156e",
-      "text": "We will be the first species ever to design our own descendants.",
-      "author": "Sam Altman",
-      "work": "The Merge",
-      "workKind": "essay",
-      "year": 2017,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/the-merge",
-        "locator": "on designing our own successors"
-      },
-      "tags": [
-        "ai",
-        "evolution",
-        "species",
-        "descendants",
-        "the-merge"
-      ],
-      "themes": [
-        "technology",
-        "progress",
-        "nature"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in full on Altman's own blog (blog.samaltman.com/the-merge, published 2017-12-07) via the site's Atom feed; string-matched verbatim against that text."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_9c2b1c33e61d",
-      "text": "Plans should be measured in decades, execution should be measured in weeks.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "eleventh aphorism"
-      },
-      "tags": [
-        "planning",
-        "execution",
-        "tempo",
-        "long-term"
-      ],
-      "themes": [
-        "time",
-        "work",
-        "agency"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in full on Altman's own blog (blog.samaltman.com/what-i-wish-someone-had-told-me, published 2023-12-21) via the site's Atom feed; string-matched verbatim against that text."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_a2fba4e3a8f2",
-      "text": "the bottleneck is not the progress of the AI models. the bottleneck is diffusing that through the rest of the world",
-      "author": "Alexandr Wang",
-      "work": "This is a Once-in-a-Civilization Opportunity",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity",
-        "locator": "Y Combinator Startup School 2026, on why this is the best time to start a company"
-      },
-      "tags": [
-        "ai",
-        "diffusion",
-        "bottleneck",
-        "adoption",
-        "agents"
-      ],
-      "themes": [
-        "technology",
-        "progress",
-        "work"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against a transcript of the interview supplied by the collector; the transcript was identified as this talk because the phrase that titles it appears verbatim within. Not checked against YC's own audio or video, and machine transcripts carry errors, hence reported rather than verified. Two lowercase sentence-starts are as transcribed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_82157dfdf6c9",
-      "text": "the verification I think is probably the single most important thing that people largely do not get right",
-      "author": "Boris Cherny",
-      "work": "Building Claude Code",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
-        "locator": "Y Combinator Startup School 2026, on what replaced prompt engineering"
-      },
-      "tags": [
-        "ai",
-        "agents",
-        "verification",
-        "autonomy",
-        "harness"
-      ],
-      "themes": [
-        "knowledge",
-        "work",
-        "truth"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_8f520ed517f5",
-      "text": "every six months, delete your CLAUDE.md, delete your skills, delete your hooks, see what the model does, and it might surprise you",
-      "author": "Boris Cherny",
-      "work": "Building Claude Code",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code",
-        "locator": "Y Combinator Startup School 2026, on ablating the harness at each model release"
-      },
-      "tags": [
-        "ai",
-        "ablation",
-        "prompting",
-        "claude-code",
-        "empiricism"
-      ],
-      "themes": [
-        "knowledge",
-        "technology",
-        "work"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_9cb1aff5ffda",
-      "text": "Requirements from smart people are the most dangerous, because people are less likely to question them.",
-      "author": "Elon Musk",
-      "work": "Elon Musk",
-      "workKind": "book",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Ch. 46, “Fremont Factory Hell” — “the algorithm”, step 1"
-      },
-      "tags": [
-        "the algorithm",
-        "engineering",
-        "authority",
-        "first principles"
-      ],
-      "themes": [
-        "knowledge",
-        "certainty",
-        "power"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Isaacson sets the five steps of “the algorithm” as a numbered list in Musk’s own first-person voice — step 1 ends “even if the requirement came from me” — rather than inside quotation marks, so these are Musk’s words as transcribed by his biographer. Checked 2026-08-03."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_444b3b557fa0",
-      "text": "The only rules are the ones dictated by the laws of physics. Everything else is a recommendation.",
-      "author": "Elon Musk",
-      "work": "Elon Musk",
-      "workKind": "book",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Ch. 46, “Fremont Factory Hell” — corollaries to “the algorithm”"
-      },
-      "tags": [
-        "the algorithm",
-        "physics",
-        "rules",
-        "engineering"
-      ],
-      "themes": [
-        "science",
-        "knowledge",
-        "freedom"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Listed among the corollaries Isaacson records after “the algorithm”, in Musk’s own imperative voice rather than inside quotation marks. Checked 2026-08-03."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_9e3b0f08117c",
-      "text": "A common mistake is to simplify and optimize a part or a process that should not exist.",
-      "author": "Elon Musk",
-      "work": "Elon Musk",
-      "workKind": "book",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Ch. 46, “Fremont Factory Hell” — “the algorithm”, step 3"
-      },
-      "tags": [
-        "the algorithm",
-        "simplification",
-        "engineering",
-        "process"
-      ],
-      "themes": [
-        "work",
-        "knowledge"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Part of the numbered list of “the algorithm”, given in Musk’s own first-person voice rather than inside quotation marks. Checked 2026-08-03."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "id": "q_0136c7b60e83",
-      "text": "When you are no longer in a survive-or-die mode, it’s not that easy to get motivated every day.",
-      "author": "Elon Musk",
-      "work": "Elon Musk",
-      "workKind": "book",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": null,
-        "locator": "Ch. 67, “Money” — “What money can’t buy”"
-      },
-      "tags": [
-        "motivation",
-        "crisis",
-        "survival",
-        "self-knowledge"
-      ],
-      "themes": [
-        "work",
-        "meaning",
-        "character"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Musk speaking, set by Isaacson as a block quotation drawn from a conversation of more than two hours in late 2021. Checked 2026-08-03."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-03"
     }
   ]
 }
