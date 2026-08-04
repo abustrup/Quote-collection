@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-04T13:07:23.761Z",
+  "updatedAt": "2026-08-04T18:08:03.177Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5271,6 +5271,136 @@
       "verification": {
         "status": "verified",
         "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: a leading “look,” and a trailing “right?”. Source reads “look, if you pick a business model … you're gonna have a hard time, right? Either you betray…”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_186830d8a9b0",
+      "text": "something that I've always done as I built products is I built developer tools so that I can build better products",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 02:23, on why he builds the tools before the product"
+      },
+      "tags": [
+        "ai",
+        "developer-tools",
+        "product",
+        "craft"
+      ],
+      "themes": [
+        "work",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_61726caed00f",
+      "text": "the thing that we did to get the 8x is we systematically improve a bottleneck at a time",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 14:43, on how Anthropic reached an 8x increase in code output per engineer"
+      },
+      "tags": [
+        "ai",
+        "agents",
+        "bottlenecks",
+        "productivity",
+        "claude-code"
+      ],
+      "themes": [
+        "work",
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_d47518628ae5",
+      "text": "And then there's the companies that took the paper, you know, the filing cabinet and threw it away, they took the paper and pen and burned it. And now there's a computer at the center of every process. And those are the companies that unlock productivity improvements.",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 13:58, retelling a 1990s Harvard Business Review article on why computers did not show up in productivity figures"
+      },
+      "tags": [
+        "ai",
+        "adoption",
+        "productivity",
+        "organisations"
+      ],
+      "themes": [
+        "work",
+        "technology",
+        "progress",
+        "history"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line. The phrasing is Cherny's; the argument is the Harvard Business Review article he names immediately before, which he does not title exactly."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_7404302ad427",
+      "text": "when I think about the engineers and the people that are really successful, I think it's people that are empirical and curious",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 16:46, on which engineers do well as the work changes under them"
+      },
+      "tags": [
+        "ai",
+        "hiring",
+        "curiosity",
+        "empiricism",
+        "engineering"
+      ],
+      "themes": [
+        "work",
+        "character",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
       },
       "favorite": false,
       "note": "",
