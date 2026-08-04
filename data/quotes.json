@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-04T18:36:27.982Z",
+  "updatedAt": "2026-08-04T18:36:31.380Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5551,6 +5551,37 @@
         "work",
         "nature",
         "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_2dd6f8bcc16a",
+      "text": "Compounding exponentials are magic. In particular, you really want to build a business that gets a compounding advantage with scale.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "fifteenth aphorism"
+      },
+      "tags": [
+        "compounding",
+        "scale",
+        "exponentials"
+      ],
+      "themes": [
+        "work",
+        "time",
+        "progress"
       ],
       "lang": "en",
       "verification": {
