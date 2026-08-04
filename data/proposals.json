@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-02",
+  "updatedAt": "2026-08-04T09:00:00Z",
   "board": {
-    "runId": "2026-08-02",
-    "note": "Rebuilt after a fair complaint: the first version of this board was nine lines and every one of them was written between 1961 and 1986, which is a record of where I went looking rather than of anything about you. The five most concentrated of those are retired here. What is left spans 1792 to 2024 — Wollstonecraft on why power would rationally keep people ignorant, Hirschman and Simon on how projects and systems actually survive, Sutton on thirty years of researchers losing to their own cleverness, and three lectures from the last five years by a Filipino journalist, a Norwegian playwright and a Korean novelist. Four of the nine are from this century and three from the last five years, against a collection that runs 28 per cent and 18 per cent. Also worth saying plainly: seventeen of the eighteen authors you currently hold are men, so a third of this board is not."
+    "runId": "2026-08-04",
+    "note": "You kept Han Kang off the last board and retired the other eight yourself, so this one is built on two data points rather than one: the lines you take are compact claims about how something actually works, and the lines you add for yourself — Musk on requirements, Cherny on verification — are the same shape. So I went looking for that shape outside the people who build AI. What I found was Meadows arguing that we reliably push the right lever the wrong way, Čapek stating in 1920 the premise the whole acceleration argument still rests on, and a Vatican note from last year making a definitional claim about AI that you can disagree with. Krasznahorkai's lecture is eight months old and is the same size of claim as the Amodei essays you hold, aimed the other way. Two seams I am closing rather than mining again: finance and investing is 0 for 5 and you tombstoned Keynes, Knight, Mallaby and Thiel in one go, and Nordic writing is 0 for 3. Five lines, not nine — I held back a sixth I liked because it would have made three of six from the same source."
   },
   "proposals": [
     {
@@ -761,6 +761,185 @@
       "lang": "en",
       "shownOn": [
         "2026-08-02"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_07935e2cd0a6",
+      "text": "Leverage points are not intuitive. Or if they are, we intuitively use them backward, systematically worsening whatever problems we are trying to solve.",
+      "author": "Donella H. Meadows",
+      "work": "Leverage Points: Places to Intervene in a System",
+      "workKind": "paper",
+      "year": 1999,
+      "source": {
+        "kind": "curated",
+        "url": "https://donellameadows.org/wp-content/userfiles/Leverage_Points.pdf",
+        "locator": "Opening section, after the Forrester anecdote"
+      },
+      "tags": [
+        "systems",
+        "intervention",
+        "counterintuitive",
+        "policy"
+      ],
+      "themes": [
+        "knowledge",
+        "power",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Sustainability Institute's own PDF of the paper and string-matched character-for-character against it. Checked 2026-08-04. Worth noting: a secondary source rendered the neighbouring sentence as “societies have to rub out” where the paper says “societies tend to rub out”."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "The confirmed shape — a compact claim about how something actually works — from a systems scientist whose door you have never opened.",
+      "shownOn": [
+        "2026-08-04"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_4a7016a4a641",
+      "text": "your path through evolution was breathtaking, only, unfortunately: it cannot be repeated.",
+      "author": "László Krasznahorkai",
+      "work": "Nobel Lecture in Literature 2025",
+      "workKind": "speech",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/literature/2025/krasznahorkai/lecture/",
+        "locator": "Section II, addressed to the human being"
+      },
+      "tags": [
+        "evolution",
+        "civilisation",
+        "decline",
+        "address"
+      ],
+      "themes": [
+        "history",
+        "progress",
+        "meaning"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Nobel Foundation's own transcript of the lecture, delivered in Hungarian in Stockholm on 7 December 2025, translated by Ottilie Mulzet. String-matched against the full text. Checked 2026-08-04."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "The same size of claim as the sixteen Amodei lines you keep, pointed the other way, by the man who won the prize eight months ago.",
+      "shownOn": [
+        "2026-08-04"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_1ab17db1b030",
+      "text": "AI should not be seen as an artificial form of human intelligence but as a product of it.",
+      "author": "Dicastery for the Doctrine of the Faith",
+      "work": "Antiqua et Nova",
+      "workKind": "document",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_en.html",
+        "locator": "Paragraph 35"
+      },
+      "tags": [
+        "artificial-intelligence",
+        "definition",
+        "anthropology"
+      ],
+      "themes": [
+        "technology",
+        "mind",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Holy See's own English text of the note, issued 28 January 2025, and string-matched against it. Checked 2026-08-04."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Every AI line you hold was written by someone building it; this one is a definitional claim you can argue with, from the one institution with no stake in the answer.",
+      "shownOn": [
+        "2026-08-04"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_4eba0db92e05",
+      "text": "The violence was no longer displayed; it came from the facts themselves and not the writing.",
+      "author": "Annie Ernaux",
+      "work": "Nobel Lecture in Literature 2022",
+      "workKind": "speech",
+      "year": 2022,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/literature/2022/ernaux/lecture/",
+        "locator": "On adopting a flat, neutral style from her fourth book"
+      },
+      "tags": [
+        "style",
+        "restraint",
+        "method",
+        "testimony"
+      ],
+      "themes": [
+        "writing",
+        "language",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Nobel Foundation's own transcript of the lecture, delivered in Stockholm on 7 December 2022, translated from the French by Alison L. Strayer. String-matched against the full text. Checked 2026-08-04."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "A method claim of the kind you kept from Han Kang: the decision to stop writing well so the facts could do the damage.",
+      "shownOn": [
+        "2026-08-04"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_0fa8090b8780",
+      "text": "The product of an engineer is technically at a higher pitch of perfection than a product of Nature.",
+      "author": "Karel Čapek",
+      "work": "R.U.R. (Rossum's Universal Robots)",
+      "workKind": "book",
+      "year": 1920,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.gutenberg.org/files/59112/59112-h/59112-h.htm",
+        "locator": "Act One, Domin to Helena Glory"
+      },
+      "tags": [
+        "engineering",
+        "nature",
+        "automation",
+        "hubris"
+      ],
+      "themes": [
+        "technology",
+        "nature",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Project Gutenberg text of the play (Paul Selver's 1923 English translation, an abridgement of the 1920 Czech original) and string-matched against it. Checked 2026-08-04. The line is Domin's, spoken in defence of the Robots, not the author's own view."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "The play that coined the word robot, stating in 1920 the exact premise the whole acceleration shelf you keep is built on.",
+      "shownOn": [
+        "2026-08-04"
       ],
       "status": "open"
     }

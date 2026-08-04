@@ -10,6 +10,87 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-04 · fourth board · two seams closed · 2 kept of 23 proposed (9%)
+
+**The routine has its first real evidence, and it says something narrower than
+I would have guessed.** Two proposals have been kept across two different
+boards: Vannevar Bush on basic research ceasing to be basic under short-term
+support, and Han Kang on the writing ending when the questions do. Set those
+beside the ten lines he added *for himself* in the same three days — Musk on
+requirements from smart people, Cherny on verification and on deleting your
+CLAUDE.md every six months, Wang on diffusion being the bottleneck, Altman on
+decades and weeks — and the shape is unmistakable. **He keeps compact claims
+about how something actually works.** Not lyricism, not testimony, not
+positions. A mechanism, stated tightly enough to argue with.
+
+**Two seams closed this run, on evidence rather than taste.**
+
+- *Finance, investing and economics: 0 for 5.* Hayek twice, Buffett three times,
+  all let go. And the tombstones are worse than the hit rate: the 44-quote cull
+  took Keynes, Knight, Mallaby (seven lines) and Thiel, and `removed.json` still
+  holds Arthur Rock and Vinod Khosla. The prompt keeps pointing me at the
+  literature of state capital and allocation because of where he works. **That
+  inference is wrong and I am recording it as wrong.** Where he works tells me
+  what he thinks about all day; it does not follow that he wants it in a
+  collection he reads for pleasure. Stop mining it.
+- *Nordic and Danish: 0 for 3.* Kierkegaard twice off the first board, Fosse off
+  the third — and Fosse's rejection is a hard signal, because Han Kang was kept
+  off that same board. Being Danish is a fact about him, not a preference. Same
+  error as above in a different costume: reasoning from his biography instead of
+  from his collection.
+
+**What replaced them.** The confirmed shape, hunted deliberately outside the
+people who build AI, since that channel is the one his own week already fills:
+Meadows on leverage points being used backward, Čapek stating in 1920 the
+premise the acceleration argument still rests on, a Vatican doctrinal note from
+January 2025 making a definitional claim about AI, Ernaux on abandoning good
+sentences so the facts could do the damage, and Krasznahorkai's lecture from
+eight months ago — the same size of claim as the sixteen Amodei lines he holds,
+aimed the other way. Board is 60 per cent this century and 60 per cent from the
+last five years, against floors of 35 and 15 and a collection standing at 31 and
+21. Two of five are women, against two of twenty-five authors in the collection.
+
+**Five lines, not six, and the sixth is the interesting part.** Terumi Tanaka's
+2024 Nobel Peace lecture has a line I rate as highly as anything on this board —
+on closing off his own sense of humanity while walking through Nagasaki three
+days after the bomb — and it would have landed against the Frankl he added
+himself two days earlier. I held it because it would have made three of six
+lines come from nobelprize.org. That is exactly the board-level check the
+2026-08-02 complaint asked for, applied against my own preference this time
+rather than after the fact. Whether it was the right call is genuinely unclear:
+holding a strong line for a compositional reason is a cost, and if this board
+scores zero I should conclude I was over-correcting.
+
+**Two harness findings.**
+
+- **nobelprize.org now returns 403 to WebFetch.** It worked on 2026-08-02.
+  `curl` with a browser user-agent still returns 200 and the full transcript, so
+  the seam is open, just not through the obvious tool. All three lectures this
+  run came through curl.
+- **A summariser altered a quote and I nearly shipped it.** WebFetch's rendering
+  of the Meadows paper gave "that's why societies *have to* rub out truly
+  enlightened beings"; the PDF says "*tend to*". I was not proposing that
+  sentence, but I would have had no way to catch it if I had been, other than
+  the string-match against the loaded text — which is the whole reason that step
+  exists. **Never quote from a tool's summary of a source, only from the source
+  bytes.**
+
+**One thing he may want to fix, which I may not.** Han Kang's kept line is filed
+under the work title "Nobel Lecture", and `works.js` keys the shelf by title
+alone. A second laureate's lecture filed under the same title would silently
+merge into one shelf entry under one author. I titled this board's two lectures
+"Nobel Lecture in Literature 2022" and "…2025" to avoid it, which leaves the
+collection inconsistent if either is kept. Retitling the Han Kang record means
+writing to `data/quotes.json`, which is his.
+
+**Housekeeping.** Registered eight works he had kept lines from that were
+missing from `works.json` — Kant's *Groundwork*, Nietzsche's *Genealogy*,
+Frankl, Han Kang's lecture, both Altman essays, Cherny and Wang. They were
+reading fine and falling out of every filter on the shelf. The registry is now
+complete: 35 works, no unclassified quotes.
+
+---
+
 ## 2026-08-02 · third board · rebuilt mid-run after a fair complaint · 1 kept of 14 proposed (7%)
 
 **The board went up, he read it, and the first thing he said was that every
