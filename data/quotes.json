@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-04T18:36:31.380Z",
+  "updatedAt": "2026-08-04T18:56:09.568Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5587,6 +5587,102 @@
       "verification": {
         "status": "verified",
         "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_e0b7bebb7266",
+      "text": "there’s a very large demo-to-product gap where the demo is very easy, but the product is very hard",
+      "author": "Andrej Karpathy",
+      "work": "AGI is still a decade away",
+      "workKind": "interview",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.dwarkesh.com/p/andrej-karpathy",
+        "locator": "Dwarkesh Podcast, 17 Oct 2025 · on why self-driving took so long"
+      },
+      "tags": [
+        "agents",
+        "self-driving",
+        "shipping",
+        "demo-to-product"
+      ],
+      "themes": [
+        "technology",
+        "work",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the full episode transcript published by Dwarkesh Patel on dwarkesh.com, the publisher's own copy, and string-matched verbatim against it. Spoken words, so this reaches the page through the publisher's transcription; I did not check it against the audio. Apostrophes are the transcript's curly form; nothing else is changed, and the sentence opens mid-sentence in the original."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_3dbeb788b9ae",
+      "text": "being wrong may be less costly than you think, whereas being slow is going to be expensive for sure",
+      "author": "Jeff Bezos",
+      "work": "2016 Letter to Shareholders",
+      "workKind": "letter",
+      "year": 2016,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders",
+        "locator": "“High-Velocity Decision Making”, second point"
+      },
+      "tags": [
+        "decision-making",
+        "speed",
+        "reversibility",
+        "day-1"
+      ],
+      "themes": [
+        "work",
+        "time",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the letter as republished by Amazon on aboutamazon.com, the company's own copy, and string-matched verbatim against it. Written for the 2016 fiscal year and released April 2017; dated here by the year the letter is named for. The sentence opens mid-sentence in the original, after “If you’re good at course correcting,”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_509acbc3f106",
+      "text": "If you believe too much you'll never notice the flaws; if you doubt too much you won't get started.",
+      "author": "Richard Hamming",
+      "work": "You and Your Research",
+      "workKind": "speech",
+      "year": 1986,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+        "locator": "Bell Communications Research Colloquium Seminar, 7 March 1986 · on tolerating ambiguity"
+      },
+      "tags": [
+        "calibration",
+        "ambiguity",
+        "research",
+        "judgment"
+      ],
+      "themes": [
+        "certainty",
+        "knowledge",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the widely circulated transcript of the 7 March 1986 talk, transcribed by J. F. Kaiser and hosted by the University of Virginia CS department, and string-matched verbatim against it. Spoken words reaching the page through a transcriber, so not verified; I did not check it against a recording. The transcript sets apostrophes as straight ASCII and they are kept as found."
       },
       "favorite": false,
       "note": "",
