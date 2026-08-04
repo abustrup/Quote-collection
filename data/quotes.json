@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-03T21:15:12.721Z",
+  "updatedAt": "2026-08-04T13:07:23.761Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5140,6 +5140,141 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_58914fc84cf3",
+      "text": "AI is the first technology that's been built in the private sector and where government has not really had a serious role and is coming in late to the game. I think that's actually a dangerous and unstable situation. It is not the situation I would've chosen.",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=3325s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 55:25, on why government arriving late to AI is unstable"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "state-capacity",
+        "nuclear-analogy",
+        "governance"
+      ],
+      "themes": [
+        "power",
+        "politics",
+        "technology",
+        "history"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Verbatim, no words trimmed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_68f319d3ec2e",
+      "text": "if your moat is, we wrote this complex software that no one else can write, like good luck, you're not gonna be able to defend that",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=888s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 14:48, on which software moats survive AI"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "moats",
+        "saas",
+        "competition"
+      ],
+      "themes": [
+        "work",
+        "money",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Verbatim, no words trimmed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_b65c0ffe15ac",
+      "text": "the trustworthy actors need to get together and put the untrustworthy actors in a position where they kind of have to adopt the same standards",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=524s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 8:44, on how the race to the top is supposed to work"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "race-to-the-top",
+        "coordination",
+        "standards"
+      ],
+      "themes": [
+        "ethics",
+        "power",
+        "agency",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: the stammered repetitions “need to need to” and “and, and”. Source reads “…the trustworthy actors need to need to get together and, and put the untrustworthy actors…”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_634a076f1f44",
+      "text": "If you pick a business model that fundamentally conflicts with your values, you're gonna have a hard time. Either you betray your own values or you become irrelevant.",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=655s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 10:55, on choosing enterprise over consumer"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "business-model",
+        "incentives",
+        "anthropic"
+      ],
+      "themes": [
+        "ethics",
+        "money",
+        "character",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: a leading “look,” and a trailing “right?”. Source reads “look, if you pick a business model … you're gonna have a hard time, right? Either you betray…”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
     }
   ]
 }
