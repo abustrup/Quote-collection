@@ -1,6 +1,6 @@
 ---
 name: quote-mine
-description: Propose quotations from a named work for Alexander to pick from, then file the ones he picks into his quote collection. Use when he wants quotes from an essay, paper, document, talk or book — "add quotes from X", "find me quotes in X", "what's worth keeping from X" — and above all for works too new or too unpublished to be in a model's memory, which is where it earns its keep; his Goodreads sync already covers the books on his shelf. Do NOT use for adding a quote he already has in hand; that is a one-line issue, not this.
+description: Propose quotations from a named work for Alexander to pick from, then file the ones he picks into his quote collection. Use when he wants quotes from an essay, paper, document, talk, book, podcast or video — "add quotes from X", "find me quotes in X", "what's worth keeping from X", or a bare YouTube/podcast URL — and above all for works too new or too unpublished to be in a model's memory, which is where it earns its keep. Spoken works count and are a strong fit: captions can be fetched directly, so never decline for want of a transcript. His Goodreads sync only carries books he highlighted in Goodreads itself, so it does not cover his read shelf — a book he has finished is a fair target, and the check is `data/quotes.json` for that work, never the assumption that the shelf is already represented. Do NOT use for adding a quote he already has in hand; that is a one-line issue, not this.
 ---
 
 # Mining a work for quotes
@@ -29,7 +29,7 @@ the Aristotle entry excludes the famous "we are what we repeatedly do" because
 that is Will Durant summarising him, not Aristotle. A rule forbidding those
 would delete the collection's most productive mode.
 
-So there are two honest ways to reach a quotation, and the difference is the
+So there are three honest ways to reach a quotation, and the difference is the
 whole point of `verification.status`:
 
 - **Read it in the work** — the essay, the PDF, the publisher's own copy.
@@ -38,6 +38,10 @@ whole point of `verification.status`:
   where the text is stable and widely reproduced. → `reported`, with a note
   saying plainly what you did and did not consult, and the translator where one
   exists.
+- **Read a transcript of speech** — captions, a podcast transcript, a posted
+  interview text. → **always `reported`, never `verified`**, however official
+  the transcript is. See §1b; the reason is that a transcript is someone's
+  typing, not the speaker's words, and it is wrong more often than it looks.
 
 Cross-checking is trustworthy for the canon and untrustworthy for anything
 recent or obscure, where the few sources mostly copy each other. **For a work
@@ -64,8 +68,68 @@ In order:
    `raw.githubusercontent.com/anthropics/claude-constitution/main/`), arXiv for
    papers, Gutenberg for anything old.
 2. **Read a file.** If he has the PDF or EPUB, read it directly.
-3. **Ask him to paste or drop it.** Only when the first two fail — normal for
+3. **A video or podcast** → §1b. Don't ask him to paste a transcript; you can
+   almost always get one yourself, and the whole 41 minutes beats whatever he
+   can scroll and copy out of a panel.
+4. **Ask him to paste or drop it.** Only when the others fail — normal for
    unpublished or paywalled work, not a failure. Say which step failed and wait.
+
+## 1b. When the work is spoken
+
+Talks, podcasts and interviews are a real channel here — the collection already
+holds interview quotes, and Goodreads cannot reach any of them.
+
+**Get the captions with yt-dlp.** It is not on PATH on his Mac but the module is
+installed, so invoke it as a module. Bare invocation fails on YouTube with `The
+page needs to be reloaded`; naming the player clients fixes it [verified
+2026-08-04]:
+
+```bash
+python3 -m yt_dlp --extractor-args "youtube:player_client=android,web,ios" \
+  --skip-download --write-subs --write-auto-subs --sub-langs "en.*" \
+  --sub-format "vtt" -o "vid.%(ext)s" "<url>"
+```
+
+`--dump-json` on the same call gives title, channel, `upload_date` and
+`description` — that is where the speakers' names and roles usually are, and you
+need them for `author` and the locator.
+
+Two things to check in what comes back, because they change the job:
+
+- **Uploader track or machine track.** yt-dlp splits these: a language under
+  `subtitles` is the uploader's own, under `automatic_captions` it is YouTube's
+  ASR. The uploader's is much better and usually has real punctuation. If only
+  ASR exists, say so — ASR is unpunctuated and you would be inventing the
+  sentence boundaries, which is exactly the prohibition at the top.
+- **Malformed cue headers inside the text.** Some tracks carry stray
+  `123 01:02:03,456 --> 01:02:05,678` fragments *inside* the caption body. They
+  are HTML-escaped, so **unescape before you strip them** or the regex silently
+  misses every one. Missing this left 140 words of timestamp junk in an
+  otherwise clean 8,000-word transcript [verified 2026-08-04].
+
+**The trap: YouTube's "Show transcript" panel is the same file.** He may point
+you at it, and it looks like a second opinion. It is not — it renders the exact
+track yt-dlp downloads, so agreement between them proves nothing about accuracy.
+It is a useful check that *your copy is faithful*, and nothing more. The general
+form, matching the §"one rule" trap: **two views of one source are one source.**
+
+**Assume the transcript is wrong somewhere, and go looking.** Even a publisher's
+own caption track errs. On AMD's own track for its own show, 2026-08-04: the
+guest's name misspelt in the opening line, "a genetic process" for "agentic
+process", "STLC" for "SDLC" — and at 34:34 a dropped negation, "this means that
+there **can** be a person sitting there" where he plainly said *can't*. A
+negation flip is the dangerous class: it reads perfectly and means the opposite.
+
+So before proposing a line, read the sentences on either side of it. If the
+passage only makes sense with a word changed, that word is probably wrong — drop
+the candidate rather than repairing it, because a repaired quote is your wording.
+Flag the softer cases on the line itself (tense, a garbled clause) and let him
+decide.
+
+Where wording genuinely matters and he wants it settled, the audio can be
+transcribed locally: `ffmpeg` is installed on his Mac, a Whisper package is not.
+Offer it, don't assume it — he declined the install on 2026-08-04 and was right
+to, since `reported` was the correct status either way.
 
 ## 2. Learn what he actually keeps
 
@@ -180,9 +244,12 @@ Do not set `id` — the repository computes it from the text, which is what stop
 the same quote entering twice.
 
 `verification.status` is **`verified`** only when you read the words in the
-work itself or a publisher's own copy. A third-party transcription, however
-many of them agree, is **`reported`**, and the note says where you read it. Get
-this wrong and the field stops meaning anything.
+work itself or a publisher's own copy *of the text*. A transcription is not
+that, however many agree and whoever published it — spoken words reach you
+through someone's typing, so a talk, podcast or interview is **`reported`** even
+when the captions are the publisher's own. The note says exactly what you read
+and what you did not: name the track, and say you did not check it against the
+audio. Get this wrong and the field stops meaning anything.
 
 Then, in order of preference:
 
@@ -207,8 +274,11 @@ own permalink at `https://abustrup.github.io/Quote-collection/#<id>`.
 
 ## Notes
 
-- This skill lives in two places — `~/.claude/skills/quote-mine/SKILL.md` and the
-  copy inside the Quote-collection repo. Edit both or they drift.
+- This skill lives in two places — `~/.claude/skills/quote-mine/SKILL.md` and
+  `~/Quote-collection/.claude/skills/quote-mine/SKILL.md`. Edit both. They had
+  already drifted by 2026-08-04 (the repo copy still carried a retired claim
+  about Goodreads covering his shelf), so **diff them before editing** and carry
+  the newer text across rather than assuming your copy is current.
 - Themes are a controlled list. Anything outside it is dropped silently on the
   way in, so take the list from
   `raw.githubusercontent.com/abustrup/Quote-collection/main/assets/quote-core.js`
