@@ -459,6 +459,38 @@
       "addedAt": "2026-08-03"
     },
     {
+      "id": "q_e0b7bebb7266",
+      "text": "there’s a very large demo-to-product gap where the demo is very easy, but the product is very hard",
+      "author": "Andrej Karpathy",
+      "work": "AGI is still a decade away",
+      "workKind": "interview",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.dwarkesh.com/p/andrej-karpathy",
+        "locator": "Dwarkesh Podcast, 17 Oct 2025 · on why self-driving took so long"
+      },
+      "tags": [
+        "agents",
+        "self-driving",
+        "shipping",
+        "demo-to-product"
+      ],
+      "themes": [
+        "technology",
+        "work",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the full episode transcript published by Dwarkesh Patel on dwarkesh.com, the publisher's own copy, and string-matched verbatim against it. Spoken words, so this reaches the page through the publisher's transcription; I did not check it against the audio. Apostrophes are the transcript's curly form; nothing else is changed, and the sentence opens mid-sentence in the original."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
       "id": "q_0bfc326f7008",
       "text": "A person who is anxious about failing often behaves worse than someone who is self-assured and genuinely responsive to reasons, because fear distorts judgment and can crowd out authentic engagement.",
       "author": "Anthropic",
@@ -744,6 +776,136 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_d47518628ae5",
+      "text": "And then there's the companies that took the paper, you know, the filing cabinet and threw it away, they took the paper and pen and burned it. And now there's a computer at the center of every process. And those are the companies that unlock productivity improvements.",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 13:58, retelling a 1990s Harvard Business Review article on why computers did not show up in productivity figures"
+      },
+      "tags": [
+        "ai",
+        "adoption",
+        "productivity",
+        "organisations"
+      ],
+      "themes": [
+        "work",
+        "technology",
+        "progress",
+        "history"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line. The phrasing is Cherny's; the argument is the Harvard Business Review article he names immediately before, which he does not title exactly."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_186830d8a9b0",
+      "text": "something that I've always done as I built products is I built developer tools so that I can build better products",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 02:23, on why he builds the tools before the product"
+      },
+      "tags": [
+        "ai",
+        "developer-tools",
+        "product",
+        "craft"
+      ],
+      "themes": [
+        "work",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_61726caed00f",
+      "text": "the thing that we did to get the 8x is we systematically improve a bottleneck at a time",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 14:43, on how Anthropic reached an 8x increase in code output per engineer"
+      },
+      "tags": [
+        "ai",
+        "agents",
+        "bottlenecks",
+        "productivity",
+        "claude-code"
+      ],
+      "themes": [
+        "work",
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_7404302ad427",
+      "text": "when I think about the engineers and the people that are really successful, I think it's people that are empirical and curious",
+      "author": "Boris Cherny",
+      "work": "Agentic AI and the Future of Software Development",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
+        "locator": "AMD Advanced Insights S3 E4, 16:46, on which engineers do well as the work changes under them"
+      },
+      "tags": [
+        "ai",
+        "hiring",
+        "curiosity",
+        "empiricism",
+        "engineering"
+      ],
+      "themes": [
+        "work",
+        "character",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
     },
     {
       "id": "q_8f520ed517f5",
@@ -1032,6 +1194,141 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_58914fc84cf3",
+      "text": "AI is the first technology that's been built in the private sector and where government has not really had a serious role and is coming in late to the game. I think that's actually a dangerous and unstable situation. It is not the situation I would've chosen.",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=3325s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 55:25, on why government arriving late to AI is unstable"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "state-capacity",
+        "nuclear-analogy",
+        "governance"
+      ],
+      "themes": [
+        "power",
+        "politics",
+        "technology",
+        "history"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Verbatim, no words trimmed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_634a076f1f44",
+      "text": "If you pick a business model that fundamentally conflicts with your values, you're gonna have a hard time. Either you betray your own values or you become irrelevant.",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=655s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 10:55, on choosing enterprise over consumer"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "business-model",
+        "incentives",
+        "anthropic"
+      ],
+      "themes": [
+        "ethics",
+        "money",
+        "character",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: a leading “look,” and a trailing “right?”. Source reads “look, if you pick a business model … you're gonna have a hard time, right? Either you betray…”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_68f319d3ec2e",
+      "text": "if your moat is, we wrote this complex software that no one else can write, like good luck, you're not gonna be able to defend that",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=888s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 14:48, on which software moats survive AI"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "moats",
+        "saas",
+        "competition"
+      ],
+      "themes": [
+        "work",
+        "money",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Verbatim, no words trimmed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_b65c0ffe15ac",
+      "text": "the trustworthy actors need to get together and put the untrustworthy actors in a position where they kind of have to adopt the same standards",
+      "author": "Dario Amodei",
+      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=524s",
+        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 8:44, on how the race to the top is supposed to work"
+      },
+      "tags": [
+        "ai",
+        "the-circuit",
+        "race-to-the-top",
+        "coordination",
+        "standards"
+      ],
+      "themes": [
+        "ethics",
+        "power",
+        "agency",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: the stammered repetitions “need to need to” and “and, and”. Source reads “…the trustworthy actors need to need to get together and, and put the untrustworthy actors…”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
     },
     {
       "id": "q_608a90d8882c",
@@ -4107,6 +4404,38 @@
       "addedAt": "2026-08-02"
     },
     {
+      "id": "q_3dbeb788b9ae",
+      "text": "being wrong may be less costly than you think, whereas being slow is going to be expensive for sure",
+      "author": "Jeff Bezos",
+      "work": "2016 Letter to Shareholders",
+      "workKind": "letter",
+      "year": 2016,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders",
+        "locator": "“High-Velocity Decision Making”, second point"
+      },
+      "tags": [
+        "decision-making",
+        "speed",
+        "reversibility",
+        "day-1"
+      ],
+      "themes": [
+        "work",
+        "time",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the letter as republished by Amazon on aboutamazon.com, the company's own copy, and string-matched verbatim against it. Written for the 2016 fiscal year and released April 2017; dated here by the year the letter is named for. The sentence opens mid-sentence in the original, after “If you’re good at course correcting,”."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
       "id": "q_9151e6dfa8ce",
       "text": "A man on a thousand mile walk has to forget his goal and say to himself every morning, 'Today I'm going to cover twenty-five miles and then rest up and sleep.",
       "author": "Leo Tolstoy",
@@ -4544,6 +4873,38 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_509acbc3f106",
+      "text": "If you believe too much you'll never notice the flaws; if you doubt too much you won't get started.",
+      "author": "Richard Hamming",
+      "work": "You and Your Research",
+      "workKind": "speech",
+      "year": 1986,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+        "locator": "Bell Communications Research Colloquium Seminar, 7 March 1986 · on tolerating ambiguity"
+      },
+      "tags": [
+        "calibration",
+        "ambiguity",
+        "research",
+        "judgment"
+      ],
+      "themes": [
+        "certainty",
+        "knowledge",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the widely circulated transcript of the 7 March 1986 talk, transcribed by J. F. Kaiser and hosted by the University of Virginia CS department, and string-matched verbatim against it. Spoken words reaching the page through a transcriber, so not verified; I did not check it against a recording. The transcript sets apostrophes as straight ASCII and they are kept as found."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
       "id": "q_418f2fa1156e",
       "text": "We will be the first species ever to design our own descendants.",
       "author": "Sam Altman",
@@ -4577,6 +4938,161 @@
       "addedAt": "2026-08-03"
     },
     {
+      "id": "q_2dd6f8bcc16a",
+      "text": "Compounding exponentials are magic. In particular, you really want to build a business that gets a compounding advantage with scale.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "fifteenth aphorism"
+      },
+      "tags": [
+        "compounding",
+        "scale",
+        "exponentials"
+      ],
+      "themes": [
+        "work",
+        "time",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_c441fc6f7ae1",
+      "text": "Concentrate your resources on a small number of high-conviction bets; this is easy to say but evidently hard to do. You can delete more stuff than you think.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "fifth aphorism"
+      },
+      "tags": [
+        "focus",
+        "conviction",
+        "prioritization"
+      ],
+      "themes": [
+        "work",
+        "agency",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_77c3813a7cc2",
+      "text": "Don’t fight the business equivalent of the laws of physics.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "twelfth aphorism"
+      },
+      "tags": [
+        "constraints",
+        "realism",
+        "strategy"
+      ],
+      "themes": [
+        "work",
+        "nature",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_5ecc84261c68",
+      "text": "Fight bullshit and bureaucracy every time you see it and get other people to fight it too. Do not let the org chart get in the way of people working productively together.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "seventh aphorism"
+      },
+      "tags": [
+        "bureaucracy",
+        "organizations",
+        "management"
+      ],
+      "themes": [
+        "work",
+        "power",
+        "freedom"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_a8a02f45e2e9",
+      "text": "Optimism, obsession, self-belief, raw horsepower and personal connections are how things get started. Cohesive teams, the right combination of calmness and urgency, and unreasonable commitment are how things get finished. Long-term orientation is in short supply; try not to worry about what people think in the short term, which will get easier over time.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "first and second aphorisms"
+      },
+      "tags": [
+        "startups",
+        "execution",
+        "long-term"
+      ],
+      "themes": [
+        "work",
+        "time",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
+    },
+    {
       "id": "q_9c2b1c33e61d",
       "text": "Plans should be measured in decades, execution should be measured in weeks.",
       "author": "Sam Altman",
@@ -4607,6 +5123,37 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-03"
+    },
+    {
+      "id": "q_7151d25037eb",
+      "text": "Superstars are even more valuable than they seem, but you have to evaluate people on their net impact on the performance of the organization.",
+      "author": "Sam Altman",
+      "work": "What I Wish Someone Had Told Me",
+      "workKind": "essay",
+      "year": 2023,
+      "source": {
+        "kind": "curated",
+        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
+        "locator": "tenth aphorism"
+      },
+      "tags": [
+        "talent",
+        "hiring",
+        "teams"
+      ],
+      "themes": [
+        "work",
+        "knowledge",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-04"
     },
     {
       "id": "q_071385dd70f3",
@@ -5140,553 +5687,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_58914fc84cf3",
-      "text": "AI is the first technology that's been built in the private sector and where government has not really had a serious role and is coming in late to the game. I think that's actually a dangerous and unstable situation. It is not the situation I would've chosen.",
-      "author": "Dario Amodei",
-      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=3325s",
-        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 55:25, on why government arriving late to AI is unstable"
-      },
-      "tags": [
-        "ai",
-        "the-circuit",
-        "state-capacity",
-        "nuclear-analogy",
-        "governance"
-      ],
-      "themes": [
-        "power",
-        "politics",
-        "technology",
-        "history"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Verbatim, no words trimmed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_68f319d3ec2e",
-      "text": "if your moat is, we wrote this complex software that no one else can write, like good luck, you're not gonna be able to defend that",
-      "author": "Dario Amodei",
-      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=888s",
-        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 14:48, on which software moats survive AI"
-      },
-      "tags": [
-        "ai",
-        "the-circuit",
-        "moats",
-        "saas",
-        "competition"
-      ],
-      "themes": [
-        "work",
-        "money",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Verbatim, no words trimmed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_b65c0ffe15ac",
-      "text": "the trustworthy actors need to get together and put the untrustworthy actors in a position where they kind of have to adopt the same standards",
-      "author": "Dario Amodei",
-      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=524s",
-        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 8:44, on how the race to the top is supposed to work"
-      },
-      "tags": [
-        "ai",
-        "the-circuit",
-        "race-to-the-top",
-        "coordination",
-        "standards"
-      ],
-      "themes": [
-        "ethics",
-        "power",
-        "agency",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: the stammered repetitions “need to need to” and “and, and”. Source reads “…the trustworthy actors need to need to get together and, and put the untrustworthy actors…”."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_634a076f1f44",
-      "text": "If you pick a business model that fundamentally conflicts with your values, you're gonna have a hard time. Either you betray your own values or you become irrelevant.",
-      "author": "Dario Amodei",
-      "work": "Inside the Mind of Anthropic CEO Dario Amodei",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=x2VHFgyawPE&t=655s",
-        "locator": "The Circuit with Emily Chang, Bloomberg Originals · 10:55, on choosing enterprise over consumer"
-      },
-      "tags": [
-        "ai",
-        "the-circuit",
-        "business-model",
-        "incentives",
-        "anthropic"
-      ],
-      "themes": [
-        "ethics",
-        "money",
-        "character",
-        "work"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in Bloomberg Originals' own uploaded English caption track for the video (human-made, not the auto-generated track), and cross-checked word-for-word against YouTube's independent auto-transcription of the same audio; the two agree. Spoken source, trimmed only of disfluency: a leading “look,” and a trailing “right?”. Source reads “look, if you pick a business model … you're gonna have a hard time, right? Either you betray…”."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_186830d8a9b0",
-      "text": "something that I've always done as I built products is I built developer tools so that I can build better products",
-      "author": "Boris Cherny",
-      "work": "Agentic AI and the Future of Software Development",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
-        "locator": "AMD Advanced Insights S3 E4, 02:23, on why he builds the tools before the product"
-      },
-      "tags": [
-        "ai",
-        "developer-tools",
-        "product",
-        "craft"
-      ],
-      "themes": [
-        "work",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_61726caed00f",
-      "text": "the thing that we did to get the 8x is we systematically improve a bottleneck at a time",
-      "author": "Boris Cherny",
-      "work": "Agentic AI and the Future of Software Development",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
-        "locator": "AMD Advanced Insights S3 E4, 14:43, on how Anthropic reached an 8x increase in code output per engineer"
-      },
-      "tags": [
-        "ai",
-        "agents",
-        "bottlenecks",
-        "productivity",
-        "claude-code"
-      ],
-      "themes": [
-        "work",
-        "technology",
-        "progress"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_d47518628ae5",
-      "text": "And then there's the companies that took the paper, you know, the filing cabinet and threw it away, they took the paper and pen and burned it. And now there's a computer at the center of every process. And those are the companies that unlock productivity improvements.",
-      "author": "Boris Cherny",
-      "work": "Agentic AI and the Future of Software Development",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
-        "locator": "AMD Advanced Insights S3 E4, 13:58, retelling a 1990s Harvard Business Review article on why computers did not show up in productivity figures"
-      },
-      "tags": [
-        "ai",
-        "adoption",
-        "productivity",
-        "organisations"
-      ],
-      "themes": [
-        "work",
-        "technology",
-        "progress",
-        "history"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line. The phrasing is Cherny's; the argument is the Harvard Business Review article he names immediately before, which he does not title exactly."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_7404302ad427",
-      "text": "when I think about the engineers and the people that are really successful, I think it's people that are empirical and curious",
-      "author": "Boris Cherny",
-      "work": "Agentic AI and the Future of Software Development",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U",
-        "locator": "AMD Advanced Insights S3 E4, 16:46, on which engineers do well as the work changes under them"
-      },
-      "tags": [
-        "ai",
-        "hiring",
-        "curiosity",
-        "empiricism",
-        "engineering"
-      ],
-      "themes": [
-        "work",
-        "character",
-        "knowledge"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. String-matched verbatim against AMD's own English caption track for the video, downloaded with yt-dlp. Not checked against the audio, hence reported rather than verified. That track contains transcription errors elsewhere in the episode (it misspells Cherny's name and drops a negation at 34:34), though none inside this line."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_a8a02f45e2e9",
-      "text": "Optimism, obsession, self-belief, raw horsepower and personal connections are how things get started. Cohesive teams, the right combination of calmness and urgency, and unreasonable commitment are how things get finished. Long-term orientation is in short supply; try not to worry about what people think in the short term, which will get easier over time.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "first and second aphorisms"
-      },
-      "tags": [
-        "startups",
-        "execution",
-        "long-term"
-      ],
-      "themes": [
-        "work",
-        "time",
-        "agency"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_c441fc6f7ae1",
-      "text": "Concentrate your resources on a small number of high-conviction bets; this is easy to say but evidently hard to do. You can delete more stuff than you think.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "fifth aphorism"
-      },
-      "tags": [
-        "focus",
-        "conviction",
-        "prioritization"
-      ],
-      "themes": [
-        "work",
-        "agency",
-        "risk"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_5ecc84261c68",
-      "text": "Fight bullshit and bureaucracy every time you see it and get other people to fight it too. Do not let the org chart get in the way of people working productively together.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "seventh aphorism"
-      },
-      "tags": [
-        "bureaucracy",
-        "organizations",
-        "management"
-      ],
-      "themes": [
-        "work",
-        "power",
-        "freedom"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_7151d25037eb",
-      "text": "Superstars are even more valuable than they seem, but you have to evaluate people on their net impact on the performance of the organization.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "tenth aphorism"
-      },
-      "tags": [
-        "talent",
-        "hiring",
-        "teams"
-      ],
-      "themes": [
-        "work",
-        "knowledge",
-        "power"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_77c3813a7cc2",
-      "text": "Don’t fight the business equivalent of the laws of physics.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "twelfth aphorism"
-      },
-      "tags": [
-        "constraints",
-        "realism",
-        "strategy"
-      ],
-      "themes": [
-        "work",
-        "nature",
-        "agency"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_2dd6f8bcc16a",
-      "text": "Compounding exponentials are magic. In particular, you really want to build a business that gets a compounding advantage with scale.",
-      "author": "Sam Altman",
-      "work": "What I Wish Someone Had Told Me",
-      "workKind": "essay",
-      "year": 2023,
-      "source": {
-        "kind": "curated",
-        "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me",
-        "locator": "fifteenth aphorism"
-      },
-      "tags": [
-        "compounding",
-        "scale",
-        "exponentials"
-      ],
-      "themes": [
-        "work",
-        "time",
-        "progress"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_e0b7bebb7266",
-      "text": "there’s a very large demo-to-product gap where the demo is very easy, but the product is very hard",
-      "author": "Andrej Karpathy",
-      "work": "AGI is still a decade away",
-      "workKind": "interview",
-      "year": 2025,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.dwarkesh.com/p/andrej-karpathy",
-        "locator": "Dwarkesh Podcast, 17 Oct 2025 · on why self-driving took so long"
-      },
-      "tags": [
-        "agents",
-        "self-driving",
-        "shipping",
-        "demo-to-product"
-      ],
-      "themes": [
-        "technology",
-        "work",
-        "progress"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Read in the full episode transcript published by Dwarkesh Patel on dwarkesh.com, the publisher's own copy, and string-matched verbatim against it. Spoken words, so this reaches the page through the publisher's transcription; I did not check it against the audio. Apostrophes are the transcript's curly form; nothing else is changed, and the sentence opens mid-sentence in the original."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_3dbeb788b9ae",
-      "text": "being wrong may be less costly than you think, whereas being slow is going to be expensive for sure",
-      "author": "Jeff Bezos",
-      "work": "2016 Letter to Shareholders",
-      "workKind": "letter",
-      "year": 2016,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders",
-        "locator": "“High-Velocity Decision Making”, second point"
-      },
-      "tags": [
-        "decision-making",
-        "speed",
-        "reversibility",
-        "day-1"
-      ],
-      "themes": [
-        "work",
-        "time",
-        "risk"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the letter as republished by Amazon on aboutamazon.com, the company's own copy, and string-matched verbatim against it. Written for the 2016 fiscal year and released April 2017; dated here by the year the letter is named for. The sentence opens mid-sentence in the original, after “If you’re good at course correcting,”."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "id": "q_509acbc3f106",
-      "text": "If you believe too much you'll never notice the flaws; if you doubt too much you won't get started.",
-      "author": "Richard Hamming",
-      "work": "You and Your Research",
-      "workKind": "speech",
-      "year": 1986,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
-        "locator": "Bell Communications Research Colloquium Seminar, 7 March 1986 · on tolerating ambiguity"
-      },
-      "tags": [
-        "calibration",
-        "ambiguity",
-        "research",
-        "judgment"
-      ],
-      "themes": [
-        "certainty",
-        "knowledge",
-        "work"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Read in the widely circulated transcript of the 7 March 1986 talk, transcribed by J. F. Kaiser and hosted by the University of Virginia CS department, and string-matched verbatim against it. Spoken words reaching the page through a transcriber, so not verified; I did not check it against a recording. The transcript sets apostrophes as straight ASCII and they are kept as found."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-04"
     }
   ]
 }
