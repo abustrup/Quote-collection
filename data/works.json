@@ -2,40 +2,298 @@
   "schemaVersion": 1,
   "note": "One record per work quoted in data/quotes.json. A work's subject is its field, taken from SUBJECTS in assets/quote-core.js, and it is assigned here once per book rather than per quote — a couple of dozen entries someone can check against a library record instead of a couple of hundred readings nobody can. Era is not stored: it is computed from `year`, so it cannot drift from the date. `url` is present only where the primary text has a stable home; everything else gets a find-it link generated from its year on works.html.",
   "works": [
-    {"title":"1984","author":"George Orwell","year":1949,"kind":"book","subject":"literature"},
-    {"title":"1Q84","author":"Haruki Murakami","year":2009,"kind":"book","subject":"literature"},
-    {"title":"Animal Farm","author":"George Orwell","year":1945,"kind":"book","subject":"literature"},
-    {"title":"Beyond Good and Evil","author":"Friedrich Nietzsche","year":1886,"kind":"book","subject":"philosophy"},
-    {"title":"Brave New World","author":"Aldous Huxley","year":1932,"kind":"book","subject":"literature"},
-    {"title":"Building Claude Code","author":"Boris Cherny","year":2026,"kind":"interview","subject":"technology","url":"https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code"},
-    {"title":"Claude’s Constitution","author":"Anthropic","year":2026,"kind":"document","subject":"technology","url":"https://www.anthropic.com/constitution"},
-    {"title":"Crime and Punishment","author":"Fyodor Dostoevsky","year":1866,"kind":"book","subject":"literature"},
-    {"title":"Elon Musk","author":"Walter Isaacson","year":2023,"kind":"book","subject":"technology"},
-    {"title":"Flowers for Algernon","author":"Daniel Keyes","year":1966,"kind":"book","subject":"literature"},
-    {"title":"Groundwork of the Metaphysics of Morals","author":"Immanuel Kant","year":1785,"kind":"book","subject":"ethics"},
-    {"title":"Machines of Loving Grace","author":"Dario Amodei","year":2024,"kind":"essay","subject":"technology","url":"https://www.darioamodei.com/essay/machines-of-loving-grace"},
-    {"title":"Man's Search for Meaning","author":"Viktor E. Frankl","year":1946,"kind":"book","subject":"psychology"},
-    {"title":"Meditations","author":"Marcus Aurelius","year":180,"kind":"book","subject":"philosophy"},
-    {"title":"Nexus: A Brief History of Information Networks from the Stone Age to AI","author":"Yuval Noah Harari","year":2024,"kind":"book","subject":"history"},
-    {"title":"Nobel Lecture","author":"Han Kang","year":2024,"kind":"speech","subject":"literature","url":"https://www.nobelprize.org/prizes/literature/2024/han/lecture/"},
-    {"title":"Notes from Underground","author":"Fyodor Dostoevsky","year":1864,"kind":"book","subject":"literature"},
-    {"title":"On the Genealogy of Morality","author":"Friedrich Nietzsche","year":1887,"kind":"book","subject":"philosophy"},
-    {"title":"Politics and the English Language","author":"George Orwell","year":1946,"kind":"essay","subject":"politics"},
-    {"title":"Private Government: How Employers Rule Our Lives (and Why We Don't Talk about It)","author":"Elizabeth S. Anderson","year":2017,"kind":"book","subject":"politics"},
-    {"title":"Sapiens: A Brief History of Humankind","author":"Yuval Noah Harari","year":2011,"kind":"book","subject":"history"},
-    {"title":"Science, The Endless Frontier","author":"Vannevar Bush","year":1945,"kind":"document","subject":"science","url":"https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm"},
-    {"title":"The Adolescence of Technology","author":"Dario Amodei","year":2026,"kind":"essay","subject":"technology"},
-    {"title":"The Art of War","author":"Sun Tzu","year":-500,"kind":"book","subject":"military"},
-    {"title":"The Brothers Karamazov","author":"Fyodor Dostoevsky","year":1880,"kind":"book","subject":"literature"},
-    {"title":"The Merge","author":"Sam Altman","year":2017,"kind":"essay","subject":"technology","url":"https://blog.samaltman.com/the-merge"},
-    {"title":"The Metamorphosis","author":"Franz Kafka","year":1915,"kind":"book","subject":"literature"},
-    {"title":"The Myth of Sisyphus","author":"Albert Camus","year":1942,"kind":"essay","subject":"philosophy"},
-    {"title":"The Old Man and the Sea","author":"Ernest Hemingway","year":1952,"kind":"book","subject":"literature"},
-    {"title":"The Singularity Is Nearer: When We Merge with AI","author":"Ray Kurzweil","year":2024,"kind":"book","subject":"technology"},
-    {"title":"The Sun Also Rises","author":"Ernest Hemingway","year":1926,"kind":"book","subject":"literature"},
-    {"title":"This is a Once-in-a-Civilization Opportunity","author":"Alexandr Wang","year":2026,"kind":"interview","subject":"technology","url":"https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity"},
-    {"title":"War and Peace","author":"Leo Tolstoy","year":1869,"kind":"book","subject":"literature"},
-    {"title":"What I Wish Someone Had Told Me","author":"Sam Altman","year":2023,"kind":"essay","subject":"technology","url":"https://blog.samaltman.com/what-i-wish-someone-had-told-me"},
-    {"title":"White Nights","author":"Fyodor Dostoevsky","year":1848,"kind":"book","subject":"literature"}
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "year": 1949,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "1Q84",
+      "author": "Haruki Murakami",
+      "year": 2009,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "2016 Letter to Shareholders",
+      "author": "Jeff Bezos",
+      "year": 2016,
+      "kind": "letter",
+      "subject": "technology",
+      "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders"
+    },
+    {
+      "title": "Agentic AI and the Future of Software Development",
+      "author": "Boris Cherny",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=eQ6tb7j3Z2U"
+    },
+    {
+      "title": "AGI is still a decade away",
+      "author": "Andrej Karpathy",
+      "year": 2025,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.dwarkesh.com/p/andrej-karpathy"
+    },
+    {
+      "title": "Animal Farm",
+      "author": "George Orwell",
+      "year": 1945,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "Beyond Good and Evil",
+      "author": "Friedrich Nietzsche",
+      "year": 1886,
+      "kind": "book",
+      "subject": "philosophy"
+    },
+    {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "year": 1932,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "Building Claude Code",
+      "author": "Boris Cherny",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code"
+    },
+    {
+      "title": "Claude’s Constitution",
+      "author": "Anthropic",
+      "year": 2026,
+      "kind": "document",
+      "subject": "technology",
+      "url": "https://www.anthropic.com/constitution"
+    },
+    {
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "year": 1866,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "Elon Musk",
+      "author": "Walter Isaacson",
+      "year": 2023,
+      "kind": "book",
+      "subject": "technology"
+    },
+    {
+      "title": "Flowers for Algernon",
+      "author": "Daniel Keyes",
+      "year": 1966,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "Groundwork of the Metaphysics of Morals",
+      "author": "Immanuel Kant",
+      "year": 1785,
+      "kind": "book",
+      "subject": "ethics"
+    },
+    {
+      "title": "Inside the Mind of Anthropic CEO Dario Amodei",
+      "author": "Dario Amodei",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=x2VHFgyawPE"
+    },
+    {
+      "title": "Machines of Loving Grace",
+      "author": "Dario Amodei",
+      "year": 2024,
+      "kind": "essay",
+      "subject": "technology",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace"
+    },
+    {
+      "title": "Man's Search for Meaning",
+      "author": "Viktor E. Frankl",
+      "year": 1946,
+      "kind": "book",
+      "subject": "psychology"
+    },
+    {
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "year": 180,
+      "kind": "book",
+      "subject": "philosophy"
+    },
+    {
+      "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "author": "Yuval Noah Harari",
+      "year": 2024,
+      "kind": "book",
+      "subject": "history"
+    },
+    {
+      "title": "Nobel Lecture",
+      "author": "Han Kang",
+      "year": 2024,
+      "kind": "speech",
+      "subject": "literature",
+      "url": "https://www.nobelprize.org/prizes/literature/2024/han/lecture/"
+    },
+    {
+      "title": "Notes from Underground",
+      "author": "Fyodor Dostoevsky",
+      "year": 1864,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "On the Genealogy of Morality",
+      "author": "Friedrich Nietzsche",
+      "year": 1887,
+      "kind": "book",
+      "subject": "philosophy"
+    },
+    {
+      "title": "Politics and the English Language",
+      "author": "George Orwell",
+      "year": 1946,
+      "kind": "essay",
+      "subject": "politics"
+    },
+    {
+      "title": "Private Government: How Employers Rule Our Lives (and Why We Don't Talk about It)",
+      "author": "Elizabeth S. Anderson",
+      "year": 2017,
+      "kind": "book",
+      "subject": "politics"
+    },
+    {
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "year": 2011,
+      "kind": "book",
+      "subject": "history"
+    },
+    {
+      "title": "Science, The Endless Frontier",
+      "author": "Vannevar Bush",
+      "year": 1945,
+      "kind": "document",
+      "subject": "science",
+      "url": "https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm"
+    },
+    {
+      "title": "The Adolescence of Technology",
+      "author": "Dario Amodei",
+      "year": 2026,
+      "kind": "essay",
+      "subject": "technology"
+    },
+    {
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "year": -500,
+      "kind": "book",
+      "subject": "military"
+    },
+    {
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "year": 1880,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "The Merge",
+      "author": "Sam Altman",
+      "year": 2017,
+      "kind": "essay",
+      "subject": "technology",
+      "url": "https://blog.samaltman.com/the-merge"
+    },
+    {
+      "title": "The Metamorphosis",
+      "author": "Franz Kafka",
+      "year": 1915,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "The Myth of Sisyphus",
+      "author": "Albert Camus",
+      "year": 1942,
+      "kind": "essay",
+      "subject": "philosophy"
+    },
+    {
+      "title": "The Old Man and the Sea",
+      "author": "Ernest Hemingway",
+      "year": 1952,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "The Singularity Is Nearer: When We Merge with AI",
+      "author": "Ray Kurzweil",
+      "year": 2024,
+      "kind": "book",
+      "subject": "technology"
+    },
+    {
+      "title": "The Sun Also Rises",
+      "author": "Ernest Hemingway",
+      "year": 1926,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "This is a Once-in-a-Civilization Opportunity",
+      "author": "Alexandr Wang",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity"
+    },
+    {
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "year": 1869,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "What I Wish Someone Had Told Me",
+      "author": "Sam Altman",
+      "year": 2023,
+      "kind": "essay",
+      "subject": "technology",
+      "url": "https://blog.samaltman.com/what-i-wish-someone-had-told-me"
+    },
+    {
+      "title": "White Nights",
+      "author": "Fyodor Dostoevsky",
+      "year": 1848,
+      "kind": "book",
+      "subject": "literature"
+    },
+    {
+      "title": "You and Your Research",
+      "author": "Richard Hamming",
+      "year": 1986,
+      "kind": "speech",
+      "subject": "science",
+      "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html"
+    }
   ]
 }

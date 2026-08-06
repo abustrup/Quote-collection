@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-04T09:00:00Z",
+  "updatedAt": "2026-08-06",
   "board": {
-    "runId": "2026-08-04",
-    "note": "You kept Han Kang off the last board and retired the other eight yourself, so this one is built on two data points rather than one: the lines you take are compact claims about how something actually works, and the lines you add for yourself — Musk on requirements, Cherny on verification — are the same shape. So I went looking for that shape outside the people who build AI. What I found was Meadows arguing that we reliably push the right lever the wrong way, Čapek stating in 1920 the premise the whole acceleration argument still rests on, and a Vatican note from last year making a definitional claim about AI that you can disagree with. Krasznahorkai's lecture is eight months old and is the same size of claim as the Amodei essays you hold, aimed the other way. Two seams I am closing rather than mining again: finance and investing is 0 for 5 and you tombstoned Keynes, Knight, Mallaby and Thiel in one go, and Nordic writing is 0 for 3. Five lines, not nine — I held back a sixth I liked because it would have made three of six from the same source."
+    "runId": "2026-08-06",
+    "note": "You retired all five of the last board by hand, but the sharpest thing in the repository this week was not that rejection. On 31 July I offered you two lines from Hamming's You and Your Research and you passed on both; on 4 August you went and mined that same essay yourself and kept a different one — the one that sets believing too much against doubting too much. Nearly everything you have added by hand since is that same shape: two things people conflate, and a claim about which one you are watching wrongly. Being wrong against being slow, optimising a part against deleting it, the demo against the product, the end of the questions against the answers. So this board is built on that one shape and nothing else, from five fields that do not touch each other: what a program is as against its text, a good outcome as against a good bet, where an instruction came from as against what it says, an indicator as against the thing it stands for, and the victors' history as against the flattering one written by people who meant well. Where it ran thin: defence and strategy reporting, which I went into for the Sun Tzu shelf and left empty-handed — institutional analysts hedge every sentence, and hedged prose does not make quotable lines. Five, not nine."
   },
   "proposals": [
     {
@@ -942,6 +942,190 @@
         "2026-08-04"
       ],
       "status": "expired"
+    },
+    {
+      "id": "q_f5ddc34deb61",
+      "text": "The death of a program happens when the programmer team possessing its theory is dissolved. A dead program may continue to be used for execution in a computer and to produce useful results. The actual state of death becomes visible when demands for modifications of the program cannot be intelligently answered.",
+      "author": "Peter Naur",
+      "work": "Programming as Theory Building",
+      "workKind": "paper",
+      "year": 1985,
+      "source": {
+        "kind": "curated",
+        "url": "https://gwern.net/doc/cs/algorithm/1985-naur.pdf",
+        "locator": "Section on program life, death and revival"
+      },
+      "tags": [
+        "software",
+        "tacit-knowledge",
+        "handover",
+        "teams",
+        "documentation"
+      ],
+      "themes": [
+        "knowledge",
+        "technology",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in a scanned PDF of the essay as reprinted in Appendix B of Alistair Cockburn's Agile Software Development, and string-matched against the extracted text. Checked 2026-08-06. Ligatures in the scan normalised (modiﬁcations to modifications); no other change."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Because you now ship systems whose theory was never in anyone's head, and this is the paper that named that failure forty years early.",
+      "shownOn": [
+        "2026-08-06"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_c6304a5bd762",
+      "text": "That practitioner actions are gambles appears clear after accidents; in general, post hoc analysis regards these gambles as poor ones. But the converse: that successful outcomes are also the result of gambles; is not widely appreciated.",
+      "author": "Richard I. Cook",
+      "work": "How Complex Systems Fail",
+      "workKind": "essay",
+      "year": 2000,
+      "source": {
+        "kind": "curated",
+        "url": "https://how.complexsystems.fail/",
+        "locator": "Under the heading 'All practitioner actions are gambles'"
+      },
+      "tags": [
+        "safety",
+        "hindsight",
+        "outcome-bias",
+        "luck",
+        "systems"
+      ],
+      "themes": [
+        "risk",
+        "certainty",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full text at how.complexsystems.fail and string-matched against it. Checked 2026-08-06. The semicolon before 'is not widely appreciated' is the author's own."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Every operator on your shelf is explaining a win; this is the line that says the wins were bets too, and it is a doctor saying it about dead patients.",
+      "shownOn": [
+        "2026-08-06"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_c2bacdcc3b68",
+      "text": "LLMs are unable to reliably distinguish the importance of instructions based on where they came from. Everything eventually gets glued together into a sequence of tokens and fed to the model.",
+      "author": "Simon Willison",
+      "work": "The lethal trifecta for AI agents",
+      "workKind": "essay",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/",
+        "locator": "Under 'The problem is that LLMs follow instructions in content', 16 June 2025"
+      },
+      "tags": [
+        "ai",
+        "prompt-injection",
+        "agents",
+        "security",
+        "tools"
+      ],
+      "themes": [
+        "technology",
+        "knowledge",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the post on the author's own site and string-matched against it. Checked 2026-08-06."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "You hand agents your private files and the open web in the same breath, and this is the mechanism claim for why telling them to be careful cannot fix it.",
+      "shownOn": [
+        "2026-08-06"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_ec5571a378d1",
+      "text": "Even those who devise the indicators know that they are at very best surrogates for the real objectives.",
+      "author": "Onora O'Neill",
+      "work": "A Question of Trust",
+      "workKind": "speech",
+      "year": 2002,
+      "source": {
+        "kind": "curated",
+        "url": "http://www.bbc.co.uk/radio4/reith2002/lecture3.shtml",
+        "locator": "BBC Reith Lectures 2002, Lecture 3: Called to Account, section 3"
+      },
+      "tags": [
+        "accountability",
+        "metrics",
+        "institutions",
+        "audit",
+        "trust"
+      ],
+      "themes": [
+        "truth",
+        "knowledge",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the BBC's own archived transcript of the broadcast and string-matched against it. Checked 2026-08-06."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "A Kant scholar not doing philosophy, taking apart the reporting layer you will spend a career inside.",
+      "shownOn": [
+        "2026-08-06"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_c65faa2ad379",
+      "text": "This new and simpler history was not only the inevitable work of the victors, who are always at liberty to construct a narrative of their choice, but it also suited commentators and scholars and even writers who had no real interest in us, or were viewing us through a frame that agreed with their view of the world, and who required a familiar narrative of racial emancipation and progress.",
+      "author": "Abdulrazak Gurnah",
+      "work": "Nobel Lecture in Literature 2021",
+      "workKind": "speech",
+      "year": 2021,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/literature/2021/gurnah/lecture/",
+        "locator": "On the simpler history that replaced what happened in Zanzibar after 1964"
+      },
+      "tags": [
+        "memory",
+        "historiography",
+        "erasure",
+        "colonialism"
+      ],
+      "themes": [
+        "history",
+        "truth",
+        "writing"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full transcript on nobelprize.org, fetched with curl because the site now returns 403 to the ordinary fetch tool, and string-matched against it. Checked 2026-08-06."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Orwell is your densest room and it says the victors rewrite the past; this says the sympathetic outsiders did it too, and got thanked for it.",
+      "shownOn": [
+        "2026-08-06"
+      ],
+      "status": "open"
     }
   ]
 }

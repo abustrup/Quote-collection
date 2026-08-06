@@ -10,6 +10,84 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-06 · fifth board · the Hamming coincidence · 2 kept of 28 proposed (7%)
+
+**He retired all five of the last board by hand (issue #29, no reason given),
+so the fourth board is a clean zero and the hit rate falls to 2 of 28.** Both
+keeps still stand on two separate boards, which is the EXPIRES condition
+half-met: three kept across two boards by 2026-09-27, and I have two.
+
+**The useful finding this run was not the rejection. It was a coincidence in
+the collection.** On 2026-07-31 I proposed two lines from Hamming's *You and
+Your Research* and he passed on both. On 2026-08-04 he went and mined that
+exact essay himself and kept a third line: *"If you believe too much you'll
+never notice the flaws; if you doubt too much you won't get started."* Same
+work, same week, my picks refused and his taken. That is the closest thing to a
+controlled experiment this routine will ever get, and it says the miss was not
+the source. It was the sentence.
+
+**What his line has that mine did not: it draws a distinction between two
+things people conflate and says which one you are watching wrongly.** Once you
+look for that shape it is nearly everything he has added by hand since
+2026-08-03 — being wrong against being slow (Bezos), optimising a part against
+deleting the part (Musk), the demo against the product (Karpathy), model
+progress against diffusion (Wang), plans in decades against execution in weeks
+(Altman), the end of the questions against finding the answers (Han Kang, the
+one I got right). Mine were advice and anecdote: *have a reasonable attack on
+the problem*, *work with your door open*. Both true, neither a distinction.
+
+**This refines the 2026-08-04 entry rather than replacing it.** "Compact claims
+about how something works" was right and too loose — it admits Hirschman,
+Simon, Meadows and the Vatican note, all of which he refused. The tighter rule
+is the one to test now, and this board tests only it: five lines, five fields
+that do not touch, one shape.
+
+**Era was not the binding constraint, and I should record that plainly.** The
+fourth board met both of his floors — 60% twenty-first century, 40% from the
+last five years — and still went 0 for 5. I had been treating the era numbers
+as the thing to fix after he flagged the 1961–86 board. They are a floor worth
+holding, not a theory of what he keeps. This board is 60% and 40% again, and if
+it fails, the failure will not be its dates either.
+
+**A seam entered and abandoned: defence and strategy reporting.** He holds
+eight lines of Sun Tzu and nothing else military, so a modern operational
+analysis should have been a door into a room he has. I read the RUSI February
+2025 strike-campaign paper in full. The closest thing to a quotable sentence was
+*"organisations often learn first-order lessons about implementation more
+readily than they reassess fundamental assumptions"* — a subordinate clause,
+correct, and hedged into shapelessness like everything around it. **Institutional
+analysts write to survive review, and prose written to survive review does not
+produce sentences.** Government and think-tank reports are a good source of
+facts and a bad source of quotes. Not worth the fetch again unless the author is
+writing under their own name and arguing.
+
+**Sources that worked.** how.complexsystems.fail serves the whole Cook treatise
+as plain HTML. The BBC still hosts its Reith Lecture transcripts on the old
+`bbc.co.uk/radio4/reith*` paths, archived but live — five decades of named
+public lectures by people who were asked to argue rather than to report, and
+none of it is in the collection. That is the best unmined seam I have found.
+nobelprize.org still 403s WebFetch and still answers `curl` with a browser
+user-agent, unchanged since 2026-08-04.
+
+**Housekeeping.** Registered five works he had kept lines from that had no entry
+in `works.json` and so were dropping out of the shelf's filters: Bezos's 2016
+shareholder letter, Karpathy on Dwarkesh, Cherny on AMD Advanced Insights,
+Amodei on The Circuit, and Hamming. The collection now validates with zero
+warnings. One record resists: a Goodreads-synced Dostoevsky quote with a null
+work, which cannot be registered without editing `quotes.json`, which I may not
+touch.
+
+**This board.** Naur on a program dying when the team holding its theory
+disperses; Cook on successful outcomes being gambles too; Willison on models
+being unable to tell where an instruction came from; O'Neill on indicators being
+surrogates their own designers distrust; Gurnah on the flattering history that
+erases as thoroughly as the victors'. Five, not nine. 60% twenty-first century,
+40% from the last five years, one of five by a woman, and all five written in
+English — the translation gap in this collection is real and I did not close it
+this run.
+
+---
+
 ## 2026-08-04 · fourth board · two seams closed · 2 kept of 23 proposed (9%)
 
 **The routine has its first real evidence, and it says something narrower than
