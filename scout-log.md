@@ -10,6 +10,72 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-09 · sixth board · practitioners, not theorists · 2 kept of 33 proposed (6%)
+
+**No signal at all on the fifth board.** Nothing kept, nothing retired, no issue
+opened, and his last touch of the repository was the Goodreads sync on
+2026-08-05. The Saturday 08-08 run did not fire — no commit for it — so the
+board has had three calendar days and one showing rather than the two runs the
+rule imagines. I replaced it anyway. Three days is what "hold once, then
+replace" was written to mean, and the alternative was a fourth day of a page
+nobody had opened.
+
+**I carried three of its five lines forward for a second and final showing**
+(Naur, Cook, Willison) and expired the other two. The cut was not arbitrary,
+and the reason is this run's finding.
+
+**Sharper than "the distinction shape": practitioners on their own craft.**
+Look at the whole record rather than the last board. Kept: Hamming on research,
+Cherny on building software, Karpathy on demos, Bezos on speed, Musk on parts,
+Altman on companies, Amodei on running a lab, Han Kang on her own writing
+process — every single one is a person describing work they do with their own
+hands. Refused: Hirschman, Simon, Meadows, O'Neill, the Vatican note, Čapek,
+Ernaux, Krasznahorkai, Fosse, Ressa, Eisenhower, Hayek, Buffett — observers,
+analysts and artists describing something they stand outside of. The one
+apparent exception cuts the same way: the two Hamming lines I lost were the ones
+where he stopped describing his own practice and gave advice.
+
+That is a cleaner predictor than era, than fame, and than the distinction shape
+on its own — the distinction shape is *how* a practitioner talks when they are
+being precise, not a separate test. O'Neill and Gurnah went because they fail
+it; Naur, Cook and Willison stay because they pass.
+
+**So the four new lines are four practitioners, four crafts, none of them his:**
+Terence Tao on what rigour is actually for, Atul Gawande on failing because
+nobody knows against failing because the knowledge did not get applied, Olga
+Tokarczuk on why an event is not an experience, María Corina Machado on what
+the refrigerators handed out on Venezuelan television were actually for.
+Mathematics, medicine, literature and practised politics — four rooms the
+collection has nothing in.
+
+**A line I deliberately did not propose.** Paul Graham's *How to Do Great Work*
+(2023) is fully fetchable and produced at least two lines that pass every test I
+have — *"There's a big difference between doing something you worry might be a
+waste of time and doing something you know for sure will be"* among them. I left
+it off. It is the same register he already mines himself every week, and my
+whole brief is lines he would keep on sight and will never otherwise meet. If
+this board fails too, PG is the obvious next thing to try, and that failure
+would itself be informative.
+
+**Sources, for the next run.** The BBC Reith transcripts are as good as the
+prompt claims and the paths are inconsistent: lecture 1 of 2014 sits under
+`downloads.bbc.co.uk/radio4/transcripts/`, lectures 2–4 under
+`radio4/open-book/`, so guessing a pattern fails and scraping the
+`bbc.co.uk/programmes/<pid>` page for the PDF link works. nobelprize.org still
+403s WebFetch and still serves everything to `curl` with a browser user-agent,
+including the Peace 2025 lecture. Nobel literature lectures are also served as
+clean PDFs under `nobelprize.org/uploads/`, which beats stripping tags off the
+HTML page.
+
+**Unrelated, and his to decide: `npm test` has been failing since before this
+run.** One assertion in `tests/curate.test.mjs` pins a historical count — 44
+removals whose reason mentions the Goodreads list — and the file now holds 43.
+`npm run check` passes and the site is fine; it is a brittle historical
+assertion, not a broken collection. I did not touch it: `quotes.json`,
+`removed.json` and the test suite are all outside what I am granted.
+
+---
+
 ## 2026-08-06 · fifth board · the Hamming coincidence · 2 kept of 28 proposed (7%)
 
 **He retired all five of the last board by hand (issue #29, no reason given),

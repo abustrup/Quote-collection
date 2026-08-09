@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-06",
+  "updatedAt": "2026-08-09T09:00:00.000Z",
   "board": {
-    "runId": "2026-08-06",
-    "note": "You retired all five of the last board by hand, but the sharpest thing in the repository this week was not that rejection. On 31 July I offered you two lines from Hamming's You and Your Research and you passed on both; on 4 August you went and mined that same essay yourself and kept a different one — the one that sets believing too much against doubting too much. Nearly everything you have added by hand since is that same shape: two things people conflate, and a claim about which one you are watching wrongly. Being wrong against being slow, optimising a part against deleting it, the demo against the product, the end of the questions against the answers. So this board is built on that one shape and nothing else, from five fields that do not touch each other: what a program is as against its text, a good outcome as against a good bet, where an instruction came from as against what it says, an indicator as against the thing it stands for, and the victors' history as against the flattering one written by people who meant well. Where it ran thin: defence and strategy reporting, which I went into for the Sun Tzu shelf and left empty-handed — institutional analysts hedge every sentence, and hedged prose does not make quotable lines. Five, not nine."
+    "runId": "2026-08-09",
+    "note": "Nothing was ticked and nothing was rejected on the last board, so I have taken it as a page you did not open and kept its three sharpest lines for a second and final showing. The four new ones test something narrower than “one shape”. Look at what has actually survived: Hamming on research, Cherny on building, Karpathy on demos, Han Kang on writing — every one of them is a person describing the work they do with their own hands. What has failed is everyone standing outside it: Hirschman, Simon, Meadows, O'Neill, the Vatican. Not theorists of systems, then, but practitioners on their own craft. So: a mathematician on what rigour is for, a surgeon on the difference between not knowing and not doing, a novelist on why an event is not an experience, and an opposition leader on what the refrigerators were actually for. I dropped Paul Graham's How to Do Great Work, which had two lines that passed — it is the same register you already mine yourself every week, and finding you what you would find anyway is not my job."
   },
   "proposals": [
     {
@@ -976,7 +976,8 @@
       "note": "",
       "why": "Because you now ship systems whose theory was never in anyone's head, and this is the paper that named that failure forty years early.",
       "shownOn": [
-        "2026-08-06"
+        "2026-08-06",
+        "2026-08-09"
       ],
       "status": "open"
     },
@@ -1013,7 +1014,8 @@
       "note": "",
       "why": "Every operator on your shelf is explaining a win; this is the line that says the wins were bets too, and it is a doctor saying it about dead patients.",
       "shownOn": [
-        "2026-08-06"
+        "2026-08-06",
+        "2026-08-09"
       ],
       "status": "open"
     },
@@ -1050,7 +1052,8 @@
       "note": "",
       "why": "You hand agents your private files and the open web in the same breath, and this is the mechanism claim for why telling them to be careful cannot fix it.",
       "shownOn": [
-        "2026-08-06"
+        "2026-08-06",
+        "2026-08-09"
       ],
       "status": "open"
     },
@@ -1089,7 +1092,7 @@
       "shownOn": [
         "2026-08-06"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_c65faa2ad379",
@@ -1124,6 +1127,157 @@
       "why": "Orwell is your densest room and it says the victors rewrite the past; this says the sympathetic outsiders did it too, and got thanked for it.",
       "shownOn": [
         "2026-08-06"
+      ],
+      "status": "expired"
+    },
+    {
+      "id": "q_6e4cbd186363",
+      "text": "The point of rigour is not to destroy all intuition; instead, it should be used to destroy bad intuition while clarifying and elevating good intuition.",
+      "author": "Terence Tao",
+      "work": "There's more to mathematics than rigour and proofs",
+      "workKind": "essay",
+      "year": 2007,
+      "source": {
+        "kind": "curated",
+        "url": "https://terrytao.wordpress.com/career-advice/theres-more-to-mathematics-than-rigour-and-proofs/",
+        "locator": "On the transition from the rigorous to the post-rigorous stage"
+      },
+      "tags": [
+        "rigour",
+        "intuition",
+        "expertise",
+        "mathematics",
+        "learning"
+      ],
+      "themes": [
+        "knowledge",
+        "mind",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full essay on the author's own site, fetched with curl and string-matched against the page text. Checked 2026-08-09."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "You keep verification and empiricism from builders; this is the same argument from the one field where proof is total, and it says rigour is a filter on intuition rather than a replacement for it.",
+      "shownOn": [
+        "2026-08-09"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_1c0923b89701",
+      "text": "You go back a hundred years, and we lived in a world where our futures were governed largely by ignorance. But in this last century, we’ve come through an extraordinary explosion of discovery and then the puzzle has become not only how we close the continuing gaps of ignorance open to us but also how we ensure that the knowledge gets there, that the finger probe is on the right finger.",
+      "author": "Atul Gawande",
+      "work": "Why Do Doctors Fail?",
+      "workKind": "speech",
+      "year": 2014,
+      "source": {
+        "kind": "curated",
+        "url": "https://downloads.bbc.co.uk/radio4/transcripts/2014_reith_lecture1_boston.pdf",
+        "locator": "BBC Reith Lectures 2014, lecture 1; after the account of his son's misplaced oxygen probe"
+      },
+      "tags": [
+        "failure",
+        "ignorance",
+        "ineptitude",
+        "execution",
+        "medicine"
+      ],
+      "themes": [
+        "knowledge",
+        "work",
+        "progress",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the BBC's own transcript PDF of the broadcast lecture and string-matched against it. Checked 2026-08-09. The BBC's header notes this is a live-broadcast transcript, so the wording is the spoken one."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Failing because nobody knows, against failing because the person holding the knowledge put the probe on the wrong finger; a surgeon says which of the two now governs outcomes.",
+      "shownOn": [
+        "2026-08-09"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_a7f92b223bce",
+      "text": "Events are facts, but experience is something inexpressibly different. It is experience, and not any event, that makes up the material of our lives.",
+      "author": "Olga Tokarczuk",
+      "work": "Nobel Lecture in Literature 2018",
+      "workKind": "speech",
+      "year": 2019,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/uploads/2019/12/tokarczuk-lecture-english-2.pdf",
+        "locator": "Section 2, on the question 'is this thing you wrote really true?'"
+      },
+      "tags": [
+        "experience",
+        "facts",
+        "interpretation",
+        "memory",
+        "narrative"
+      ],
+      "themes": [
+        "truth",
+        "writing",
+        "meaning",
+        "mind"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the Nobel Foundation's own PDF of the lecture and string-matched against it. Checked 2026-08-09. Translated from the Polish by Jennifer Croft and Antonia Lloyd-Jones."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "The one line I have got right was Han Kang on her own writing process; this is the same door, and the distinction underneath it is the one Harari's information networks keep circling.",
+      "shownOn": [
+        "2026-08-09"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_7b9d854850be",
+      "text": "Washing machines and refrigerators were handed out on national television to families living on dirt floors, not as progress but as spectacle.",
+      "author": "María Corina Machado",
+      "work": "Nobel Peace Prize Lecture 2025",
+      "workKind": "speech",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.nobelprize.org/prizes/peace/2025/machado/lecture/",
+        "locator": "On what the oil revenues were spent on after 1999"
+      },
+      "tags": [
+        "propaganda",
+        "patronage",
+        "authoritarianism",
+        "venezuela",
+        "spectacle"
+      ],
+      "themes": [
+        "power",
+        "politics",
+        "progress",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the English text of the lecture on nobelprize.org, fetched with curl and string-matched against it. Checked 2026-08-09. Delivered on her behalf by Ana Corina Sosa Machado, 10 December 2025."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Thirty-seven lines of Orwell tell you how a regime buys consent; this is someone who spent sixteen months hidden from one, naming the exact purchase.",
+      "shownOn": [
+        "2026-08-09"
       ],
       "status": "open"
     }
