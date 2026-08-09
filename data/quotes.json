@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-04T18:56:09.568Z",
+  "updatedAt": "2026-08-09T19:49:03.664Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5687,6 +5687,137 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_5675c375ee6b",
+      "text": "Look for something where the model succeeds 0% or 1% of the time, not 20%.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 28:51 · on which problems a startup should pick"
+      },
+      "tags": [
+        "ai",
+        "startups",
+        "agents",
+        "product-selection",
+        "frontier-models"
+      ],
+      "themes": [
+        "technology",
+        "work",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Sentence-initial “So” dropped and the L capitalised; nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_cbdc7d57cae9",
+      "text": "Now we actually have agent-based systems that can do the writing, but the importance of specifying what you want has actually gone up.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 32:40 · on writing specs for a fleet of agents"
+      },
+      "tags": [
+        "agents",
+        "specifications",
+        "ai",
+        "coding",
+        "context-engineering"
+      ],
+      "themes": [
+        "technology",
+        "language",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Ends where YC's sentence continues “, because before you’d be handing it off…”; the trailing clause is cut and the comma made a full stop. Nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_bc9a88f6881c",
+      "text": "If you pick the problem well and succeed in solving it, that’s way better than if you delightfully execute a research investigation into a rather boring problem.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 34:36 · on taste as the scarce skill once agents write the code"
+      },
+      "tags": [
+        "taste",
+        "research",
+        "problem-selection",
+        "ai",
+        "agents"
+      ],
+      "themes": [
+        "work",
+        "knowledge",
+        "attention"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Verbatim; nothing changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_f259eefacb7a",
+      "text": "If you truly understand the data, you should be able to compress it really well.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 15:54 · answering the claim that AI is fundamentally a compression problem"
+      },
+      "tags": [
+        "compression",
+        "understanding",
+        "machine-learning",
+        "ai"
+      ],
+      "themes": [
+        "knowledge",
+        "truth",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Verbatim; nothing changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
     }
   ]
 }
