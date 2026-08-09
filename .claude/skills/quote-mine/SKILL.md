@@ -126,6 +126,23 @@ the candidate rather than repairing it, because a repaired quote is your wording
 Flag the softer cases on the line itself (tense, a garbled clause) and let him
 decide.
 
+**A published transcript can contain speech that never happened.** Mishearings
+are the failure you expect; interpolation is the one that gets through. On
+YC's own Root Access transcript of Altman at Startup School 2026, 2026-08-09:
+two entire exchanges printed as dialogue appear nowhere in the 39 minutes of
+audio — smooth, plausible, on-topic startup advice, of exactly the well-turned-
+platitude shape §3 tells you to avoid. The same page omitted several of his
+best real answers and split one exchange between the wrong speakers, so Altman
+appeared to affirm a growth figure he had just denied. Filing from that page
+alone would have produced fabricated quotations under a real name.
+
+So when both a published transcript and a caption track exist, **the recording
+is the authority and the transcript is the punctuation.** Run the picked lines
+against the audio track, not just against the page you read them on; include a
+control phrase you know is there, so an absent result means absent rather than
+a broken search. Where the two disagree on substance, mine the audio and say
+so — the good material is often the part the publisher dropped.
+
 Where wording genuinely matters and he wants it settled, the audio can be
 transcribed locally: `ffmpeg` is installed on his Mac, a Whisper package is not.
 Offer it, don't assume it — he declined the install on 2026-08-04 and was right
