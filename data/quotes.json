@@ -4436,6 +4436,137 @@
       "addedAt": "2026-08-04"
     },
     {
+      "id": "q_bc9a88f6881c",
+      "text": "If you pick the problem well and succeed in solving it, that’s way better than if you delightfully execute a research investigation into a rather boring problem.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 34:36 · on taste as the scarce skill once agents write the code"
+      },
+      "tags": [
+        "taste",
+        "research",
+        "problem-selection",
+        "ai",
+        "agents"
+      ],
+      "themes": [
+        "work",
+        "knowledge",
+        "attention"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Verbatim; nothing changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_f259eefacb7a",
+      "text": "If you truly understand the data, you should be able to compress it really well.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 15:54 · answering the claim that AI is fundamentally a compression problem"
+      },
+      "tags": [
+        "compression",
+        "understanding",
+        "machine-learning",
+        "ai"
+      ],
+      "themes": [
+        "knowledge",
+        "truth",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Verbatim; nothing changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_5675c375ee6b",
+      "text": "Look for something where the model succeeds 0% or 1% of the time, not 20%.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 28:51 · on which problems a startup should pick"
+      },
+      "tags": [
+        "ai",
+        "startups",
+        "agents",
+        "product-selection",
+        "frontier-models"
+      ],
+      "themes": [
+        "technology",
+        "work",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Sentence-initial “So” dropped and the L capitalised; nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_cbdc7d57cae9",
+      "text": "Now we actually have agent-based systems that can do the writing, but the importance of specifying what you want has actually gone up.",
+      "author": "Jeff Dean",
+      "work": "The 1% Rule for Building in AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
+        "locator": "Y Combinator Startup School 2026, 32:40 · on writing specs for a fleet of agents"
+      },
+      "tags": [
+        "agents",
+        "specifications",
+        "ai",
+        "coding",
+        "context-engineering"
+      ],
+      "themes": [
+        "technology",
+        "language",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Ends where YC's sentence continues “, because before you’d be handing it off…”; the trailing clause is cut and the comma made a full stop. Nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
       "id": "q_9151e6dfa8ce",
       "text": "A man on a thousand mile walk has to forget his goal and say to himself every morning, 'Today I'm going to cover twenty-five miles and then rest up and sleep.",
       "author": "Leo Tolstoy",
@@ -4903,6 +5034,170 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-04"
+    },
+    {
+      "id": "q_a5b4545711a2",
+      "text": "Be grateful that the world doesn’t understand. They will eventually. This is a huge superpower.",
+      "author": "Sam Altman",
+      "work": "Never a Better Time to Do a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
+        "locator": "Y Combinator Startup School 2026, 14:37 · on being dismissed for years while building OpenAI"
+      },
+      "tags": [
+        "conviction",
+        "contrarian",
+        "exponentials",
+        "openai",
+        "startups"
+      ],
+      "themes": [
+        "character",
+        "certainty",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. The caption track is the only source: this passage is absent from YC's published transcript, which omits the whole answer it belongs to."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_66ae1df61166",
+      "text": "I think it will feel like the next six months is maybe equivalent to the last two years of model progress.",
+      "author": "Sam Altman",
+      "work": "Never a Better Time to Do a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
+        "locator": "Y Combinator Startup School 2026, 30:53 · asked how much better the models are about to get"
+      },
+      "tags": [
+        "forecast",
+        "model-progress",
+        "openai",
+        "ai"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "time"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. Said on 28 Jul 2026, so the six months it refers to run to late January 2027. YC's transcript corroborates it word for word."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_5dad18b273a5",
+      "text": "I think we will never be out of the compute shortage. I’ve never seen any commodity quite like this one, but it seems to me like the demand for sufficiently high quality intelligence at a sufficiently low price is effectively uncapped.",
+      "author": "Sam Altman",
+      "work": "Never a Better Time to Do a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
+        "locator": "Y Combinator Startup School 2026, 34:22 · on whether demand for inference can ever be satisfied"
+      },
+      "tags": [
+        "compute",
+        "inference",
+        "demand",
+        "scaling",
+        "ai",
+        "economics"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "money"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. The compute-shortage sentence is kept in front of the uncapped-demand claim deliberately: it is the hypothesis the second sentence explains. YC's transcript corroborates this passage word for word; it drops a spoken “sort of” that the captions carry."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_39a4da12a847",
+      "text": "I would bet that this generally will cut against many years of experience in favor of people who have a lot of fluency with the tools.",
+      "author": "Sam Altman",
+      "work": "Never a Better Time to Do a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
+        "locator": "Y Combinator Startup School 2026, 11:35 · on what AI does to the value of a long career"
+      },
+      "tags": [
+        "experience",
+        "agents",
+        "tools",
+        "careers",
+        "ai"
+      ],
+      "themes": [
+        "work",
+        "knowledge",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. YC's transcript corroborates this sentence word for word."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
+    },
+    {
+      "id": "q_d13df4f6695d",
+      "text": "There’s got to be new exponentials forming right now. I don’t know what they are.",
+      "author": "Sam Altman",
+      "work": "Never a Better Time to Do a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
+        "locator": "Y Combinator Startup School 2026, 14:31 · on the deep-learning moment the world failed to price in"
+      },
+      "tags": [
+        "exponentials",
+        "conviction",
+        "forecasting",
+        "ai"
+      ],
+      "themes": [
+        "progress",
+        "technology",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. The caption track is the only source: this passage is absent from YC's published transcript, which omits the whole answer it belongs to."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-09"
     },
     {
       "id": "q_418f2fa1156e",
@@ -5687,301 +5982,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
-    },
-    {
-      "id": "q_5675c375ee6b",
-      "text": "Look for something where the model succeeds 0% or 1% of the time, not 20%.",
-      "author": "Jeff Dean",
-      "work": "The 1% Rule for Building in AI",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
-        "locator": "Y Combinator Startup School 2026, 28:51 · on which problems a startup should pick"
-      },
-      "tags": [
-        "ai",
-        "startups",
-        "agents",
-        "product-selection",
-        "frontier-models"
-      ],
-      "themes": [
-        "technology",
-        "work",
-        "progress"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Sentence-initial “So” dropped and the L capitalised; nothing else changed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_cbdc7d57cae9",
-      "text": "Now we actually have agent-based systems that can do the writing, but the importance of specifying what you want has actually gone up.",
-      "author": "Jeff Dean",
-      "work": "The 1% Rule for Building in AI",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
-        "locator": "Y Combinator Startup School 2026, 32:40 · on writing specs for a fleet of agents"
-      },
-      "tags": [
-        "agents",
-        "specifications",
-        "ai",
-        "coding",
-        "context-engineering"
-      ],
-      "themes": [
-        "technology",
-        "language",
-        "work"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Ends where YC's sentence continues “, because before you’d be handing it off…”; the trailing clause is cut and the comma made a full stop. Nothing else changed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_bc9a88f6881c",
-      "text": "If you pick the problem well and succeed in solving it, that’s way better than if you delightfully execute a research investigation into a rather boring problem.",
-      "author": "Jeff Dean",
-      "work": "The 1% Rule for Building in AI",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
-        "locator": "Y Combinator Startup School 2026, 34:36 · on taste as the scarce skill once agents write the code"
-      },
-      "tags": [
-        "taste",
-        "research",
-        "problem-selection",
-        "ai",
-        "agents"
-      ],
-      "themes": [
-        "work",
-        "knowledge",
-        "attention"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Verbatim; nothing changed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_f259eefacb7a",
-      "text": "If you truly understand the data, you should be able to compress it really well.",
-      "author": "Jeff Dean",
-      "work": "The 1% Rule for Building in AI",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building",
-        "locator": "Y Combinator Startup School 2026, 15:54 · answering the claim that AI is fundamentally a compression problem"
-      },
-      "tags": [
-        "compression",
-        "understanding",
-        "machine-learning",
-        "ai"
-      ],
-      "themes": [
-        "knowledge",
-        "truth",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written. Read in the transcript Y Combinator published itself on ycrootaccess.com and string-matched verbatim against it. Cross-checked against the video's caption track (youtu.be/CxXgV54KzpQ): YouTube auto-generated captions are the only track — the uploader supplied none — and the substance matches, but YC's transcript is lightly edited for verbal filler, so the wording here is YC's cleaned text rather than a word-for-word rendering. Not checked against the audio, hence reported rather than verified. Curly apostrophes are the transcript's. Verbatim; nothing changed."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_5dad18b273a5",
-      "text": "I think we will never be out of the compute shortage. I’ve never seen any commodity quite like this one, but it seems to me like the demand for sufficiently high quality intelligence at a sufficiently low price is effectively uncapped.",
-      "author": "Sam Altman",
-      "work": "Never a Better Time to Do a Startup",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
-        "locator": "Y Combinator Startup School 2026, 34:22 · on whether demand for inference can ever be satisfied"
-      },
-      "tags": [
-        "compute",
-        "inference",
-        "demand",
-        "scaling",
-        "ai",
-        "economics"
-      ],
-      "themes": [
-        "technology",
-        "progress",
-        "money"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. The compute-shortage sentence is kept in front of the uncapped-demand claim deliberately: it is the hypothesis the second sentence explains. YC's transcript corroborates this passage word for word; it drops a spoken “sort of” that the captions carry."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_39a4da12a847",
-      "text": "I would bet that this generally will cut against many years of experience in favor of people who have a lot of fluency with the tools.",
-      "author": "Sam Altman",
-      "work": "Never a Better Time to Do a Startup",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
-        "locator": "Y Combinator Startup School 2026, 11:35 · on what AI does to the value of a long career"
-      },
-      "tags": [
-        "experience",
-        "agents",
-        "tools",
-        "careers",
-        "ai"
-      ],
-      "themes": [
-        "work",
-        "knowledge",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. YC's transcript corroborates this sentence word for word."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_66ae1df61166",
-      "text": "I think it will feel like the next six months is maybe equivalent to the last two years of model progress.",
-      "author": "Sam Altman",
-      "work": "Never a Better Time to Do a Startup",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
-        "locator": "Y Combinator Startup School 2026, 30:53 · asked how much better the models are about to get"
-      },
-      "tags": [
-        "forecast",
-        "model-progress",
-        "openai",
-        "ai"
-      ],
-      "themes": [
-        "technology",
-        "progress",
-        "time"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. Said on 28 Jul 2026, so the six months it refers to run to late January 2027. YC's transcript corroborates it word for word."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_a5b4545711a2",
-      "text": "Be grateful that the world doesn’t understand. They will eventually. This is a huge superpower.",
-      "author": "Sam Altman",
-      "work": "Never a Better Time to Do a Startup",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
-        "locator": "Y Combinator Startup School 2026, 14:37 · on being dismissed for years while building OpenAI"
-      },
-      "tags": [
-        "conviction",
-        "contrarian",
-        "exponentials",
-        "openai",
-        "startups"
-      ],
-      "themes": [
-        "character",
-        "certainty",
-        "knowledge"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. The caption track is the only source: this passage is absent from YC's published transcript, which omits the whole answer it belongs to."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
-    },
-    {
-      "id": "q_d13df4f6695d",
-      "text": "There’s got to be new exponentials forming right now. I don’t know what they are.",
-      "author": "Sam Altman",
-      "work": "Never a Better Time to Do a Startup",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38",
-        "locator": "Y Combinator Startup School 2026, 14:31 · on the deep-learning moment the world failed to price in"
-      },
-      "tags": [
-        "exponentials",
-        "conviction",
-        "forecasting",
-        "ai"
-      ],
-      "themes": [
-        "progress",
-        "technology",
-        "knowledge"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Spoken, not written, so reported rather than verified. Read in the auto-generated English caption track for the video (the uploader supplied no track of its own), reconstructed from the VTT into continuous text and string-matched verbatim against it; verbal filler is removed, and the punctuation and sentence boundaries are YouTube's machine transcription rather than the speaker's. Not checked against the audio by ear. Y Combinator also published a transcript at ycrootaccess.com, but it was not treated as authoritative for this talk: two exchanges printed there appear nowhere in the 39 minutes of audio, and one exchange is split between the wrong speakers in a way that reverses Altman's meaning. The caption track is the only source: this passage is absent from YC's published transcript, which omits the whole answer it belongs to."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-08-09"
     }
   ]
 }
