@@ -334,9 +334,19 @@ test('every removal is traceable back to the quote it took', async () => {
   // The one historical fact worth pinning: the 30 Jul 2026 clear-out, checked
   // against the live Goodreads list from a runner (174 there, 0 missing here),
   // took only quotes that had never come from Goodreads.
+  //
+  // It took 44. One — Kant's formula of humanity — was deliberately lifted on
+  // 2026-08-02, leaving 43. Lifting is a deletion from this file by design, so
+  // it leaves no trace here and the original 44 cannot be recomputed from the
+  // data: this number has to be edited by hand on every lift. It was not, and
+  // the build stayed red for the nine days to 2026-08-11 without anyone
+  // noticing, because a permanently red build tells you nothing.
+  //
+  // So treat a failure here as the question "was a tombstone lifted, and was
+  // that deliberate?" — if yes, update the number and say which one.
   assert.equal(
     tombs.removed.filter((e) => e.reason?.includes('Not from the Goodreads list')).length,
-    44,
+    43,
   );
 });
 
