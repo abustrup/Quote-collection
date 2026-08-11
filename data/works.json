@@ -136,6 +136,14 @@
       "subject": "philosophy"
     },
     {
+      "title": "Never a Better Time to Do a Startup",
+      "author": "Sam Altman",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38"
+    },
+    {
       "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
       "author": "Yuval Noah Harari",
       "year": 2024,
@@ -192,6 +200,14 @@
       "kind": "document",
       "subject": "science",
       "url": "https://web.archive.org/web/2019id_/https://www.nsf.gov/od/lpa/nsf50/vbush1945.htm"
+    },
+    {
+      "title": "The 1% Rule for Building in AI",
+      "author": "Jeff Dean",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building"
     },
     {
       "title": "The Adolescence of Technology",
@@ -288,28 +304,19 @@
       "subject": "literature"
     },
     {
+      "title": "Working Notes",
+      "author": "Alexander Bustrup",
+      "year": 2026,
+      "kind": "other",
+      "subject": "technology"
+    },
+    {
       "title": "You and Your Research",
       "author": "Richard Hamming",
       "year": 1986,
       "kind": "speech",
       "subject": "science",
       "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html"
-    },
-    {
-      "title": "Never a Better Time to Do a Startup",
-      "author": "Sam Altman",
-      "year": 2026,
-      "kind": "interview",
-      "subject": "technology",
-      "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38"
-    },
-    {
-      "title": "The 1% Rule for Building in AI",
-      "author": "Jeff Dean",
-      "year": 2026,
-      "kind": "interview",
-      "subject": "technology",
-      "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building"
     }
   ]
 }
