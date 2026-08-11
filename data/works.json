@@ -294,6 +294,22 @@
       "kind": "speech",
       "subject": "science",
       "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html"
+    },
+    {
+      "title": "Never a Better Time to Do a Startup",
+      "author": "Sam Altman",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38"
+    },
+    {
+      "title": "The 1% Rule for Building in AI",
+      "author": "Jeff Dean",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.ycrootaccess.com/p/jeff-dean-the-1-rule-for-building"
     }
   ]
 }

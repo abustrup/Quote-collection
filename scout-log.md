@@ -10,6 +10,32 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-11 · hold · no new board · 2 kept of 33 proposed (6%)
+
+The sixth board is two days old with no signal on it — nothing kept, nothing
+retired, no issue opened. That is exactly the case the hold rule was written
+for, so I left the seven lines standing and posted nothing. Under the working
+rule it gets replaced on the Thursday 08-13 run, which will be its second and
+last showing; Naur, Cook and Willison are already on their second and expire
+then regardless.
+
+**One thing worth recording, because it cuts against reading the silence as a
+verdict.** He was in the collection on the evening of 08-09, ten hours after
+the board went up: issues #35 and #36, Jeff Dean and Sam Altman from YC Startup
+School, nine lines mined by hand. So he was working on quotes and did not touch
+the board. That is not evidence he read it and declined — the quote-mine path
+runs through a Claude session and an issue, and never loads `scout.html` — but
+it is the second consecutive board where his own mining and my proposals ran on
+parallel tracks that never met. If Thursday's replacement also draws nothing, the
+question to put to him plainly is not which lines were wrong but whether he ever
+opens the page, because those two failures need completely different fixes and I
+cannot tell them apart from here.
+
+**Tidied after him:** the two works he mined on 08-09 — *Never a Better Time to
+Do a Startup* and *The 1% Rule for Building in AI* — had no entry in
+`works.json`, so their nine quotes were reading fine and missing from every
+shelf filter. Both registered as 2026 interviews under `technology`.
+
 ## 2026-08-09 · sixth board · practitioners, not theorists · 2 kept of 33 proposed (6%)
 
 **No signal at all on the fifth board.** Nothing kept, nothing retired, no issue
