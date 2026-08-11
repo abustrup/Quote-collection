@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09T20:35:41.873Z",
+  "updatedAt": "2026-08-11T15:21:18.358Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -5982,6 +5982,129 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_8edd1a55b341",
+      "text": "When public reasoning is cheap, the only scarce input left is the information nobody else is allowed to see.",
+      "author": "Alexander Bustrup",
+      "work": "Working Notes",
+      "workKind": "other",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "2026-08-11"
+      },
+      "tags": [
+        "information",
+        "scarcity",
+        "ai"
+      ],
+      "themes": [
+        "knowledge",
+        "power",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Written by the collection's owner. Condensed from his own working note of 2026-08-11; he read and approved this exact wording the same day."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-11"
+    },
+    {
+      "id": "q_1e7fd3699fa8",
+      "text": "An investment fund is mostly tokens in and tokens out.",
+      "author": "Alexander Bustrup",
+      "work": "Working Notes",
+      "workKind": "other",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "2026-08-11"
+      },
+      "tags": [
+        "institutions",
+        "ai",
+        "finance"
+      ],
+      "themes": [
+        "work",
+        "technology",
+        "money"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Written by the collection's owner. Condensed from his own working note of 2026-08-11; he read and approved this exact wording the same day."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-11"
+    },
+    {
+      "id": "q_dc66af3da2f5",
+      "text": "An institution that will be partly run by models needs a constitution, not a policy manual.",
+      "author": "Alexander Bustrup",
+      "work": "Working Notes",
+      "workKind": "other",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "2026-08-11"
+      },
+      "tags": [
+        "governance",
+        "constitution",
+        "ai"
+      ],
+      "themes": [
+        "technology",
+        "politics",
+        "ethics"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Written by the collection's owner. Condensed from his own working note of 2026-08-11; he read and approved this exact wording the same day. The closing clause, 'not a policy manual', was added in editing and adopted by him rather than being in the original note."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-11"
+    },
+    {
+      "id": "q_97ae9486308b",
+      "text": "Think about tasks, not jobs.",
+      "author": "Alexander Bustrup",
+      "work": "Working Notes",
+      "workKind": "other",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": null,
+        "locator": "2026-08-11"
+      },
+      "tags": [
+        "automation",
+        "labour",
+        "ai"
+      ],
+      "themes": [
+        "work",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Written by the collection's owner, verbatim from his working note of 2026-08-11 apart from the comma. The task-versus-job framing is common currency in the economics of automation and is not claimed as his coinage."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-11"
     }
   ]
 }
