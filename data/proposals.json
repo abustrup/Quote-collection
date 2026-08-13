@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09T09:00:00.000Z",
+  "updatedAt": "2026-08-13T09:00:00.000Z",
   "board": {
-    "runId": "2026-08-09",
-    "note": "Nothing was ticked and nothing was rejected on the last board, so I have taken it as a page you did not open and kept its three sharpest lines for a second and final showing. The four new ones test something narrower than “one shape”. Look at what has actually survived: Hamming on research, Cherny on building, Karpathy on demos, Han Kang on writing — every one of them is a person describing the work they do with their own hands. What has failed is everyone standing outside it: Hirschman, Simon, Meadows, O'Neill, the Vatican. Not theorists of systems, then, but practitioners on their own craft. So: a mathematician on what rigour is for, a surgeon on the difference between not knowing and not doing, a novelist on why an event is not an experience, and an opposition leader on what the refrigerators were actually for. I dropped Paul Graham's How to Do Great Work, which had two lines that passed — it is the same register you already mine yourself every week, and finding you what you would find anyway is not my job."
+    "runId": "2026-08-13",
+    "note": "Two boards running now have drawn no signal at all - nothing kept, nothing retired - while you were mining quotes by hand in the same week, so I have stopped assuming the misses were the lines and started asking whether the page gets opened. Meanwhile the record itself got sharper: everything you keep by hand is a practitioner describing work they do with their own hands, and everything refused is someone standing outside it. So this board is four practitioners and one paper that founded a field, on the crafts your shelf has nothing from - the scientist who built the dataset modern AI learned on, the mathematician who founded control theory, a forensic psychiatrist out of Broadmoor, a mathematician on proof and a surgeon on failure. I also went into the 2025 Reith lectures expecting the best unmined seam I have found and came out with nothing: they went to a historian this year, not to someone doing the thing, and it shows on every page."
   },
   "proposals": [
     {
@@ -979,7 +979,7 @@
         "2026-08-06",
         "2026-08-09"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_c6304a5bd762",
@@ -1017,7 +1017,7 @@
         "2026-08-06",
         "2026-08-09"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_c2bacdcc3b68",
@@ -1055,7 +1055,7 @@
         "2026-08-06",
         "2026-08-09"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_ec5571a378d1",
@@ -1163,7 +1163,8 @@
       "note": "",
       "why": "You keep verification and empiricism from builders; this is the same argument from the one field where proof is total, and it says rigour is a filter on intuition rather than a replacement for it.",
       "shownOn": [
-        "2026-08-09"
+        "2026-08-09",
+        "2026-08-13"
       ],
       "status": "open"
     },
@@ -1201,7 +1202,8 @@
       "note": "",
       "why": "Failing because nobody knows, against failing because the person holding the knowledge put the probe on the wrong finger; a surgeon says which of the two now governs outcomes.",
       "shownOn": [
-        "2026-08-09"
+        "2026-08-09",
+        "2026-08-13"
       ],
       "status": "open"
     },
@@ -1241,7 +1243,7 @@
       "shownOn": [
         "2026-08-09"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_7b9d854850be",
@@ -1278,6 +1280,119 @@
       "why": "Thirty-seven lines of Orwell tell you how a regime buys consent; this is someone who spent sixteen months hidden from one, naming the exact purchase.",
       "shownOn": [
         "2026-08-09"
+      ],
+      "status": "expired"
+    },
+    {
+      "id": "q_36efcaa25933",
+      "text": "Today, leading AI technology such as large language models (LLMs) have begun to transform how we access and work with abstract knowledge. Yet they remain wordsmiths in the dark; eloquent but inexperienced, knowledgeable but ungrounded.",
+      "author": "Fei-Fei Li",
+      "work": "From Words to Worlds: Spatial Intelligence is AI's Next Frontier",
+      "workKind": "essay",
+      "year": 2025,
+      "source": {
+        "kind": "curated",
+        "url": "https://drfeifei.substack.com/p/from-words-to-worlds-spatial-intelligence",
+        "locator": "Opening section"
+      },
+      "tags": [
+        "ai",
+        "world-models",
+        "perception",
+        "embodiment",
+        "spatial-intelligence"
+      ],
+      "themes": [
+        "technology",
+        "knowledge",
+        "mind",
+        "nature"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the full essay on the author's own Substack, fetched with curl on 2026-08-13 and string-matched against the loaded text. Published 10 Nov 2025."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Every builder you keep is talking about what models can already do; the woman who built the dataset the whole field learned on is naming what they have never once had.",
+      "shownOn": [
+        "2026-08-13"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_21627566b98d",
+      "text": "This means that though machines are theoretically subject to human criticism, such criticism may be ineffective until long after it is relevant.",
+      "author": "Norbert Wiener",
+      "work": "Some Moral and Technical Consequences of Automation",
+      "workKind": "paper",
+      "year": 1960,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.cs.umd.edu/users/gasarch/BLOGPAPERS/moral.pdf",
+        "locator": "Science 131 (3410), pp. 1355-1358, opening section"
+      },
+      "tags": [
+        "automation",
+        "control",
+        "cybernetics",
+        "oversight",
+        "speed"
+      ],
+      "themes": [
+        "technology",
+        "power",
+        "time",
+        "agency"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the scanned Science paper (Univ. of Maryland PDF mirror), fetched with curl on 2026-08-13, converted with pdftotext and string-matched against the raw text. Note: a variant wording circulates online ('although they are theoretically subject... until a time long after it is relevant'); the Science text says what is quoted here."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "You run machines unattended overnight and judge them the next morning; the man who founded control theory says the right to intervene and the ability to intervene in time are not the same right.",
+      "shownOn": [
+        "2026-08-13"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_3c83e17dbe9f",
+      "text": "Given that we share 98% of our DNA with these group animals it might seem safe to assume that violence is in our nature. But the fact that something is natural does not mean it is normal.",
+      "author": "Gwen Adshead",
+      "work": "The Reith Lectures 2024: Four Questions about Violence, Lecture 1",
+      "workKind": "speech",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://downloads.bbc.co.uk/radio4/reith2024/Reith_2024_Lecture1.pdf",
+        "locator": "Lecture 1, 'Is Violence Normal?'"
+      },
+      "tags": [
+        "violence",
+        "psychiatry",
+        "human-nature",
+        "evidence"
+      ],
+      "themes": [
+        "nature",
+        "ethics",
+        "mind",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the BBC's own transcript PDF, fetched with curl on 2026-08-13 and string-matched against it. The BBC's standing header notes the transcript was typed from the recording rather than an original script."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Forty years in Broadmoor and the sentence she starts from is a logical one: that the thing evolution gave us and the thing we should expect are two different claims, and people run them together.",
+      "shownOn": [
+        "2026-08-13"
       ],
       "status": "open"
     }

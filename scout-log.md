@@ -10,6 +10,68 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-13 · seventh board · practitioners in crafts the shelf has none of · 2 kept of 40 proposed (5%)
+
+**The sixth board drew nothing on either of its two showings** — nothing kept,
+nothing retired, no issue opened between 08-09 and today. So Naur, Cook and
+Willison are expired under the two-showing rule, and I replaced the board.
+
+**The question this run is no longer which lines were wrong.** Two consecutive
+boards have produced zero signal of any kind, and in the same window he opened
+three quote issues by hand: #35 and #36 on the evening of 08-09 (Jeff Dean and
+Sam Altman, YC Startup School) and #37 on 08-11 (four lines of his own
+*Working Notes*). He is actively adding quotes and has a reject button he has
+used before, and still the board sits untouched. Those are two completely
+different failures — a page he reads and dismisses, versus a page he never
+loads — and nothing in this repository can tell them apart from the outside. I
+have put the question to him directly in the notification. If the answer is
+"never opened", the fix is a delivery change, not a taste change, and every
+hour spent refining the taste until then is wasted.
+
+**What I did with the taste anyway, because the record did get sharper.** The
+practitioner filter from 08-09 held up under a second look and now explains
+the whole record without exception, so I built the board on it rather than on
+era or field: four practitioners describing work they do with their own hands,
+in crafts the shelf has nothing from, plus the paper that founded control
+theory. Fei-Fei Li on what LLMs have never had; Wiener on the gap between
+being able to criticise a machine and being able to do it in time; Gwen
+Adshead, forty years a forensic psychiatrist, on natural against normal. Tao
+and Gawande carried forward for their second and last showing. Tokarczuk and
+Machado retired early: both are strong lines, but the novelist-on-life and the
+politician-on-a-regime are the shapes that have gone 1 for 8, and keeping them
+on the board was hope rather than evidence.
+
+Board arithmetic: 4 of 5 twenty-first century (80%), 2 of 5 from the last five
+years (40%). Both floors cleared without steering for them, which is what the
+08-04 lesson said should happen.
+
+**Two seam findings, one of them a correction to this file's own advice.**
+
+- *The 2025 Reith lectures went to Rutger Bregman, a historian, and produced
+  nothing.* I read lecture 4 in full and scanned it for the shape; the best it
+  offers is "respond with understanding rather than blame". The Reith archive
+  is still the best seam I have found, but the reason is the lecturer, not the
+  format: 2024 gave a forensic psychiatrist and yielded a line in ten minutes.
+  **Check who the lecturer is before spending the run.** A writer's Reith is a
+  book chapter read aloud.
+- *Fetching Reith is now easy and the old warning about guessing paths can be
+  narrowed.* Scrape `bbc.co.uk/programmes/b00729d9/episodes/player` for episode
+  pids, then each `programmes/<pid>` page carries exactly one `.pdf` link to
+  the full transcript. 2024 is `downloads.bbc.co.uk/radio4/reith2024/Reith_2024_Lecture<n>.pdf`,
+  2025 is `.../reith2025/Reith_<n>_R4_2025_Transcript.pdf` — the pattern changes
+  every year, which is why you scrape rather than guess. The BBC's transcripts
+  carry a standing "typed from a recording, cannot vouch for complete accuracy"
+  header; I noted it on the verification rather than downgrading to reported,
+  since it is the publisher's own text.
+
+**One verification catch worth recording.** The Wiener line circulates online
+in a variant — "although they are theoretically subject to human criticism,
+such criticism may be ineffective until *a time* long after it is relevant" —
+which is what a search returns and what recall would have produced. The Science
+paper says "This means that though machines are theoretically subject to human
+criticism, such criticism may be ineffective until long after it is relevant."
+Two independent scans agree. The string-match step caught it, again.
+
 ## 2026-08-11 · hold · no new board · 2 kept of 33 proposed (6%)
 
 The sixth board is two days old with no signal on it — nothing kept, nothing
