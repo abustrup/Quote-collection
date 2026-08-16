@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-13T09:00:00.000Z",
+  "updatedAt": "2026-08-16T09:00:00.000Z",
   "board": {
-    "runId": "2026-08-13",
-    "note": "Two boards running now have drawn no signal at all - nothing kept, nothing retired - while you were mining quotes by hand in the same week, so I have stopped assuming the misses were the lines and started asking whether the page gets opened. Meanwhile the record itself got sharper: everything you keep by hand is a practitioner describing work they do with their own hands, and everything refused is someone standing outside it. So this board is four practitioners and one paper that founded a field, on the crafts your shelf has nothing from - the scientist who built the dataset modern AI learned on, the mathematician who founded control theory, a forensic psychiatrist out of Broadmoor, a mathematician on proof and a surgeon on failure. I also went into the 2025 Reith lectures expecting the best unmined seam I have found and came out with nothing: they went to a historian this year, not to someone doing the thing, and it shows on every page."
+    "runId": "2026-08-16",
+    "note": "Three boards in a row have now drawn nothing at all, and the notification I sent on 13 August asking whether you ever open this page has not been answered either, so I am treating delivery as the thing that is broken rather than the taste. From this run the lines themselves travel in the notification, and the page is where they wait rather than where they live. On the lines: I went to the Reith archive, which turns out to run unbroken back to 1948 as PDFs, and pulled three practitioners talking about the craft they actually do — a conductor on why a chord that drowns its inner voices has power but no tension, a Supreme Court judge on why the virtues of law are not virtues in public life, and a novelist on the one thing she refuses to invent. Carried over from last time: Fei-Fei Li, Norbert Wiener and Gwen Adshead, on their second and final showing."
   },
   "proposals": [
     {
@@ -300,7 +300,7 @@
       "shownOn": [
         "2026-07-30"
       ],
-      "status": "open"
+      "status": "accepted"
     },
     {
       "id": "q_7b0b7ed47798",
@@ -762,7 +762,7 @@
       "shownOn": [
         "2026-08-02"
       ],
-      "status": "open"
+      "status": "accepted"
     },
     {
       "id": "q_07935e2cd0a6",
@@ -1166,7 +1166,7 @@
         "2026-08-09",
         "2026-08-13"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_1c0923b89701",
@@ -1205,7 +1205,7 @@
         "2026-08-09",
         "2026-08-13"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_a7f92b223bce",
@@ -1317,7 +1317,8 @@
       "note": "",
       "why": "Every builder you keep is talking about what models can already do; the woman who built the dataset the whole field learned on is naming what they have never once had.",
       "shownOn": [
-        "2026-08-13"
+        "2026-08-13",
+        "2026-08-16"
       ],
       "status": "open"
     },
@@ -1355,7 +1356,8 @@
       "note": "",
       "why": "You run machines unattended overnight and judge them the next morning; the man who founded control theory says the right to intervene and the ability to intervene in time are not the same right.",
       "shownOn": [
-        "2026-08-13"
+        "2026-08-13",
+        "2026-08-16"
       ],
       "status": "open"
     },
@@ -1392,7 +1394,119 @@
       "note": "",
       "why": "Forty years in Broadmoor and the sentence she starts from is a logical one: that the thing evolution gave us and the thing we should expect are two different claims, and people run them together.",
       "shownOn": [
-        "2026-08-13"
+        "2026-08-13",
+        "2026-08-16"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_ec932500d194",
+      "text": "Even the most powerful chord has to allow the inner voices to be heard, otherwise it has no tension, only brutal aggressive power.",
+      "author": "Daniel Barenboim",
+      "work": "Reith Lectures 2006: In the Beginning was Sound, Lecture 5",
+      "workKind": "speech",
+      "year": 2006,
+      "source": {
+        "kind": "curated",
+        "url": "http://downloads.bbc.co.uk/rmhttp/radio4/transcripts/20060505_reith.pdf",
+        "locator": "Lecture 5, 'The Power of Music', delivered in Jerusalem"
+      },
+      "tags": [
+        "conducting",
+        "leadership",
+        "tension",
+        "dissent"
+      ],
+      "themes": [
+        "art",
+        "power",
+        "work",
+        "politics"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the BBC's own transcript PDF, fetched with curl on 2026-08-16 and string-matched against it. The BBC's standing header notes the transcript was typed from the recording rather than an original script."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "A conductor's physical test for the difference between power and strength, and he means it as a claim about leadership: the chord that drowns out the voices opposing it has volume left but no tension.",
+      "shownOn": [
+        "2026-08-16"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_205b7bbb39d7",
+      "text": "Law is rational. Law is coherent. Law is analytically consistent and rigorous. But in public affairs these are not always virtues.",
+      "author": "Jonathan Sumption",
+      "work": "The Reith Lectures 2019: Law and the Decline of Politics, Lecture 2",
+      "workKind": "speech",
+      "year": 2019,
+      "source": {
+        "kind": "curated",
+        "url": "http://downloads.bbc.co.uk/radio4/reith2019/Reith_2019_Sumption_lecture_2.pdf",
+        "locator": "Lecture 2, 'In Praise of Politics'"
+      },
+      "tags": [
+        "law",
+        "compromise",
+        "judges",
+        "democracy"
+      ],
+      "themes": [
+        "politics",
+        "ethics",
+        "truth",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the BBC's own transcript PDF, fetched with curl on 2026-08-16 and string-matched against it. The BBC's standing header notes the transcript was typed from the recording rather than an original script."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "A Supreme Court judge listing the virtues of his own craft and then saying they are the wrong ones for public life, which is the rare direction for a practitioner to argue.",
+      "shownOn": [
+        "2026-08-16"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "q_bdd3a04339ef",
+      "text": "I would make up a man’s inner torments, but not, for instance, the colour of his drawing room wallpaper.",
+      "author": "Hilary Mantel",
+      "work": "The Reith Lectures 2017: Resurrection — The Art and Craft, Lecture 1",
+      "workKind": "speech",
+      "year": 2017,
+      "source": {
+        "kind": "curated",
+        "url": "http://downloads.bbc.co.uk/radio4/reith2017/reith_2017_hilary_mantel_lecture1.pdf",
+        "locator": "Lecture 1, 'The Day Is for the Living'"
+      },
+      "tags": [
+        "method",
+        "invention",
+        "research",
+        "craft"
+      ],
+      "themes": [
+        "writing",
+        "history",
+        "truth",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the BBC's own transcript PDF, fetched with curl on 2026-08-16 and string-matched against it. The BBC's standing header notes the transcript was typed from the recording rather than an original script."
+      },
+      "favorite": false,
+      "note": "",
+      "why": "Her actual rule at the desk, and the line it draws is not the obvious one: invent what nobody could ever have known, never what somebody somewhere might still be able to check.",
+      "shownOn": [
+        "2026-08-16"
       ],
       "status": "open"
     }

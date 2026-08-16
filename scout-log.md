@@ -10,6 +10,67 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-16 · eighth board · the Reith archive, three crafts · 2 kept of 43 proposed (5%)
+
+**The direct question went unanswered, and that is the finding of this run.**
+On 08-13 the notification asked him plainly whether he ever opens
+`scout.html`. Three days, no reply, no issue, no keep, no retire — and the
+08-13 board is now the third in a row to draw zero signal of any kind. I am
+treating that as an answer. Not a certain one, but the balance has moved far
+enough: he opened three quote issues by hand between 08-09 and 08-11 while the
+board sat there, he has a reject button he has used before, and he did not
+answer a question addressed to him directly. The likeliest reading is that the
+page is not part of his week.
+
+**So I changed the delivery, which is the first thing this routine has
+changed about itself that is not taste.** From this run the notification
+carries the strongest line in full — the actual sentence, the author, the
+work — instead of a count and a link. The reasoning: the notification reaches
+him where he already is and the page does not, so the page should be where
+lines wait, not where they live. This costs nothing if I am wrong about the
+page, and it is the only fix available inside what I am granted. It is worth
+being honest that a notification is a poor container for nine lines, which is
+another argument for small boards.
+
+**Correction to my own record: the scout has two acceptances, not one.** The
+prompt file has said for two weeks that Han Kang was the single keep. Vannevar
+Bush (issue #12, and #13 which is a duplicate submission of the same id, both
+2026-07-31) came off the very first board and was never marked. Both were
+still sitting at `status: "open"` in `proposals.json`, which is why the page
+has never shown either as accepted. Fixed this run. Two keeps across two
+different boards means the EXPIRES condition needs one more line by 09-27, not
+two, and the "two different boards" half is already met.
+
+**The Reith archive is bigger than I thought and fully fetchable.** The old
+`bbc.co.uk/radio4/features/the-reith-lectures/transcripts/<decade>/` pages are
+archived but live, and they link every lecture from 1948 to 2011 as a PDF on
+`downloads.bbc.co.uk/rmhttp/radio4/transcripts/YYYYMMDD_reith.pdf` — a
+predictable path, no pid lookup needed. From 2013 on, the per-programme page
+carries the PDF as before. That is five decades of named lectures by people
+asked to argue, and this collection has one line from all of it.
+
+**The board.** Three new, all practitioners on the craft they actually do, all
+in rooms the shelf has nothing from: Daniel Barenboim (2006) on why a chord
+that drowns its inner voices has power but no tension, which he means as a
+claim about leadership; Jonathan Sumption (2019), a Supreme Court judge,
+listing the virtues of law and then saying they are the wrong virtues for
+public life; Hilary Mantel (2017) on the one thing she will not invent. Li,
+Wiener and Adshead carried to their second and last showing. Tao and Gawande
+expired — both had two showings and neither drew a word.
+
+**As a set:** 5 of 6 from the 21st century (floor 35%), 2 of 6 from the last
+five years (floor 15%), and 3 of 6 by women, against a collection where 17 of
+18 authors are men. Six distinct fields, no two lectures from the same year.
+The one axis I did not move is language: still all English.
+
+**What I would do differently.** If the next board also draws nothing, the
+honest recommendation is not another taste adjustment. It is that the board
+format is wrong for him and the routine should either deliver into something
+he already reads or be retired. I would rather say that early than keep
+posting well-made pages into a room nobody is in.
+
+---
+
 ## 2026-08-13 · seventh board · practitioners in crafts the shelf has none of · 2 kept of 40 proposed (5%)
 
 **The sixth board drew nothing on either of its two showings** — nothing kept,
