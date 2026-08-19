@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-11T15:21:18.358Z",
+  "updatedAt": "2026-08-19T07:43:54.049Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -6105,6 +6105,102 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_962f328e8c3b",
+      "text": "You have all these powerful people who think they're playing an arms race when they're actually playing a suicide race.",
+      "author": "Max Tegmark",
+      "work": "Max Tegmark's P(Doom) Is Over 90%",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZO38I5UZBpg",
+        "locator": "Interviewed by Roman Yampolskiy, 00:50:18"
+      },
+      "tags": [
+        "superintelligence",
+        "ai-race",
+        "game-theory",
+        "ai-safety"
+      ],
+      "themes": [
+        "risk",
+        "power",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Transcribed from YouTube's automatic (machine) caption track, downloaded with yt-dlp on 2026-08-19. No uploader-supplied caption track or published transcript exists for this video, and the wording was not checked against the audio. Filler words and stutters removed; no words substituted."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "id": "q_5538a5525851",
+      "text": "The AI industry is the only powerful industry that's basically completely unregulated in the US, even less regulated than sandwiches.",
+      "author": "Max Tegmark",
+      "work": "Max Tegmark's P(Doom) Is Over 90%",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZO38I5UZBpg",
+        "locator": "Interviewed by Roman Yampolskiy, 00:23:32"
+      },
+      "tags": [
+        "regulation",
+        "ai-governance",
+        "food-safety",
+        "ai-safety"
+      ],
+      "themes": [
+        "politics",
+        "risk",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Transcribed from YouTube's automatic (machine) caption track, downloaded with yt-dlp on 2026-08-19. No uploader-supplied caption track or published transcript exists for this video, and the wording was not checked against the audio. Filler words and stutters removed; no words substituted."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "id": "q_bd9a76f0a033",
+      "text": "Almost all AI safety focused people, I think in hindsight, have just ended up accelerating the race towards super intelligence. Look at the people who work for Anthropic today, many of whom were involved in the rationality community and really cared about safety, and now they're working for the company that's driving the race.",
+      "author": "Max Tegmark",
+      "work": "Max Tegmark's P(Doom) Is Over 90%",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ZO38I5UZBpg",
+        "locator": "Interviewed by Roman Yampolskiy, 00:11:31"
+      },
+      "tags": [
+        "ai-safety",
+        "anthropic",
+        "unintended-consequences",
+        "rationality"
+      ],
+      "themes": [
+        "technology",
+        "ethics",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Transcribed from YouTube's automatic (machine) caption track, downloaded with yt-dlp on 2026-08-19. No uploader-supplied caption track or published transcript exists for this video, and the wording was not checked against the audio. Filler words and stutters removed; no words substituted."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-19"
     }
   ]
 }
