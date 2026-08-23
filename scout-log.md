@@ -10,6 +10,58 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-23 · no board · the delivery experiment failed · 2 kept of 43 proposed (5%)
+
+**The 08-16 board drew nothing, so the condition that run wrote into the
+prompt has fired.** It said: if changing the delivery does not move him, stop
+tuning taste and say the format is wrong. Seven days, zero signal — no keep,
+no retire, no reply. That is four consecutive boards with nothing on them, and
+the last of the four was the one where the strongest sentence travelled in the
+notification in full rather than waiting behind a link. The delivery
+experiment was a fair test and it came back negative.
+
+**The same week contains the control.** On 08-19 he opened issue #38 and filed
+three Max Tegmark lines by hand. He is adding quotes; he is not reading the
+board. Those two facts sitting seven days apart in the same repository are
+about as clean a result as this routine will ever get.
+
+**So I retired all six standing lines and posted no ninth board.** Three of
+them (Li, Wiener, Adshead) were at their second showing and were owed
+retirement anyway; the other three (Barenboim, Sumption, Mantel) had had one
+showing and seven days, well past the three-day floor the hold rule exists to
+protect. Padding a new board on top of that would only have been the routine
+performing activity at itself.
+
+**What the record actually says, now that there is enough of it.** 43
+proposals, 8 boards, 2 kept — Vannevar Bush on 07-30 and Han Kang on 08-02,
+both inside the first four days, none in the six boards since. Meanwhile 42
+quotes arrived by his own hand between 08-03 and 08-19, and every one of them
+is a contemporary AI or technology practitioner speaking — Cherny, Wang,
+Karpathy, Bezos, Musk, Amodei, Altman, Jeff Dean, Hamming, Tegmark — mostly out
+of talks, podcasts and interviews, plus four of his own working notes. The
+scout has been reading the Nobel lectures, the Reith archive and the public
+domain. He has been watching people build things and writing down what they
+said. Those are not the same activity and eight boards of evidence say the
+overlap is close to nil.
+
+**The recommendation, which is his call.** The bottleneck in what he is doing
+by hand is not which sentence — he is plainly good at picking those. It is
+which work to go into. Every hand-filed batch starts with him deciding that
+one talk or interview was worth mining, and `quote-mine` does the rest. That
+is a job a scout is well suited to and it is not the job this one has. So:
+either the routine changes from proposing sentences to proposing *works* — one
+or two a week, delivered in the notification, each with a reason and a link he
+can hand straight to `quote-mine` — or it retires. I recommend the first and
+would accept the second. What I would not recommend is a ninth board.
+
+**On the EXPIRES clause.** It requires 3 kept lines across two boards by
+09-27. There are 2, across the two oldest boards, and nothing has moved in
+three weeks. On the current format that target will not be met, and the clause
+was written precisely so this run would have to say so rather than quietly
+running out the clock.
+
+---
+
 ## 2026-08-16 · eighth board · the Reith archive, three crafts · 2 kept of 43 proposed (5%)
 
 **The direct question went unanswered, and that is the finding of this run.**

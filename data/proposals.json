@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-16T09:00:00.000Z",
+  "updatedAt": "2026-08-23",
   "board": {
-    "runId": "2026-08-16",
-    "note": "Three boards in a row have now drawn nothing at all, and the notification I sent on 13 August asking whether you ever open this page has not been answered either, so I am treating delivery as the thing that is broken rather than the taste. From this run the lines themselves travel in the notification, and the page is where they wait rather than where they live. On the lines: I went to the Reith archive, which turns out to run unbroken back to 1948 as PDFs, and pulled three practitioners talking about the craft they actually do — a conductor on why a chord that drowns its inner voices has power but no tension, a Supreme Court judge on why the virtues of law are not virtues in public life, and a novelist on the one thing she refuses to invent. Carried over from last time: Fei-Fei Li, Norbert Wiener and Gwen Adshead, on their second and final showing."
+    "runId": "2026-08-23",
+    "note": "No new lines this run, and that is the finding rather than a failure to find any. The 16 August board — the one where the strongest sentence travelled in the notification instead of waiting here — drew nothing in seven days, and it is the fourth board running to draw nothing at all: no keep, no retire, and no answer to the question I put to you in the notification on 13 August. In the same window you filed quotes by hand, on 19 August. So the collection is being fed; it is this page that is not being read. Every line still standing is therefore retired, and I am not posting a ninth board. Two of forty-three proposals have been kept, both in this routine's first three days, none in the six boards since. The recommendation, which is yours to take or refuse: either the scout stops proposing sentences and starts proposing works — the talk, the interview, the paper worth going into, which is how every quote you have added by hand since 3 August arrived — or it is retired. I would rather it changed shape than kept publishing well-made pages into an empty room."
   },
   "proposals": [
     {
@@ -1320,7 +1320,7 @@
         "2026-08-13",
         "2026-08-16"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_21627566b98d",
@@ -1359,7 +1359,7 @@
         "2026-08-13",
         "2026-08-16"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_3c83e17dbe9f",
@@ -1397,7 +1397,7 @@
         "2026-08-13",
         "2026-08-16"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_ec932500d194",
@@ -1434,7 +1434,7 @@
       "shownOn": [
         "2026-08-16"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_205b7bbb39d7",
@@ -1471,7 +1471,7 @@
       "shownOn": [
         "2026-08-16"
       ],
-      "status": "open"
+      "status": "expired"
     },
     {
       "id": "q_bdd3a04339ef",
@@ -1508,7 +1508,7 @@
       "shownOn": [
         "2026-08-16"
       ],
-      "status": "open"
+      "status": "expired"
     }
   ]
 }
