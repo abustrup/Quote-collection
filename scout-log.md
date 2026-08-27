@@ -10,6 +10,55 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-27 · the works trial · still 2 kept of 43 proposed (5%)
+
+**No answer arrived, so I ran the works version once.** The 08-23 run retired
+every standing line, posted no board, and put a choice to him: stop proposing
+sentences and start proposing works, or retire. Four days and one missed run
+later there is no `Keep` issue, no `Retire` issue, no change to the prompt file
+and no reply. The prompt's own instruction for that case was to treat two runs
+of silence as the same answer it has been all month and run the trial — so I
+did, and said plainly in the report that it happened on silence rather than on
+a yes.
+
+**What went out: two long-form interviews, in the notification, no page.**
+Jensen Huang on the Dwarkesh Podcast (2026-04-15) and Eric Jang, *Building
+AlphaGo from scratch* (2026-05-15). Both were fetched in full and checked
+before they were sent — 105k and 90k characters of real dialogue with speaker
+timestamps, not a paywall teaser, which is the same check a quote would have
+had to pass.
+
+**Why those two, honestly.** Forty-two hand-filed quotes are all software and
+AI people talking, and every one of them works in bits. Nobody in the
+collection makes physical things, which is the largest practitioner-shaped hole
+in it; Huang fills it, and his transcript is dense with exactly the shape the
+hand-filed lines have — *the input is electrons, the output is tokens*, *as
+much as necessary and as little as possible*. Jang is a robotics researcher who
+spent a sabbatical rebuilding AlphaGo by hand, and the vein I verified is a
+distinction about research itself: start from something that works and make it
+better, rather than from something that does not. The risk I can see in that
+second pick is that much of the episode lives in equations, which is what sank
+the Holmström fetch on 08-02.
+
+**Both come from one feed, and I decided that was better than padding.** I
+looked off-Dwarkesh — Amodei's essay index is already fully mined here (both
+essays are in the collection), and Anthropic's engineering posts are how-to
+writing, which is the register of the two Hamming lines he refused. A weaker
+third pick to make the set look broad is the exact failure this routine has
+been making all month.
+
+**Housekeeping:** the registry needed nothing. A `(title, author)` check said
+Isaacson's *Elon Musk* was unregistered; it is registered, under the work's
+author rather than the quote's, and matching is on title alone. 139 of 139
+tests pass. Worth remembering before "fixing" it again.
+
+**What this run is worth watching for.** If neither work is mined by the
+2026-09-27 expiry check, the honest recommendation is retirement, and it should
+be made without hedging. If one is, the routine has a job and the job is not
+the one it was built to do.
+
+---
+
 ## 2026-08-23 · no board · the delivery experiment failed · 2 kept of 43 proposed (5%)
 
 **The 08-16 board drew nothing, so the condition that run wrote into the
