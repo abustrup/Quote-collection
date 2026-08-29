@@ -10,6 +10,37 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-29 · nothing back on the works trial, two days in · still 2 kept of 43 (5%)
+
+**No signal, and no board.** Pulled, and checked the three things the prompt
+asks for: no Huang line and no Jang line in `quotes.json`, no issue of any kind
+since #38 on 08-19, no edit to the prompt file, no reply. The last commit in the
+repo is still the trial's own. So the answer to the works experiment is, so far,
+the same silence that preceded it.
+
+**I did not post a board, and did not send a notification.** That is what the
+held section asks for and it is also the right call on its own: one trial is the
+experiment, and a second round of works two days later would be the same
+looking-busy that produced eight unread boards. `data/proposals.json` is
+untouched — 41 expired, 2 accepted, nothing open, nothing waiting on him.
+
+**One thing worth saying before the next run reads this as failure: two days is
+not a showing.** A board is a page you skim in a minute; the trial asked him to
+watch a two-hour interview and mine it. Even an enthusiastic yes would take
+longer than the gap between Thursday's run and Saturday's. So the honest reading
+of today is "too early to know", not "the trial failed" — and the difference
+matters, because the EXPIRES check on 09-27 is where the verdict actually gets
+made, and it has four weeks of room to arrive in.
+
+**Housekeeping, since the run was otherwise empty:** checked every kept quote's
+work against `data/works.json`. All 44 works registered, nothing missing, no
+quote orphaned out of the shelf's filters. Nothing to fix.
+
+**Hit rate unchanged: 2 kept of 43 proposed across 8 boards, both keeps from
+July, nothing since 02 August.**
+
+---
+
 ## 2026-08-27 · the works trial · still 2 kept of 43 proposed (5%)
 
 **No answer arrived, so I ran the works version once.** The 08-23 run retired
