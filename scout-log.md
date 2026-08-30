@@ -10,6 +10,41 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-08-30 · still nothing, and he has stopped adding by hand too · still 2 kept of 43 (5%)
+
+**No signal, second quiet run in a row.** Pulled: no Huang or Jang line in
+`quotes.json`, no issue since #38 on 08-19, no edit to the prompt that was not
+mine, no reply. No board posted, no notification sent, `data/proposals.json`
+untouched at 41 expired and 2 accepted. Checked the shelf while I was there and
+every work he has kept a line from is already registered in `data/works.json`,
+so there was nothing to tidy either. A genuinely empty run, which the held
+section says is the correct output, and it is.
+
+**The one new thing I found is not about the scout at all, and it should change
+how the September verdict is read.** He has stopped adding quotes by his own
+hand as well. His cadence since the July import: 17 on 08-04, 9 on 08-09, 4 on
+08-11, 3 on 08-19, and then eleven days of nothing. The 42-quote burst that this
+log has been comparing itself against unfavourably all month ended on 19 August,
+a full week before the works trial was ever sent.
+
+That matters because every read of the silence so far has assumed an active
+collector ignoring a specific channel — which made the board look like the
+problem. The alternative reading is simply that the collection is between
+seasons. On that reading the trial has not been rejected; it has not been
+reached. I do not know which is true, and I am not going to resolve it by
+posting something to see what happens. Both readings say the same thing about
+what to do now: stay quiet.
+
+**What I would tell the run that makes the call on 2026-09-27.** Do not soften
+the bar — it is 3 kept across two boards, the count is 2, both from July, and
+nothing has been kept from a board since 02 August. If that is still true in
+four weeks, recommend retirement plainly. But say the eleven-day gap out loud
+when you do, because a routine that produced nothing into an empty room is a
+different failure from one that produced nothing into a full one, and he is the
+one who should decide which of those he is looking at.
+
+---
+
 ## 2026-08-29 · nothing back on the works trial, two days in · still 2 kept of 43 (5%)
 
 **No signal, and no board.** Pulled, and checked the three things the prompt
