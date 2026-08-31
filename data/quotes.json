@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-19T07:43:54.049Z",
+  "updatedAt": "2026-08-31T19:00:09.152Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -6201,6 +6201,257 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_07dc63d3b04d",
+      "text": "We will not be able to understand it anymore. Just as cows don't understand checks or stocks even though these things control their lives.",
+      "author": "Yuval Noah Harari",
+      "work": "Yuval Noah Harari on the dangers of an AI future",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ARdnl2kjmRU",
+        "locator": "The Economist, interviewed by Zanny Minton Beddoes · 03:19, on AI-designed financial instruments humans will no longer be able to read"
+      },
+      "tags": [
+        "ai",
+        "finance",
+        "trust",
+        "comprehension"
+      ],
+      "themes": [
+        "knowledge",
+        "money",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. No human-made caption track exists for this video. Not checked against the audio. Leading 'And' trimmed; nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_a3fb6ca5cc33",
+      "text": "You can throw money at the problem and you can throw money at almost any problem and that works. And so that is just completely different than anything we've ever lived through.",
+      "author": "Ben Horowitz",
+      "work": "Why Top Founders Are Racing Into AI Infrastructure",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=Zx1Ec8LWFeM",
+        "locator": "a16z Podcast, with Martin Casado and Raghu Raghuram · 17:50, on why a two-year technical lead no longer protects you"
+      },
+      "tags": [
+        "ai",
+        "infrastructure",
+        "capital",
+        "startups",
+        "a16z"
+      ],
+      "themes": [
+        "money",
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. No human-made caption track exists. Not checked against the audio. The captions mark speaker changes but name nobody, so attribution was confirmed visually: video frames at 17:44-17:56 show Ben Horowitz speaking."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_cc9f7371fb48",
+      "text": "The only people who have liability are people that can have consequences, right? And that always has to be grounded in it being a human.",
+      "author": "Ian Livingstone",
+      "work": "The Great Loops Debate",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=c35YoMdnI78",
+        "locator": "AI Engineer, Oxford-style debate on agent loops · 50:31, asked whether an agent can be attributable for the code it ships"
+      },
+      "tags": [
+        "ai-agents",
+        "liability",
+        "loops",
+        "software-engineering"
+      ],
+      "themes": [
+        "ethics",
+        "agency",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. No human-made caption track exists. Not checked against the audio. Leading 'Like,' trimmed. The captions mark speaker changes without names; attribution is from the host addressing the question to Ian Livingstone by name immediately before this answer."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_527850987b87",
+      "text": "The engineering here is to prevent the loop from actually closing until it satisfies your engineering certification and your requirements in the domain.",
+      "author": "Geoff Huntley",
+      "work": "The Great Loops Debate",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=c35YoMdnI78",
+        "locator": "AI Engineer, Oxford-style debate on agent loops · 22:56, on what the word engineering means in loop engineering"
+      },
+      "tags": [
+        "ai-agents",
+        "loops",
+        "verification",
+        "software-engineering"
+      ],
+      "themes": [
+        "technology",
+        "work",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. No human-made caption track exists. Not checked against the audio. Leading 'So,' trimmed and the stutter 'your your' reduced to 'your'. The captions mark speaker changes without names; attribution is from the host addressing the question to Jeff by name immediately before this answer."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_d9e018268ed5",
+      "text": "Not failing is often actually kind of a failure.",
+      "author": "Amanda Askell",
+      "work": "Lex Fridman Podcast #452",
+      "workKind": "interview",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ugvHCXCOmm4",
+        "locator": "Amanda Askell segment · 03:48:52, on the optimal rate of failure"
+      },
+      "tags": [
+        "failure",
+        "risk-taking",
+        "optimal-rate-of-failure"
+      ],
+      "themes": [
+        "risk",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own human-made caption track (en-ehkg1hFWq8A) for Lex Fridman Podcast #452, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. Not checked against the audio. Lead-in 'And so in and of itself, I think like' trimmed; nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_3b477a15c0c6",
+      "text": "Clear prompting for me is often just me understanding what I want.",
+      "author": "Amanda Askell",
+      "work": "Lex Fridman Podcast #452",
+      "workKind": "interview",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ugvHCXCOmm4",
+        "locator": "Amanda Askell segment · 03:08:42, on what prompt engineering actually is"
+      },
+      "tags": [
+        "prompting",
+        "clarity",
+        "claude"
+      ],
+      "themes": [
+        "language",
+        "knowledge",
+        "writing"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own human-made caption track (en-ehkg1hFWq8A) for Lex Fridman Podcast #452, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. Not checked against the audio. Spoken as two clauses that collide: 'So in many ways like clear prompting for me is often just me understanding what I want is like half the task.' Made grammatical purely by trimming both ends - the lead-in and the trailing 'is like half the task' - with no word added or altered."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_fa84ec09f0c2",
+      "text": "If you nudge it in the other direction, you're changing the kind of errors it's going to make, and so think about which of the kinds of errors you like or don't like.",
+      "author": "Amanda Askell",
+      "work": "Lex Fridman Podcast #452",
+      "workKind": "interview",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ugvHCXCOmm4",
+        "locator": "Amanda Askell segment · 03:40:21, on why Claude apologises too much rather than too little"
+      },
+      "tags": [
+        "claude",
+        "trade-offs",
+        "model-behavior",
+        "errors"
+      ],
+      "themes": [
+        "character",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own human-made caption track (en-ehkg1hFWq8A) for Lex Fridman Podcast #452, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. Not checked against the audio. Leading 'so' trimmed; nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_47cae4cd366a",
+      "text": "Prompting actually only really becomes relevant when you're really trying to eke out the top 2% of model performance.",
+      "author": "Amanda Askell",
+      "work": "Lex Fridman Podcast #452",
+      "workKind": "interview",
+      "year": 2024,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=ugvHCXCOmm4",
+        "locator": "Amanda Askell segment · 03:10:13, on when prompting is worth the effort"
+      },
+      "tags": [
+        "prompting",
+        "claude",
+        "effort"
+      ],
+      "themes": [
+        "knowledge",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own human-made caption track (en-ehkg1hFWq8A) for Lex Fridman Podcast #452, downloaded with yt-dlp on 2026-08-30, and string-matched against that transcript. Not checked against the audio. Lead-in 'I think that' trimmed and the filler 'like' removed before '2%'; nothing else changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-08-31"
     }
   ]
 }
