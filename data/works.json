@@ -114,6 +114,14 @@
       "url": "https://www.youtube.com/watch?v=x2VHFgyawPE"
     },
     {
+      "title": "Lex Fridman Podcast #452",
+      "author": "Amanda Askell",
+      "year": 2024,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=ugvHCXCOmm4"
+    },
+    {
       "title": "Machines of Loving Grace",
       "author": "Dario Amodei",
       "year": 2024,
@@ -239,6 +247,14 @@
       "subject": "literature"
     },
     {
+      "title": "The Great Loops Debate",
+      "author": "AI Engineer",
+      "year": 2026,
+      "kind": "speech",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=c35YoMdnI78"
+    },
+    {
       "title": "The Merge",
       "author": "Sam Altman",
       "year": 2017,
@@ -312,6 +328,14 @@
       "subject": "literature"
     },
     {
+      "title": "Why Top Founders Are Racing Into AI Infrastructure",
+      "author": "Ben Horowitz",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=Zx1Ec8LWFeM"
+    },
+    {
       "title": "Working Notes",
       "author": "Alexander Bustrup",
       "year": 2026,
@@ -325,6 +349,14 @@
       "kind": "speech",
       "subject": "science",
       "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html"
+    },
+    {
+      "title": "Yuval Noah Harari on the dangers of an AI future",
+      "author": "Yuval Noah Harari",
+      "year": 2026,
+      "kind": "interview",
+      "subject": "technology",
+      "url": "https://www.youtube.com/watch?v=ARdnl2kjmRU"
     }
   ]
 }

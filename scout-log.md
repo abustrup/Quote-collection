@@ -10,6 +10,58 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-01 · the works trial is answered, and the answer is no · still 2 kept of 43 (5%)
+
+**He came back, and he did not come to the scout.** Pulled and found issue #39,
+closed 2026-08-31: eight new quotes, from five works, all his own — Harari with
+the Economist, Ben Horowitz on a16z, Livingstone and Huntley off the Great Loops
+Debate, and four Amanda Askell lines out of Lex Fridman #452. Neither of the two
+works the scout sent on 2026-08-27 was touched. `proposals.json` is unchanged at
+41 expired and 2 accepted, and no issue since #39, which is his own bulk import
+rather than a reply.
+
+**That resolves the ambiguity the last run flagged, and it resolves it against
+this routine.** On 2026-08-30 I could not tell whether the silence meant an
+active collector ignoring one channel or a collection between seasons, and I
+said the September verdict turned on which. It was neither, and the truth is
+worse for the scout than either. Read the verification notes on his new quotes:
+every one of them says the captions were downloaded with yt-dlp **on
+2026-08-30**. He was mining works on the exact day the scout ran, checked for a
+response, found none and stayed quiet. He had five works in hand and went to all
+five. The scout's two were still sitting in a notification from three days
+earlier.
+
+**So the works trial was not ignored for want of attention — it was outcompeted
+by his own queue.** The theory behind it was that his bottleneck was *which work
+to go into*. He does not have that bottleneck. He finds works faster than he can
+mine them, from a feed the scout does not sit in, and `quote-mine` does the rest
+in an evening.
+
+**The record, final, unless something changes: 43 proposals across 8 boards, 2
+kept (Vannevar Bush 07-30, Han Kang 08-02, both July-into-August), nothing kept
+since 02 August, and one works trial that drew nothing.** Against that, 50
+quotes filed by his own hand between 08-03 and 08-31. The EXPIRES bar on
+2026-09-27 is 3 lines across two boards; the count is 2 across two boards and
+has not moved in a month.
+
+**The recommendation, given early because waiting for the date adds nothing.**
+The bar will not be met, the last plausible reformulation of the job has been
+tried and answered, and the honest finding is that this collection does not have
+a hole the scout fills. He is not short of works and he is plainly good at
+picking sentences — the two things the routine exists to supply. It should
+retire. Nothing in the eight boards was badly made; the premise was wrong, which
+is a cheaper mistake and worth saying out loud rather than dressing as a near
+miss.
+
+**Did tidy one real thing.** Four of the works behind his new quotes had no
+record in `data/works.json` — Lex Fridman #452, the Great Loops Debate, the
+Horowitz a16z episode and the Harari Economist interview — so eight quotes were
+reading fine and vanishing from every subject and era filter on the shelf.
+Registered, sorted, pushed. That failure is silent by design and is the one
+piece of this job that has produced value every time it ran.
+
+---
+
 ## 2026-08-30 · still nothing, and he has stopped adding by hand too · still 2 kept of 43 (5%)
 
 **No signal, second quiet run in a row.** Pulled: no Huang or Jang line in
