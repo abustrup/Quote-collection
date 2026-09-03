@@ -63,6 +63,7 @@ const state = {
   quotes: [],
   proposals: [],
   note: '',
+  closed: false,
   runId: null,
   held: new Set(),
   selected: new Set(),
@@ -132,14 +133,16 @@ function render() {
   dom.boardNote.textContent = state.note || '';
 
   if (!showing) {
-    dom.emptyDetail.textContent = state.proposals.length === 0
-      ? 'The scout has not posted a board yet. It runs weekly.'
-      : 'Everything on the last board has been dealt with. The next one arrives on the scout’s next run.';
+    dom.emptyDetail.textContent = state.closed
+      ? 'The board is closed. Nothing further will be proposed here; what is below is the record of what was.'
+      : state.proposals.length === 0
+        ? 'The scout has not posted a board yet.'
+        : 'Everything on the last board has been dealt with. The next one arrives on the scout’s next run.';
   }
 
   const parts = [];
   if (showing) parts.push(`${pluralise(open.length, 'line')} waiting`);
-  if (kept.length) parts.push(`${pluralise(kept.length, 'kept')}`);
+  if (kept.length) parts.push(`${pluralise(kept.length, 'line')} kept`);
   if (expired.length) parts.push(`${expired.length} let go`);
   dom.stats.textContent = parts.join(' · ');
 
@@ -379,6 +382,7 @@ async function start() {
   state.proposals = proposals.proposals ?? [];
   state.note = proposals.board?.note ?? '';
   state.runId = proposals.board?.runId ?? null;
+  state.closed = proposals.board?.closed === true;
 
   render();
 }

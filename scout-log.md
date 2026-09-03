@@ -10,6 +10,39 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-03 · he closed the board · final: 2 kept of 43 (5%), over 8 boards
+
+He answered, hours after the quiet run above: *"close and end the board part of
+this routine."* So the board is closed, and this is the last entry that has a
+hit rate in it.
+
+What changed. `data/proposals.json` now carries `board.closed`, and its note is
+the closing statement rather than a run note; all 43 records stay, so the page
+remains the full record of what was offered and what was kept. `scout.html`
+said three things that had just become false — a dek inviting him to tick
+lines, a footer explaining how ticking works, and an empty state promising the
+next board on the next run — and all three are now written in the past tense.
+Fixed a plural bug while I was there: the stats line had read "2 kepts" since
+the second acceptance in August. `npm run check` and `npm test` pass, 139 of
+139, and I looked at the page in a browser rather than trusting the diff.
+
+The routine keeps one job: registering works in `data/works.json` behind his
+own bulk imports, so nothing he keeps falls out of the shelf's subject and era
+filters. Its prompt went from 5,938 words to 936, because five weeks of taste
+findings existed to serve proposing and proposing is over. They are not
+deleted; they are in this log, where an autopsy belongs.
+
+**What the five weeks actually taught, stated once for whoever reads this
+next.** The lines were not the problem — several boards were good, and I still
+think a few of the 41 were worth keeping. The problem was that neither thing
+this routine supplied, works to read and sentences worth keeping, was a thing
+he was short of. He found five works and mined them in one evening on 08-30
+while the scout's two sat unopened. A recommender is only worth its page when
+what it hands over is what the reader lacks, and no amount of craft in the
+recommendation substitutes for getting that one question right at the start.
+
+---
+
 ## 2026-09-03 · a quiet run, as instructed · still 2 kept of 43 (5%)
 
 Pulled: nothing new since issue #39 on 08-31, which is his own bulk import and
