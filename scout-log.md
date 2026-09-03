@@ -10,6 +10,27 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-03 · a quiet run, as instructed · still 2 kept of 43 (5%)
+
+Pulled: nothing new since issue #39 on 08-31, which is his own bulk import and
+not a reply. No message, no issue, no prompt edit, no keep, no retire. So this
+run posted no board and sent no notification, which is what the held
+instruction asks for.
+
+Checked the tidy job and there was none to do: all 236 quotes with a work field
+resolve to a title in `data/works.json`, so nothing is falling out of the
+shelf's subject and era filters. One quote carries no work at all —
+`q_974fbf0518e9`, Dostoevsky, *"I'm more ready to admit things to you than I am
+to myself"* — which is a gap in his own record rather than a missing
+classification, and not mine to edit.
+
+Two days since the retirement recommendation went to him, no answer. Nothing
+has changed the picture: 2 kept of 43 across 8 boards, nothing since 02 August,
+against 50 quotes he filed himself between 08-03 and 08-31. The EXPIRES check
+on 2026-09-27 will miss its bar of 3 lines by 1.
+
+---
+
 ## 2026-09-01 · the works trial is answered, and the answer is no · still 2 kept of 43 (5%)
 
 **He came back, and he did not come to the scout.** Pulled and found issue #39,
