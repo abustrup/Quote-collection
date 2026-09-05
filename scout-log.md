@@ -10,6 +10,22 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-05 · first run as janitor · nothing to register
+
+Swept and found a clean floor. All 48 registered works cover every one of the
+236 quotes: no work is quoted without a record, so nothing on the shelf is
+missing a subject or an era. `npm run check` and all 139 tests pass. No quotes
+have been added since 2026-08-31, which is most of why there was nothing to do.
+
+Two things seen but not touched. One quote carries no `work` at all, which is
+his to decide about and outside anything I may write. Issue #26 is still open
+from 2026-08-02 — an empty import the bot already answered the same minute, no
+content in it, nothing addressed to me.
+
+Registration tally since the board closed: 0 runs of 1 found a work to register.
+
+---
+
 ## 2026-09-03 · he closed the board · final: 2 kept of 43 (5%), over 8 boards
 
 He answered, hours after the quiet run above: *"close and end the board part of
