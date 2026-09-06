@@ -10,6 +10,22 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-06 · nothing to sweep · the collection is byte-identical to yesterday
+
+Same 236 quotes, same 48 works, same commit as the 2026-09-05 run — nothing
+was added or changed in between, so there was nothing that could have needed
+registering. `npm run check` reports no unregistered work; all 139 tests pass.
+Issue #26 is still the same empty import from 2026-08-02, and nothing new is
+addressed to me.
+
+Registration tally since the board closed: 0 runs of 2 found a work to
+register. Worth carrying to the 2026-09-27 call: he files quotes in bursts a
+few days a month, so a routine running four times a week will spend most runs
+looking at a file that has not moved. Monthly, or triggered by a `quote-bulk`
+issue closing, would find the same works with a fraction of the runs.
+
+---
+
 ## 2026-09-05 · first run as janitor · nothing to register
 
 Swept and found a clean floor. All 48 registered works cover every one of the
