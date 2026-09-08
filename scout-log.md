@@ -10,6 +10,19 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-08 · nothing to register · the collection has not moved since 1 September
+
+Still 236 quotes and 48 works; `data/quotes.json` and `data/works.json` were
+last touched on 2026-09-01. Every one of the 48 titles the collection quotes
+has a registry record, so nothing is hidden from the shelf's subject and era
+filters. `npm run check` is clean and all 139 tests pass. Issue #26 is the same
+empty import from 2026-08-02, unchanged, and nothing is addressed to me.
+
+Registration tally since the board closed on 2026-09-03: 0 of 3 runs found a
+work to register.
+
+---
+
 ## 2026-09-06 · nothing to sweep · the collection is byte-identical to yesterday
 
 Same 236 quotes, same 48 works, same commit as the 2026-09-05 run — nothing
