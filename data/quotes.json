@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-31T19:00:09.152Z",
+  "updatedAt": "2026-09-12T18:18:20.083Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -6452,6 +6452,132 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_53a14cc681a3",
+      "text": "The thing the Americans do well is they're ambitious and they're optimistic about their ambition. And we have to embrace that, I think, in Europe. Otherwise, we're just going to get left behind.",
+      "author": "Demis Hassabis",
+      "work": "Sir Demis Hassabis on Creativity and AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=rDteJAuKiBI",
+        "locator": "Royal Society of Arts, Albert Medal evening, answering Thomas Heatherwick · 54:02, on the ambition Europe has to borrow from America"
+      },
+      "tags": [
+        "europe",
+        "america",
+        "ambition",
+        "optimism"
+      ],
+      "themes": [
+        "progress",
+        "politics",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-09-12, and string-matched against that transcript. No human-made caption track exists for this video. Not checked against the audio. Lead-in 'but I think we should also' trimmed, and a false start ('that is and and') cut after 'And'; nothing added or changed. Speaker confirmed by content: the same answer covers his London childhood and his MIT postdoc."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "q_b05e68e0d1da",
+      "text": "Maybe something like 10 times the impact of the industrial revolution, and the additional challenge is that it's probably going to happen 10 times faster, so unfolding over a decade instead of a century.",
+      "author": "Demis Hassabis",
+      "work": "Sir Demis Hassabis on Creativity and AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=rDteJAuKiBI",
+        "locator": "Royal Society of Arts, Albert Medal acceptance remarks · 18:06, on how AI will compare with the industrial revolution"
+      },
+      "tags": [
+        "ai",
+        "industrial-revolution",
+        "forecasting"
+      ],
+      "themes": [
+        "technology",
+        "history",
+        "time"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-09-12, and string-matched against that transcript. No human-made caption track exists for this video. Not checked against the audio. Leading 'um' trimmed; the filler 'you know' and a stumbled 't' before 'challenge' cut. 'Maybe' kept, because it is his hedge on the number. Nothing added or changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "q_b98ec0c7401e",
+      "text": "I'm on the side of Alan Turing here, which is that probably most of the things we're able to do, even though we're not sure how we do them, will eventually be shown to be computable.",
+      "author": "Demis Hassabis",
+      "work": "Sir Demis Hassabis on Creativity and AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=rDteJAuKiBI",
+        "locator": "Royal Society of Arts, Albert Medal Q&A, answering a question from the National Theatre · 47:58, against Roger Penrose's quantum account of the mind"
+      },
+      "tags": [
+        "computability",
+        "turing",
+        "penrose",
+        "consciousness"
+      ],
+      "themes": [
+        "mind",
+        "science",
+        "knowledge"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-09-12, and string-matched against that transcript. No human-made caption track exists for this video. Not checked against the audio. Filler 'um' and a repeated 'that' cut. He said 'will eventually be computable, shown to be computable'; the first 'computable' is cut so the line keeps his self-correction rather than what he corrected. Nothing added or changed."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "q_8231ad4bbf79",
+      "text": "How did we do this with our brains that were evolved for hunter-gathering out in the tundra?",
+      "author": "Demis Hassabis",
+      "work": "Sir Demis Hassabis on Creativity and AI",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=rDteJAuKiBI",
+        "locator": "Royal Society of Arts, Albert Medal acceptance remarks · 21:40, on marvelling at a transatlantic flight"
+      },
+      "tags": [
+        "evolution",
+        "civilisation",
+        "wonder"
+      ],
+      "themes": [
+        "mind",
+        "nature",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine-generated caption track (en-orig) for the video, downloaded with yt-dlp on 2026-09-12, and string-matched against that transcript. No human-made caption track exists for this video. Not checked against the audio. Lead-in 'I often stop and marvel when I go on a transatlantic flight of' trimmed; fillers 'you know' and 'uh uh uh' and a repeated 'in the' cut. Hyphen in 'hunter-gathering' added; the caption track's punctuation is the machine's. 'Tundra' is as the track has it."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-09-12"
     }
   ]
 }
