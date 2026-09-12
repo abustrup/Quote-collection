@@ -10,6 +10,19 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-12 · nothing to register · eleven days without a new quote
+
+Still 236 quotes and 48 works; `data/quotes.json` and `data/works.json` were
+last changed on 2026-09-01. All 48 quoted titles have a registry record, so no
+quote is hidden from the shelf's subject and era filters. `npm run check` is
+clean and all 139 tests pass. Issue #26 is the same empty import from
+2026-08-02, and nothing is addressed to me.
+
+Registration tally since the board closed on 2026-09-03: 0 of 4 runs found a
+work to register.
+
+---
+
 ## 2026-09-08 · nothing to register · the collection has not moved since 1 September
 
 Still 236 quotes and 48 works; `data/quotes.json` and `data/works.json` were
