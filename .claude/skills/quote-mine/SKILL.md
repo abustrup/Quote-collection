@@ -1,221 +1,109 @@
 ---
 name: quote-mine
-description: Propose quotations from a named work for Alexander to pick from, then file the ones he picks into his quote collection. Use when he wants quotes from an essay, paper, document, talk, book, podcast or video — "add quotes from X", "find me quotes in X", "what's worth keeping from X", or a bare YouTube/podcast URL — and above all for works too new or too unpublished to be in a model's memory, which is where it earns its keep. Spoken works count and are a strong fit: captions can be fetched directly, so never decline for want of a transcript. His Goodreads sync only carries books he highlighted in Goodreads itself, so it does not cover his read shelf — a book he has finished is a fair target, and the check is `data/quotes.json` for that work, never the assumption that the shelf is already represented. Do NOT use for adding a quote he already has in hand; that is a one-line issue, not this.
+description: Propose quotations from a named work for Alexander to pick from by number, then file his picks into his quote collection and register the work on its shelf. Use whenever he wants quotes from an essay, paper, document, talk, book, podcast or video — "add quotes from X", "find me quotes in X", "what's worth keeping from X", or a bare YouTube or podcast URL — and above all for works too new or too unpublished to be in a model's memory, which is where it earns its keep. Spoken works are a strong fit; captions are fetched directly, so never decline for want of a transcript. Not for a quote he already has in hand; that is a one-line issue.
 ---
 
 # Mining a work for quotes
 
 Alexander keeps a quote collection at
-[abustrup/Quote-collection](https://github.com/abustrup/Quote-collection),
-published at https://abustrup.github.io/Quote-collection/. He reads a lot and
-wants the good lines out of a work without reading it twice with a highlighter.
+[abustrup/Quote-collection](https://github.com/abustrup/Quote-collection), published at
+https://abustrup.github.io/Quote-collection/ and cloned at `~/Quote-collection` on his Mac. He
+reads a lot and wants the good lines out of a work without reading it twice with a highlighter.
 
-The job: hand him a numbered shortlist, let him pick by number, file the picks.
-He should be able to go from "quotes from the new Amodei essay" to seeing them
-on the site without typing anything but a few digits.
+The job: a numbered shortlist, his picks by number, the picks filed and the work registered. From
+"quotes from the new Amodei essay" to seeing them on the site, he types a few digits.
+
+This file carries what a session cannot see from where it runs: his taste as recorded, the
+repository's mechanics, and the traps already hit. The mechanical parts are scripts in `scripts/`
+next to this file; talks, podcasts and videos have their own procedure in
+`references/spoken-works.md`. Paths below are relative to this skill's directory in the repo,
+`~/Quote-collection/.claude/skills/quote-mine/`.
 
 ## The one rule
 
-**Never propose wording you produced from recall alone.** A model's memory of a
-sentence is a paraphrase wearing quotation marks, and a wrong quote in a
-collection whose whole premise is tracked attribution is the worst available
-failure.
+**Never propose wording you produced from recall alone.** A model's memory of a sentence is a
+paraphrase wearing quotation marks, and a wrong quote in a collection whose whole premise is
+tracked attribution is the worst available failure.
 
-That is the prohibition, and it is deliberately narrower than "only quote what
-you read this session". Measured 2026-07-30: **43 of the 62 curated quotes here
-were never read in a source from this environment, and they are good.** Hume's
-archaic "surpriz'd" is kept and flagged as his own spelling rather than a typo;
-the Aristotle entry excludes the famous "we are what we repeatedly do" because
-that is Will Durant summarising him, not Aristotle. A rule forbidding those
-would delete the collection's most productive mode.
+The prohibition is deliberately narrower than "only quote what you read this session". Measured
+2026-07-30: 43 of the 62 curated quotes then in the collection had never been read in a source
+from this environment, and they were good — Hume's "surpriz'd" kept as his own spelling, the
+Aristotle entry excluding "we are what we repeatedly do" because that is Will Durant summarising
+him. A rule forbidding those would delete the collection's most productive mode.
 
-So there are three honest ways to reach a quotation, and the difference is the
-whole point of `verification.status`:
+So there are three honest routes to a quotation, and `verification.status` records which:
 
-- **Read it in the work** — the essay, the PDF, the publisher's own copy.
-  → `verified`.
-- **Cross-check the wording** against several independent sources that agree,
-  where the text is stable and widely reproduced. → `reported`, with a note
-  saying plainly what you did and did not consult, and the translator where one
-  exists.
-- **Read a transcript of speech** — captions, a podcast transcript, a posted
-  interview text. → **always `reported`, never `verified`**, however official
-  the transcript is. See §1b; the reason is that a transcript is someone's
-  typing, not the speaker's words, and it is wrong more often than it looks.
+- **Read it in the work** — the essay, the PDF, the publisher's own copy → `verified`.
+- **Cross-checked the wording** against several independent sources that agree, where the text is
+  stable and widely reproduced → `reported`, with a note saying what you did and did not consult,
+  and the translator where there is one.
+- **Read a transcript of speech** — captions, a podcast transcript, a posted interview → **always
+  `reported`, never `verified`**, however official the transcript. A transcript is someone's
+  typing, not the speaker's words, and it is wrong more often than it looks; the evidence is in
+  the spoken-works reference.
 
-Cross-checking is trustworthy for the canon and untrustworthy for anything
-recent or obscure, where the few sources mostly copy each other. **For a work
-published in the last couple of years, read it or drop it** — there is no third
-option, and that is where the trap below lives.
+Cross-checking works for the canon and fails for anything recent or obscure, where the few sources
+copy each other. **For a work from the last couple of years, read it or drop it.** The trap has
+been hit here: searching for a recent essay surfaces mirrors that are summaries — "Amodei argues
+that powerful AI could compress 50–100 years of progress" reads like source text and is not.
+Before treating a page as the work, check it is long enough to be the work and reads as
+continuous prose. A search snippet is not evidence, and a subagent's summary of a page is not the
+page.
 
-The trap has already been hit here: searching for a recent essay surfaces
-mirrors that are *summaries* — "Amodei argues that powerful AI could compress
-50-100 years of progress" — which read like source text and are not. Before
-treating a page as the work, check it is long enough to be the work and reads as
-continuous prose rather than description. The general form, worth carrying: **a
-search snippet is not evidence, and a subagent's summary of a page is not the
-page.**
-
-If you can neither read it nor honestly cross-check it, say so and stop. Asking
-him to paste it costs him ten seconds.
+If you can neither read it nor honestly cross-check it, say so and stop. Asking him to paste it
+costs him ten seconds.
 
 ## 1. Get the text
 
-In order:
-
-1. **Fetch it.** Most things he wants are online: `darioamodei.com` for the
-   Amodei essays, `anthropic.com/constitution` (also CC0 at
-   `raw.githubusercontent.com/anthropics/claude-constitution/main/`), arXiv for
-   papers, Gutenberg for anything old.
-2. **Read a file.** If he has the PDF or EPUB, read it directly.
-3. **A video or podcast** → §1b. Don't ask him to paste a transcript; you can
-   almost always get one yourself, and the whole 41 minutes beats whatever he
-   can scroll and copy out of a panel.
-4. **Ask him to paste or drop it.** Only when the others fail — normal for
-   unpublished or paywalled work, not a failure. Say which step failed and wait.
-
-## 1b. When the work is spoken
-
-Talks, podcasts and interviews are a real channel here — the collection already
-holds interview quotes, and Goodreads cannot reach any of them.
-
-**Get the captions with yt-dlp.** It is not on PATH on his Mac but the module is
-installed, so invoke it as a module. Bare invocation fails on YouTube with `The
-page needs to be reloaded`; naming the player clients fixes it [verified
-2026-08-04]:
-
-```bash
-python3 -m yt_dlp --extractor-args "youtube:player_client=android,web,ios" \
-  --skip-download --write-subs --write-auto-subs --sub-langs "en.*" \
-  --sub-format "vtt" -o "vid.%(ext)s" "<url>"
-```
-
-`--dump-json` on the same call gives title, channel, `upload_date` and
-`description` — that is where the speakers' names and roles usually are, and you
-need them for `author` and the locator.
-
-Two things to check in what comes back, because they change the job:
-
-- **Uploader track or machine track.** yt-dlp splits these: a language under
-  `subtitles` is the uploader's own, under `automatic_captions` it is YouTube's
-  ASR. The uploader's is much better and usually has real punctuation. If only
-  ASR exists, say so — ASR is unpunctuated and you would be inventing the
-  sentence boundaries, which is exactly the prohibition at the top.
-- **Malformed cue headers inside the text.** Some tracks carry stray
-  `123 01:02:03,456 --> 01:02:05,678` fragments *inside* the caption body. They
-  are HTML-escaped, so **unescape before you strip them** or the regex silently
-  misses every one. Missing this left 140 words of timestamp junk in an
-  otherwise clean 8,000-word transcript [verified 2026-08-04].
-
-**The trap: YouTube's "Show transcript" panel is the same file.** He may point
-you at it, and it looks like a second opinion. It is not — it renders the exact
-track yt-dlp downloads, so agreement between them proves nothing about accuracy.
-It is a useful check that *your copy is faithful*, and nothing more. The general
-form, matching the §"one rule" trap: **two views of one source are one source.**
-
-**Assume the transcript is wrong somewhere, and go looking.** Even a publisher's
-own caption track errs. On AMD's own track for its own show, 2026-08-04: the
-guest's name misspelt in the opening line, "a genetic process" for "agentic
-process", "STLC" for "SDLC" — and at 34:34 a dropped negation, "this means that
-there **can** be a person sitting there" where he plainly said *can't*. A
-negation flip is the dangerous class: it reads perfectly and means the opposite.
-
-So before proposing a line, read the sentences on either side of it. If the
-passage only makes sense with a word changed, that word is probably wrong — drop
-the candidate rather than repairing it, because a repaired quote is your wording.
-Flag the softer cases on the line itself (tense, a garbled clause) and let him
-decide.
-
-**A published transcript can contain speech that never happened.** Mishearings
-are the failure you expect; interpolation is the one that gets through. On
-YC's own Root Access transcript of Altman at Startup School 2026, 2026-08-09:
-two entire exchanges printed as dialogue appear nowhere in the 39 minutes of
-audio — smooth, plausible, on-topic startup advice, of exactly the well-turned-
-platitude shape §3 tells you to avoid. The same page omitted several of his
-best real answers and split one exchange between the wrong speakers, so Altman
-appeared to affirm a growth figure he had just denied. Filing from that page
-alone would have produced fabricated quotations under a real name.
-
-So when both a published transcript and a caption track exist, **the recording
-is the authority and the transcript is the punctuation.** Run the picked lines
-against the audio track, not just against the page you read them on; include a
-control phrase you know is there, so an absent result means absent rather than
-a broken search. Where the two disagree on substance, mine the audio and say
-so — the good material is often the part the publisher dropped.
-
-Where wording genuinely matters and he wants it settled, the audio can be
-transcribed locally: `ffmpeg` is installed on his Mac, a Whisper package is not.
-Offer it, don't assume it — he declined the install on 2026-08-04 and was right
-to, since `reported` was the correct status either way.
+1. **Fetch it.** `darioamodei.com` for the Amodei essays, `anthropic.com/constitution` (also CC0
+   at `raw.githubusercontent.com/anthropics/claude-constitution/main/`), arXiv for papers,
+   Gutenberg for anything old.
+2. **Read his file.** A PDF or EPUB he has; real source material also lands in `~/Downloads` by
+   accident, so look there before concluding he does not have it.
+3. **Spoken work** → `python3 scripts/captions.py "<url>" --out <dir>` and then read
+   `references/spoken-works.md` before choosing anything. Never ask him to paste a transcript.
+4. **Ask him to paste or drop it.** Only when the others fail — normal for unpublished or
+   paywalled work. Say which step failed and wait.
 
 ## 2. Learn what he actually keeps
 
-Before choosing, read his collection:
-
-```
-https://raw.githubusercontent.com/abustrup/Quote-collection/main/data/quotes.json
-```
-
-Do not carry numbers in from a previous session — derive them now. Two things to
-take from it. **Length**: he keeps short lines; check the median yourself and
-treat anything far above it as needing to earn the space. **Density**: count what
-he already holds from this work and this area, and read those quotes — they set
-the bar in §3. Skim twenty others before choosing; the collection is a better
-brief than anything written here.
+`git -C ~/Quote-collection pull -q`, then read `data/quotes.json` there (a cloud session is
+already in the repo). Derive everything now: this file once carried counts that were stale within
+a month. Take three things. **Length** — he keeps short lines; anything far above the median has
+to earn the space. **Density** — what he already holds from this work and this area; those lines
+set the bar in §3. **Register** — skim twenty others. The collection is a better brief than
+anything written here.
 
 ## 3. Choose
 
-Twenty-four candidates unless he said otherwise, **ranked strongest first —
-never in the order they appear in the work.** He reads down the list and stops
-when the lines stop earning their place, so the ranking is what carries his
-attention; document order throws that away and makes him do the sorting.
+Up to twenty-four candidates, **ranked strongest first, never in the order they appear**. He
+reads down the list and stops when the lines stop earning their place; document order makes him
+do the sorting. Read the whole work before proposing — twenty-four is enough that skimming shows.
 
-Twenty-four is a ceiling, not a quota. **Stop where the ore runs out and say
-where you stopped** — "everything below 15 is weaker than what you already
-keep" is worth more than nine lines of padding, and on a second pass over a
-mined work the list will legitimately run short. Twelve strong beats
-twenty-four with a soft tail.
+Twenty-four is a ceiling, not a quota. Stop where the ore runs out and say where. A second pass
+over a mined work returns thinner ore: on 2026-07-30 a 2-of-14 hit rate on an Amodei essay was
+read as a broken selection rule, and the essay had been mined the day before. "Everything below
+twelve is weaker than what you already keep" is worth more than nine lines of padding.
 
-Read the whole work first; do not propose from the first section you happen to
-load. Twenty-four is enough that skimming shows: it forces you to the parts of
-the work you would otherwise have passed over.
+What he keeps is **a turn of thought, not a statement of position**. The failure to catch is the
+well-turned platitude: a sentence that names no one, commits to nothing falsifiable, and would
+survive having its subject swapped. Prefer the sentence that commits — names the mechanism, the
+agent, the number, the concrete case — and that this author is placed to say. Fame is not
+genericness: the collection is thick with the single most-quoted line of a work, and those lines
+commit. **Where he already holds quotes from this work or this area, the bar is those lines, not
+the work's average.**
 
-He keeps lines with **a turn of thought** in them, not statements of position.
-The failure that rule exists to catch is the well-turned platitude: a sentence
-that names no one, commits to nothing falsifiable, and would survive having its
-subject swapped. Prefer the sentence that commits — names the mechanism, the
-agent, the number, the concrete case — and that this author is placed to say.
-Fame is not the same as genericness: his collection is thick with the single
-most-quoted line of a work, and those lines commit.
+Secondarily: lines that survive being lifted out of their paragraph; one idea per quote (a
+sentence that needs the previous one is a passage); range across register, including some that
+sit oddly beside what he keeps. Nothing already in the collection.
 
-**Where he already holds quotes from this work or this area, the bar is not the
-work's average line, it is the lines he already kept.** A candidate has to beat
-those, not merely be good: a second pass over a mined work returns thinner ore,
-and "these are weaker than your existing five" is a better answer than padding
-the list out to its ceiling.
-
-Then, secondarily:
-
-- Lines that survive being lifted out of their paragraph.
-- One idea per quote. A sentence that needs the previous one is a passage, not
-  a quote.
-- Range across register — aphoristic, argumentative, some that sit oddly beside
-  what he already keeps.
-
-Avoid: definitions, throat-clearing, anything whose interest is only local to
-its chapter, and lines already in the collection — check before proposing.
-
-**What the world already quotes is a discovery channel.** String-match press and
-commentary passages back against the source; it surfaces things you skimmed
-past. Flag which candidates are widely quoted and let him weigh it.
+What the world already quotes is a discovery channel: string-match press and commentary passages
+back against the source, and flag which candidates are widely quoted so he can weigh it.
 
 ## 4. Present the shortlist
 
-Numbered in rank order — **1 is the strongest line in the work, not the first
-one in it.** Tight enough to scan on a phone: at twenty-four the reason has to
-stay one clause, or the list stops being scannable and the ranking stops being
-readable. For each: the quote, where it sits, and that one clause. Do not
-explain the quote back to him.
+Numbered in rank order. For each: the quote, where it sits, one clause of reason — no more, or
+the list stops being scannable on a phone. Do not explain the quote back to him.
 
 ```
 3.  "We simply need to break the link between the generation of economic value
@@ -223,24 +111,20 @@ explain the quote back to him.
      The Adolescence of Technology, §5 · names the mechanism and what to do to it
 ```
 
-Name the work in the locator when the collection holds more than one by that
-author. Both Amodei essays have a section 5 about work and meaning, and a bare
-"§5, on meaning after work" has already read as if it came from whichever essay
-was being mined.
+Name the work in the locator when the collection holds more than one by that author: both Amodei
+essays have a §5 about work and meaning, and a bare "§5" has already read as the wrong essay.
+Flag on the line anything that is arguably a passage, or whose wording the transcript leaves
+uncertain. After the list, say where the quality fell off and how the top compares to what he
+already holds from this work — the one judgement he cannot reconstruct from the list. Then:
+*Reply with the numbers you want. "3, 7, 11" or "all" or "3-5, 9".*
 
-After the list, say plainly where the quality fell off, and how the top of it
-compares to what he already holds from this work. That sentence is the one
-piece of judgement he cannot reconstruct from the list itself.
-
-Then one line: *Reply with the numbers you want. "3, 7, 11" or "all" or
-"3-5, 9".*
-
-If a candidate is arguably a passage rather than a quote, or the wording is
-uncertain, say so on that line. He can decide.
+One work fits in chat. Several works at once, or more than about twenty-four lines, go to a file
+in the session scratchpad with the top five in chat and a link to the rest — never his home
+directory. The 2026-08-30 shortlist written there was not opened again.
 
 ## 5. File the picks
 
-Build a record per pick:
+One record per pick:
 
 ```json
 {
@@ -249,65 +133,76 @@ Build a record per pick:
   "work": "Title",
   "workKind": "book|essay|paper|speech|interview|film|poem|letter|document|song|other",
   "year": 2026,
-  "source": { "kind": "curated", "url": "where you actually read it", "locator": "section or chapter" },
+  "source": { "kind": "curated", "url": "where you actually read it, or null", "locator": "section, chapter or timestamp" },
   "themes": ["from the controlled list in assets/quote-core.js"],
   "tags": ["free form"],
   "lang": "en",
-  "verification": { "status": "verified", "note": "what you checked it against" }
+  "verification": { "status": "verified|reported", "note": "what you read and what you did not" }
 }
 ```
 
-Do not set `id` — the repository computes it from the text, which is what stops
-the same quote entering twice.
+No `id`: the repository computes it from the text, which is what stops a quote entering twice.
 
-`verification.status` is **`verified`** only when you read the words in the
-work itself or a publisher's own copy *of the text*. A transcription is not
-that, however many agree and whoever published it — spoken words reach you
-through someone's typing, so a talk, podcast or interview is **`reported`** even
-when the captions are the publisher's own. The note says exactly what you read
-and what you did not: name the track, and say you did not check it against the
-audio. Get this wrong and the field stops meaning anything.
+`verified` only when you read the words in the work itself or the publisher's own copy *of the
+text*. Speech reaches you through someone's typing, so a talk, podcast or interview is `reported`
+even when the captions are the publisher's own, and the note names the track and says the audio
+was not checked. Get this wrong and the field stops meaning anything.
 
-Then, in order of preference:
+He may ask for a line to be "made grammatical". **Cut, never add or substitute** — a repaired
+quote is your wording — and disclose every cut in the note. On 2026-08-31 "is like half the task"
+was dropped from an Askell line and the note says so; stutters and fillers go the same way.
 
-- **`gh` CLI** (authenticated as `abustrup`) — `gh issue create -R
-  abustrup/Quote-collection --label quote-bulk`, JSON array in the body under a
-  `### Quotes` heading in a fenced code block. A workflow files, commits and
-  closes it; it runs only for issues opened by `abustrup`. If the label errors,
-  `gh label create quote-bulk` first.
-- **Otherwise** → a prefilled link he clicks once:
-  `https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml&quotes=<url-encoded JSON>`
-  Under about 6 KB this works; above it, hand him the JSON in a file and the
-  plain [Bulk import](https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml)
-  link.
+Then, in order:
 
-Before filing, string-match every picked quote against the source text you
-loaded. If one does not match exactly, fix it or drop it — do not file it.
+1. **Check.** `python3 scripts/check-quotes.py picks.json source.txt` — `source.txt` is the text
+   you read the quotes in, the transcript from `captions.py` or the work saved as plain text. It
+   string-matches every pick (exact, normalised, punctuation, or trimmed with the dropped words
+   listed), checks the vocabularies, rejects a video or podcast source marked `verified`, catches
+   duplicates and removed quotes, and says whether the work is registered. **Do not file on a
+   red.** Fix or drop.
+2. **File.** `gh issue create -R abustrup/Quote-collection --label quote-bulk --title "Quotes: …"
+   --body-file body.md`, where the body holds the JSON array in a fenced `json` block under a
+   `### Quotes` heading. A workflow files, commits and closes the issue within about a minute
+   (`gh issue view <n> --json state`); it runs only for issues opened by `abustrup`. Without `gh`,
+   a prefilled link he clicks once:
+   `https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml&json=<url-encoded JSON>`
+   — the form field's id is `json`, and the link holds about 6 KB; above that, the JSON in a file
+   plus the plain [Bulk import](https://github.com/abustrup/Quote-collection/issues/new?template=bulk-import.yml)
+   link.
+3. **Register the work** when it is new to the collection:
+   `python3 scripts/register-work.py --title "<exactly the work field>" --author "…" --year …
+   --kind … --subject … [--url https://…] --commit` — subject from the controlled list, url only
+   where the primary text has a stable home. A quote whose work is not in `data/works.json` reads
+   perfectly on the page and is invisible to every subject and era filter on the shelf, and the
+   build only warns. Every work this skill filed between 2026-07-30 and 2026-08-31 was registered
+   afterwards by a routine instead of by the skill; that routine is retiring, so this step is
+   now the only one.
 
 ## 6. Confirm
 
-Say how many landed and link the collection. If the sync ran, each quote has its
-own permalink at `https://abustrup.github.io/Quote-collection/#<id>`.
+Say how many landed and link the collection. Each quote has a permalink at
+`https://abustrup.github.io/Quote-collection/#<id>`, and the issue's closing comment lists them.
 
 ## Notes
 
-- This skill lives in two places — `~/.claude/skills/quote-mine/SKILL.md` and
-  `~/Quote-collection/.claude/skills/quote-mine/SKILL.md`. Edit both. They had
-  already drifted by 2026-08-04 (the repo copy still carried a retired claim
-  about Goodreads covering his shelf), so **diff them before editing** and carry
-  the newer text across rather than assuming your copy is current.
-- Themes are a controlled list. Anything outside it is dropped silently on the
-  way in, so take the list from
-  `raw.githubusercontent.com/abustrup/Quote-collection/main/assets/quote-core.js`
-  rather than guessing.
-- His Goodreads list syncs itself every morning and is by far the collection's
-  largest channel — 173 of 235 quotes on 2026-07-30, all of them `unverified`.
-  Do not propose quotes already coming in that way. This skill's real niche is
-  what Goodreads cannot reach: essays, papers, documents, and unpublished work.
-  Re-derive that split from `quotes.json` rather than quoting the number here.
-- A cloud session in this repo sees the repo and nothing else — no global
-  contract, no harness log, no memory. `.claude/rules/working-with-alexander.md`
-  is the only channel, so anything a future session must know belongs there or
-  in this file. This skill was written in exactly that blind state on
-  2026-07-30, which is how its original rule came to forbid two-thirds of the
-  collection.
+- **Homes.** This file, `scripts/` and `references/` live in the repo at
+  `.claude/skills/quote-mine/`, which is what a cloud session sees.
+  `~/.claude/skills/quote-mine/SKILL.md` is a stub carrying the same frontmatter and pointing
+  here; a symlink was tried instead and rejected, because Claude Code does not discover skills
+  through symlinked directories (Claude Code issues #38051 and #37590, checked 2026-09-12). If
+  you change the description, change it in the stub too — that is the one line still in two
+  places.
+- **Vocabularies** — themes, work kinds, subjects — are controlled lists in `assets/quote-core.js`;
+  anything outside them is dropped silently on the way in. The scripts read the lists from the
+  repo, so check rather than guess.
+- **Goodreads** syncs every morning and is the collection's largest channel, all `unverified`. It
+  carries only what he highlighted on Goodreads itself, not his read shelf, so a book he has
+  finished is a fair target; the check is `data/quotes.json` for that work. This skill's niche is
+  what Goodreads cannot reach — essays, papers, documents, talks, unpublished work.
+- **A cloud session in this repo sees the repo and nothing else** — no global contract, no
+  memory. `.claude/rules/working-with-alexander.md` is the only channel, so anything a future
+  session must know belongs there or here. This skill was first written in that blind state on
+  2026-07-30, which is how its original rule came to forbid two-thirds of the collection.
+- **yt-dlp.** The `yt-dlp` binary from Homebrew (2026.08.19, installed 2026-09-12) is what
+  `captions.py` prefers; the python module on the Mac is a year older and runs on a Python that
+  yt-dlp has deprecated. When YouTube changes break captions, `brew upgrade yt-dlp` first.
