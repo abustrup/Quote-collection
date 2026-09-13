@@ -10,6 +10,22 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-13 · nothing to register · the skill got there first
+
+Four new quotes arrived on 2026-09-12 through issue #40, from Demis Hassabis's
+RSA Albert Medal evening, bringing the collection to 240 quotes and 49 works.
+`quote-mine` registered the work itself an hour after filing (commit dc7e03e,
+subject `technology`), so all 49 quoted titles have a record and nothing is
+hidden from the shelf's filters. This is the first live proof that the job has
+moved into the skill. One quote still names no work (Dostoevsky, added
+2026-07-29); with no title there is nothing to register, and it is not mine to
+edit. `npm run check` is clean and all 139 tests pass.
+
+Registration tally since the board closed on 2026-09-03: 0 of 5 runs found a
+work to register. Since the skill took over on 2026-09-12: 0 of 1.
+
+---
+
 ## 2026-09-12 · nothing to register · eleven days without a new quote
 
 Still 236 quotes and 48 works; `data/quotes.json` and `data/works.json` were
