@@ -38,43 +38,48 @@
 
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/nav.css">
 </head>
 
 <body>
-<a class="skip-link" href="#collection">Skip to the quotes</a>
+<a class="skip-link" href="#collection" data-i18n="index.skip">Skip to the quotes</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker">A personal collection</p>
+  <p class="masthead-kicker" data-i18n="index.kicker">A personal collection</p>
   <h1>Lines Worth Keeping</h1>
-  <p class="masthead-dek">
+  <p class="masthead-dek" data-i18n="index.dek">
     Everything I have wanted to remember – from philosophy, technology,
     literature and the odd sentence that would not leave me alone.
   </p>
 </header>
 
+<!-- The shared header, mounted by assets/nav.js as the row variant: the same
+     pills the other pages carry as a bar, centred under the dek. -->
+<header id="site-nav" class="site-nav-row"></header>
+
 <div class="controls" id="controls">
   <div class="shell">
     <div class="controls-row">
       <div class="search">
-        <label class="visually-hidden" for="search">Search the collection</label>
-        <input id="search" type="search" placeholder="Search quotes, authors, works…" autocomplete="off" spellcheck="false">
+        <label class="visually-hidden" for="search" data-i18n="index.search.label">Search the collection</label>
+        <input id="search" type="search" placeholder="Search quotes, authors, works…" data-i18n-placeholder="index.search.placeholder" autocomplete="off" spellcheck="false">
         <span class="search-hint" aria-hidden="true">/</span>
       </div>
 
       <div class="control-group">
-        <label class="visually-hidden" for="filter-author">Filter by author</label>
+        <label class="visually-hidden" for="filter-author" data-i18n="index.filter.author.label">Filter by author</label>
         <select class="pill" id="filter-author"><option value="">All authors</option></select>
 
-        <label class="visually-hidden" for="filter-work">Filter by work</label>
+        <label class="visually-hidden" for="filter-work" data-i18n="index.filter.work.label">Filter by work</label>
         <select class="pill" id="filter-work"><option value="">All works</option></select>
 
-        <label class="visually-hidden" for="filter-subject">Filter by subject</label>
+        <label class="visually-hidden" for="filter-subject" data-i18n="index.filter.subject.label">Filter by subject</label>
         <select class="pill" id="filter-subject"><option value="">All subjects</option></select>
 
-        <label class="visually-hidden" for="filter-era">Filter by era</label>
+        <label class="visually-hidden" for="filter-era" data-i18n="index.filter.era.label">Filter by era</label>
         <select class="pill" id="filter-era"><option value="">All eras</option></select>
 
-        <label class="visually-hidden" for="sort">Sort</label>
+        <label class="visually-hidden" for="sort" data-i18n="index.sort.label">Sort</label>
         <select class="pill" id="sort">
           <option value="added">Newest first</option>
           <option value="oldest">Oldest first</option>
@@ -87,13 +92,22 @@
       </div>
 
       <div class="control-group">
-        <button class="pill" id="toggle-favorites" type="button" aria-pressed="false">
-          Favourites <span class="pill-count" id="favorites-count"></span>
+        <!-- The shelf is the page's second destination, so it is reachable
+             while scrolled and not only from the header above the fold. -->
+        <a class="pill pill-primary nav-shelf" id="controls-shelf" href="works.html" data-i18n-title="index.shelf.title">
+          <svg class="pill-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3.5h5.2c.9 0 1.6.3 2.1.9.5-.6 1.2-.9 2.1-.9H20c.6 0 1 .4 1 1v13c0 .6-.4 1-1 1h-5.4c-.8 0-1.4.3-1.9.9-.4.5-1.2.5-1.6 0-.5-.6-1.1-.9-1.9-.9H4c-.6 0-1-.4-1-1v-13c0-.6.4-1 1-1zm1 2v11h4.2c.7 0 1.3.1 1.9.4V7.3c0-.5-.2-.9-.5-1.2-.3-.4-.8-.6-1.4-.6H5zm14 11v-11h-4.2c-.6 0-1.1.2-1.4.6-.3.3-.5.7-.5 1.2v9.6c.6-.3 1.2-.4 1.9-.4H19z"/></svg><span data-i18n="index.shelf">Shelf</span>
+        </a>
+        <button class="pill pill-add" id="controls-add" type="button" data-i18n-title="index.add.title">
+          <span aria-hidden="true">+</span><span data-i18n="index.add">Add</span>
         </button>
-        <button class="pill" id="open-focus" type="button" title="Read one at a time (F)">Focus</button>
-        <button class="pill" id="toggle-curate" type="button" aria-pressed="false" title="Show edit and remove controls (C)">Curate</button>
-        <label class="visually-hidden" for="edition">Edition</label>
-        <select class="pill" id="edition" title="Change how the collection is set">
+
+        <button class="pill" id="toggle-favorites" type="button" aria-pressed="false">
+          <span data-i18n="index.favourites">Favourites</span> <span class="pill-count" id="favorites-count"></span>
+        </button>
+        <button class="pill" id="open-focus" type="button" data-i18n-title="index.focus.title" title="Read one at a time (F)" data-i18n="ui.focus">Focus</button>
+        <button class="pill" id="toggle-curate" type="button" aria-pressed="false" data-i18n-title="index.curate.title" title="Show edit and remove controls (C)" data-i18n="index.curate">Curate</button>
+        <label class="visually-hidden" for="edition" data-i18n="index.edition.label">Edition</label>
+        <select class="pill" id="edition" data-i18n-title="index.edition.title" title="Change how the collection is set">
           <option value="paper">Paper</option>
           <option value="night">Night</option>
           <option value="folio">Folio</option>
@@ -110,8 +124,8 @@
     <div class="curate-bar" id="curate-bar" hidden>
       <span id="curate-count">Nothing selected</span>
       <button class="pill" id="curate-remove" type="button" disabled>Remove selected…</button>
-      <button class="pill" id="curate-clear" type="button" disabled>Deselect</button>
-      <span class="curate-hint">Tick the quotes to drop, then open one issue for all of them.</span>
+      <button class="pill" id="curate-clear" type="button" disabled data-i18n="index.curate.deselect">Deselect</button>
+      <span class="curate-hint" data-i18n="index.curate.hint">Tick the quotes to drop, then open one issue for all of them.</span>
     </div>
   </div>
 </div>
@@ -122,7 +136,7 @@
   <ol class="collection" id="collection"></ol>
 
   <div class="empty" id="empty" hidden>
-    <p><strong>Nothing here yet.</strong></p>
+    <p><strong data-i18n="index.empty.title">Nothing here yet.</strong></p>
     <p id="empty-detail"></p>
   </div>
 </main>
@@ -131,22 +145,18 @@
   <div class="shell footer-row">
     <div>
       <p style="margin:0">
-        <a href="works.html">The shelf</a> ·
-        <a href="scout.html">The board</a> ·
-        <a href="suggest.html">What to read next</a> ·
-        <a id="add-quote-link" href="https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml">Add a quote</a> ·
-        <a href="import.html">Import from Goodreads</a>
+        <a href="works.html" data-i18n="nav.shelf">The shelf</a> ·
+        <a href="scout.html" data-i18n="nav.board">The board</a> ·
+        <a href="suggest.html" data-i18n="nav.next">What to read next</a> ·
+        <a id="add-quote-link" href="https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml" data-i18n="nav.add">Add a quote</a> ·
+        <a href="import.html" data-i18n="index.footer.import">Import from Goodreads</a>
       </p>
-      <p style="margin:.4rem 0 0">
-        Press <kbd>/</kbd> to search, <kbd>J</kbd> and <kbd>K</kbd> to move,
-        <kbd>F</kbd> for focus, <kbd>R</kbd> for a random line,
-        <kbd>C</kbd> to curate.
-      </p>
+      <p style="margin:.4rem 0 0" id="footer-keys"></p>
     </div>
     <div>
       <p style="margin:0" id="footer-stats"></p>
       <p style="margin:.4rem 0 0">
-        <a href="https://github.com/abustrup/Quote-collection">Source</a> ·
+        <a href="https://github.com/abustrup/Quote-collection" data-i18n="index.footer.source">Source</a> ·
         <a href="https://abustrup.github.io/alexanders-brief/">Alexanders Brief</a>
       </p>
     </div>
@@ -156,15 +166,23 @@
 <div class="focus" id="focus" hidden>
   <div class="focus-bar shell">
     <span class="focus-position" id="focus-position"></span>
-    <button class="pill" id="close-focus" type="button">Close <span aria-hidden="true">esc</span></button>
+    <div class="focus-bar-actions">
+      <button class="pill focus-fav" id="focus-favorite" type="button" aria-pressed="false">
+        <span class="focus-fav-label" data-i18n="ui.favourite">Favourite</span>
+        <span class="focus-fav-key" aria-hidden="true">S</span>
+      </button>
+      <button class="pill" id="close-focus" type="button">
+        <span data-i18n="ui.close">Close</span> <span aria-hidden="true">esc</span>
+      </button>
+    </div>
   </div>
   <div class="focus-stage">
     <figure class="focus-quote" id="focus-quote"></figure>
   </div>
   <div class="focus-nav">
-    <button class="pill" id="focus-prev" type="button">← Previous</button>
-    <button class="pill" id="focus-shuffle" type="button">Shuffle</button>
-    <button class="pill" id="focus-next" type="button">Next →</button>
+    <button class="pill" id="focus-prev" type="button"><span aria-hidden="true">←</span> <span data-i18n="ui.previous">Previous</span></button>
+    <button class="pill" id="focus-shuffle" type="button" data-i18n="ui.shuffle">Shuffle</button>
+    <button class="pill" id="focus-next" type="button"><span data-i18n="ui.next">Next</span> <span aria-hidden="true">→</span></button>
   </div>
 </div>
 
@@ -179,5 +197,6 @@
 </noscript>
 
 <script type="module" src="assets/app.js"></script>
+<script type="module" src="assets/add-quote.js"></script>
 </body>
 </html>

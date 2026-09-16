@@ -365,20 +365,40 @@ async function pressKey(name) {
 
 // ---------------------------------------------------------------- checks
 
+/**
+ * Every image on the page, with where it sits and whether it has arrived.
+ *
+ * `near` is the part that matters: an image within two viewports of the top is
+ * one the browser is obliged to have started, and everything below that is
+ * deliberately deferred. Measured from the document's own coordinates rather
+ * than the viewport's, so it means the same thing whether the page has been
+ * scrolled or not.
+ */
+const IMAGE_CENSUS = `(() => {
+  const limit = window.innerHeight * 2;
+  return [...document.images].map((img) => {
+    const rect = img.getBoundingClientRect();
+    const top = rect.top + window.scrollY;
+    return {
+      src: (img.currentSrc || img.src || '').slice(-60),
+      complete: img.complete,
+      natural: img.naturalWidth,
+      loading: img.loading,
+      near: top < limit,
+    };
+  });
+})()`;
+
 /** True of every page, at every width, in every edition. */
 async function hygiene(label) {
   const measured = await ev(`(() => {
     const doc = document.documentElement;
-    const images = [...document.images].map((img) => ({
-      src: (img.currentSrc || img.src || '').slice(-60),
-      complete: img.complete,
-      natural: img.naturalWidth,
-    }));
     const pills = [...document.querySelectorAll('.pill')]
       .filter((el) => el.getClientRects().length > 0 && getComputedStyle(el).visibility !== 'hidden')
       .map((el) => ({ label: (el.textContent || el.getAttribute('aria-label') || '?').trim().slice(0, 22), h: el.offsetHeight }));
-    return { scrollWidth: doc.scrollWidth, clientWidth: doc.clientWidth, images, pills };
+    return { scrollWidth: doc.scrollWidth, clientWidth: doc.clientWidth, pills };
   })()`);
+  measured.images = await ev(IMAGE_CENSUS);
 
   rec(`${label} · no horizontal overflow`,
     measured.scrollWidth <= measured.clientWidth + 1,
@@ -392,15 +412,62 @@ async function hygiene(label) {
     failedRequests.length === 0,
     failedRequests.length ? failedRequests.join('\n') : 'every request under this origin answered');
 
+  /**
+   * Pictures, in two passes.
+   *
+   * A shelf of 115 covers must not fetch 115 covers to show the top of the
+   * page, so everything below the second viewport is `loading="lazy"` and has
+   * genuinely not loaded yet. Asserting on all of them at once would either
+   * fail honestly or force the page to abandon lazy loading to pass, which is
+   * the check choosing the wrong thing. So: assert what the reader can see,
+   * then scroll to the bottom, wait for the rest to arrive, and assert those.
+   */
   if (measured.images.length === 0) {
     skip(`${label} · every image arrived`, 'no <img> on this page');
   } else {
-    const bad = measured.images.filter((img) => !img.complete || img.natural < 300);
-    rec(`${label} · every image arrived at 300px or wider`,
-      bad.length === 0,
-      bad.length
-        ? bad.map((img) => `${img.src} complete=${img.complete} naturalWidth=${img.natural}`).join('\n')
-        : `${measured.images.length} images, smallest ${Math.min(...measured.images.map((i) => i.natural))}px wide`);
+    const near = measured.images.filter((img) => img.near);
+    const badNear = near.filter((img) => !img.complete || img.natural < 300);
+    rec(`${label} · every image in the first two viewports arrived at 300px or wider`,
+      badNear.length === 0,
+      badNear.length
+        ? badNear.map((img) => `${img.src} complete=${img.complete} naturalWidth=${img.natural}`).join('\n')
+        : `${near.length} of ${measured.images.length} images are within two viewports, smallest ${near.length ? Math.min(...near.map((i) => i.natural)) : 0}px wide`);
+
+    const deferred = measured.images.length - near.length;
+    if (deferred === 0) {
+      skip(`${label} · the deferred images arrive on scroll`, 'nothing below two viewports');
+    } else {
+      // Scrolled the way a reader scrolls, not teleported. A jump from the top
+      // to the bottom never brings the middle of the page near the viewport, so
+      // every lazy image between the two ends stays unloaded and the check
+      // fails a page that is behaving correctly.
+      await ev(`(async () => {
+        const step = Math.max(200, window.innerHeight * 0.85);
+        for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+          window.scrollTo(0, y);
+          await new Promise((done) => setTimeout(done, 70));
+        }
+        window.scrollTo(0, document.documentElement.scrollHeight);
+        return true;
+      })()`);
+      // Lazy images start when they are scrolled towards; give the slowest of
+      // them a real budget before calling it a failure.
+      let after = [];
+      for (let i = 0; i < 40; i += 1) {
+        await wait(150);
+        after = await ev(IMAGE_CENSUS);
+        if (after.every((img) => img.complete && img.natural >= 300)) break;
+      }
+      const badFar = after.filter((img) => !img.complete || img.natural < 300);
+      rec(`${label} · the deferred images arrive on scroll at 300px or wider`,
+        badFar.length === 0,
+        badFar.length
+          ? `${badFar.length} of ${after.length} still short:\n${badFar.slice(0, 6).map((img) => `${img.src} complete=${img.complete} naturalWidth=${img.natural}`).join('\n')}`
+          : `${deferred} deferred images all loaded, smallest of ${after.length} is ${Math.min(...after.map((i) => i.natural))}px wide`);
+      // Back to the top: the screenshot that follows is of the top of the page.
+      await ev('window.scrollTo(0, 0); true');
+      await wait(120);
+    }
   }
 
   if (measured.pills.length === 0) {

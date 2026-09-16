@@ -27,6 +27,7 @@
 
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/nav.css">
 <style>
   /* Page-specific: the recommendation card and the taste summary. Everything
      else is inherited so this page is unmistakably part of the collection. */
@@ -180,6 +181,7 @@
 </head>
 
 <body>
+<header id="site-nav"></header>
 <a class="skip-link" href="#suggestions">Skip to the suggestions</a>
 
 <header class="masthead shell">
@@ -276,5 +278,6 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module" src="assets/suggest.js"></script>
+<script type="module">import('./assets/nav.js').then((nav) => nav.mountNav({ active: 'next', variant: 'bar' })).catch(() => {});</script>
 </body>
 </html>

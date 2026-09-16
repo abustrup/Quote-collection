@@ -215,7 +215,11 @@ button {
 }
 
 .masthead-dek {
-  max-width: 40ch;
+  /* Widened from 40ch when the body face became Source Serif 4, which is
+     narrower than Newsreader was: the same measure broke this sentence into
+     four short lines under a headline set at 70px, and a dek that ragged reads
+     as a poem rather than as a subtitle. Two lines is the shape it wants. */
+  max-width: min(38rem, 100%);
   margin: 0.85rem auto 0;
   color: var(--body-soft);
   font-size: clamp(0.98rem, 0.94rem + 0.25vw, 1.12rem);
@@ -237,8 +241,12 @@ button {
   z-index: 20;
   padding: 0.6rem 0;
   border-bottom: 1px solid var(--rule-soft);
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: blur(12px) saturate(1.4);
+  /* Solid, not glass. A blurred bar over a page of serif text smears the
+     ascenders of whatever is passing under it, and the site's whole argument
+     is that the words come first. 97% rather than 100% keeps a hair of the
+     page showing through at the edge, which is what stops the bar from
+     reading as a separate window. */
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
   transition: border-color 0.2s var(--ease);
 }
 
@@ -979,3 +987,379 @@ body { font-family: var(--font-body); }
 }
 
 .book-title { font-weight: var(--title-weight); }
+
+/* ==========================================================================
+   The header row, the shelf pill, the star, and the pending tag
+   --------------------------------------------------------------------------
+   Added with the shelf, 2026-09-16. Three things live here:
+
+   1. A gold, shared with the shelf. The collection's own accent is a crimson
+      that means "attention" — a wrong reading for a link to another page that
+      is simply the most important one. Gold is the shelf's accent, so the one
+      pill that leads there wears it and the two pages read as one site.
+   2. The star pop. `starPop` and `ringOut` are deliberately named, not scoped:
+      the shelf's rating stars play the same keyframes, so the gesture cannot
+      drift into two different animations on two pages.
+   3. A quiet tag for a quote that has been filed from the site but has not yet
+      reached data/quotes.json.
+   ========================================================================== */
+
+:root {
+  --gold: #c9964a;
+  --gold-ink: #7d5514;            /* gold dark enough to read as text on cream */
+  --gold-wash: #f2e3c8;
+  --on-gold: #241a09;
+  --gold-lift: 0 1px 2px rgba(60, 44, 24, 0.14), 0 6px 14px -8px rgba(60, 44, 24, 0.30);
+}
+
+:root[data-edition="night"] {
+  --gold: #e0a955;
+  --gold-ink: #e8bd77;
+  --gold-wash: #3a2c16;
+  --on-gold: #1a1307;
+  --gold-lift: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 16px -8px rgba(0, 0, 0, 0.7);
+}
+
+:root[data-edition="folio"] {
+  --gold: #c08a3e;
+  --gold-ink: #75510f;
+  --gold-wash: #f1e2c5;
+  --on-gold: #1f1607;
+}
+
+:root[data-edition="index"] {
+  --gold: #b7862f;
+  --gold-ink: #7a5714;
+  --gold-wash: #f4e9d4;
+  --on-gold: #1b1305;
+  --gold-lift: 0 1px 2px rgba(20, 23, 28, 0.12), 0 6px 14px -8px rgba(20, 23, 28, 0.28);
+}
+
+/* The shared header. Layout belongs entirely to assets/nav.css — including the
+   container width — so this only says that the element is there. */
+.site-nav-row { display: block; }
+
+/* Links that are pills are still pills, not links. */
+.pill { text-decoration: none; }
+
+.pill.pill-primary {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--on-gold);
+  font-weight: 700;
+  box-shadow: var(--gold-lift);
+}
+
+.pill.pill-primary:hover {
+  border-color: var(--gold);
+  color: var(--on-gold);
+  filter: brightness(1.05);
+}
+
+/* The same book the shared header draws, so the two shelf pills are one mark. */
+.pill-glyph {
+  display: block;
+  width: 0.95em;
+  height: 0.95em;
+  flex: 0 0 auto;
+  fill: currentColor;
+  line-height: 1;
+}
+
+/* Small beside the shelf, as agreed: adding is a side errand, the shelf is a
+   destination. Named `pill-add` rather than `nav-add` so it cannot reach into
+   the shared header's own add link. */
+.pill.pill-add {
+  gap: 0.22rem;
+  padding-inline: 0.62rem;
+  font-size: 0.72rem;
+}
+
+/* --------------------------------------------------------------------------
+   Focus mode: the star
+   -------------------------------------------------------------------------- */
+
+.focus-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.focus-fav svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.focus-fav[aria-pressed="true"] {
+  border-color: var(--gold);
+  background: var(--gold-wash);
+  color: var(--gold-ink);
+}
+
+.focus-fav[aria-pressed="true"] svg { fill: currentColor; }
+
+.focus-fav-key {
+  padding: 0 0.3rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   The star pop — shared with the shelf by name
+   -------------------------------------------------------------------------- */
+
+.icon-button,
+.focus-fav { position: relative; }
+
+.icon-button.is-popping svg,
+.focus-fav.is-popping svg { animation: starPop 420ms var(--ease) both; }
+
+@keyframes starPop {
+  0% { transform: scale(1) rotate(0deg); }
+  28% { transform: scale(1.35) rotate(-3deg); }
+  55% { transform: scale(0.96) rotate(1.5deg); }
+  78% { transform: scale(1.06) rotate(-0.6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.ring {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ringOut 420ms cubic-bezier(0.3, 0, 0.8, 0.15) both;
+}
+
+@keyframes ringOut {
+  from { transform: scale(0.35); opacity: 0.9; }
+  to { transform: scale(2.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   A quote filed from the site, waiting for the sync
+   -------------------------------------------------------------------------- */
+
+.pending-tag {
+  padding: 0.14rem 0.5rem;
+  border: 1px dashed var(--gold);
+  border-radius: 999px;
+  color: var(--gold-ink);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: help;
+}
+
+.quote[data-pending="true"] .quote-text { border-left: 2px solid var(--gold-wash); padding-left: 0.9rem; }
+
+/* ==========================================================================
+   The add-a-quote dialog
+   --------------------------------------------------------------------------
+   A native <dialog>, on purpose: focus moves in, Tab is trapped, Escape
+   closes and focus returns to whatever opened it, all without a line of
+   JavaScript to get wrong. Only the scrim click is ours.
+   ========================================================================== */
+
+.add-dialog {
+  width: min(38rem, calc(100vw - 2rem));
+  max-height: min(86vh, 54rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: calc(var(--radius) + 8px);
+  background: var(--bg);
+  color: var(--ink);
+  box-shadow: 0 2px 6px rgba(20, 15, 8, 0.18), 0 32px 64px -28px rgba(20, 15, 8, 0.55);
+}
+
+/* Scoped to [open] on purpose: the closed dialog must keep the user agent's
+   `display: none`, and a bare `display: flex` here would override it. */
+.add-dialog[open] { display: flex; flex-direction: column; }
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+/* The fields scroll; the buttons stay where they can be pressed. */
+.add-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.add-dialog::backdrop { background: rgba(28, 22, 14, 0.55); }
+:root[data-edition="night"] .add-dialog::backdrop { background: rgba(6, 5, 3, 0.68); }
+
+.add-head { margin-bottom: 1.1rem; }
+
+.add-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: 1.1;
+}
+
+.add-intro {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.add-field { margin: 0 0 0.9rem; }
+
+.add-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.add-field input,
+.add-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.add-field textarea { resize: vertical; }
+
+.add-field input:focus-visible,
+.add-field textarea:focus-visible,
+.add-unlock-row input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+
+.add-hint {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.add-pair {
+  display: grid;
+  grid-template-columns: 1fr 7rem;
+  gap: 0 0.7rem;
+}
+
+@media (max-width: 30rem) {
+  .add-pair { grid-template-columns: 1fr; }
+}
+
+.add-status {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.add-status[data-tone="bad"] { color: var(--accent-ink); }
+.add-status[data-tone="good"] { color: var(--teal); }
+
+.add-locked {
+  margin: 0 0 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.add-locked-title {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.add-locked-body {
+  margin: 0.3rem 0 0.7rem;
+  color: var(--body-soft);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.add-unlock-row {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.add-unlock-row input {
+  flex: 1 1 10rem;
+  min-width: 0;
+  min-height: 36px;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+}
+
+.add-fallback { margin: 0.8rem 0 0; }
+
+.add-github {
+  color: var(--gold-ink);
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.add-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.add-actions .pill:disabled { opacity: 0.5; cursor: progress; }

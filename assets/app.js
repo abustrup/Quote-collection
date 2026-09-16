@@ -6,7 +6,16 @@
  * can be shared, and nothing animates that does not need to.
  */
 
-import { ERAS, VERIFICATION_LABELS, eraFor, slug, typographic } from './quote-core.js';
+import { ERAS, VERIFICATION_LABELS, eraFor, quoteId, slug, typographic } from './quote-core.js';
+import { hydrate, langToggle, locale, onLang, register, t } from './i18n.js';
+import {
+  favorites as storedFavorites,
+  isUnlocked,
+  loadState,
+  onChange,
+  setFavorite,
+  state as shelfState,
+} from './store.js';
 
 const DATA_URL = 'data/quotes.json';
 const WORKS_URL = 'data/works.json';
@@ -15,6 +24,132 @@ const STORAGE = {
   edition: 'quotes-edition',
   favorites: 'quotes-favorites',
 };
+
+/**
+ * Every word on this page that is not a quotation.
+ *
+ * Registered rather than edited into `i18n.js` so that the person building the
+ * shelf and the person building this page never touch the same lines. Ids are
+ * prefixed `index.` for the same reason; anything shared (`ui.`, `nav.`,
+ * `edit.`) already lives in the dictionary and is used from there.
+ */
+register({
+  'index.skip': { en: 'Skip to the quotes', da: 'Spring til citaterne' },
+  'index.kicker': { en: 'A personal collection', da: 'En personlig samling' },
+  'index.dek': {
+    en: 'Everything I have wanted to remember – from philosophy, technology, literature and the odd sentence that would not leave me alone.',
+    da: 'Alt hvad jeg har villet huske – fra filosofi, teknologi, litteratur og den enkelte sætning der ikke ville forlade mig igen.',
+  },
+
+  'index.search.label': { en: 'Search the collection', da: 'Søg i samlingen' },
+  'index.search.placeholder': { en: 'Search quotes, authors, works…', da: 'Søg i citater, forfattere, værker…' },
+
+  'index.filter.author.label': { en: 'Filter by author', da: 'Filtrér efter forfatter' },
+  'index.filter.author.all': { en: 'All authors', da: 'Alle forfattere' },
+  'index.filter.work.label': { en: 'Filter by work', da: 'Filtrér efter værk' },
+  'index.filter.work.all': { en: 'All works', da: 'Alle værker' },
+  'index.filter.subject.label': { en: 'Filter by subject', da: 'Filtrér efter emne' },
+  'index.filter.subject.all': { en: 'All subjects', da: 'Alle emner' },
+  'index.filter.era.label': { en: 'Filter by era', da: 'Filtrér efter periode' },
+  'index.filter.era.all': { en: 'All eras', da: 'Alle perioder' },
+
+  'index.sort.label': { en: 'Sort', da: 'Sortér' },
+  'index.sort.added': { en: 'Newest first', da: 'Nyeste først' },
+  'index.sort.oldest': { en: 'Oldest first', da: 'Ældste først' },
+  'index.sort.author': { en: 'By author', da: 'Efter forfatter' },
+  'index.sort.work': { en: 'By work', da: 'Efter værk' },
+  'index.sort.year': { en: 'By year written', da: 'Efter skriveår' },
+  'index.sort.length': { en: 'Shortest first', da: 'Korteste først' },
+  'index.sort.random': { en: 'Shuffle', da: 'Bland' },
+
+  'index.shelf': { en: 'Shelf', da: 'Hylden' },
+  'index.shelf.title': { en: 'Every book and talk on the shelf', da: 'Alle bøger og foredrag på hylden' },
+  'index.add': { en: 'Add', da: 'Tilføj' },
+  'index.add.title': { en: 'Add a quote', da: 'Tilføj et citat' },
+  'index.favourites': { en: 'Favourites', da: 'Favoritter' },
+  'index.focus.title': { en: 'Read one at a time (F)', da: 'Læs ét ad gangen (F)' },
+  'index.curate': { en: 'Curate', da: 'Kurater' },
+  'index.curate.title': { en: 'Show edit and remove controls (C)', da: 'Vis rediger- og fjern-knapper (C)' },
+  'index.curate.hint': {
+    en: 'Tick the quotes to drop, then open one issue for all of them.',
+    da: 'Sæt kryds ved de citater der skal væk, og åbn én sag for dem alle.',
+  },
+  'index.curate.deselect': { en: 'Deselect', da: 'Fravælg' },
+  'index.curate.none': { en: 'Nothing selected', da: 'Intet valgt' },
+  'index.curate.selected': { en: '{n} selected', da: '{n} valgt' },
+  'index.curate.remove': { en: 'Remove selected…', da: 'Fjern de valgte…' },
+  'index.curate.removeN': { en: 'Remove {n} quotes…', da: 'Fjern {n} citater…' },
+  'index.curate.removeThis': { en: 'Remove this one', da: 'Fjern denne' },
+  'index.curate.edit': { en: 'Edit', da: 'Rediger' },
+  'index.curate.opened': { en: 'Opened a removal issue for {n}', da: 'Åbnede en fjern-sag for {n}' },
+
+  'index.edition.label': { en: 'Edition', da: 'Udgave' },
+  'index.edition.title': { en: 'Change how the collection is set', da: 'Skift hvordan samlingen er sat' },
+
+  'index.count.one': { en: '{n} quote', da: '{n} citat' },
+  'index.count.many': { en: '{n} quotes', da: '{n} citater' },
+  'index.summary.some': { en: '{shown} of {total}', da: '{shown} af {total}' },
+  'index.showing': { en: 'Showing', da: 'Viser' },
+  'index.clearAll': { en: 'Clear all', da: 'Ryd alt' },
+  'index.filterOff': { en: 'Remove the {key} filter', da: 'Fjern filteret {key}' },
+  'index.chip.favourites': { en: 'favourites', da: 'favoritter' },
+
+  'index.empty.title': { en: 'Nothing here yet.', da: 'Her er ingenting endnu.' },
+  'index.empty.none': {
+    en: 'The collection is empty. Import your Goodreads quotes to fill it.',
+    da: 'Samlingen er tom. Importér dine Goodreads-citater for at fylde den.',
+  },
+  'index.empty.filtered': {
+    en: 'No quote matches that. Try fewer words, or clear the filters.',
+    da: 'Ingen citater passer. Prøv færre ord, eller ryd filtrene.',
+  },
+
+  'index.footer.import': { en: 'Import from Goodreads', da: 'Importér fra Goodreads' },
+  'index.footer.source': { en: 'Source', da: 'Kildekode' },
+  'index.footer.keys': {
+    en: 'Press {slash} to search, {j} and {k} to move, {f} for focus, {s} to keep one, {r} for a random line, {c} to curate.',
+    da: 'Tryk {slash} for at søge, {j} og {k} for at bevæge dig, {f} for fokus, {s} for at gemme et citat, {r} for en tilfældig linje, {c} for at kuratere.',
+  },
+  'index.footer.stats': { en: '{quotes} from {authors}.', da: '{quotes} fra {authors}.' },
+  'index.authors.one': { en: '{n} author', da: '{n} forfatter' },
+  'index.authors.many': { en: '{n} authors', da: '{n} forfattere' },
+
+  'index.quote.favourite': { en: 'Keep this one', da: 'Gem denne' },
+  'index.quote.favouriteOf': { en: 'Favourite this quote by {author}', da: 'Gem dette citat af {author}' },
+  'index.quote.copy': { en: 'Copy the quote', da: 'Kopiér citatet' },
+  'index.quote.copyLong': { en: 'Copy this quote', da: 'Kopiér dette citat' },
+  'index.quote.permalink': { en: 'Copy a link to this quote', da: 'Kopiér et link til dette citat' },
+  'index.quote.permalinkLong': { en: 'Copy a permanent link to this quote', da: 'Kopiér et permanent link til dette citat' },
+  'index.quote.select': { en: 'Select this quote by {author} for removal', da: 'Vælg dette citat af {author} til fjernelse' },
+  'index.quote.author': { en: 'Show everything by {author}', da: 'Vis alt af {author}' },
+
+  // A quote filed from the site but not yet folded into the repository by the
+  // sync. It is on the page immediately; the tag says why it is not in the file.
+  'index.pending': { en: 'pending', da: 'afventer' },
+  'index.pending.title': {
+    en: 'Filed from the site. It joins data/quotes.json at the next sync.',
+    da: 'Sendt fra siden. Den lander i data/quotes.json ved næste synkronisering.',
+  },
+
+  'index.fav.offline': {
+    en: 'Kept on this device; it syncs when the connection is back',
+    da: 'Gemt på denne enhed; den synkroniseres når forbindelsen er tilbage',
+  },
+  'index.fav.local': { en: 'Kept on this device', da: 'Gemt på denne enhed' },
+  'index.fav.refused': {
+    en: 'The collection service would not take that',
+    da: 'Samlingens tjeneste ville ikke tage imod det',
+  },
+
+  'index.copied': { en: 'Quote copied', da: 'Citat kopieret' },
+  'index.copyFailed': {
+    en: 'Could not copy – select the text instead',
+    da: 'Kunne ikke kopiere – markér teksten i stedet',
+  },
+
+  'index.focus.nothing': { en: 'Nothing to focus on', da: 'Intet at fokusere på' },
+  'index.focus.position': { en: '{index} / {total}', da: '{index} / {total}' },
+});
 const ERA_LABELS = new Map(ERAS.map((era) => [era.id, era.label]));
 
 /** Subjects read better capitalised in a menu than they do in the data. */
@@ -54,11 +189,16 @@ const dom = {
   focus: el('focus'),
   focusQuote: el('focus-quote'),
   focusPosition: el('focus-position'),
+  focusFavorite: el('focus-favorite'),
   openFocus: el('open-focus'),
+  footerKeys: el('footer-keys'),
+  controlsAdd: el('controls-add'),
 };
 
 const state = {
   all: [],
+  /** The quotes as the repository has them, before pending ones are folded in. */
+  filed: [],
   works: new Map(),
   visible: [],
   query: '',
@@ -101,10 +241,19 @@ function seededRandom(seed) {
   };
 }
 
+/**
+ * Favourites now have two homes, and this page reads both.
+ *
+ * `store.favorites()` is the union of what the Worker knows and what this
+ * browser has held in `quotes-favorites` since before the Worker existed, so
+ * reading it is always right. Writing is the part that has to branch: when
+ * editing is unlocked the star goes to the Worker and follows him to his
+ * phone, and when it is not it stays in the old local key rather than failing.
+ * A star that will not light is worse than a star only this device remembers.
+ */
 function readFavorites() {
   try {
-    const raw = JSON.parse(localStorage.getItem(STORAGE.favorites) ?? '[]');
-    return new Set(Array.isArray(raw) ? raw : []);
+    return storedFavorites();
   } catch {
     return new Set();
   }
@@ -116,6 +265,58 @@ function writeFavorites() {
   } catch {
     /* Private browsing. Favourites simply will not persist; nothing else breaks. */
   }
+}
+
+/**
+ * Toggle one quote's star.
+ *
+ * Optimistic: the state flips and the star fills before anything is sent, and
+ * a refusal from the write path falls back to this device rather than undoing
+ * what he just pressed. `setFavorite` rolls its own copy back when the key is
+ * wrong or missing, so the local write happens *after* the await, not before.
+ */
+async function toggleFavorite(id) {
+  const on = !favorites.has(id);
+  if (on) favorites.add(id);
+  else favorites.delete(id);
+  paintFavorites();
+
+  if (!isUnlocked()) {
+    writeFavorites();
+    return;
+  }
+  try {
+    await setFavorite(id, on);
+  } catch (error) {
+    const code = error?.code;
+    // `locked` here means the key stopped working, and the store has already
+    // rolled its own copy back and told the page — which repainted the star
+    // off. Re-apply what he actually pressed and keep it in the old local key:
+    // a star that un-presses itself is a worse answer than a star this device
+    // remembers on its own.
+    if (code === 'locked' || code === 'offline' || code === 'unconfigured') {
+      if (on) favorites.add(id);
+      else favorites.delete(id);
+      writeFavorites();
+      paintFavorites();
+      toast(t(code === 'offline' ? 'index.fav.offline' : 'index.fav.local'));
+      return;
+    }
+    // Anything else is a refusal with a reason; the rollback stands.
+    favorites = readFavorites();
+    paintFavorites();
+    toast(t('index.fav.refused'));
+  }
+}
+
+/** Bring every star and the count in line with `favorites`, without a render. */
+function paintFavorites() {
+  for (const button of dom.collection.querySelectorAll('[data-action="favorite"]')) {
+    const item = button.closest('.quote');
+    if (item) button.setAttribute('aria-pressed', String(favorites.has(item.id)));
+  }
+  dom.favoritesCount.textContent = favorites.size ? String(favorites.size) : '';
+  paintFocusFavorite();
 }
 
 let toastTimer;
@@ -141,7 +342,7 @@ async function copyText(text, label) {
     area.select();
     const ok = document.execCommand?.('copy');
     area.remove();
-    toast(ok ? label : 'Could not copy – select the text instead');
+    toast(ok ? label : t('index.copyFailed'));
   }
 }
 
@@ -162,6 +363,34 @@ const ICONS = {
   copy: ['M9 9h10v10H9z', 'M5 15V5h10'],
   link: ['M10.5 13.5a3.5 3.5 0 005 0l3-3a3.5 3.5 0 00-5-5l-1 1', 'M13.5 10.5a3.5 3.5 0 00-5 0l-3 3a3.5 3.5 0 005 5l1-1'],
 };
+
+const reducedMotion = () => (
+  typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
+);
+
+/** One motion vocabulary across both pages: arriving settles, leaving accelerates. */
+const ENTER_EASE = 'cubic-bezier(0.2, 0, 0, 1)';
+const EXIT_EASE = 'cubic-bezier(0.3, 0, 0.8, 0.15)';
+
+/**
+ * The star pop, shared with the shelf by keyframe name (`starPop`, `ringOut`
+ * in app.css). Keeping one pair of keyframes rather than two is what stops a
+ * star on the shelf and a star here from drifting into two different gestures.
+ */
+function popStar(button) {
+  if (!button || reducedMotion()) return;
+  button.classList.remove('is-popping');
+  void button.offsetWidth;   // restart the animation on a second press
+  button.classList.add('is-popping');
+  const ring = document.createElement('span');
+  ring.className = 'ring';
+  ring.setAttribute('aria-hidden', 'true');
+  button.append(ring);
+  setTimeout(() => {
+    ring.remove();
+    button.classList.remove('is-popping');
+  }, 460);
+}
 
 /* ---------------------------------------------------------------------------
  * URL as the single source of truth for a view
@@ -314,7 +543,7 @@ function buildAttribution(quote, { linked = true } = {}) {
   author.textContent = quote.author;
   if (linked) {
     author.href = `?author=${encodeURIComponent(quote._authorSlug)}`;
-    author.title = `Show everything by ${quote.author}`;
+    author.title = t('index.quote.author', { author: quote.author });
   }
   attribution.append(author);
 
@@ -347,6 +576,7 @@ function buildQuote(quote, terms) {
   item.className = 'quote';
   item.id = quote.id;
   item.dataset.length = lengthClass(quote.text);
+  if (quote._pending) item.dataset.pending = 'true';
 
   const figure = document.createElement('figure');
   figure.style.margin = '0';
@@ -376,8 +606,19 @@ function buildQuote(quote, terms) {
     meta.append(link);
   }
 
+  // A quote he filed from the site is on the page before the repository has
+  // it. The tag is quiet on purpose: it is a note about the plumbing, not a
+  // judgement on the quotation.
+  if (quote._pending) {
+    const pending = document.createElement('span');
+    pending.className = 'pending-tag';
+    pending.textContent = t('index.pending');
+    pending.title = t('index.pending.title');
+    meta.append(pending);
+  }
+
   const status = quote.verification?.status ?? 'unverified';
-  if (status !== 'verified') {
+  if (status !== 'verified' && !quote._pending) {
     const verify = document.createElement('span');
     verify.className = 'verify';
     verify.dataset.status = status;
@@ -396,33 +637,33 @@ function buildQuote(quote, terms) {
   favorite.type = 'button';
   favorite.dataset.action = 'favorite';
   favorite.setAttribute('aria-pressed', String(favorites.has(quote.id)));
-  favorite.title = 'Keep this one';
+  favorite.title = t('index.quote.favourite');
   favorite.append(svgIcon(ICONS.star));
   favorite.append(Object.assign(document.createElement('span'), {
     className: 'visually-hidden',
-    textContent: `Favourite this quote by ${quote.author}`,
+    textContent: t('index.quote.favouriteOf', { author: quote.author }),
   }));
 
   const copy = document.createElement('button');
   copy.className = 'icon-button';
   copy.type = 'button';
   copy.dataset.action = 'copy';
-  copy.title = 'Copy the quote';
+  copy.title = t('index.quote.copy');
   copy.append(svgIcon(ICONS.copy));
   copy.append(Object.assign(document.createElement('span'), {
     className: 'visually-hidden',
-    textContent: 'Copy this quote',
+    textContent: t('index.quote.copyLong'),
   }));
 
   const permalink = document.createElement('a');
   permalink.className = 'icon-button';
   permalink.href = `#${quote.id}`;
   permalink.dataset.action = 'permalink';
-  permalink.title = 'Copy a link to this quote';
+  permalink.title = t('index.quote.permalink');
   permalink.append(svgIcon(ICONS.link));
   permalink.append(Object.assign(document.createElement('span'), {
     className: 'visually-hidden',
-    textContent: 'Copy a permanent link to this quote',
+    textContent: t('index.quote.permalinkLong'),
   }));
 
   actions.append(favorite, copy, permalink);
@@ -453,12 +694,12 @@ function buildCurateRow(quote) {
   box.type = 'checkbox';
   box.dataset.action = 'select';
   box.checked = selected.has(quote.id);
-  box.setAttribute('aria-label', `Select this quote by ${quote.author} for removal`);
-  label.append(box, document.createTextNode('Remove this one'));
+  box.setAttribute('aria-label', t('index.quote.select', { author: quote.author }));
+  label.append(box, document.createTextNode(t('index.curate.removeThis')));
 
   const edit = document.createElement('a');
   edit.className = 'curate-link';
-  edit.textContent = 'Edit';
+  edit.textContent = t('index.curate.edit');
   edit.rel = 'noopener';
   edit.target = '_blank';
   edit.href = editIssueUrl(quote);
@@ -500,9 +741,10 @@ function removeIssueUrl(ids) {
   return `${REPO}/issues/new?${params}`;
 }
 
-function pluralise(count, singular, plural = `${singular}s`) {
-  return `${count.toLocaleString('en')} ${count === 1 ? singular : plural}`;
-}
+/** "239 quotes" / "239 citater" — the number and its word, in one place. */
+const fmtNumber = (count) => count.toLocaleString(locale());
+const countQuotes = (count) => t(count === 1 ? 'index.count.one' : 'index.count.many', { n: fmtNumber(count) });
+const countAuthors = (count) => t(count === 1 ? 'index.authors.one' : 'index.authors.many', { n: fmtNumber(count) });
 
 function renderActiveFilters() {
   const chips = [];
@@ -518,28 +760,28 @@ function renderActiveFilters() {
   if (state.era) chips.push(['era', ERA_LABELS.get(state.era) ?? state.era]);
   if (state.theme) chips.push(['theme', state.theme]);
   if (state.tag) chips.push(['tag', state.tag]);
-  if (state.favoritesOnly) chips.push(['fav', 'favourites']);
+  if (state.favoritesOnly) chips.push(['fav', t('index.chip.favourites')]);
   if (state.query) chips.push(['q', `“${state.query}”`]);
 
   dom.activeFilters.replaceChildren();
   dom.activeFilters.hidden = chips.length === 0;
   if (!chips.length) return;
 
-  dom.activeFilters.append('Showing');
+  dom.activeFilters.append(t('index.showing'));
   for (const [key, label] of chips) {
     const chip = document.createElement('button');
     chip.className = 'filter-chip';
     chip.type = 'button';
     chip.dataset.clear = key;
     chip.textContent = label;
-    chip.setAttribute('aria-label', `Remove the ${key} filter`);
+    chip.setAttribute('aria-label', t('index.filterOff', { key }));
     dom.activeFilters.append(chip);
   }
   const clearAll = document.createElement('button');
   clearAll.className = 'pill';
   clearAll.type = 'button';
   clearAll.dataset.clear = 'all';
-  clearAll.textContent = 'Clear all';
+  clearAll.textContent = t('index.clearAll');
   dom.activeFilters.append(clearAll);
 }
 
@@ -554,14 +796,14 @@ function render() {
   const total = state.all.length;
   const shown = state.visible.length;
   dom.summary.textContent = shown === total
-    ? pluralise(total, 'quote')
-    : `${shown.toLocaleString('en')} of ${pluralise(total, 'quote')}`;
+    ? countQuotes(total)
+    : t('index.summary.some', { shown: fmtNumber(shown), total: countQuotes(total) });
 
   dom.empty.hidden = shown > 0;
   if (!shown) {
     dom.emptyDetail.textContent = total === 0
-      ? 'The collection is empty. Import your Goodreads quotes to fill it.'
-      : 'No quote matches that. Try fewer words, or clear the filters.';
+      ? t('index.empty.none')
+      : t('index.empty.filtered');
   }
 
   dom.favoritesCount.textContent = favorites.size ? String(favorites.size) : '';
@@ -623,13 +865,44 @@ function populateFilterOptions() {
   fill(dom.era, eras, (a, b) => order.indexOf(a[0]) - order.indexOf(b[0]));
 }
 
+/**
+ * The words inside a `<select>`.
+ *
+ * `hydrate()` cannot reach them: an `<option>`'s label is its text, and the
+ * filter menus are half data (author names, which are never translated) and
+ * half interface ("All authors", which is). So the option labels that belong
+ * to the interface are written here, by value, and rewritten on every
+ * language change with the selection left exactly where it was.
+ */
+function relabelSelects() {
+  const heads = [
+    [dom.author, 'index.filter.author.all'],
+    [dom.work, 'index.filter.work.all'],
+    [dom.subject, 'index.filter.subject.all'],
+    [dom.era, 'index.filter.era.all'],
+  ];
+  for (const [select, id] of heads) {
+    const first = select?.options?.[0];
+    if (first && first.value === '') first.textContent = t(id);
+  }
+
+  const relabel = (select, prefix) => {
+    if (!select) return;
+    const chosen = select.value;
+    for (const option of select.options) option.textContent = t(`${prefix}.${option.value}`);
+    select.value = chosen;
+  };
+  relabel(dom.sort, 'index.sort');
+  relabel(dom.edition, 'edition');
+}
+
 /* ---------------------------------------------------------------------------
  * Focus mode
  * ------------------------------------------------------------------------- */
 
 function openFocus(index = 0) {
   if (!state.visible.length) {
-    toast('Nothing to focus on');
+    toast(t('index.focus.nothing'));
     return;
   }
   state.focusIndex = Math.max(0, Math.min(index, state.visible.length - 1));
@@ -662,14 +935,97 @@ function renderFocus() {
   blockquote.textContent = typographic(quote.text);
 
   dom.focusQuote.replaceChildren(blockquote, buildAttribution(quote, { linked: false }));
-  dom.focusPosition.textContent = `${state.focusIndex + 1} / ${state.visible.length}`;
+  dom.focusPosition.textContent = t('index.focus.position', {
+    index: fmtNumber(state.focusIndex + 1),
+    total: fmtNumber(state.visible.length),
+  });
+  paintFocusFavorite();
+}
+
+/** The star in the focus bar shows the same state the list's star does. */
+function paintFocusFavorite() {
+  const button = dom.focusFavorite;
+  if (!button) return;
+  const quote = state.visible[state.focusIndex];
+  const on = Boolean(quote && favorites.has(quote.id));
+  button.setAttribute('aria-pressed', String(on));
+  const label = button.querySelector('.focus-fav-label');
+  if (label) label.textContent = t(on ? 'ui.unfavourite' : 'ui.favourite');
+}
+
+function toggleFocusFavorite() {
+  const quote = state.visible[state.focusIndex];
+  if (!quote) return;
+  popStar(dom.focusFavorite);
+  toggleFavorite(quote.id);
 }
 
 function stepFocus(delta) {
   if (!state.visible.length) return;
   const count = state.visible.length;
-  state.focusIndex = (state.focusIndex + delta + count) % count;
-  renderFocus();
+  slideFocus(delta, () => {
+    state.focusIndex = (state.focusIndex + delta + count) % count;
+    renderFocus();
+  });
+}
+
+/**
+ * Next and previous move along the direction of travel: the quotation he has
+ * finished leaves the way he is going, the next one arrives from behind it.
+ * Two animations rather than one crossfade, because a crossfade of two
+ * paragraphs at reading size is unreadable for its whole duration.
+ *
+ * The outgoing animation holds its last frame (`fill: 'forwards'`) so the old
+ * words never flash back at full opacity between the two halves, and it is
+ * cancelled the instant the incoming one starts, so nothing stays resident.
+ *
+ * The swap is driven by whichever comes first, the animation finishing or a
+ * plain timer. An animation timeline only advances while the browser is
+ * painting frames, and a browser that has stopped painting — a background tab,
+ * a window dragged off-screen, a headless renderer between screenshots — would
+ * otherwise leave the quotation stuck half-faded and the arrow keys dead. The
+ * words moving is the feature; the slide is decoration on top of it.
+ */
+const SLIDE_OUT_MS = 260;
+const SLIDE_IN_MS = 380;
+
+function slideFocus(direction, paint) {
+  const figure = dom.focusQuote;
+  if (!figure || reducedMotion() || typeof figure.animate !== 'function') {
+    paint();
+    return;
+  }
+  const away = direction > 0 ? -24 : 24;
+  figure.dataset.stepping = direction > 0 ? 'next' : 'previous';
+
+  const out = figure.animate(
+    [{ opacity: 1, transform: 'translateX(0)' }, { opacity: 0, transform: `translateX(${away}px)` }],
+    { duration: SLIDE_OUT_MS, easing: EXIT_EASE, fill: 'forwards' },
+  );
+
+  let swapped = false;
+  const arrive = () => {
+    if (swapped) return;
+    swapped = true;
+    paint();
+    const back = figure.animate(
+      [{ opacity: 0, transform: `translateX(${-away}px)` }, { opacity: 1, transform: 'translateX(0)' }],
+      { duration: SLIDE_IN_MS, easing: ENTER_EASE, fill: 'none' },
+    );
+    try { out.cancel(); } catch { /* already gone */ }
+
+    const settle = () => {
+      delete figure.dataset.stepping;
+      // fill: 'none' leaves nothing behind once it finishes; cancelling only
+      // matters for the stalled case, where it would otherwise sit there.
+      try { if (back.playState !== 'finished') back.cancel(); } catch { /* already gone */ }
+    };
+    back.finished.then(settle, settle);
+    setTimeout(settle, SLIDE_IN_MS + 220);
+  };
+
+  out.finished.then(arrive, arrive);
+  setTimeout(arrive, SLIDE_OUT_MS + 40);
 }
 
 /* ---------------------------------------------------------------------------
@@ -717,10 +1073,14 @@ function setCurating(on) {
 
 function renderCurateBar() {
   const count = selected.size;
-  dom.curateCount.textContent = count ? `${pluralise(count, 'quote')} selected` : 'Nothing selected';
+  dom.curateCount.textContent = count
+    ? t('index.curate.selected', { n: countQuotes(count) })
+    : t('index.curate.none');
   dom.curateRemove.disabled = count === 0;
   dom.curateClear.disabled = count === 0;
-  dom.curateRemove.textContent = count > 1 ? `Remove ${count} quotes…` : 'Remove selected…';
+  dom.curateRemove.textContent = count > 1
+    ? t('index.curate.removeN', { n: fmtNumber(count) })
+    : t('index.curate.remove');
 }
 
 function setEdition(edition) {
@@ -758,6 +1118,13 @@ function wireControls() {
   });
   dom.edition.addEventListener('change', () => setEdition(dom.edition.value));
 
+  // The header's paper/night toggle writes the same key this select reads, so
+  // the two controls have to agree without either one owning the other.
+  document.addEventListener('quotes:edition', (event) => {
+    const value = event?.detail?.edition;
+    if (value && dom.edition.value !== value) dom.edition.value = value;
+  });
+
   dom.favorites.addEventListener('click', () => {
     state.favoritesOnly = !state.favoritesOnly;
     update();
@@ -768,7 +1135,7 @@ function wireControls() {
   dom.curateRemove.addEventListener('click', () => {
     if (!selected.size) return;
     window.open(removeIssueUrl([...selected]), '_blank', 'noopener');
-    toast(`Opened a removal issue for ${pluralise(selected.size, 'quote')}`);
+    toast(t('index.curate.opened', { n: countQuotes(selected.size) }));
   });
 
   dom.openFocus.addEventListener('click', () => openFocus(Math.max(0, state.cursor)));
@@ -778,6 +1145,20 @@ function wireControls() {
   el('focus-shuffle').addEventListener('click', () => {
     state.focusIndex = Math.floor(Math.random() * state.visible.length);
     renderFocus();
+  });
+  if (dom.focusFavorite) {
+    dom.focusFavorite.prepend(svgIcon(ICONS.star));
+    dom.focusFavorite.addEventListener('click', toggleFocusFavorite);
+  }
+
+  // The small "+ Add" beside the shelf pill speaks the same event the header's
+  // does, so add-quote.js is the only thing that knows what adding looks like.
+  dom.controlsAdd?.addEventListener('click', () => {
+    const event = new CustomEvent('quotes:add', { cancelable: true, bubbles: true });
+    document.dispatchEvent(event);
+    if (!event.defaultPrevented) {
+      window.open(`${REPO}/issues/new?template=add-quote.yml`, '_blank', 'noopener');
+    }
   });
 
   dom.activeFilters.addEventListener('click', (event) => {
@@ -819,19 +1200,19 @@ function wireControls() {
     }
 
     if (action.dataset.action === 'favorite') {
-      if (favorites.has(quote.id)) favorites.delete(quote.id);
-      else favorites.add(quote.id);
-      writeFavorites();
-      action.setAttribute('aria-pressed', String(favorites.has(quote.id)));
-      dom.favoritesCount.textContent = favorites.size ? String(favorites.size) : '';
-      if (state.favoritesOnly) render();
+      popStar(action);
+      toggleFavorite(quote.id);
+      // Re-rendering while looking at "favourites only" is the one case where
+      // the list itself has to change; everywhere else the star repaints in
+      // place, which is what lets the pop finish playing.
+      if (state.favoritesOnly) setTimeout(() => render(), 360);
       return;
     }
 
     if (action.dataset.action === 'copy') {
       event.preventDefault();
       const attribution = [quote.author, quote.work].filter(Boolean).join(', ');
-      copyText(`“${typographic(quote.text)}”\n— ${attribution}`, 'Quote copied');
+      copyText(`“${typographic(quote.text)}”\n— ${attribution}`, t('index.copied'));
       return;
     }
 
@@ -840,7 +1221,7 @@ function wireControls() {
       const url = new URL(location.href);
       url.search = '';
       url.hash = quote.id;
-      copyText(url.toString(), 'Link copied');
+      copyText(url.toString(), t('ui.linkCopied'));
       history.replaceState(null, '', `#${quote.id}`);
       highlightTarget();
     }
@@ -901,6 +1282,10 @@ function wireControls() {
       if (event.key === 'ArrowLeft' || event.key === 'k') {
         event.preventDefault();
         stepFocus(-1);
+      }
+      if (event.key === 's' || event.key === 'S') {
+        event.preventDefault();
+        toggleFocusFavorite();
       }
       return;
     }
@@ -975,10 +1360,166 @@ async function loadJson(url, fallback) {
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * Quotes filed from the site
+ *
+ * A quote he adds in the browser is in the Worker's pending list within a
+ * second and in `data/quotes.json` at the next sync, which may be hours away.
+ * Waiting for the file would make the button feel broken, so the pending ones
+ * are folded into the list here and marked, and drop out again by identity the
+ * moment the repository copy arrives.
+ * ------------------------------------------------------------------------- */
+
+let pendingKey = '';
+
+function withPending(filed) {
+  const pending = shelfState().pending ?? [];
+  if (!pending.length) return filed;
+
+  const known = new Set(filed.map((quote) => quote.id));
+  const extra = [];
+  for (const entry of pending) {
+    const payload = entry?.payload;
+    if (!payload || typeof payload.text !== 'string' || !payload.text.trim()) continue;
+    // Identity, not the Worker's row id: once the sync has written the quote
+    // into the repository the two records are the same quotation, and only the
+    // filed one should be on the page.
+    const id = quoteId(payload.text);
+    if (known.has(id)) continue;
+    known.add(id);
+    extra.push({
+      id,
+      text: payload.text,
+      author: payload.author || '',
+      work: payload.work || null,
+      year: payload.year ?? null,
+      note: payload.note || null,
+      tags: Array.isArray(payload.tags) ? payload.tags : [],
+      themes: [],
+      addedAt: entry.createdAt ?? new Date().toISOString(),
+      verification: { status: 'unverified' },
+      _pending: true,
+    });
+  }
+  return extra.length ? [...prepare(extra, state.works), ...filed] : filed;
+}
+
+/** Returns true when the pending list actually changed, so render() is rare. */
+function refreshPending() {
+  const next = (shelfState().pending ?? []).map((entry) => entry?.id ?? '').join(',');
+  if (next === pendingKey) return false;
+  pendingKey = next;
+  state.all = withPending(state.filed);
+  return true;
+}
+
+function syncFromStore() {
+  favorites = readFavorites();
+  if (refreshPending()) {
+    populateFilterOptions();
+    relabelSelects();
+    render();
+    renderFooter();
+    return;
+  }
+  paintFavorites();
+}
+
+/* ---------------------------------------------------------------------------
+ * The footer, the header, and the language
+ * ------------------------------------------------------------------------- */
+
+function renderFooter() {
+  const authors = new Set(state.all.map((quote) => quote.author)).size;
+  dom.footerStats.textContent = state.all.length
+    ? t('index.footer.stats', {
+      quotes: countQuotes(state.all.length),
+      authors: countAuthors(authors),
+    })
+    : '';
+  renderFooterKeys();
+}
+
+/**
+ * "Press / to search, J and K to move…" with real `<kbd>` keys.
+ *
+ * Built from a pattern rather than marked up in the HTML, because the Danish
+ * sentence puts the keys in different places and `hydrate()` would have to
+ * replace the whole line — keys and all — to translate it.
+ */
+const FOOTER_KEYS = { slash: '/', j: 'J', k: 'K', f: 'F', s: 'S', r: 'R', c: 'C' };
+function renderFooterKeys() {
+  if (!dom.footerKeys) return;
+  const pattern = t('index.footer.keys');
+  dom.footerKeys.replaceChildren();
+  let last = 0;
+  for (const match of pattern.matchAll(/\{(\w+)\}/g)) {
+    if (match.index > last) dom.footerKeys.append(pattern.slice(last, match.index));
+    const key = document.createElement('kbd');
+    key.textContent = FOOTER_KEYS[match[1]] ?? match[1];
+    dom.footerKeys.append(key);
+    last = match.index + match[0].length;
+  }
+  if (last < pattern.length) dom.footerKeys.append(pattern.slice(last));
+}
+
+/**
+ * The shared header.
+ *
+ * Imported dynamically and allowed to fail: `assets/nav.js` belongs to the
+ * shelf, and a collection page that cannot render because the header is not
+ * there yet would be a bad trade. If the header did not arrive, the language
+ * toggle it carries is put in the control row instead, so the page is never
+ * left without a way to switch.
+ */
+async function mountHeader() {
+  try {
+    const nav = await import('./nav.js');
+    nav.mountNav?.({ active: 'quotes', variant: 'row' });
+  } catch {
+    /* No shared header yet. */
+  }
+  if (!document.querySelector('.lang-toggle')) {
+    const button = langToggle();
+    if (button) dom.edition?.parentElement?.append(button);
+  }
+  hydrate(document);
+  keepToolsClear();
+  window.addEventListener('resize', keepToolsClear, { passive: true });
+  document.fonts?.ready?.then(keepToolsClear).catch(() => {});
+}
+
+/**
+ * Keep the header's two toggles off its pills.
+ *
+ * In the row variant the DA/EN and light/dark buttons are positioned out of
+ * the flow so they can sit at the top right, which is right at a desk and
+ * wrong on a phone: the pills wrap towards them and the last one ends up
+ * underneath. This measures instead of assuming a breakpoint, so it corrects
+ * a real collision and does nothing at all when there is none — including if
+ * the header is later laid out differently.
+ */
+function keepToolsClear() {
+  const header = document.getElementById('site-nav');
+  const tools = header?.querySelector('.nav-tools');
+  const links = header?.querySelector('.nav-links');
+  if (!header || !tools || !links) return;
+
+  header.style.paddingTop = '';
+  const bar = tools.getBoundingClientRect();
+  const row = links.getBoundingClientRect();
+  const overlaps = bar.left < row.right && bar.right > row.left
+    && bar.top < row.bottom && bar.bottom > row.top;
+  if (overlaps) header.style.paddingTop = `${Math.ceil(bar.height + 14)}px`;
+}
+
 async function init() {
   favorites = readFavorites();
   setEdition(localStorage.getItem(STORAGE.edition) ?? document.documentElement.dataset.edition);
   readStateFromUrl();
+  relabelSelects();
+  hydrate(document);
+  mountHeader();
 
   // The registry is loaded alongside the quotes but is not required: if it
   // fails, subject and era simply have nothing to offer and the rest of the
@@ -989,21 +1530,32 @@ async function init() {
   ]);
 
   state.works = new Map((registry.works ?? []).map((work) => [work.title, work]));
-  state.all = prepare(collection.quotes ?? [], state.works);
+  state.filed = prepare(collection.quotes ?? [], state.works);
+  state.all = state.filed;
+  refreshPending();
   populateFilterOptions();
+  relabelSelects();
   syncControlsFromState();
   wireControls();
   render();
+  renderFooter();
 
-  const authors = new Set(state.all.map((quote) => quote.author)).size;
-  dom.footerStats.textContent = state.all.length
-    ? `${pluralise(state.all.length, 'quote')} from ${pluralise(authors, 'author')}.`
-    : '';
+  onLang(() => {
+    relabelSelects();
+    render();
+    renderFooter();
+    if (!dom.focus.hidden) renderFocus();
+  });
 
   if (location.hash) {
     document.getElementById(location.hash.slice(1))?.scrollIntoView({ block: 'center' });
     highlightTarget();
   }
+
+  // The Worker's state lands after the page is already readable: favourites
+  // made on his phone appear, and so does anything he filed and has not synced.
+  onChange(syncFromStore);
+  loadState().then(syncFromStore).catch(() => {});
 }
 
 init();

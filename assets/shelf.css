@@ -1,0 +1,1282 @@
+/* ==========================================================================
+   The shelf — works.html
+   --------------------------------------------------------------------------
+   A warm room where the books stand on painted ledges. Everything structural
+   comes from assets/app.css: the palette, the four editions, the type, `.pill`,
+   `.shell`. What is added here is a shelf: a gold accent spent on three things,
+   a shadow scale, a ledge, and the depth that makes a cover read as an object
+   rather than a picture of one.
+
+   Two rules run through the whole file.
+
+   Every added token is named `--shelf-*`. Nothing here redefines `--ink`,
+   `--bg` or `--accent`, so a change to an edition in app.css arrives on this
+   page without anybody editing it, and the shelf cannot drift away from the
+   collection it belongs to.
+
+   Nothing is blurred. No backdrop-filter, no glass, no frosted anything — the
+   sticky bar is solid, the scrim is solid, the popover is solid.
+   ========================================================================== */
+
+:root {
+  /* The gold. Two values, because a gold that fills a pill beautifully is too
+     pale to set text in on cream. */
+  --shelf-gold: #c9964a;
+  --shelf-gold-ink: #7d5514;
+  --shelf-on-gold: #241a09;
+
+  --shelf-card: #fdfaf4;
+  --shelf-plate: #fdfaf4;
+  --shelf-ledge-line: #cbb794;
+  --shelf-ledge-face: #e6dac4;
+  --shelf-contact: rgba(58, 42, 20, 0.34);
+
+  --shelf-shadow-1: 0 1px 2px rgba(60, 44, 24, 0.14), 0 6px 14px -8px rgba(60, 44, 24, 0.30);
+  --shelf-shadow-2: 0 3px 6px rgba(60, 44, 24, 0.18), 0 22px 36px -14px rgba(60, 44, 24, 0.52);
+  --shelf-shadow-card: 0 1px 2px rgba(60, 44, 24, 0.08), 0 24px 48px -28px rgba(60, 44, 24, 0.36);
+  --shelf-spine-dark: rgba(0, 0, 0, 0.30);
+  --shelf-spine-light: rgba(255, 255, 255, 0.34);
+  --shelf-scrim: rgba(34, 25, 14, 0.52);
+
+  /* Typographic covers: hue comes from the work's slug, everything else from
+     the edition, so a shelf of them reads as one set rather than a paint box. */
+  --shelf-tc-s: 15%;
+  --shelf-tc-l: 84%;
+  --shelf-tc-ts: 28%;
+  --shelf-tc-tl: 24%;
+
+  /* Geometry. One constant for the row, scaled once for a phone. */
+  --shelf-scale: 1;
+  /* Tall enough for two lines of title, the author and a quote count: measured
+     at 68px, so the row constant is 74 and nothing is shaved off the bottom. */
+  --shelf-cap-h: 74px;
+  --shelf-rowgap: 42px;
+  --shelf-gap: clamp(10px, 1.5vw, 24px);
+
+  --shelf-ease: cubic-bezier(0.2, 0, 0, 1);
+  --shelf-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+}
+
+:root[data-edition="night"] {
+  --shelf-gold: #e0a955;
+  --shelf-gold-ink: #e8bd77;
+  --shelf-on-gold: #1a1307;
+
+  --shelf-card: #1f1a14;
+  /* Lifted clear of the page rather than matched to it: at #1f1a14 on #14110d
+     the popover was a rumour. */
+  --shelf-plate: #2b241b;
+  --shelf-ledge-line: #4a4136;
+  --shelf-ledge-face: #241f19;
+  /* On a near-black page a cast shadow is invisible, so the mark a book leaves
+     on the ledge becomes a spill of warm light instead. The book is still
+     standing on something. */
+  --shelf-contact: rgba(224, 169, 85, 0.16);
+
+  --shelf-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 16px -8px rgba(0, 0, 0, 0.7);
+  --shelf-shadow-2: 0 2px 6px rgba(0, 0, 0, 0.55), 0 22px 34px -14px rgba(0, 0, 0, 0.82);
+  --shelf-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 28px 56px -30px rgba(0, 0, 0, 0.9);
+  --shelf-spine-dark: rgba(0, 0, 0, 0.55);
+  --shelf-spine-light: rgba(255, 255, 255, 0.16);
+  --shelf-scrim: rgba(8, 6, 4, 0.7);
+
+  --shelf-tc-s: 11%;
+  --shelf-tc-l: 20%;
+  --shelf-tc-ts: 16%;
+  --shelf-tc-tl: 84%;
+}
+
+:root[data-edition="folio"] {
+  --shelf-gold: #bd8c3d;
+  --shelf-gold-ink: #7a5310;
+  --shelf-card: #fffdf8;
+  --shelf-plate: #fffdf8;
+  --shelf-ledge-line: #cdbda0;
+  --shelf-ledge-face: #ece2d1;
+}
+
+:root[data-edition="index"] {
+  /* The index edition is cool and flat by design: the ledge loses its warmth
+     and becomes a printed rule, and the gold darkens enough to be read. */
+  --shelf-gold: #8a6212;
+  --shelf-gold-ink: #6d4c08;
+  --shelf-on-gold: #ffffff;
+  --shelf-card: #ffffff;
+  --shelf-plate: #ffffff;
+  --shelf-ledge-line: #b9bdc4;
+  --shelf-ledge-face: #e3e6ea;
+  --shelf-contact: rgba(20, 23, 28, 0.18);
+  --shelf-shadow-1: 0 1px 2px rgba(20, 23, 28, 0.10), 0 4px 10px -6px rgba(20, 23, 28, 0.20);
+  --shelf-shadow-2: 0 2px 5px rgba(20, 23, 28, 0.14), 0 18px 30px -14px rgba(20, 23, 28, 0.34);
+  --shelf-shadow-card: 0 1px 2px rgba(20, 23, 28, 0.08), 0 20px 40px -26px rgba(20, 23, 28, 0.28);
+  --shelf-spine-dark: rgba(0, 0, 0, 0.20);
+  --shelf-spine-light: rgba(255, 255, 255, 0.5);
+  --shelf-scrim: rgba(20, 23, 28, 0.5);
+  --shelf-tc-s: 8%;
+  --shelf-tc-l: 91%;
+  --shelf-tc-ts: 22%;
+  --shelf-tc-tl: 22%;
+}
+
+/* ==========================================================================
+   Masthead
+   ========================================================================== */
+
+.shelf-masthead {
+  padding: clamp(1.6rem, 4vw, 2.8rem) 0 0;
+  text-align: left;
+}
+
+.shelf-stats {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.shelf-masthead h1 {
+  margin: 0.4rem 0 0.3rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.1rem);
+  font-weight: var(--display-weight, 700);
+  letter-spacing: var(--display-tracking, -0.03em);
+  line-height: 1;
+}
+
+.shelf-dek {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--body-soft);
+  font-size: clamp(0.98rem, 0.94rem + 0.25vw, 1.1rem);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   The hero — one book, standing on its own ledge
+   ========================================================================== */
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  margin-top: clamp(1.4rem, 3vw, 2.2rem);
+  padding: clamp(1.1rem, 2.4vw, 1.8rem);
+  background: var(--shelf-card);
+  border: 1px solid var(--rule-soft);
+  border-radius: 18px;
+  /* The hero book tilts toward the pointer; the perspective lives on the
+     container so the tilt reads as depth rather than as a skew. */
+  perspective: 1200px;
+}
+
+.hero[hidden] { display: none; }
+
+.hero-stage {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14px;
+  transform-style: preserve-3d;
+}
+
+/* The hero's own ledge: one line, one thin face, the same two colours as the
+   shelf below it. */
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: 0;
+  height: 6px;
+  border-top: 2px solid var(--shelf-ledge-line);
+  background: var(--shelf-ledge-face);
+  border-radius: 0 0 2px 2px;
+}
+
+.hero-stage .cover-box { box-shadow: var(--shelf-shadow-2); }
+
+.hero-tilt {
+  display: block;
+  transform-origin: bottom center;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  will-change: transform;
+}
+
+.hero-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-bottom: 0.2rem;
+}
+
+.hero-kicker {
+  margin: 0;
+  color: var(--shelf-gold-ink);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 0.4rem 0 0.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.05rem + 1.1vw, 2rem);
+  font-weight: var(--title-weight, 400);
+  line-height: 1.12;
+  letter-spacing: -0.016em;
+}
+
+.hero-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-title-link:hover { color: var(--shelf-gold-ink); }
+
+.hero-meta {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+}
+
+.hero-rate-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+/* One quiet line, not a row of cards: the other things worth knowing about
+   the shelf, set as a sentence. */
+.hero-also {
+  margin: clamp(0.7rem, 1.6vw, 1rem) 0 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.hero-also-link {
+  color: var(--body-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 2px;
+}
+
+.hero-also-link:hover { color: var(--shelf-gold-ink); text-decoration-color: currentColor; }
+.hero-also b { color: var(--ink); font-weight: 600; }
+
+.hero-also-bit + .hero-also-bit::before { content: " · "; color: var(--rule); }
+
+/* ==========================================================================
+   The control row
+   ========================================================================== */
+
+.shelf-controls {
+  position: sticky;
+  top: var(--nav-h, 0px);
+  z-index: 25;
+  margin-top: clamp(1.2rem, 2.6vw, 1.8rem);
+  padding: 0.6rem 0;
+  background: var(--bg);          /* solid, by decision. */
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.shelf-controls-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+
+.shelf-search {
+  position: relative;
+  flex: 1 1 13rem;
+  min-width: 9rem;
+  max-width: 20rem;
+}
+
+.shelf-search input {
+  width: 100%;
+  min-height: 34px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.shelf-search input::placeholder { color: var(--muted); }
+
+.shelf-search input:focus-visible {
+  outline: none;
+  border-color: var(--shelf-gold-ink);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--shelf-gold) 32%, transparent);
+}
+
+.shelf-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+.shelf-chips .pill[aria-pressed="true"] {
+  background: var(--shelf-gold);
+  border-color: var(--shelf-gold);
+  color: var(--shelf-on-gold);
+}
+
+.shelf-chips .pill[aria-pressed="true"] .pill-count { color: var(--shelf-on-gold); opacity: 0.72; }
+
+.shelf-arrange { margin-left: auto; display: flex; align-items: center; gap: 0.4rem; }
+
+.shelf-lock {
+  padding-inline: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.shelf-summary {
+  margin: 0;
+  padding: 1.1rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Sections and ledges
+   ========================================================================== */
+
+.shelf-sections { padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+
+.shelf-group { padding-top: clamp(1.3rem, 2.8vw, 2rem); }
+
+.shelf-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.shelf-group-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: var(--title-weight, 400);
+  letter-spacing: -0.012em;
+}
+
+.shelf-group-head .n {
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.shelf-group-head .fill { flex: 1 1 auto; height: 1px; background: var(--rule-soft); }
+
+/* Every wrapped row of this container is exactly --row-h tall, so the ledge is
+   one repeating gradient rather than one element per row: a 2px top edge, a 5px
+   face, and nothing else drawn.
+
+   --bmax is set per group from that group's own tallest book, so a shelf of
+   thin books does not reserve the height of a book that is not on it. */
+.ledge {
+  --bmax: 190px;
+  --cover-h: calc(var(--bmax) * var(--shelf-scale) + 16px);
+  --row-h: calc(var(--cover-h) + var(--shelf-cap-h) + var(--shelf-rowgap));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0 var(--shelf-gap);
+  margin: 0;
+  padding: 0 0 var(--shelf-rowgap);
+  list-style: none;
+  perspective: 900px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--cover-h) - 11px),
+    var(--shelf-ledge-line) calc(var(--cover-h) - 11px),
+    var(--shelf-ledge-line) calc(var(--cover-h) - 9px),
+    var(--shelf-ledge-face) calc(var(--cover-h) - 9px),
+    var(--shelf-ledge-face) calc(var(--cover-h) - 4px),
+    transparent calc(var(--cover-h) - 4px),
+    transparent var(--row-h)
+  );
+}
+
+/* ==========================================================================
+   A book
+   ========================================================================== */
+
+.book {
+  position: relative;
+  flex: 0 0 auto;
+  width: calc(var(--bw) * var(--shelf-scale));
+  height: var(--row-h);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.book-stage {
+  height: var(--cover-h);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 11px;
+}
+
+.tilt {
+  display: block;
+  width: 100%;
+  transform-origin: bottom center;
+  transition: transform 0.18s var(--shelf-ease);
+  will-change: transform;
+}
+
+.cover-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  /* The frame declares its own size and a ground, so a cover file that is not
+     there yet is a tinted rectangle and never a collapse. */
+  height: calc(var(--bh) * var(--shelf-scale));
+  border-radius: 1px 3px 3px 1px;
+  background: var(--surface);
+  box-shadow: var(--shelf-shadow-1);
+  transition: box-shadow 0.18s var(--shelf-ease);
+}
+
+.cover-box.is-fluid {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ar, 0.667);
+}
+
+.cover-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  background: var(--surface);
+}
+
+/* The spine edge and the paper-thin highlight on the fore-edge: the two marks
+   that turn a rectangle of art into an object standing up. */
+.cover-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--shelf-spine-dark) 0, rgba(0, 0, 0, 0.06) 5px, rgba(0, 0, 0, 0) 9px),
+    linear-gradient(90deg, transparent 0, transparent calc(100% - 2px), var(--shelf-spine-light) 100%);
+  box-shadow: inset 0 1px 0 var(--shelf-spine-light), inset 0 0 0 1px rgba(0, 0, 0, 0.14);
+}
+
+/* Night keeps the paper highlight along the top edge — that is the light
+   catching the cut of the pages — but loses the ring entirely. A pale outline
+   around every cover on a dark page reads as a frame hung on a wall, and it is
+   the single thing that makes a dark library look cheap. */
+:root[data-edition="night"] .cover-box::before { box-shadow: inset 0 1px 0 var(--shelf-spine-light); }
+
+/* The contact shadow where the book meets the ledge. */
+.cover-box::after {
+  content: "";
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  bottom: -9px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 20%, var(--shelf-contact) 0, transparent 68%);
+  opacity: 0.85;
+  transition: opacity 0.18s var(--shelf-ease), transform 0.18s var(--shelf-ease);
+  pointer-events: none;
+}
+
+/* Hover and keyboard focus get the identical treatment: nothing a pointer
+   reveals is hidden from a keyboard. */
+.book:hover, .book.is-hover, .book:focus-visible { z-index: 6; }
+
+.book:hover .cover-box,
+.book.is-hover .cover-box,
+.book:focus-visible .cover-box { box-shadow: var(--shelf-shadow-2); }
+
+.book:hover .cover-box::after,
+.book.is-hover .cover-box::after,
+.book:focus-visible .cover-box::after {
+  opacity: 1;
+  transform: translateY(7px) scaleX(1.22) scaleY(1.3);
+}
+
+.book:focus-visible { outline: none; }
+
+.book:focus-visible .tilt { transform: translateY(-9px); }
+
+.book:focus-visible .cover-box {
+  outline: 2px solid var(--shelf-gold-ink);
+  outline-offset: 3px;
+}
+
+/* One book at the end of a short row may lean, the way the last book on a real
+   shelf does when nothing holds it up.
+
+   Written as `rotate` rather than as part of `transform`, and deliberately so:
+   the lean is a state, not a movement. It is decided once per re-sort, on a
+   book that is almost always below the fold, and `transform` is the one
+   property here that transitions — so putting the lean in it created a 180 ms
+   transition on an off-screen element that Chrome then declined to tick,
+   leaving an animation resident on the page for as long as it lived. `rotate`
+   is a separate property, outside the transition list, and composes with the
+   hover lift rather than fighting it. */
+.book.lean .tilt { rotate: 6.5deg; transform-origin: bottom right; }
+.book.lean:hover .tilt, .book.lean.is-hover .tilt, .book.lean:focus-visible .tilt { rotate: 3deg; }
+:root.is-flipping .book.lean .tilt { rotate: 0deg; }
+
+/* While a FLIP is playing, hover is somebody else's animation. */
+:root.is-flipping .book .tilt { transform: none !important; transition: none !important; }
+:root.is-flipping .plate { display: none; }
+
+/* ---------------------------------------------------------- the caption */
+
+/* Every book is labelled at every width. There is no hover on a phone, and a
+   wall of unlabelled covers is a picture of a library rather than a library. */
+.caption {
+  display: block;
+  height: var(--shelf-cap-h);
+  overflow: hidden;
+  padding-top: 0.45rem;
+}
+
+.c-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: var(--title-weight, 400);
+  line-height: 1.24;
+  letter-spacing: -0.006em;
+  color: var(--ink);
+  /* Two lines, then an ellipsis. Never hyphenated: a broken word in 13px type
+     next to a cover reads as a rendering fault. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  hyphens: none;
+}
+
+/* Each on its own line. These are spans inside a <button>, so without an
+   explicit display the author and the quote count run together — "Walter
+   Isaacson4 quotes" — which reads as a data fault rather than as a caption. */
+.c-author {
+  display: block;
+  margin: 0.12rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.69rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c-quotes {
+  display: block;
+  margin: 0.1rem 0 0;
+  color: var(--shelf-gold-ink);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.book:hover .c-title, .book:focus-visible .c-title { color: var(--shelf-gold-ink); }
+
+/* ------------------------------------------------------------ the plate */
+
+/* What the caption cannot hold: the year, the pages, where the book stands,
+   and the score. It lives in the gap under its own book and is exactly that
+   book's column wide, so it can never sit on top of a neighbouring cover. */
+.plate {
+  position: absolute;
+  left: 0;
+  top: calc(var(--cover-h) + var(--shelf-cap-h) + 3px);
+  width: 100%;
+  height: calc(var(--shelf-rowgap) - 6px);
+  overflow: hidden;
+  padding: 0.22rem 0.4rem;
+  background: var(--shelf-plate);
+  border: 1px solid var(--rule);
+  border-radius: 9px;
+  box-shadow: var(--shelf-shadow-card);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.16s var(--shelf-ease), transform 0.18s var(--shelf-ease);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.plate.show { opacity: 1; transform: none; }
+
+.plate .p-facts {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plate .p-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.1rem;
+}
+
+.p-shelf {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.02rem 0.34rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--body-soft);
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.p-score {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: var(--shelf-gold-ink);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------- typographic covers */
+
+/* A talk has no jacket. Rather than a placeholder, it gets a cover set in the
+   page's own type: kind and year in small caps over a hairline, the title in
+   the largest serif the spine allows, the author on a baseline at the foot.
+   Sized from the cover's own width, because the same cover has to work at
+   90px in "next to it on the shelf" and at 280px in the detail. */
+.cover-box.is-type {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Percentages, not cqw: a container cannot query itself for its own padding,
+     and cqw there resolves against the viewport. */
+  padding: 8% 7%;
+  background: hsl(var(--tc-h, 38) var(--shelf-tc-s) var(--shelf-tc-l));
+  color: hsl(var(--tc-h, 38) var(--shelf-tc-ts) var(--shelf-tc-tl));
+  text-align: left;
+}
+
+.cover-box.is-type .tc-kind {
+  font-family: var(--font-label);
+  font-size: clamp(0.42rem, 4cqw, 0.7rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  padding-bottom: 0.45em;
+  border-bottom: 1px solid currentColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cover-box.is-type .tc-title {
+  font-family: var(--font-display);
+  font-size: clamp(0.62rem, 11cqw, 1.9rem);
+  font-weight: var(--title-weight, 400);
+  line-height: 1.12;
+  letter-spacing: -0.014em;
+  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  hyphens: none;
+}
+
+.cover-box.is-type .tc-author {
+  font-family: var(--font-label);
+  font-size: clamp(0.44rem, 4.6cqw, 0.85rem);
+  font-weight: 500;
+  opacity: 0.8;
+  padding-top: 0.45em;
+  border-top: 1px solid currentColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   Stars
+   ========================================================================== */
+
+.rate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.rate-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 34px;
+  min-height: 34px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rule);
+  cursor: pointer;
+  transition: color 0.16s var(--shelf-ease);
+}
+
+.rate-btn .star { display: block; width: 19px; height: 19px; fill: currentColor; }
+.rate-btn.on { color: var(--shelf-gold); }
+.rate-btn:hover { color: var(--shelf-gold-ink); }
+.rate-btn:focus-visible { outline: 2px solid var(--shelf-gold-ink); outline-offset: -2px; border-radius: 6px; }
+
+.rate-value {
+  margin-left: 0.45rem;
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.rate-value em { font-style: normal; font-weight: 500; color: var(--muted); }
+
+/* The pressed star pops and throws a ring; the ones before it fill in
+   sequence, 35 ms apart. */
+.rate-btn.pop .star { animation: shelf-star-pop 420ms var(--shelf-ease) both; }
+
+@keyframes shelf-star-pop {
+  0%   { transform: scale(1) rotate(0deg); }
+  28%  { transform: scale(1.35) rotate(-3deg); }
+  55%  { transform: scale(0.96) rotate(1.5deg); }
+  78%  { transform: scale(1.06) rotate(-0.6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.rate-btn.fill-in .star {
+  animation: shelf-star-fill 260ms var(--shelf-ease) both;
+  animation-delay: calc(var(--k, 0) * 35ms);
+}
+
+@keyframes shelf-star-fill {
+  0%   { transform: scale(0.72); opacity: 0.35; }
+  70%  { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  border: 2px solid var(--shelf-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: shelf-ring 420ms var(--shelf-exit) both;
+}
+
+@keyframes shelf-ring {
+  from { transform: scale(0.35); opacity: 0.9; }
+  to   { transform: scale(2.4); opacity: 0; }
+}
+
+.stars-inline { display: inline-flex; align-items: center; gap: 1px; }
+.stars-inline .star { display: block; width: 0.8em; height: 0.8em; fill: currentColor; }
+.stars-inline .star.off { opacity: 0.26; }
+
+/* ==========================================================================
+   The detail
+   ========================================================================== */
+
+.detail-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: var(--shelf-scrim);   /* solid scrim. no blur. */
+}
+
+.detail {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.8rem, 3vw, 2.2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.detail[hidden], .detail-scrim[hidden] { display: none !important; }
+
+.detail-card {
+  position: relative;
+  width: min(55rem, 100%);
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  background: var(--bg);
+  border: 1px solid var(--rule-soft);
+  border-radius: 22px;
+  box-shadow: var(--shelf-shadow-card);
+}
+
+.detail-close {
+  position: absolute;
+  top: clamp(0.8rem, 2vw, 1.3rem);
+  right: clamp(0.8rem, 2vw, 1.3rem);
+  z-index: 2;
+}
+
+.detail-close kbd {
+  margin-left: 0.4rem;
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  opacity: 0.6;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: clamp(1.3rem, 3.5vw, 2.6rem);
+  align-items: start;
+  perspective: 1200px;
+}
+
+.detail-stage {
+  position: relative;
+  width: 280px;
+  max-width: 100%;
+  padding-bottom: 14px;
+  transform-style: preserve-3d;
+}
+
+.detail-stage::after {
+  content: "";
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: 0;
+  height: 6px;
+  border-top: 2px solid var(--shelf-ledge-line);
+  background: var(--shelf-ledge-face);
+}
+
+.detail-cover-wrap {
+  display: block;
+  transform-origin: bottom center;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+
+.detail-kicker {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.detail-title {
+  margin: 0.35rem 0 0.2rem;
+  padding-right: 4.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.4rem);
+  font-weight: var(--title-weight, 400);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+}
+
+.detail-author {
+  margin: 0 0 0.7rem;
+  color: var(--body-soft);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.detail-meta {
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.detail-meta b { color: var(--ink); font-weight: 600; }
+
+.detail-quote {
+  margin: 0 0 1.2rem;
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 2px solid var(--shelf-gold);
+  color: var(--body-soft);
+  font-family: var(--font-quote);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.48;
+  max-width: 32em;
+}
+
+.detail-block {
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.detail-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* 44px targets in the detail, where a thumb is actually aiming. */
+.detail .rate-btn { width: clamp(30px, 8.4%, 44px); height: 44px; min-height: 44px; }
+.detail .rate-btn .star { width: 22px; height: 22px; }
+
+.detail-shelves { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+.detail-shelves .pill[aria-pressed="true"] {
+  background: var(--shelf-gold);
+  border-color: var(--shelf-gold);
+  color: var(--shelf-on-gold);
+}
+
+.detail-shelves .pill.is-clear { border-color: var(--rule-soft); color: var(--muted); font-weight: 500; }
+.detail-shelves .pill.is-clear:hover { color: var(--accent-ink); border-color: var(--accent-ink); }
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  padding-top: 1.1rem;
+}
+
+.pill-primary {
+  min-height: 42px;
+  padding-inline: 1.1rem;
+  background: var(--shelf-gold);
+  border-color: var(--shelf-gold);
+  color: var(--shelf-on-gold);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shelf-shadow-1);
+}
+
+.pill-primary:hover {
+  background: var(--shelf-gold);
+  border-color: var(--shelf-on-gold);
+  color: var(--shelf-on-gold);
+  filter: brightness(1.05);
+}
+
+.detail-link {
+  color: var(--body-soft);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+}
+
+.detail-link:hover { color: var(--shelf-gold-ink); text-decoration-color: currentColor; }
+
+/* The staggered entrance: each block 30 ms after the one above it. */
+.detail-card .d-item { animation: shelf-detail-in 340ms var(--shelf-ease) both; animation-delay: calc(var(--i, 0) * 30ms); }
+
+@keyframes shelf-detail-in {
+  from { opacity: 0; transform: translateY(9px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ------------------------------------------- next to it on the shelf */
+
+.detail-near { padding-top: clamp(1.6rem, 3.5vw, 2.4rem); }
+
+.near-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem clamp(0.7rem, 1.6vw, 1.2rem);
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.near-book {
+  width: 62px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.near-book .cover-box { height: 92px; }
+.near-book .c-title { font-size: 0.7rem; -webkit-line-clamp: 2; margin-top: 0.3rem; }
+.near-book:hover .cover-box { box-shadow: var(--shelf-shadow-2); }
+.near-book:focus-visible .cover-box { outline: 2px solid var(--shelf-gold-ink); outline-offset: 2px; }
+
+/* ==========================================================================
+   Unlocking, and saying so
+   ========================================================================== */
+
+.unlock-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: var(--shelf-scrim);
+}
+
+.unlock-scrim[hidden] { display: none !important; }
+
+.unlock-card {
+  width: min(24rem, 100%);
+  padding: 1.4rem;
+  background: var(--bg);
+  border: 1px solid var(--rule-soft);
+  border-radius: 16px;
+  box-shadow: var(--shelf-shadow-card);
+}
+
+.unlock-card h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: var(--title-weight, 400);
+}
+
+.unlock-card p {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.unlock-card input:focus-visible {
+  outline: none;
+  border-color: var(--shelf-gold-ink);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--shelf-gold) 32%, transparent);
+}
+
+.unlock-card input {
+  width: 100%;
+  min-height: 38px;
+  margin-bottom: 0.8rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+}
+
+.unlock-actions { display: flex; gap: 0.4rem; align-items: center; }
+
+.unlock-error { margin: 0.6rem 0 0; color: var(--accent-ink); font-size: 0.74rem; }
+
+.shelf-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.4rem;
+  z-index: 80;
+  transform: translate(-50%, 16px);
+  max-width: min(26rem, calc(100% - 2rem));
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 999px;
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s var(--shelf-ease), transform 0.24s var(--shelf-ease);
+}
+
+.shelf-toast[data-visible="true"] { opacity: 1; transform: translate(-50%, 0); }
+
+.shelf-empty {
+  padding: 3rem 0;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Narrow — the phone
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  :root {
+    --shelf-scale: 0.62;
+    --shelf-rowgap: 16px;
+  }
+
+  /* No pointer, so no plate; the caption is the label and the detail is one
+     tap away. */
+  .plate { display: none !important; }
+
+  /* Compact hero: the cover beside the text, not above it, so the controls and
+     the first row of the shelf are reachable without a scroll. */
+  .hero {
+    gap: 0.9rem;
+    padding: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .hero-stage { padding-bottom: 10px; }
+  .hero-stage::after { height: 5px; }
+  .hero-title { font-size: 1.1rem; margin-top: 0.25rem; }
+  .hero-meta { font-size: 0.72rem; margin-bottom: 0.55rem; }
+  .hero-actions { margin-top: 0.6rem; }
+  .hero-rate { display: none; }        /* the detail carries it on a phone */
+
+  /* One fact per line, each truncated to that line. Left to wrap, three facts
+     with full book titles in them ran to 160px of the screen above the fold. */
+  .hero-also { margin-top: 0.6rem; font-size: 0.74rem; line-height: 1.5; }
+  .hero-also-bit {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hero-also-bit + .hero-also-bit::before { content: none; }
+
+  .shelf-arrange { margin-left: 0; width: 100%; }
+  .shelf-arrange select { flex: 1 1 auto; max-width: none; }
+  .shelf-search { max-width: none; flex-basis: 100%; }
+
+  /* A card taller than the screen must not be centred in it: the top goes
+     above the viewport and the Close pill with it, and nothing scrolls up to
+     reach them. */
+  .detail { padding: 0; align-items: flex-start; }
+  .detail-card {
+    width: 100%;
+    max-height: none;
+    min-height: 100%;
+    border: 0;
+    border-radius: 0;
+    padding: 1rem var(--gutter) 2.5rem;
+  }
+  .detail-grid { grid-template-columns: minmax(0, 1fr); }
+  .detail-stage { width: 58%; max-width: 190px; }
+  .detail-title { padding-right: 0; margin-top: 0.5rem; }
+  .detail-close { top: 0.7rem; right: var(--gutter); }
+}
+
+/* ==========================================================================
+   Reduced motion
+   --------------------------------------------------------------------------
+   Not a shorter version of the same movement: the transition list itself
+   collapses to opacity, so nothing travels, tilts or scales.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 160ms !important;
+    transition-property: opacity, background-color, color, border-color !important;
+  }
+
+  .tilt, .hero-tilt, .detail-cover-wrap { transform: none !important; }
+  .book.lean .tilt { transform: none !important; }
+  .ring { display: none; }
+  .detail-card .d-item { animation: none; opacity: 1; }
+}
+
+/* ==========================================================================
+   View transitions — the cover is one object moving, not two pictures
+   ========================================================================== */
+
+::view-transition-old(book-cover),
+::view-transition-new(book-cover) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(book-cover) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}

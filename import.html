@@ -27,6 +27,7 @@
 
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/nav.css">
 <style>
   /* Page-specific: a drop target, a table of what was read, and the two ways
      of getting it out again. A utility page, so it stays quieter than the
@@ -199,6 +200,7 @@
 </style>
 </head>
 <body>
+<header id="site-nav"></header>
 
 <a class="skip-link" href="#dropzone">Skip to the importer</a>
 
@@ -573,5 +575,6 @@
   });
 </script>
 
+<script type="module">import('./assets/nav.js').then((nav) => nav.mountNav({ active: 'import', variant: 'bar' })).catch(() => {});</script>
 </body>
 </html>

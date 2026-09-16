@@ -1,0 +1,208 @@
+/* ==========================================================================
+   The shared header — one bar on every page.
+
+   Two builders consume this, so it stays small and it stays stable: layout for
+   `mountNav()`'s markup and nothing else. Colour, type and the `.pill` shape
+   itself all come from assets/app.css, which every page already loads, so a
+   change to an edition's palette reaches the header without anybody editing
+   this file.
+
+   Every selector is prefixed with `#site-nav`. That is not tidiness: app.css
+   paints `.pill[aria-current="true"]` with the ink fill, and the Shelf pill has
+   to stay gold while also being the current page. An id in the selector wins
+   that argument whatever order the stylesheets happen to load in.
+   ========================================================================== */
+
+:root {
+  /* The one accent this header spends: the Shelf pill and nothing else.
+     Named separately from --accent because the shelf's gold and the
+     collection's crimson are different decisions that happen to live in the
+     same bar. */
+  --nav-gold: #c9964a;
+  --nav-on-gold: #241a09;
+  --nav-h: 56px;
+}
+
+:root[data-edition="night"] {
+  --nav-gold: #e0a955;
+  --nav-on-gold: #1a1307;
+}
+
+:root[data-edition="folio"] {
+  --nav-gold: #bd8c3d;
+  --nav-on-gold: #1c1305;
+}
+
+:root[data-edition="index"] {
+  /* Cool grey page: the same warm gold reads as a stain rather than an accent,
+     so it darkens enough to carry white text. */
+  --nav-gold: #8a6212;
+  --nav-on-gold: #ffffff;
+}
+
+/* --------------------------------------------------------------- the bar */
+
+#site-nav {
+  position: relative;
+  z-index: 30;
+}
+
+#site-nav[data-variant="bar"] {
+  position: sticky;
+  top: 0;
+  background: var(--bg);          /* solid. no blur, no glass, anywhere. */
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+#site-nav .nav-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: var(--container);
+  margin-inline: auto;
+  min-height: 56px;
+  padding-block: 0.55rem;
+}
+
+#site-nav .nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#site-nav .nav-brand:hover { color: var(--accent-ink); }
+
+#site-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: auto;
+  min-width: 0;
+}
+
+#site-nav .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* The primary destination. One filled pill, a book glyph, and nothing else on
+   the page painted this colour. */
+#site-nav .pill.is-primary,
+#site-nav .pill.is-primary[aria-current="page"] {
+  background: var(--nav-gold);
+  border-color: var(--nav-gold);
+  color: var(--nav-on-gold);
+  font-weight: 700;
+}
+
+#site-nav .pill.is-primary:hover {
+  background: var(--nav-gold);
+  border-color: var(--nav-on-gold);
+  color: var(--nav-on-gold);
+  filter: brightness(1.05);
+}
+
+#site-nav .nav-glyph {
+  display: block;
+  width: 0.95em;
+  height: 0.95em;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+/* The quiet one. Small, outlined, deliberately not competing with Shelf. */
+#site-nav .pill.is-quiet {
+  padding-inline: 0.6rem;
+  border-color: var(--rule-soft);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+#site-nav .pill.is-quiet:hover { color: var(--ink); border-color: var(--ink); }
+
+#site-nav .pill[aria-current="page"]:not(.is-primary) {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+#site-nav .nav-toggle {
+  min-width: 42px;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------- the front page */
+
+/* Pills centred under the masthead's dek; the two toggles at the very top
+   right of the page. With no positioned ancestor, `absolute` resolves against
+   the initial containing block, which is exactly the corner the mockup puts
+   them in — and it keeps them out of the masthead's own centred flow. */
+
+#site-nav[data-variant="row"] .nav-row {
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 0;
+  padding-block: 0 1.05rem;
+  border-bottom: 1px solid var(--nav-gold);
+}
+
+#site-nav[data-variant="row"] .nav-brand { display: none; }
+
+#site-nav[data-variant="row"] .nav-links {
+  margin-left: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 0.4rem;
+}
+
+#site-nav[data-variant="row"] .nav-tools {
+  position: absolute;
+  top: 0.85rem;
+  right: var(--gutter);
+  z-index: 31;
+}
+
+/* ------------------------------------------------------------- narrow */
+
+@media (max-width: 700px) {
+  /* A sticky header plus a sticky control row eats a phone screen. The
+     controls are the ones worth following down the page, so the bar lets go. */
+  #site-nav[data-variant="bar"] { position: static; }
+
+  #site-nav .nav-row {
+    flex-wrap: wrap;
+    min-height: 0;
+    gap: 0.45rem;
+    padding-block: 0.5rem 0.45rem;
+  }
+
+  #site-nav .nav-brand { font-size: 0.98rem; }
+
+  #site-nav .nav-links {
+    order: 3;
+    flex: 1 0 100%;
+    flex-wrap: nowrap;
+    margin-left: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Bleed to the screen edge so the row can be scrolled to its end without
+       the last pill hiding under the gutter. */
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 0.15rem var(--gutter) 0.3rem;
+  }
+
+  #site-nav .nav-links::-webkit-scrollbar { display: none; }
+  #site-nav .nav-links > * { flex: 0 0 auto; }
+
+  #site-nav .nav-tools { margin-left: auto; }
+
+  #site-nav[data-variant="row"] .nav-tools {
+    top: 0.6rem;
+    right: max(0.6rem, calc(var(--gutter) - 0.4rem));
+  }
+}

@@ -27,6 +27,7 @@
 
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/nav.css">
 <style>
   /* Page-specific: the board and its action bar. Everything else is inherited,
      so a proposal reads like a quote long before it becomes one. */
@@ -275,6 +276,7 @@
 </head>
 
 <body>
+<header id="site-nav"></header>
 <a class="skip-link" href="#board">Skip to the board</a>
 
 <header class="masthead shell">
@@ -362,5 +364,6 @@
 </noscript>
 
 <script type="module" src="assets/scout.js"></script>
+<script type="module">import('./assets/nav.js').then((nav) => nav.mountNav({ active: 'board', variant: 'bar' })).catch(() => {});</script>
 </body>
 </html>

@@ -6,19 +6,27 @@
 <meta name="theme-color" content="#f6efe4">
 <meta name="color-scheme" content="light dark">
 <title>The shelf – Quote Collection</title>
-<meta name="description" content="Every work the collection quotes from, arranged by subject.">
+<meta name="description" content="Every book on the shelf, every talk worth keeping, and the lines they gave me.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
 <script>
+  /* Edition and language before first paint, so the page never flashes the
+     wrong palette or the wrong language. Mirrors index.html. */
   (function () {
     try {
       var editions = ['paper', 'night', 'folio', 'index'];
-      var saved = localStorage.getItem('quotes-edition');
+      var params = new URLSearchParams(location.search);
+      var forced = params.get('edition');
+      var saved = editions.indexOf(forced) >= 0 ? forced : localStorage.getItem('quotes-edition');
       if (editions.indexOf(saved) < 0) {
         saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'paper';
       }
       document.documentElement.dataset.edition = saved;
       if (saved === 'night') document.querySelector('meta[name=theme-color]').setAttribute('content', '#14110d');
+      var lang = params.get('lang');
+      if (lang === 'da' || lang === 'en') localStorage.setItem('quotes-lang', lang);
+      var remembered = localStorage.getItem('quotes-lang');
+      if (remembered === 'da' || remembered === 'en') document.documentElement.lang = remembered;
     } catch (e) {
       document.documentElement.dataset.edition = 'paper';
     }
@@ -27,169 +35,87 @@
 
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/app.css">
-<style>
-  /* Page-specific: the shelf itself. Everything else is inherited, so this
-     page is unmistakably part of the collection. */
-
-  .shelf-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    padding: clamp(1.4rem, 4vw, 2.2rem) 0 0;
-  }
-
-  .shelf-section { padding: clamp(2.2rem, 5vw, 3.4rem) 0 0; }
-
-  .shelf-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
-    margin: 0 0 1.2rem;
-    padding-bottom: 0.55rem;
-    border-bottom: 1px solid var(--rule);
-    font-family: var(--font-label);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .shelf-heading span { letter-spacing: 0.02em; font-weight: 400; }
-
-  /* Auto-fit rather than a fixed column count: the shelf has to look composed
-     at 375px and at 1440px without a breakpoint for each.
-
-     The rules are drawn on the cards, not by letting a tinted container show
-     through a 1px gap. That trick is one line shorter and paints every empty
-     cell in the last row as a solid block, which reads as a bug rather than as
-     a gap on a shelf. */
-  .shelf {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(19rem, 100%), 1fr));
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    border-top: 1px solid var(--rule-soft);
-    border-left: 1px solid var(--rule-soft);
-  }
-
-  .book {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    padding: clamp(1.1rem, 2.5vw, 1.5rem);
-    border-right: 1px solid var(--rule-soft);
-    border-bottom: 1px solid var(--rule-soft);
-    transition: background-color 0.16s var(--ease);
-  }
-
-  .book:hover { background: var(--surface); }
-
-  .book-title {
-    font-family: var(--font-display);
-    font-size: 1.14rem;
-    font-weight: 500;
-    line-height: 1.28;
-    letter-spacing: -0.008em;
-    color: var(--ink);
-    text-decoration: none;
-    text-wrap: balance;
-  }
-
-  .book-title:hover { color: var(--accent-ink); }
-
-  .book-author {
-    font-family: var(--font-label);
-    font-size: 0.78rem;
-    color: var(--body-soft);
-  }
-
-  .book-line {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: auto;
-    padding-top: 0.7rem;
-    font-family: var(--font-label);
-    font-size: 0.72rem;
-    color: var(--muted);
-  }
-
-  .book-count { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
-
-  .book-find {
-    margin-left: auto;
-    color: var(--muted);
-    text-decoration-color: var(--rule);
-  }
-
-  .book-find:hover { color: var(--accent-ink); }
-
-  /* One line from the work, set as the reason the book is on the shelf. */
-  .book-line-quote {
-    margin: 0.55rem 0 0;
-    font-family: var(--font-quote);
-    font-size: 0.94rem;
-    font-style: italic;
-    line-height: 1.5;
-    color: var(--body-soft);
-  }
-</style>
+<link rel="stylesheet" href="assets/nav.css">
+<link rel="stylesheet" href="assets/shelf.css">
 </head>
 
 <body>
 <a class="skip-link" href="#shelf">Skip to the shelf</a>
 
-<header class="masthead shell">
-  <p class="masthead-kicker">
-    <a href="./">Lines Worth Keeping</a> · The shelf
-  </p>
-  <h1>Everything quoted here</h1>
-  <p class="masthead-dek">
-    Every work the collection draws on. A subject belongs to the work, not to
-    the line, so it is one decision per book that anyone can check against a
-    library record – not a reading of each sentence.
-  </p>
-</header>
+<header id="site-nav"></header>
 
 <main class="shell">
-  <div class="shelf-controls">
-    <label class="visually-hidden" for="arrange">Arrange the shelf</label>
-    <select class="pill" id="arrange">
-      <option value="subject">By subject</option>
-      <option value="era">By era</option>
-      <option value="author">By author</option>
-      <option value="count">By how often quoted</option>
-    </select>
-    <a class="pill" href="./">Back to the quotes</a>
+  <div class="shelf-masthead">
+    <p class="shelf-stats" id="shelf-stats"></p>
+    <h1 data-i18n="shelf.title">The shelf</h1>
+    <p class="shelf-dek" data-i18n="shelf.dek">Every book on the shelf, every talk worth keeping, and the lines they gave me.</p>
   </div>
 
-  <p class="result-summary" id="shelf-summary" role="status" aria-live="polite"></p>
+  <section class="hero" id="hero" aria-labelledby="hero-title" hidden></section>
+  <p class="hero-also" id="hero-also"></p>
 
-  <div id="shelf"></div>
+  <div class="shelf-controls" id="shelf-controls">
+    <div class="shelf-controls-row">
+      <div class="shelf-search">
+        <label class="visually-hidden" for="shelf-search" data-i18n="shelf.searchLabel">Search by title or author</label>
+        <input id="shelf-search" type="search" autocomplete="off" spellcheck="false"
+               data-i18n-placeholder="shelf.searchPlaceholder" placeholder="Title or author">
+      </div>
+
+      <div class="shelf-chips" id="shelf-chips" role="group" data-i18n-aria="shelf.shelvesLabel" aria-label="Shelves"></div>
+
+      <div class="shelf-arrange">
+        <label class="visually-hidden" for="shelf-arrange" data-i18n="shelf.arrangeLabel">Arrange</label>
+        <select class="pill" id="shelf-arrange"></select>
+        <button class="pill shelf-lock" id="shelf-lock" type="button" aria-pressed="false"></button>
+      </div>
+    </div>
+  </div>
+
+  <p class="shelf-summary" id="shelf-summary" role="status" aria-live="polite"></p>
+
+  <div class="shelf-sections" id="shelf"></div>
+  <p class="shelf-empty" id="shelf-empty" data-i18n="shelf.empty" hidden>Nothing on the shelf matches that.</p>
 </main>
 
 <footer class="page-footer">
   <div class="shell footer-row">
     <div>
       <p style="margin:0">
-        <a href="./">The collection</a> ·
-        <a href="suggest.html">What to read next</a> ·
-        <a href="https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml">Add a quote</a>
+        <a href="./" data-i18n="nav.quotes">Quotes</a> ·
+        <a href="suggest.html" data-i18n="nav.next">Read next</a> ·
+        <a href="scout.html" data-i18n="nav.board">The board</a>
       </p>
     </div>
     <div>
-      <p style="margin:0" id="shelf-stats"></p>
+      <p style="margin:0" id="shelf-foot-count"></p>
       <p style="margin:.4rem 0 0">
         <a href="https://github.com/abustrup/Quote-collection">Source</a> ·
-        <a href="https://abustrup.github.io/alexanders-brief/">Alexanders Brief</a>
+        <a href="data/works.json" data-i18n="shelf.registry">The registry</a>
       </p>
     </div>
   </div>
 </footer>
+
+<div class="detail-scrim" id="detail-scrim" hidden></div>
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden></div>
+
+<div class="unlock-scrim" id="unlock" role="dialog" aria-modal="true" aria-labelledby="unlock-title" hidden>
+  <form class="unlock-card" id="unlock-form">
+    <h2 id="unlock-title" data-i18n="shelf.unlock.title">Enter your edit code to change the shelf</h2>
+    <p data-i18n="shelf.unlock.help">The code lives in the owner’s .env file. It is remembered on this device only.</p>
+    <label class="visually-hidden" for="unlock-code" data-i18n="edit.code.placeholder">Edit code</label>
+    <input id="unlock-code" type="password" autocomplete="off"
+           data-i18n-placeholder="edit.code.placeholder" placeholder="Edit code">
+    <div class="unlock-actions">
+      <button class="pill pill-primary" id="unlock-submit" type="submit" data-i18n="edit.unlock">Unlock</button>
+      <button class="pill" id="unlock-cancel" type="button" data-i18n="ui.close">Close</button>
+    </div>
+    <p class="unlock-error" id="unlock-error" role="alert" hidden></p>
+  </form>
+</div>
+
+<div class="shelf-toast" id="shelf-toast" role="status" aria-live="polite"></div>
 
 <noscript>
   <div class="shell" style="padding:2rem 0">
