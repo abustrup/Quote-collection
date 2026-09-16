@@ -69,13 +69,44 @@ MAX_HEIGHT = 800
 MAX_BYTES = 120 * 1024
 QUALITY_STEPS = (82, 74, 66, 58)
 
-# Books where no amount of searching gets there, with the reason. Open Library
-# has no English standalone edition of Derrida's "Force of Law" at all — the
-# English text lives inside "Acts of Religion", under that title — so this
-# points at the Spanish Tecnos edition, which is the one he actually owns
-# (ISBN 8430930949) and the one whose cover says "Fuerza de ley".
+# Covers chosen by hand, because the catalogue cannot be talked into finding
+# them and because this is a shelf he looks at every day. Each is a real front
+# cover of the right book in English; the reason is the part worth keeping,
+# since a future run would otherwise "fix" them back.
+#
+# A pin is `title: (source, url)`. The source is what lands in `coverSource`,
+# so a pinned cover is as traceable as a found one, and a pin still has to pass
+# the same size, shape and detail tests as anything else — a pin that fails
+# them falls through to the ordinary search rather than being forced through.
+GR = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books"
+OL_ID = "https://covers.openlibrary.org/b/id/{}.jpg?default=false"
+OL_ISBN = "https://covers.openlibrary.org/b/isbn/{}.jpg?default=false"
+
 COVER_PINS = {
-    "Force of Law": "openlibrary:14165428",
+    # Open Library has no English standalone edition of Derrida's "Force of
+    # Law" at all — the English text lives inside "Acts of Religion", under
+    # that title — so this is the Spanish Tecnos edition, which is the one he
+    # owns (ISBN 8430930949) and the one whose cover says "Fuerza de ley".
+    "Force of Law": ("openlibrary:14165428", OL_ID.format(14165428)),
+
+    # The search kept finding scans of old library copies: worn cloth bindings,
+    # barcode stickers, and seventeenth-century quarto title pages. All are the
+    # right book and none of them is a cover anybody would want on a shelf.
+    "1984": ("goodreads:61439040", f"{GR}/1657781256l/61439040.jpg"),                    # Signet, Pynchon foreword
+    "The Idiot": ("goodreads:12505", f"{GR}/1657539107l/12505.jpg"),                     # Vintage Classics
+    "The Maniac": ("goodreads:75665931", f"{GR}/1679411721l/75665931.jpg"),              # Penguin Press, English
+    "Hamlet": ("openlibrary:15171356", OL_ID.format(15171356)),
+    "Romeo and Juliet": ("openlibrary:15137021", OL_ID.format(15137021)),                # Penguin
+    "The Tempest": ("openlibrary:12621675", OL_ID.format(12621675)),
+    "The Great Gatsby": ("openlibrary:14314120", OL_ID.format(14314120)),                # Scribner, Celestial Eyes
+    "The Old Man and the Sea": ("openlibrary:14827822", OL_ID.format(14827822)),         # Vintage Classics
+    "Groundwork of the Metaphysics of Morals": ("openlibrary:9581515", OL_ID.format(9581515)),
+    "Thus Spoke Zarathustra": ("openlibrary-isbn:0140441182", OL_ISBN.format("0140441182")),
+
+    # Open Library holds no cover for Deep Utopia under either ISBN, and the
+    # edition he shelved has only a 228px thumbnail. This is another Goodreads
+    # edition of the same English book, at the floor and sharp.
+    "Deep Utopia: Life and Meaning in a Solved World": ("goodreads:211858058", f"{GR}/1718971000l/211858058.jpg"),
 }
 
 USER_AGENT = (
@@ -159,6 +190,7 @@ class Candidate:
     image: Image.Image
     verdict: "str | None" = None
     preferred: bool = False
+    pinned: bool = False
 
     @property
     def size(self) -> tuple[int, int]:
@@ -418,7 +450,7 @@ def candidates_for(work: dict, goodreads_cover: str, verbose: bool) -> list:
     def good_enough() -> bool:
         return any(c.verdict is None and c.preferred and c.size[1] >= MAX_HEIGHT for c in gathered)
 
-    def add(source: str, url: str, preferred: bool = True) -> None:
+    def add(source: str, url: str, preferred: bool = True, pinned: bool = False) -> None:
         if url in seen_urls or good_enough():
             return
         seen_urls.add(url)
@@ -427,19 +459,28 @@ def candidates_for(work: dict, goodreads_cover: str, verbose: bool) -> list:
             return
         candidate.verdict = judge(candidate)
         candidate.preferred = preferred
+        candidate.pinned = pinned
         gathered.append(candidate)
         if verbose:
             width, height = candidate.size
             state = "ok " if candidate.verdict is None else "no "
             print(f"      {state} {source:<28} {width}x{height} {candidate.verdict or ''}".rstrip())
 
-    # 0. A pinned cover, for a book the catalogue cannot be talked into finding.
+    # 0. A pinned cover, chosen by hand for a book the catalogue gets wrong.
     pin = COVER_PINS.get(title)
     if pin:
-        kind, _, value = pin.partition(":")
-        add(pin, f"https://covers.openlibrary.org/b/{'id' if kind == 'openlibrary' else 'isbn'}/{value}.jpg?default=false")
-        if any(c.verdict is None for c in gathered):
+        add(pin[0], pin[1], pinned=True)
+        # A pin is a decision somebody made with the picture in front of them,
+        # so it outranks the height floor — several of these covers are the
+        # publisher's own file at 499px, one pixel short, and falling through
+        # to "the largest thing the catalogue can find" is exactly the failure
+        # the pin exists to prevent. Shape and detail still have to hold.
+        if any(c.pinned and c.verdict is None for c in gathered):
             return gathered
+        near = [c for c in gathered if c.pinned and c.size[1] >= UPSCALE_FLOOR
+                and MIN_ASPECT <= c.aspect <= MAX_ASPECT and not looks_blank(c.image)]
+        if near:
+            return near
 
     # 1. The exact edition Goodreads recorded, which is the one he owns.
     if isbn:
@@ -488,6 +529,10 @@ def best_of(gathered: list[Candidate]) -> tuple[Candidate | None, bool]:
     # Language before size. A sharp Czech "Stařec a moře" is the right book
     # wearing the wrong face, and on an English shelf that reads as a mistake
     # even though it is not one; a slightly smaller English cover does not.
+    pinned = tallest([c for c in gathered if c.pinned])
+    if pinned is not None:
+        return pinned, pinned.verdict is not None
+
     passed = tallest([c for c in gathered if c.verdict is None and c.preferred])
     if passed is None:
         passed = tallest([c for c in gathered if c.verdict is None])
@@ -591,6 +636,7 @@ def main() -> int:
             print("      -- nothing passed")
             failed.append(work["title"])
             continue
+        stretched = stretched and best.size[1] < MIN_HEIGHT * 0.98
         source = f"{best.source}+upscaled" if stretched else best.source
         if stretched:
             upscaled.append(f"{work['title']} ({best.size[0]}x{best.size[1]} -> {MIN_HEIGHT}px)")

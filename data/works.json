@@ -13,10 +13,10 @@
       "pages": 368,
       "cover": "assets/covers/1984.webp",
       "coverSize": [
-        464,
-        704
+        341,
+        500
       ],
-      "coverSource": "openlibrary:9267242",
+      "coverSource": "goodreads:61439040",
       "goodreads": {
         "id": "61439040",
         "isbn": "0452284236",
@@ -350,7 +350,7 @@
         333,
         500
       ],
-      "coverSource": "goodreads:208707460+upscaled",
+      "coverSource": "goodreads:211858058",
       "goodreads": {
         "id": "208707460",
         "isbn": "1646871642",
@@ -560,10 +560,10 @@
       "pages": 120,
       "cover": "assets/covers/groundwork-of-the-metaphysics-of-morals.webp",
       "coverSize": [
-        504,
+        526,
         800
       ],
-      "coverSource": "openlibrary:10659781",
+      "coverSource": "openlibrary:9581515",
       "goodreads": {
         "id": "60080",
         "isbn": "0521626951",
@@ -581,10 +581,10 @@
       "pages": 289,
       "cover": "assets/covers/hamlet.webp",
       "coverSize": [
-        578,
+        534,
         800
       ],
-      "coverSource": "openlibrary:8281954",
+      "coverSource": "openlibrary:15171356",
       "goodreads": {
         "id": "1420",
         "isbn": "0521618746",
@@ -1109,10 +1109,10 @@
       "pages": 281,
       "cover": "assets/covers/romeo-and-juliet.webp",
       "coverSize": [
-        527,
+        521,
         800
       ],
-      "coverSource": "openlibrary:8257991",
+      "coverSource": "openlibrary:15137021",
       "goodreads": {
         "id": "18135",
         "isbn": "0743477111",
@@ -1503,10 +1503,10 @@
       "pages": 180,
       "cover": "assets/covers/the-great-gatsby.webp",
       "coverSize": [
-        519,
+        564,
         800
       ],
-      "coverSource": "openlibrary:10590366",
+      "coverSource": "openlibrary:14314120",
       "goodreads": {
         "id": "4671",
         "isbn": "0743273567",
@@ -1553,10 +1553,10 @@
       "pages": 667,
       "cover": "assets/covers/the-idiot.webp",
       "coverSize": [
-        488,
-        800
+        453,
+        700
       ],
-      "coverSource": "openlibrary:14985190",
+      "coverSource": "goodreads:12505",
       "goodreads": {
         "id": "12505",
         "isbn": "0679642420",
@@ -1595,10 +1595,10 @@
       "pages": 368,
       "cover": "assets/covers/the-maniac.webp",
       "coverSize": [
-        509,
+        530,
         800
       ],
-      "coverSource": "openlibrary:14597590",
+      "coverSource": "goodreads:75665931",
       "goodreads": {
         "id": "75665931",
         "isbn": "0593654471",
@@ -1711,10 +1711,10 @@
       "pages": 96,
       "cover": "assets/covers/the-old-man-and-the-sea.webp",
       "coverSize": [
-        473,
+        522,
         800
       ],
-      "coverSource": "openlibrary:12639821",
+      "coverSource": "openlibrary:14827822",
       "goodreads": {
         "id": "2165",
         "isbn": "0684830493",
@@ -1882,10 +1882,10 @@
       "pages": 218,
       "cover": "assets/covers/the-tempest.webp",
       "coverSize": [
-        460,
+        534,
         800
       ],
-      "coverSource": "openlibrary:8155661",
+      "coverSource": "openlibrary:12621675",
       "goodreads": {
         "id": "12985",
         "isbn": "",
@@ -1932,10 +1932,10 @@
       "pages": 327,
       "cover": "assets/covers/thus-spoke-zarathustra.webp",
       "coverSize": [
-        463,
-        700
+        326,
+        500
       ],
-      "coverSource": "goodreads:51893",
+      "coverSource": "openlibrary-isbn:0140441182",
       "goodreads": {
         "id": "51893",
         "isbn": "",
