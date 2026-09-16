@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The shelf – motion mockup</title>
+<meta name="description" content="Mockup of the shelf page, motion direction, 2026-09-16.">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/shelf.css">
+</head>
+
+<body>
+
+<header class="top">
+  <div class="shell top-row">
+    <a class="wordmark" href="../../../index.html">Lines Worth Keeping</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="nav-link" id="nav-quotes" href="../../../index.html">Quotes</a>
+      <a class="nav-link is-primary" id="nav-shelf" href="#" aria-current="page"><span aria-hidden="true">▮</span><span id="nav-shelf-label">Shelf</span></a>
+      <a class="nav-link" id="nav-board" href="../../../scout.html">Board</a>
+      <a class="nav-link" id="nav-next" href="../../../suggest.html">Read next</a>
+      <a class="nav-add" id="nav-add" href="#" title="Add a quote">+ Add</a>
+    </nav>
+    <div class="top-end">
+      <button class="lang-btn" id="lang" type="button" aria-label="Language"><b>EN</b><span>/</span>DA</button>
+      <button class="icon-btn" id="theme" type="button" aria-label="Light or dark">◑ Light</button>
+    </div>
+  </div>
+</header>
+
+<div class="shell masthead">
+  <p class="kicker" id="kicker">A personal library</p>
+  <h1 id="title">Everything on the shelf</h1>
+  <p class="dek" id="dek"></p>
+</div>
+
+<section class="shell stage-wrap">
+  <h2 class="section-head" id="stage-head"></h2>
+  <div class="stage" id="stage"></div>
+</section>
+
+<div class="controls">
+  <div class="shell controls-row">
+    <div class="search">
+      <input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="Search…">
+    </div>
+    <div class="chips" id="chips"></div>
+    <label class="vh" for="arrange">Arrange</label>
+    <select class="arrange" id="arrange"></select>
+  </div>
+</div>
+
+<main class="shell shelf-body">
+  <p class="count-line" id="count"></p>
+  <div id="shelf"></div>
+  <p class="note" id="note"></p>
+</main>
+
+<div class="detail" id="detail" role="dialog" aria-modal="true" hidden></div>
+
+<script type="module" src="js/shelf.js"></script>
+</body>
+</html>

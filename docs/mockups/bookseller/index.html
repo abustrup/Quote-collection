@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The shelf — mockup, bookseller</title>
+<meta name="description" content="Direction &quot;bookseller&quot;: a warm cream room where the books stand on real ledges.">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/shelf.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a class="wordmark" href="../../../index.html">Lines Worth Keeping</a>
+
+    <nav class="nav" aria-label="Sections">
+      <a class="nav-pill" href="../../../index.html" data-t="nav.quotes">Quotes</a>
+      <a class="nav-pill is-primary" href="#" aria-current="page"><span class="glyph" aria-hidden="true">▤</span><span data-t="nav.shelf">Shelf</span></a>
+      <a class="nav-pill" href="../../../scout.html" data-t="nav.board">Board</a>
+      <a class="nav-pill" href="../../../suggest.html" data-t="nav.next">Read next</a>
+      <a class="nav-add" href="#"><span aria-hidden="true">+&nbsp;</span><span data-t="nav.add">Add</span></a>
+    </nav>
+
+    <div class="tools">
+      <button class="tool" id="lang-toggle" type="button" title="Dansk / English">DA</button>
+      <button class="tool" id="edition-toggle" type="button" title="Paper / Night">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-head">
+      <p class="label" id="hero-kicker"></p>
+      <h1 data-t="hero.title">The shelf</h1>
+      <p class="hero-dek" data-t="hero.dek"></p>
+    </div>
+
+    <div class="hero-grid">
+      <article class="panel featured">
+        <div class="featured-stage" id="featured-stage"></div>
+        <div class="featured-body">
+          <p class="label" id="featured-kicker"></p>
+          <h2 id="featured-title"></h2>
+          <p class="featured-meta" id="featured-meta"></p>
+          <p class="label" id="featured-rate-label" style="margin:0 0 .15rem"></p>
+          <div id="featured-rate" style="margin-bottom:1rem"></div>
+          <div class="featured-actions">
+            <a class="pill pill-primary" id="featured-quotes" href="#"></a>
+            <button class="pill" id="featured-details" type="button"></button>
+          </div>
+        </div>
+      </article>
+
+      <div class="hero-cards">
+        <article class="panel mini" id="mini-a"></article>
+        <article class="panel mini" id="mini-b"></article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="controls">
+      <div class="search">
+        <label class="visually-hidden" for="search">Search the shelf</label>
+        <input id="search" type="search" autocomplete="off" spellcheck="false">
+        <span class="search-glyph" aria-hidden="true">⌕</span>
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="Shelves"></div>
+
+      <div class="arrange">
+        <label class="label" for="arrange" data-t="ctl.arrange">Arrange</label>
+        <select id="arrange"></select>
+      </div>
+    </div>
+
+    <p class="summary"><span id="summary-text"></span></p>
+
+    <div class="groups" id="shelf"></div>
+
+    <p id="empty" class="hero-dek" data-t="empty" hidden></p>
+
+    <section class="talks" id="talks">
+      <div class="group-head">
+        <h2 data-t="talks.title">Talks &amp; essays</h2>
+        <span class="fill"></span>
+      </div>
+      <p class="hero-dek" data-t="talks.dek" style="margin:-.4rem 0 1.1rem;font-size:.95rem"></p>
+      <div class="ledge" id="talks-shelf"></div>
+    </section>
+  </div>
+
+  <footer class="page-foot">
+    <div class="wrap">
+      <p style="margin:0" data-t="foot.note"></p>
+      <p style="margin:.35rem 0 0">
+        <a href="../../../data/works.json">data/works.json</a> ·
+        <a href="../../../data/quotes.json">data/quotes.json</a>
+      </p>
+    </div>
+  </footer>
+</main>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" hidden>
+  <div class="sheet-card" id="sheet-card"></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/shelf.js"></script>
+</body>
+</html>

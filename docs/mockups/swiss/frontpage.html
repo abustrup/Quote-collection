@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Lines Worth Keeping — front page nav, swiss</title>
+<meta name="description" content="Mockup: the top of the front page — masthead and the nav row that makes the shelf the primary destination.">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shelf.css">
+</head>
+
+<body>
+
+<header class="masthead shell">
+  <p class="masthead-kicker" data-i18n="kicker">A personal collection</p>
+  <h1>Lines Worth Keeping</h1>
+
+  <!-- The nav row. The shelf is the primary destination, filled; adding a
+       quote is a 36px square beside it. Everything else is a quiet text link. -->
+  <nav class="nav-row" aria-label="Sections">
+    <a class="nav-link" href="../../../index.html" data-i18n="quotes">Quotes</a>
+
+    <a class="nav-link primary" href="index.html">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <path d="M2.5 3.2h4a1.8 1.8 0 0 1 1.5.9 1.8 1.8 0 0 1 1.5-.9h4v9.6h-4a1.8 1.8 0 0 0-1.5.9 1.8 1.8 0 0 0-1.5-.9h-4z"></path>
+        <path d="M8 4.1v9.6"></path>
+      </svg>
+      <span data-i18n="shelf">Shelf</span>
+    </a>
+
+    <a class="nav-add" href="../../../index.html#add" data-i18n-aria="add" aria-label="Add a quote" title="Add a quote"><b aria-hidden="true">+</b><span data-i18n="add">Add a quote</span></a>
+
+    <a class="nav-link" href="../../../scout.html" data-i18n="board">Board</a>
+    <a class="nav-link" href="../../../suggest.html" data-i18n="next">Read next</a>
+
+    <span class="bar-spacer"></span>
+
+    <button class="icon-btn" id="edition" type="button" title="Light / dark" aria-label="Light or dark">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+        <path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"></path>
+      </svg>
+    </button>
+    <button class="icon-btn" id="lang" type="button" title="Dansk / English">EN</button>
+  </nav>
+</header>
+
+<!-- Below the fold of the 260px this file exists to show: just enough of the
+     collection for the nav row to sit on something real. -->
+<main class="shell front-preview">
+  <figure class="front-quote">
+    How did we do this with our brains that were evolved for hunter-gathering
+    out in the tundra?
+    <figcaption class="front-attr">Demis Hassabis · <em>Sir Demis Hassabis on Creativity and AI</em> · 2026</figcaption>
+  </figure>
+</main>
+
+<script>
+  (function () {
+    var dict = {
+      en: { kicker: 'A personal collection', quotes: 'Quotes', shelf: 'Shelf', board: 'Board', next: 'Read next', add: 'Add' },
+      da: { kicker: 'En personlig samling', quotes: 'Citater', shelf: 'Hylden', board: 'Tavlen', next: 'Læs nu', add: 'Tilføj' }
+    };
+    var lang = new URLSearchParams(location.search).get('lang') === 'da' ? 'da' : 'en';
+    var root = document.documentElement;
+
+    function paint() {
+      root.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(function (n) { n.textContent = dict[lang][n.dataset.i18n]; });
+      document.querySelectorAll('[data-i18n-aria]').forEach(function (n) {
+        var full = lang === 'da' ? 'Tilføj et citat' : 'Add a quote';
+        n.setAttribute('aria-label', full);
+        n.title = full;
+      });
+      document.getElementById('lang').textContent = lang === 'en' ? 'EN' : 'DA';
+    }
+
+    document.getElementById('lang').addEventListener('click', function () {
+      lang = lang === 'en' ? 'da' : 'en';
+      paint();
+    });
+    document.getElementById('edition').addEventListener('click', function () {
+      root.dataset.edition = root.dataset.edition === 'night' ? 'paper' : 'night';
+    });
+
+    if (new URLSearchParams(location.search).get('dark') === '1') root.dataset.edition = 'night';
+    paint();
+  })();
+</script>
+</body>
+</html>

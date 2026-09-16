@@ -1,20 +1,50 @@
 {
   "schemaVersion": 1,
-  "note": "One record per work quoted in data/quotes.json. A work's subject is its field, taken from SUBJECTS in assets/quote-core.js, and it is assigned here once per book rather than per quote — a couple of dozen entries someone can check against a library record instead of a couple of hundred readings nobody can. Era is not stored: it is computed from `year`, so it cannot drift from the date. `url` is present only where the primary text has a stable home; everything else gets a find-it link generated from its year on works.html.",
+  "note": "One record per work quoted in data/quotes.json. A work's subject is its field, taken from SUBJECTS in assets/quote-core.js, and it is assigned here once per book rather than per quote — a couple of dozen entries someone can check against a library record instead of a couple of hundred readings nobody can. Era is not stored: it is computed from `year`, so it cannot drift from the date. Since 2026-09-16 the registry is also his library rather than only his citations: a book he owns or wants carries `shelf` (read, reading, to-read, abandoned), `rating` 0–10 for how good it was, `want` 0–10 for how much he wants to read it, `pages`, its `goodreads` id and isbn, the `added` and `read` dates, and `cover` — a front cover under assets/covers/ with `coverSize` as [width, height] so the page can reserve its box before the image loads, and `coverSource` recording where the picture came from, so a wrong one can be traced. A work with a shelf but no quotes is a book on the shelf, not an error. `url` is present only where the primary text has a stable home; everything else gets a find-it link generated from its year on works.html.",
   "works": [
     {
       "title": "1984",
       "author": "George Orwell",
       "year": 1949,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 368,
+      "cover": "assets/covers/1984.webp",
+      "coverSize": [
+        464,
+        704
+      ],
+      "coverSource": "openlibrary:9267242",
+      "goodreads": {
+        "id": "61439040",
+        "isbn": "0452284236",
+        "url": "https://www.goodreads.com/book/show/61439040"
+      },
+      "added": "2023-11-11"
     },
     {
       "title": "1Q84",
       "author": "Haruki Murakami",
       "year": 2009,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 928,
+      "cover": "assets/covers/1q84.webp",
+      "coverSize": [
+        512,
+        800
+      ],
+      "coverSource": "openlibrary:11127354",
+      "goodreads": {
+        "id": "61170765",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/61170765"
+      },
+      "added": "2023-10-30"
     },
     {
       "title": "2016 Letter to Shareholders",
@@ -23,6 +53,92 @@
       "kind": "letter",
       "subject": "technology",
       "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders"
+    },
+    {
+      "title": "21 Lessons for the 21st Century",
+      "author": "Yuval Noah Harari",
+      "year": 2018,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 372,
+      "cover": "assets/covers/21-lessons-for-the-21st-century.webp",
+      "coverSize": [
+        509,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0525512179",
+      "goodreads": {
+        "id": "38820046",
+        "isbn": "0525512179",
+        "url": "https://www.goodreads.com/book/show/38820046"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "A Deepness in the Sky",
+      "author": "Vernor Vinge",
+      "year": 1999,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 775,
+      "cover": "assets/covers/a-deepness-in-the-sky.webp",
+      "coverSize": [
+        491,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0812536355",
+      "goodreads": {
+        "id": "226004",
+        "isbn": "0812536355",
+        "url": "https://www.goodreads.com/book/show/226004"
+      },
+      "added": "2026-09-11"
+    },
+    {
+      "title": "A Fire Upon the Deep",
+      "author": "Vernor Vinge",
+      "year": 1992,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 613,
+      "cover": "assets/covers/a-fire-upon-the-deep.webp",
+      "coverSize": [
+        483,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0812515285",
+      "goodreads": {
+        "id": "77711",
+        "isbn": "0812515285",
+        "url": "https://www.goodreads.com/book/show/77711"
+      },
+      "added": "2026-09-11"
+    },
+    {
+      "title": "A Little History of Philosophy",
+      "author": "Nigel Warburton",
+      "year": 2011,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 252,
+      "cover": "assets/covers/a-little-history-of-philosophy.webp",
+      "coverSize": [
+        511,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0300152086",
+      "goodreads": {
+        "id": "11527504",
+        "isbn": "0300152086",
+        "url": "https://www.goodreads.com/book/show/11527504"
+      },
+      "added": "2025-06-24"
     },
     {
       "title": "Agentic AI and the Future of Software Development",
@@ -45,21 +161,122 @@
       "author": "George Orwell",
       "year": 1945,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 141,
+      "cover": "assets/covers/animal-farm.webp",
+      "coverSize": [
+        447,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0451526341",
+      "goodreads": {
+        "id": "170448",
+        "isbn": "0451526341",
+        "url": "https://www.goodreads.com/book/show/170448"
+      },
+      "added": "2024-06-15"
+    },
+    {
+      "title": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "year": 1878,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 964,
+      "cover": "assets/covers/anna-karenina.webp",
+      "coverSize": [
+        334,
+        500
+      ],
+      "coverSource": "openlibrary:12327215",
+      "goodreads": {
+        "id": "15823480",
+        "isbn": "0345803922",
+        "url": "https://www.goodreads.com/book/show/15823480"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Benjamin Franklin: An American Life",
+      "author": "Walter Isaacson",
+      "year": 2003,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "to-read",
+      "pages": 586,
+      "cover": "assets/covers/benjamin-franklin-an-american-life.webp",
+      "coverSize": [
+        528,
+        800
+      ],
+      "coverSource": "openlibrary:6620462",
+      "goodreads": {
+        "id": "10883",
+        "isbn": "074325807X",
+        "url": "https://www.goodreads.com/book/show/10883"
+      },
+      "added": "2024-08-12"
     },
     {
       "title": "Beyond Good and Evil",
       "author": "Friedrich Nietzsche",
       "year": 1886,
       "kind": "book",
-      "subject": "philosophy"
+      "subject": "philosophy",
+      "cover": "assets/covers/beyond-good-and-evil.webp",
+      "coverSize": [
+        521,
+        800
+      ],
+      "coverSource": "openlibrary:14444933",
+      "added": "2026-07-29"
     },
     {
       "title": "Brave New World",
       "author": "Aldous Huxley",
       "year": 1932,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 288,
+      "cover": "assets/covers/brave-new-world.webp",
+      "coverSize": [
+        554,
+        800
+      ],
+      "coverSource": "openlibrary:12675058",
+      "goodreads": {
+        "id": "5129",
+        "isbn": "0060929871",
+        "url": "https://www.goodreads.com/book/show/5129"
+      },
+      "added": "2023-10-30",
+      "read": "2023-10-30"
+    },
+    {
+      "title": "Breakneck: China's Quest to Engineer the Future",
+      "author": "Dan Wang",
+      "year": 2025,
+      "kind": "book",
+      "subject": "politics",
+      "shelf": "to-read",
+      "pages": 288,
+      "cover": "assets/covers/breakneck-china-s-quest-to-engineer-the-future.webp",
+      "coverSize": [
+        527,
+        800
+      ],
+      "coverSource": "openlibrary:15121652",
+      "goodreads": {
+        "id": "223736214",
+        "isbn": "1324106034",
+        "url": "https://www.goodreads.com/book/show/223736214"
+      },
+      "added": "2026-08-31"
     },
     {
       "title": "Building Claude Code",
@@ -78,32 +295,387 @@
       "url": "https://www.anthropic.com/constitution"
     },
     {
+      "title": "Cleopatra: A Life",
+      "author": "Stacy Schiff",
+      "year": 2010,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "to-read",
+      "pages": 369,
+      "cover": "assets/covers/cleopatra-a-life.webp",
+      "coverSize": [
+        509,
+        800
+      ],
+      "coverSource": "openlibrary:12881455",
+      "goodreads": {
+        "id": "7968243",
+        "isbn": "0316001929",
+        "url": "https://www.goodreads.com/book/show/7968243"
+      },
+      "added": "2024-08-12"
+    },
+    {
       "title": "Crime and Punishment",
       "author": "Fyodor Dostoevsky",
       "year": 1866,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 10,
+      "pages": 671,
+      "cover": "assets/covers/crime-and-punishment.webp",
+      "coverSize": [
+        479,
+        800
+      ],
+      "coverSource": "openlibrary:15183762",
+      "goodreads": {
+        "id": "7144",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/7144"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Deep Utopia: Life and Meaning in a Solved World",
+      "author": "Nick Bostrom",
+      "year": 2024,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "to-read",
+      "pages": 536,
+      "cover": "assets/covers/deep-utopia-life-and-meaning-in-a-solved-world.webp",
+      "coverSize": [
+        333,
+        500
+      ],
+      "coverSource": "goodreads:208707460+upscaled",
+      "goodreads": {
+        "id": "208707460",
+        "isbn": "1646871642",
+        "url": "https://www.goodreads.com/book/show/208707460"
+      },
+      "added": "2026-08-31"
+    },
+    {
+      "title": "Demons",
+      "author": "Fyodor Dostoevsky",
+      "year": 1871,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 733,
+      "cover": "assets/covers/demons.webp",
+      "coverSize": [
+        525,
+        800
+      ],
+      "coverSource": "openlibrary:15220861",
+      "goodreads": {
+        "id": "5695",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/5695"
+      },
+      "added": "2026-08-31"
+    },
+    {
+      "title": "Diaspora",
+      "author": "Greg Egan",
+      "year": 1997,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 443,
+      "cover": "assets/covers/diaspora.webp",
+      "coverSize": [
+        352,
+        500
+      ],
+      "coverSource": "openlibrary:10112746",
+      "goodreads": {
+        "id": "156785",
+        "isbn": "3453161815",
+        "url": "https://www.goodreads.com/book/show/156785"
+      },
+      "added": "2026-09-11"
+    },
+    {
+      "title": "Einstein: His Life and Universe",
+      "author": "Walter Isaacson",
+      "year": 2007,
+      "kind": "book",
+      "subject": "science",
+      "shelf": "to-read",
+      "pages": 675,
+      "cover": "assets/covers/einstein-his-life-and-universe.webp",
+      "coverSize": [
+        498,
+        800
+      ],
+      "coverSource": "openlibrary:13049547",
+      "goodreads": {
+        "id": "10884",
+        "isbn": "0743264738",
+        "url": "https://www.goodreads.com/book/show/10884"
+      },
+      "added": "2024-08-12"
     },
     {
       "title": "Elon Musk",
       "author": "Walter Isaacson",
       "year": 2023,
       "kind": "book",
-      "subject": "technology"
+      "subject": "technology",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 688,
+      "cover": "assets/covers/elon-musk.webp",
+      "coverSize": [
+        530,
+        800
+      ],
+      "coverSource": "openlibrary:14814146",
+      "goodreads": {
+        "id": "122765395",
+        "isbn": "1982181281",
+        "url": "https://www.goodreads.com/book/show/122765395"
+      },
+      "added": "2024-10-25",
+      "read": "2024-10-25"
     },
     {
       "title": "Flowers for Algernon",
       "author": "Daniel Keyes",
       "year": 1966,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 311,
+      "cover": "assets/covers/flowers-for-algernon.webp",
+      "coverSize": [
+        486,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:015603008X",
+      "goodreads": {
+        "id": "18373",
+        "isbn": "015603008X",
+        "url": "https://www.goodreads.com/book/show/18373"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "For Whom the Bell Tolls",
+      "author": "Ernest Hemingway",
+      "year": 1940,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 471,
+      "cover": "assets/covers/for-whom-the-bell-tolls.webp",
+      "coverSize": [
+        534,
+        800
+      ],
+      "coverSource": "openlibrary:14921924",
+      "goodreads": {
+        "id": "46170",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/46170"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Force of Law",
+      "author": "Jacques Derrida",
+      "year": 1990,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "read",
+      "pages": 152,
+      "cover": "assets/covers/force-of-law.webp",
+      "coverSize": [
+        332,
+        500
+      ],
+      "coverSource": "openlibrary:14165428",
+      "goodreads": {
+        "id": "94775891",
+        "isbn": "8430930949",
+        "url": "https://www.goodreads.com/book/show/94775891"
+      },
+      "added": "2026-08-02"
+    },
+    {
+      "title": "Genesis: Artificial Intelligence, Hope, and the Human Spirit",
+      "author": "Henry Kissinger",
+      "year": 2024,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "reading",
+      "pages": 288,
+      "cover": "assets/covers/genesis-artificial-intelligence-hope-and-the-human-spirit.webp",
+      "coverSize": [
+        323,
+        500
+      ],
+      "coverSource": "goodreads:205397633",
+      "goodreads": {
+        "id": "205397633",
+        "isbn": "0316581291",
+        "url": "https://www.goodreads.com/book/show/205397633"
+      },
+      "added": "2026-09-16"
+    },
+    {
+      "title": "Genghis Khan and the Making of the Modern World",
+      "author": "Jack Weatherford",
+      "year": 2004,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "to-read",
+      "pages": 352,
+      "cover": "assets/covers/genghis-khan-and-the-making-of-the-modern-world.webp",
+      "coverSize": [
+        467,
+        720
+      ],
+      "coverSource": "openlibrary:6417887",
+      "goodreads": {
+        "id": "40718726",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/40718726"
+      },
+      "added": "2024-08-12"
     },
     {
       "title": "Groundwork of the Metaphysics of Morals",
       "author": "Immanuel Kant",
       "year": 1785,
       "kind": "book",
-      "subject": "ethics"
+      "subject": "ethics",
+      "shelf": "read",
+      "pages": 120,
+      "cover": "assets/covers/groundwork-of-the-metaphysics-of-morals.webp",
+      "coverSize": [
+        504,
+        800
+      ],
+      "coverSource": "openlibrary:10659781",
+      "goodreads": {
+        "id": "60080",
+        "isbn": "0521626951",
+        "url": "https://www.goodreads.com/book/show/60080"
+      },
+      "added": "2026-08-02"
+    },
+    {
+      "title": "Hamlet",
+      "author": "William Shakespeare",
+      "year": 1601,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 289,
+      "cover": "assets/covers/hamlet.webp",
+      "coverSize": [
+        578,
+        800
+      ],
+      "coverSource": "openlibrary:8281954",
+      "goodreads": {
+        "id": "1420",
+        "isbn": "0521618746",
+        "url": "https://www.goodreads.com/book/show/1420"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Hegel in a Wired Brain",
+      "author": "Slavoj Žižek",
+      "year": 2020,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "to-read",
+      "pages": 201,
+      "cover": "assets/covers/hegel-in-a-wired-brain.webp",
+      "coverSize": [
+        326,
+        500
+      ],
+      "coverSource": "goodreads:48925362+upscaled",
+      "goodreads": {
+        "id": "48925362",
+        "isbn": "1350124419",
+        "url": "https://www.goodreads.com/book/show/48925362"
+      },
+      "added": "2025-11-01"
+    },
+    {
+      "title": "Homo Deus: A History of Tomorrow",
+      "author": "Yuval Noah Harari",
+      "year": 2015,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "read",
+      "pages": 450,
+      "cover": "assets/covers/homo-deus-a-history-of-tomorrow.webp",
+      "coverSize": [
+        532,
+        800
+      ],
+      "coverSource": "openlibrary:15174691",
+      "goodreads": {
+        "id": "31138556",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/31138556"
+      },
+      "added": "2026-09-16",
+      "read": "2026-09-16"
+    },
+    {
+      "title": "If Anyone Builds It, Everyone Dies: Why Superhuman AI Would Kill Us All",
+      "author": "Eliezer Yudkowsky",
+      "year": 2025,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "to-read",
+      "pages": 272,
+      "cover": "assets/covers/if-anyone-builds-it-everyone-dies-why-superhuman-ai-would-kill-us-all.webp",
+      "coverSize": [
+        521,
+        800
+      ],
+      "coverSource": "openlibrary:15212593",
+      "goodreads": {
+        "id": "228646231",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/228646231"
+      },
+      "added": "2026-07-03"
+    },
+    {
+      "title": "Infocracy: Digitization and the Crisis of Democracy",
+      "author": "Byung-Chul Han",
+      "year": 2021,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "to-read",
+      "pages": 62,
+      "cover": "assets/covers/infocracy-digitization-and-the-crisis-of-democracy.webp",
+      "coverSize": [
+        333,
+        500
+      ],
+      "coverSource": "openlibrary:13194939",
+      "goodreads": {
+        "id": "60659995",
+        "isbn": "1509552995",
+        "url": "https://www.goodreads.com/book/show/60659995"
+      },
+      "added": "2026-08-31"
     },
     {
       "title": "Inside the Mind of Anthropic CEO Dario Amodei",
@@ -114,12 +686,75 @@
       "url": "https://www.youtube.com/watch?v=x2VHFgyawPE"
     },
     {
+      "title": "Leonardo da Vinci",
+      "author": "Walter Isaacson",
+      "year": 2017,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "to-read",
+      "pages": 600,
+      "cover": "assets/covers/leonardo-da-vinci.webp",
+      "coverSize": [
+        527,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:1501139150",
+      "goodreads": {
+        "id": "34684622",
+        "isbn": "1501139150",
+        "url": "https://www.goodreads.com/book/show/34684622"
+      },
+      "added": "2024-08-12"
+    },
+    {
       "title": "Lex Fridman Podcast #452",
       "author": "Amanda Askell",
       "year": 2024,
       "kind": "interview",
       "subject": "technology",
       "url": "https://www.youtube.com/watch?v=ugvHCXCOmm4"
+    },
+    {
+      "title": "Lolita",
+      "author": "Vladimir Nabokov",
+      "year": 1955,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 368,
+      "cover": "assets/covers/lolita.webp",
+      "coverSize": [
+        518,
+        800
+      ],
+      "coverSource": "openlibrary:11192267",
+      "goodreads": {
+        "id": "7604",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/7604"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Lord of the Flies",
+      "author": "William Golding",
+      "year": 1954,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 182,
+      "cover": "assets/covers/lord-of-the-flies.webp",
+      "coverSize": [
+        533,
+        800
+      ],
+      "coverSource": "openlibrary:14631402",
+      "goodreads": {
+        "id": "7624",
+        "isbn": "0140283331",
+        "url": "https://www.goodreads.com/book/show/7624"
+      },
+      "added": "2023-10-31"
     },
     {
       "title": "Machines of Loving Grace",
@@ -134,7 +769,23 @@
       "author": "Viktor E. Frankl",
       "year": 1946,
       "kind": "book",
-      "subject": "psychology"
+      "subject": "psychology",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 165,
+      "cover": "assets/covers/man-s-search-for-meaning.webp",
+      "coverSize": [
+        516,
+        800
+      ],
+      "coverSource": "openlibrary:15162486",
+      "goodreads": {
+        "id": "4069",
+        "isbn": "080701429X",
+        "url": "https://www.goodreads.com/book/show/4069"
+      },
+      "added": "2023-10-31",
+      "read": "2023-10-31"
     },
     {
       "title": "Max Tegmark's P(Doom) Is Over 90%",
@@ -149,7 +800,56 @@
       "author": "Marcus Aurelius",
       "year": 180,
       "kind": "book",
-      "subject": "philosophy"
+      "subject": "philosophy",
+      "cover": "assets/covers/meditations.webp",
+      "coverSize": [
+        513,
+        800
+      ],
+      "coverSource": "openlibrary:12719105",
+      "added": "2026-07-29"
+    },
+    {
+      "title": "Mission Economy: A Moonshot Guide to Changing Capitalism",
+      "author": "Mariana Mazzucato",
+      "year": 2021,
+      "kind": "book",
+      "subject": "economics",
+      "shelf": "to-read",
+      "pages": 272,
+      "cover": "assets/covers/mission-economy-a-moonshot-guide-to-changing-capitalism.webp",
+      "coverSize": [
+        323,
+        500
+      ],
+      "coverSource": "openlibrary-isbn:0241435315",
+      "goodreads": {
+        "id": "52745048",
+        "isbn": "0241435315",
+        "url": "https://www.goodreads.com/book/show/52745048"
+      },
+      "added": "2026-07-05"
+    },
+    {
+      "title": "Nausea",
+      "author": "Jean-Paul Sartre",
+      "year": 1938,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 178,
+      "cover": "assets/covers/nausea.webp",
+      "coverSize": [
+        516,
+        800
+      ],
+      "coverSource": "openlibrary:7087893",
+      "goodreads": {
+        "id": "298275",
+        "isbn": "0811201880",
+        "url": "https://www.goodreads.com/book/show/298275"
+      },
+      "added": "2023-10-29"
     },
     {
       "title": "Never a Better Time to Do a Startup",
@@ -160,11 +860,47 @@
       "url": "https://www.youtube.com/watch?v=ZIaOBAjvc38"
     },
     {
+      "title": "Never Let Me Go",
+      "author": "Kazuo Ishiguro",
+      "year": 2005,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 288,
+      "cover": "assets/covers/never-let-me-go.webp",
+      "coverSize": [
+        510,
+        800
+      ],
+      "coverSource": "openlibrary:6998403",
+      "goodreads": {
+        "id": "6334",
+        "isbn": "1400078776",
+        "url": "https://www.goodreads.com/book/show/6334"
+      },
+      "added": "2023-10-29"
+    },
+    {
       "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
       "author": "Yuval Noah Harari",
       "year": 2024,
       "kind": "book",
-      "subject": "history"
+      "subject": "history",
+      "shelf": "read",
+      "pages": 528,
+      "cover": "assets/covers/nexus-a-brief-history-of-information-networks-from-the-stone-age-to-ai.webp",
+      "coverSize": [
+        526,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:059373422X",
+      "goodreads": {
+        "id": "204927599",
+        "isbn": "059373422X",
+        "url": "https://www.goodreads.com/book/show/204927599"
+      },
+      "added": "2026-08-02",
+      "read": "2026-08-02"
     },
     {
       "title": "Nobel Lecture",
@@ -179,14 +915,127 @@
       "author": "Fyodor Dostoevsky",
       "year": 1864,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 10,
+      "pages": 136,
+      "cover": "assets/covers/notes-from-underground.webp",
+      "coverSize": [
+        514,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:067973452X",
+      "goodreads": {
+        "id": "49455",
+        "isbn": "067973452X",
+        "url": "https://www.goodreads.com/book/show/49455"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Obvious Adams: The Story of a Successful Business Man",
+      "author": "Robert Rawls Updegraff",
+      "year": 1916,
+      "kind": "book",
+      "subject": "economics",
+      "shelf": "to-read",
+      "pages": 53,
+      "cover": "assets/covers/obvious-adams-the-story-of-a-successful-business-man.webp",
+      "coverSize": [
+        530,
+        800
+      ],
+      "coverSource": "openlibrary:6951090",
+      "goodreads": {
+        "id": "1483546",
+        "isbn": "1599869241",
+        "url": "https://www.goodreads.com/book/show/1483546"
+      },
+      "added": "2025-11-01"
+    },
+    {
+      "title": "On Intelligence",
+      "author": "Jeff Hawkins",
+      "year": 2004,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "abandoned",
+      "pages": 261,
+      "cover": "assets/covers/on-intelligence.webp",
+      "coverSize": [
+        503,
+        800
+      ],
+      "coverSource": "openlibrary:9937324",
+      "goodreads": {
+        "id": "27539",
+        "isbn": "0805078533",
+        "url": "https://www.goodreads.com/book/show/27539"
+      },
+      "added": "2026-09-16"
     },
     {
       "title": "On the Genealogy of Morality",
       "author": "Friedrich Nietzsche",
       "year": 1887,
       "kind": "book",
-      "subject": "philosophy"
+      "subject": "philosophy",
+      "shelf": "read",
+      "pages": 208,
+      "cover": "assets/covers/on-the-genealogy-of-morality.webp",
+      "coverSize": [
+        462,
+        800
+      ],
+      "coverSource": "openlibrary:8702105",
+      "goodreads": {
+        "id": "80449",
+        "isbn": "019283617X",
+        "url": "https://www.goodreads.com/book/show/80449"
+      },
+      "added": "2026-08-02"
+    },
+    {
+      "title": "One Day in the Life of Ivan Denisovich",
+      "author": "Aleksandr Solzhenitsyn",
+      "year": 1962,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 182,
+      "cover": "assets/covers/one-day-in-the-life-of-ivan-denisovich.webp",
+      "coverSize": [
+        529,
+        800
+      ],
+      "coverSource": "goodreads:17125",
+      "goodreads": {
+        "id": "17125",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/17125"
+      },
+      "added": "2023-10-31"
+    },
+    {
+      "title": "Permutation City",
+      "author": "Greg Egan",
+      "year": 1994,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 341,
+      "cover": "assets/covers/permutation-city.webp",
+      "coverSize": [
+        455,
+        697
+      ],
+      "coverSource": "openlibrary:15143810",
+      "goodreads": {
+        "id": "156784",
+        "isbn": "006105481X",
+        "url": "https://www.goodreads.com/book/show/156784"
+      },
+      "added": "2026-09-11"
     },
     {
       "title": "Politics and the English Language",
@@ -196,18 +1045,101 @@
       "subject": "politics"
     },
     {
+      "title": "Power and Progress: Our Thousand-Year Struggle Over Technology and Prosperity",
+      "author": "Daron Acemoğlu",
+      "year": 2023,
+      "kind": "book",
+      "subject": "economics",
+      "shelf": "to-read",
+      "cover": "assets/covers/power-and-progress-our-thousand-year-struggle-over-technology-and-prosperity.webp",
+      "coverSize": [
+        323,
+        500
+      ],
+      "coverSource": "openlibrary:13213846",
+      "goodreads": {
+        "id": "62315566",
+        "isbn": "1668626403",
+        "url": "https://www.goodreads.com/book/show/62315566"
+      },
+      "added": "2026-08-31"
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "year": 1813,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "abandoned",
+      "pages": 279,
+      "cover": "assets/covers/pride-and-prejudice.webp",
+      "coverSize": [
+        448,
+        800
+      ],
+      "coverSource": "openlibrary:8094315",
+      "goodreads": {
+        "id": "1885",
+        "isbn": "1441341706",
+        "url": "https://www.goodreads.com/book/show/1885"
+      },
+      "added": "2026-09-16"
+    },
+    {
       "title": "Private Government: How Employers Rule Our Lives (and Why We Don't Talk about It)",
       "author": "Elizabeth S. Anderson",
       "year": 2017,
       "kind": "book",
-      "subject": "politics"
+      "subject": "politics",
+      "cover": "assets/covers/private-government-how-employers-rule-our-lives-and-why-we-don-t-talk-about-it.webp",
+      "coverSize": [
+        324,
+        500
+      ],
+      "coverSource": "openlibrary:8801568",
+      "added": "2026-07-29"
+    },
+    {
+      "title": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "year": 1595,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "abandoned",
+      "pages": 281,
+      "cover": "assets/covers/romeo-and-juliet.webp",
+      "coverSize": [
+        527,
+        800
+      ],
+      "coverSource": "openlibrary:8257991",
+      "goodreads": {
+        "id": "18135",
+        "isbn": "0743477111",
+        "url": "https://www.goodreads.com/book/show/18135"
+      },
+      "added": "2026-09-16"
     },
     {
       "title": "Sapiens: A Brief History of Humankind",
       "author": "Yuval Noah Harari",
       "year": 2011,
       "kind": "book",
-      "subject": "history"
+      "subject": "history",
+      "shelf": "read",
+      "pages": 512,
+      "cover": "assets/covers/sapiens-a-brief-history-of-humankind.webp",
+      "coverSize": [
+        526,
+        800
+      ],
+      "coverSource": "openlibrary:15247651",
+      "goodreads": {
+        "id": "23692271",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/23692271"
+      },
+      "added": "2026-08-02"
     },
     {
       "title": "Science, The Endless Frontier",
@@ -224,6 +1156,71 @@
       "kind": "interview",
       "subject": "technology",
       "url": "https://www.youtube.com/watch?v=rDteJAuKiBI"
+    },
+    {
+      "title": "Sophie's World",
+      "author": "Jostein Gaarder",
+      "year": 1991,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 403,
+      "cover": "assets/covers/sophie-s-world.webp",
+      "coverSize": [
+        521,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:1857993284",
+      "goodreads": {
+        "id": "10959",
+        "isbn": "1857993284",
+        "url": "https://www.goodreads.com/book/show/10959"
+      },
+      "added": "2023-11-02",
+      "read": "2023-11-02"
+    },
+    {
+      "title": "Steppenwolf",
+      "author": "Hermann Hesse",
+      "year": 1927,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 256,
+      "cover": "assets/covers/steppenwolf.webp",
+      "coverSize": [
+        517,
+        800
+      ],
+      "coverSource": "openlibrary:14911616",
+      "goodreads": {
+        "id": "16631",
+        "isbn": "0140282580",
+        "url": "https://www.goodreads.com/book/show/16631"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Steve Jobs",
+      "author": "Walter Isaacson",
+      "year": 2011,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "to-read",
+      "pages": 630,
+      "cover": "assets/covers/steve-jobs.webp",
+      "coverSize": [
+        526,
+        800
+      ],
+      "coverSource": "openlibrary:10675985",
+      "goodreads": {
+        "id": "11084145",
+        "isbn": "1451648537",
+        "url": "https://www.goodreads.com/book/show/11084145"
+      },
+      "added": "2024-08-12"
     },
     {
       "title": "The 1% Rule for Building in AI",
@@ -245,14 +1242,277 @@
       "author": "Sun Tzu",
       "year": -500,
       "kind": "book",
-      "subject": "military"
+      "subject": "military",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 170,
+      "cover": "assets/covers/the-art-of-war.webp",
+      "coverSize": [
+        542,
+        800
+      ],
+      "coverSource": "openlibrary:15216744",
+      "goodreads": {
+        "id": "10534",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/10534"
+      },
+      "added": "2024-08-02"
+    },
+    {
+      "title": "The Beginning of Infinity: Explanations That Transform the World",
+      "author": "David Deutsch",
+      "year": 2011,
+      "kind": "book",
+      "subject": "science",
+      "shelf": "to-read",
+      "pages": 487,
+      "cover": "assets/covers/the-beginning-of-infinity-explanations-that-transform-the-world.webp",
+      "coverSize": [
+        526,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0670022756",
+      "goodreads": {
+        "id": "10483171",
+        "isbn": "0670022756",
+        "url": "https://www.goodreads.com/book/show/10483171"
+      },
+      "added": "2024-11-20"
     },
     {
       "title": "The Brothers Karamazov",
       "author": "Fyodor Dostoevsky",
       "year": 1880,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 10,
+      "pages": 796,
+      "cover": "assets/covers/the-brothers-karamazov.webp",
+      "coverSize": [
+        504,
+        800
+      ],
+      "coverSource": "openlibrary:14889143",
+      "goodreads": {
+        "id": "4934",
+        "isbn": "0374528373",
+        "url": "https://www.goodreads.com/book/show/4934"
+      },
+      "added": "2025-10-08",
+      "read": "2025-10-07"
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "year": 1951,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "abandoned",
+      "pages": 277,
+      "cover": "assets/covers/the-catcher-in-the-rye.webp",
+      "coverSize": [
+        497,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0316769177",
+      "goodreads": {
+        "id": "5107",
+        "isbn": "0316769177",
+        "url": "https://www.goodreads.com/book/show/5107"
+      },
+      "added": "2026-09-16"
+    },
+    {
+      "title": "The Coming Wave: Technology, Power, and the Twenty-first Century's Greatest Dilemma",
+      "author": "Mustafa Suleyman",
+      "year": 2023,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "read",
+      "pages": 332,
+      "cover": "assets/covers/the-coming-wave-technology-power-and-the-twenty-first-century-s-greatest-dilemma.webp",
+      "coverSize": [
+        329,
+        500
+      ],
+      "coverSource": "openlibrary:15104845",
+      "goodreads": {
+        "id": "90590134",
+        "isbn": "0593593952",
+        "url": "https://www.goodreads.com/book/show/90590134"
+      },
+      "added": "2026-08-02"
+    },
+    {
+      "title": "The Diamond Age: Or, A Young Lady's Illustrated Primer",
+      "author": "Neal Stephenson",
+      "year": 1995,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 499,
+      "cover": "assets/covers/the-diamond-age-or-a-young-lady-s-illustrated-primer.webp",
+      "coverSize": [
+        481,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0553380966",
+      "goodreads": {
+        "id": "827",
+        "isbn": "0553380966",
+        "url": "https://www.goodreads.com/book/show/827"
+      },
+      "added": "2026-09-11"
+    },
+    {
+      "title": "The Diary of a Young Girl",
+      "author": "Anne Frank",
+      "year": 1947,
+      "kind": "book",
+      "subject": "history",
+      "shelf": "to-read",
+      "pages": 283,
+      "cover": "assets/covers/the-diary-of-a-young-girl.webp",
+      "coverSize": [
+        542,
+        800
+      ],
+      "coverSource": "openlibrary:15218825",
+      "goodreads": {
+        "id": "48855",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/48855"
+      },
+      "added": "2024-08-12"
+    },
+    {
+      "title": "The Dispossessed: An Ambiguous Utopia",
+      "author": "Ursula K. Le Guin",
+      "year": 1974,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 387,
+      "cover": "assets/covers/the-dispossessed-an-ambiguous-utopia.webp",
+      "coverSize": [
+        494,
+        800
+      ],
+      "coverSource": "openlibrary:14817269",
+      "goodreads": {
+        "id": "13651",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/13651"
+      },
+      "added": "2026-07-22"
+    },
+    {
+      "title": "The Entrepreneurial State: Debunking Public vs. Private Sector Myths",
+      "author": "Mariana Mazzucato",
+      "year": 2011,
+      "kind": "book",
+      "subject": "economics",
+      "shelf": "to-read",
+      "pages": 266,
+      "cover": "assets/covers/the-entrepreneurial-state-debunking-public-vs-private-sector-myths.webp",
+      "coverSize": [
+        530,
+        800
+      ],
+      "coverSource": "openlibrary:14618160",
+      "goodreads": {
+        "id": "17987621",
+        "isbn": "0857282514",
+        "url": "https://www.goodreads.com/book/show/17987621"
+      },
+      "added": "2026-07-05"
+    },
+    {
+      "title": "The Fall",
+      "author": "Albert Camus",
+      "year": 1956,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 4,
+      "pages": 147,
+      "cover": "assets/covers/the-fall.webp",
+      "coverSize": [
+        518,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0679720227",
+      "goodreads": {
+        "id": "11991",
+        "isbn": "0679720227",
+        "url": "https://www.goodreads.com/book/show/11991"
+      },
+      "added": "2024-10-25"
+    },
+    {
+      "title": "The Gambler",
+      "author": "Fyodor Dostoevsky",
+      "year": 1866,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 188,
+      "cover": "assets/covers/the-gambler.webp",
+      "coverSize": [
+        530,
+        800
+      ],
+      "coverSource": "openlibrary:6925918",
+      "goodreads": {
+        "id": "12857",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/12857"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "The Godfather",
+      "author": "Mario Puzo",
+      "year": 1969,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 428,
+      "cover": "assets/covers/the-godfather.webp",
+      "coverSize": [
+        452,
+        800
+      ],
+      "coverSource": "openlibrary:6507069",
+      "goodreads": {
+        "id": "22034",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/22034"
+      },
+      "added": "2024-07-31"
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "year": 1925,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "abandoned",
+      "pages": 180,
+      "cover": "assets/covers/the-great-gatsby.webp",
+      "coverSize": [
+        519,
+        800
+      ],
+      "coverSource": "openlibrary:10590366",
+      "goodreads": {
+        "id": "4671",
+        "isbn": "0743273567",
+        "url": "https://www.goodreads.com/book/show/4671"
+      },
+      "added": "2026-09-16"
     },
     {
       "title": "The Great Loops Debate",
@@ -261,6 +1521,132 @@
       "kind": "speech",
       "subject": "technology",
       "url": "https://www.youtube.com/watch?v=c35YoMdnI78"
+    },
+    {
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "year": 1979,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 216,
+      "cover": "assets/covers/the-hitchhiker-s-guide-to-the-galaxy.webp",
+      "coverSize": [
+        551,
+        800
+      ],
+      "coverSource": "openlibrary:15122390",
+      "goodreads": {
+        "id": "11",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/11"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "The Idiot",
+      "author": "Fyodor Dostoevsky",
+      "year": 1869,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 667,
+      "cover": "assets/covers/the-idiot.webp",
+      "coverSize": [
+        488,
+        800
+      ],
+      "coverSource": "openlibrary:14985190",
+      "goodreads": {
+        "id": "12505",
+        "isbn": "0679642420",
+        "url": "https://www.goodreads.com/book/show/12505"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "The Infinity Machine: Demis Hassabis, DeepMind, and the Quest for Superintelligence",
+      "author": "Sebastian Mallaby",
+      "year": 2026,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "reading",
+      "pages": 480,
+      "cover": "assets/covers/the-infinity-machine-demis-hassabis-deepmind-and-the-quest-for-superintelligence.webp",
+      "coverSize": [
+        331,
+        500
+      ],
+      "coverSource": "openlibrary-isbn:0593831845",
+      "goodreads": {
+        "id": "241434373",
+        "isbn": "0593831845",
+        "url": "https://www.goodreads.com/book/show/241434373"
+      },
+      "added": "2026-09-16"
+    },
+    {
+      "title": "The Maniac",
+      "author": "Benjamín Labatut",
+      "year": 2023,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 368,
+      "cover": "assets/covers/the-maniac.webp",
+      "coverSize": [
+        509,
+        800
+      ],
+      "coverSource": "openlibrary:14597590",
+      "goodreads": {
+        "id": "75665931",
+        "isbn": "0593654471",
+        "url": "https://www.goodreads.com/book/show/75665931"
+      },
+      "added": "2026-08-31"
+    },
+    {
+      "title": "The Master Algorithm: How the Quest for the Ultimate Learning Machine Will Remake Our World",
+      "author": "Pedro Domingos",
+      "year": 2015,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "abandoned",
+      "pages": 352,
+      "cover": "assets/covers/the-master-algorithm-how-the-quest-for-the-ultimate-learning-machine-will-remake-our-world.webp",
+      "coverSize": [
+        458,
+        704
+      ],
+      "coverSource": "openlibrary-isbn:0465065708",
+      "goodreads": {
+        "id": "24612233",
+        "isbn": "0465065708",
+        "url": "https://www.goodreads.com/book/show/24612233"
+      },
+      "added": "2026-09-16"
+    },
+    {
+      "title": "The Master and Margarita",
+      "author": "Mikhail Bulgakov",
+      "year": 1967,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 372,
+      "cover": "assets/covers/the-master-and-margarita.webp",
+      "coverSize": [
+        521,
+        799
+      ],
+      "coverSource": "openlibrary:8192494",
+      "goodreads": {
+        "id": "117833",
+        "isbn": "0679760806",
+        "url": "https://www.goodreads.com/book/show/117833"
+      },
+      "added": "2023-10-29"
     },
     {
       "title": "The Merge",
@@ -275,35 +1661,258 @@
       "author": "Franz Kafka",
       "year": 1915,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 201,
+      "cover": "assets/covers/the-metamorphosis.webp",
+      "coverSize": [
+        534,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0553213695",
+      "goodreads": {
+        "id": "485894",
+        "isbn": "0553213695",
+        "url": "https://www.goodreads.com/book/show/485894"
+      },
+      "added": "2023-10-29"
     },
     {
       "title": "The Myth of Sisyphus",
       "author": "Albert Camus",
       "year": 1942,
-      "kind": "essay",
-      "subject": "philosophy"
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "read",
+      "rating": 10,
+      "pages": 192,
+      "cover": "assets/covers/the-myth-of-sisyphus.webp",
+      "coverSize": [
+        500,
+        800
+      ],
+      "coverSource": "openlibrary:14651384",
+      "goodreads": {
+        "id": "91950",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/91950"
+      },
+      "added": "2023-10-29"
     },
     {
       "title": "The Old Man and the Sea",
       "author": "Ernest Hemingway",
       "year": 1952,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 96,
+      "cover": "assets/covers/the-old-man-and-the-sea.webp",
+      "coverSize": [
+        473,
+        800
+      ],
+      "coverSource": "openlibrary:12639821",
+      "goodreads": {
+        "id": "2165",
+        "isbn": "0684830493",
+        "url": "https://www.goodreads.com/book/show/2165"
+      },
+      "added": "2024-06-15"
+    },
+    {
+      "title": "The Optimist: Sam Altman, OpenAI, and the Race to Invent the Future",
+      "author": "Keach Hagey",
+      "year": 2025,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "to-read",
+      "pages": 384,
+      "cover": "assets/covers/the-optimist-sam-altman-openai-and-the-race-to-invent-the-future.webp",
+      "coverSize": [
+        527,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:1324075961",
+      "goodreads": {
+        "id": "223400731",
+        "isbn": "1324075961",
+        "url": "https://www.goodreads.com/book/show/223400731"
+      },
+      "added": "2026-08-31"
+    },
+    {
+      "title": "The Player of Games",
+      "author": "Iain M. Banks",
+      "year": 1988,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 293,
+      "cover": "assets/covers/the-player-of-games.webp",
+      "coverSize": [
+        538,
+        800
+      ],
+      "coverSource": "openlibrary:6630799",
+      "goodreads": {
+        "id": "18630",
+        "isbn": "0061053562",
+        "url": "https://www.goodreads.com/book/show/18630"
+      },
+      "added": "2026-07-22"
+    },
+    {
+      "title": "The Power Law: Venture Capital and the Making of the New Future",
+      "author": "Sebastian Mallaby",
+      "year": 2022,
+      "kind": "book",
+      "subject": "economics",
+      "shelf": "reading",
+      "pages": 496,
+      "cover": "assets/covers/the-power-law-venture-capital-and-the-making-of-the-new-future.webp",
+      "coverSize": [
+        338,
+        500
+      ],
+      "coverSource": "openlibrary-isbn:052555999X",
+      "goodreads": {
+        "id": "58009109",
+        "isbn": "052555999X",
+        "url": "https://www.goodreads.com/book/show/58009109"
+      },
+      "added": "2026-08-02"
     },
     {
       "title": "The Singularity Is Nearer: When We Merge with AI",
       "author": "Ray Kurzweil",
       "year": 2024,
       "kind": "book",
-      "subject": "technology"
+      "subject": "technology",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 432,
+      "cover": "assets/covers/the-singularity-is-nearer-when-we-merge-with-ai.webp",
+      "coverSize": [
+        530,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0399562761",
+      "goodreads": {
+        "id": "45024007",
+        "isbn": "0399562761",
+        "url": "https://www.goodreads.com/book/show/45024007"
+      },
+      "added": "2024-10-25"
+    },
+    {
+      "title": "The Spirit of Hope",
+      "author": "Byung-Chul Han",
+      "year": 2024,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "to-read",
+      "pages": 90,
+      "cover": "assets/covers/the-spirit-of-hope.webp",
+      "coverSize": [
+        533,
+        800
+      ],
+      "coverSource": "goodreads:219068113",
+      "goodreads": {
+        "id": "219068113",
+        "isbn": "1509565213",
+        "url": "https://www.goodreads.com/book/show/219068113"
+      },
+      "added": "2026-08-31"
+    },
+    {
+      "title": "The Stranger",
+      "author": "Albert Camus",
+      "year": 1942,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 8,
+      "pages": 123,
+      "cover": "assets/covers/the-stranger.webp",
+      "coverSize": [
+        518,
+        800
+      ],
+      "coverSource": "goodreads:49552",
+      "goodreads": {
+        "id": "49552",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/49552"
+      },
+      "added": "2023-10-29"
     },
     {
       "title": "The Sun Also Rises",
       "author": "Ernest Hemingway",
       "year": 1926,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "rating": 6,
+      "pages": 189,
+      "cover": "assets/covers/the-sun-also-rises.webp",
+      "coverSize": [
+        505,
+        800
+      ],
+      "coverSource": "openlibrary:15185220",
+      "goodreads": {
+        "id": "3876",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/3876"
+      },
+      "added": "2024-07-31"
+    },
+    {
+      "title": "The Tempest",
+      "author": "William Shakespeare",
+      "year": 1611,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 218,
+      "cover": "assets/covers/the-tempest.webp",
+      "coverSize": [
+        460,
+        800
+      ],
+      "coverSource": "openlibrary:8155661",
+      "goodreads": {
+        "id": "12985",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/12985"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "The Thinking Machine: Jensen Huang, Nvidia, and the World's Most Coveted Microchip",
+      "author": "Stephen Witt",
+      "year": 2025,
+      "kind": "book",
+      "subject": "technology",
+      "shelf": "to-read",
+      "pages": 272,
+      "cover": "assets/covers/the-thinking-machine-jensen-huang-nvidia-and-the-world-s-most-coveted-microchip.webp",
+      "coverSize": [
+        523,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0593832698",
+      "goodreads": {
+        "id": "211399783",
+        "isbn": "0593832698",
+        "url": "https://www.goodreads.com/book/show/211399783"
+      },
+      "added": "2026-08-31"
     },
     {
       "title": "This is a Once-in-a-Civilization Opportunity",
@@ -314,11 +1923,123 @@
       "url": "https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity"
     },
     {
+      "title": "Thus Spoke Zarathustra",
+      "author": "Friedrich Nietzsche",
+      "year": 1883,
+      "kind": "book",
+      "subject": "philosophy",
+      "shelf": "read",
+      "pages": 327,
+      "cover": "assets/covers/thus-spoke-zarathustra.webp",
+      "coverSize": [
+        463,
+        700
+      ],
+      "coverSource": "goodreads:51893",
+      "goodreads": {
+        "id": "51893",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/51893"
+      },
+      "added": "2026-08-02"
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "year": 1960,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 323,
+      "cover": "assets/covers/to-kill-a-mockingbird.webp",
+      "coverSize": [
+        513,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0060935464",
+      "goodreads": {
+        "id": "2657",
+        "isbn": "0060935464",
+        "url": "https://www.goodreads.com/book/show/2657"
+      },
+      "added": "2023-10-29"
+    },
+    {
+      "title": "Too Like the Lightning",
+      "author": "Ada Palmer",
+      "year": 2016,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 432,
+      "cover": "assets/covers/too-like-the-lightning.webp",
+      "coverSize": [
+        523,
+        800
+      ],
+      "coverSource": "openlibrary-isbn:0765378000",
+      "goodreads": {
+        "id": "26114545",
+        "isbn": "0765378000",
+        "url": "https://www.goodreads.com/book/show/26114545"
+      },
+      "added": "2026-07-22"
+    },
+    {
+      "title": "Vesten mod vesten",
+      "author": "Rune Lykkeberg",
+      "year": 2019,
+      "kind": "book",
+      "subject": "politics",
+      "shelf": "to-read",
+      "pages": 496,
+      "cover": "assets/covers/vesten-mod-vesten.webp",
+      "coverSize": [
+        342,
+        500
+      ],
+      "coverSource": "goodreads:44584185+upscaled",
+      "goodreads": {
+        "id": "44584185",
+        "isbn": "8775145456",
+        "url": "https://www.goodreads.com/book/show/44584185"
+      },
+      "added": "2025-11-01"
+    },
+    {
       "title": "War and Peace",
       "author": "Leo Tolstoy",
       "year": 1869,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "cover": "assets/covers/war-and-peace.webp",
+      "coverSize": [
+        534,
+        800
+      ],
+      "coverSource": "openlibrary:12621906",
+      "added": "2026-07-29"
+    },
+    {
+      "title": "We Are Legion (We Are Bob)",
+      "author": "Dennis E. Taylor",
+      "year": 2016,
+      "kind": "book",
+      "subject": "literature",
+      "shelf": "to-read",
+      "pages": 322,
+      "cover": "assets/covers/we-are-legion-we-are-bob.webp",
+      "coverSize": [
+        527,
+        800
+      ],
+      "coverSource": "openlibrary:15150802",
+      "goodreads": {
+        "id": "32109569",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/32109569"
+      },
+      "added": "2026-09-11"
     },
     {
       "title": "What I Wish Someone Had Told Me",
@@ -333,7 +2054,21 @@
       "author": "Fyodor Dostoevsky",
       "year": 1848,
       "kind": "book",
-      "subject": "literature"
+      "subject": "literature",
+      "shelf": "read",
+      "pages": 82,
+      "cover": "assets/covers/white-nights.webp",
+      "coverSize": [
+        552,
+        800
+      ],
+      "coverSource": "openlibrary:14598226",
+      "goodreads": {
+        "id": "1772910",
+        "isbn": "",
+        "url": "https://www.goodreads.com/book/show/1772910"
+      },
+      "added": "2026-08-02"
     },
     {
       "title": "Why Top Founders Are Racing Into AI Infrastructure",

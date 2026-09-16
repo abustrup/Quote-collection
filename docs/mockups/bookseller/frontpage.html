@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Front page, top 260px — mockup, bookseller</title>
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/shelf.css">
+<style>
+  /* Only what the front page needs beyond the shelf's own stylesheet. */
+  .strip {
+    display: flex; align-items: center; gap: .5rem;
+    padding-top: .7rem;
+  }
+  .strip .kicker { font-size: .68rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .strip .tools { margin-left: auto; }
+
+  .masthead { text-align: center; padding-top: .3rem; }
+  .masthead h1 {
+    margin: .1rem 0 .35rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6.2vw, 4rem);
+    font-weight: 600; line-height: 1; letter-spacing: -.03em;
+  }
+  .masthead p {
+    margin: 0 auto;
+    max-width: 34rem;
+    font-family: var(--font-display);
+    font-size: 1.02rem; line-height: 1.45; color: var(--body-soft);
+  }
+
+  .nav-row {
+    display: flex; justify-content: center; align-items: center; gap: .4rem;
+    padding: 1.15rem 0 1.1rem;
+    border-bottom: 1px solid var(--gold);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .nav-row::-webkit-scrollbar { display: none; }
+
+  .fold {
+    position: absolute; left: 0; right: 0; top: 260px;
+    border-top: 1px dashed var(--gold);
+    opacity: .75; pointer-events: none;
+  }
+  .fold span {
+    position: absolute; right: 8px; top: 4px;
+    font-size: .6rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--gold-ink);
+  }
+
+  .peek { padding: 1.4rem 0 3rem; }
+  .peek blockquote {
+    margin: 0; max-width: 34em;
+    font-family: var(--font-display); font-size: 1.5rem; line-height: 1.42; letter-spacing: -.011em;
+  }
+  .peek .cite { margin-top: .7rem; font-size: .82rem; color: var(--muted); }
+</style>
+</head>
+
+<body>
+<div class="fold" aria-hidden="true"><span>260 px</span></div>
+
+<div class="wrap">
+  <div class="strip">
+    <span class="kicker" id="strip-kicker">A personal collection</span>
+    <div class="tools">
+      <button class="tool" id="lang-toggle" type="button">DA</button>
+      <button class="tool" id="edition-toggle" type="button">☾</button>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <h1>Lines Worth Keeping</h1>
+    <p id="dek">Everything I have wanted to remember – from philosophy, technology,
+      literature and the odd sentence that would not leave me alone.</p>
+  </header>
+
+  <nav class="nav-row" aria-label="Sections">
+    <a class="nav-pill" href="../../../index.html" data-t="nav.quotes">Quotes</a>
+    <a class="nav-pill is-primary" href="index.html"><span class="glyph" aria-hidden="true">▤</span><span data-t="nav.shelf">Shelf</span></a>
+    <a class="nav-pill" href="../../../scout.html" data-t="nav.board">Board</a>
+    <a class="nav-pill" href="../../../suggest.html" data-t="nav.next">Read next</a>
+    <a class="nav-add" href="#"><span aria-hidden="true">+&nbsp;</span><span data-t="nav.add">Add</span></a>
+  </nav>
+
+  <section class="peek">
+    <blockquote id="peek-quote">“How did we do this with our brains that were evolved for
+      hunter-gathering out in the tundra?”</blockquote>
+    <p class="cite">Demis Hassabis · <em>Sir Demis Hassabis on Creativity and AI</em> · 2026</p>
+
+    <blockquote style="margin-top:2.4rem">“Big Brother is Watching You.”</blockquote>
+    <p class="cite">George Orwell · <em>1984</em> · 1949</p>
+  </section>
+</div>
+
+<script src="js/i18n.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const state = {
+    lang: params.get('lang') === 'da' ? 'da' : 'en',
+    edition: params.get('edition') === 'night' ? 'night' : 'paper',
+  };
+  const t = (k) => (window.DICT[state.lang][k] || window.DICT.en[k] || k);
+  const DEK = {
+    en: 'Everything I have wanted to remember – from philosophy, technology, literature and the odd sentence that would not leave me alone.',
+    da: 'Alt jeg har villet huske – fra filosofi, teknologi, litteratur og den enkelte sætning der ikke ville forlade mig igen.',
+  };
+  const KICKER = { en: 'A personal collection', da: 'En personlig samling' };
+  function paint() {
+    document.documentElement.dataset.edition = state.edition;
+    document.documentElement.lang = state.lang;
+    document.querySelectorAll('[data-t]').forEach((n) => { n.textContent = t(n.dataset.t); });
+    document.getElementById('dek').textContent = DEK[state.lang];
+    document.getElementById('strip-kicker').textContent = KICKER[state.lang];
+    document.getElementById('lang-toggle').textContent = state.lang === 'en' ? 'DA' : 'EN';
+    document.getElementById('edition-toggle').textContent = state.edition === 'paper' ? '☾' : '☀';
+  }
+  document.getElementById('lang-toggle').onclick = () => { state.lang = state.lang === 'en' ? 'da' : 'en'; paint(); };
+  document.getElementById('edition-toggle').onclick = () => { state.edition = state.edition === 'paper' ? 'night' : 'paper'; paint(); };
+  paint();
+</script>
+</body>
+</html>

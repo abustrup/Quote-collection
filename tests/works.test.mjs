@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   ERAS,
+  SHELVES,
   SUBJECTS,
   WORK_ALIASES,
   canonicalWork,
@@ -145,4 +146,168 @@ test('a registry url must be https, since the page links straight out to it', ()
   };
   const { errors } = validateWorks(registry, { quotes: [{ work: 'A' }] });
   assert.ok(errors.some((error) => /url must be https/.test(error)));
+});
+
+/* --------------------------------------------------------------------------
+ * The library half: shelves, scores, covers and dates
+ *
+ * These arrived on 2026-09-16 with 87 books from Goodreads. They are all
+ * optional — a record with none of them is a citation and still valid — so
+ * every test here is about a field that is present and wrong, plus the one
+ * warning that had to change meaning when the registry stopped being only a
+ * list of things he had quoted.
+ * ------------------------------------------------------------------------ */
+
+const registryOf = (work) => ({
+  works: [{ title: 'A', author: 'B', subject: 'philosophy', year: 1900, ...work }],
+});
+
+test('a shelf outside the four is refused', () => {
+  for (const shelf of SHELVES) {
+    const { errors } = validateWorks(registryOf({ shelf }), { quotes: [] });
+    assert.deepEqual(errors, [], `${shelf} should be a shelf`);
+  }
+  const { errors } = validateWorks(registryOf({ shelf: 'want-to-read' }), { quotes: [] });
+  assert.ok(errors.some((error) => /unknown shelf "want-to-read"/.test(error)));
+});
+
+test('rating and want are whole numbers from 0 to 10', () => {
+  for (const score of [0, 5, 10]) {
+    assert.deepEqual(validateWorks(registryOf({ rating: score }), { quotes: [] }).errors, []);
+    assert.deepEqual(validateWorks(registryOf({ want: score }), { quotes: [] }).errors, []);
+  }
+  // 11 and -1 are off the end; 7.5 and "8" would each need a different reader
+  // on the page than the number control writes.
+  for (const bad of [11, -1, 7.5, '8']) {
+    const rating = validateWorks(registryOf({ rating: bad }), { quotes: [] }).errors;
+    const want = validateWorks(registryOf({ want: bad }), { quotes: [] }).errors;
+    assert.ok(rating.some((error) => /rating must be a whole number/.test(error)), `rating ${bad}`);
+    assert.ok(want.some((error) => /want must be a whole number/.test(error)), `want ${bad}`);
+  }
+});
+
+test('a cover is a path inside the repo, not a link somewhere else', () => {
+  assert.deepEqual(
+    validateWorks(registryOf({ cover: 'assets/covers/crime-and-punishment.webp' }), { quotes: [] }).errors,
+    [],
+  );
+  for (const bad of [
+    'https://covers.openlibrary.org/b/id/123.jpg',
+    'assets/covers/Crime.webp',
+    'assets/covers/crime.jpg',
+    '../assets/covers/crime.webp',
+  ]) {
+    const { errors } = validateWorks(registryOf({ cover: bad }), { quotes: [] });
+    assert.ok(errors.some((error) => /cover must be assets\/covers/.test(error)), bad);
+  }
+});
+
+test('coverSize is two whole pixel counts, so the page can reserve the box', () => {
+  assert.deepEqual(validateWorks(registryOf({ coverSize: [333, 500] }), { quotes: [] }).errors, []);
+  for (const bad of [[333], [333, 500, 2], ['333', 500], [0, 500], [333.5, 500], '333x500', 500]) {
+    const { errors } = validateWorks(registryOf({ coverSize: bad }), { quotes: [] });
+    assert.ok(errors.some((error) => /coverSize must be/.test(error)), JSON.stringify(bad));
+  }
+});
+
+test('added and read are real calendar days', () => {
+  assert.deepEqual(validateWorks(registryOf({ added: '2026-09-16', read: '2023-10-30' }), { quotes: [] }).errors, []);
+  for (const bad of ['16-09-2026', '2026-9-1', '2026-02-30', 2026]) {
+    const { errors } = validateWorks(registryOf({ added: bad }), { quotes: [] });
+    assert.ok(errors.some((error) => /added must be an ISO date/.test(error)), String(bad));
+  }
+});
+
+test('pages is a positive whole number', () => {
+  assert.deepEqual(validateWorks(registryOf({ pages: 368 }), { quotes: [] }).errors, []);
+  for (const bad of [0, -5, 12.5, '368']) {
+    const { errors } = validateWorks(registryOf({ pages: bad }), { quotes: [] });
+    assert.ok(errors.some((error) => /pages must be a positive whole number/.test(error)), String(bad));
+  }
+});
+
+test('a goodreads link must be https, like every other link the page follows', () => {
+  const { errors } = validateWorks(
+    registryOf({ goodreads: { id: '1', isbn: '', url: 'http://www.goodreads.com/book/show/1' } }),
+    { quotes: [] },
+  );
+  assert.ok(errors.some((error) => /goodreads.url must be https/.test(error)));
+});
+
+test('a shelved book with no quotes is a library, not a leftover', () => {
+  // Most of a library is books nobody has pulled a line out of yet, so the
+  // "no quotes" warning would fire 66 times on the real file and stop meaning
+  // anything. Without a shelf it still fires: that is a citation left behind.
+  const shelved = validateWorks(registryOf({ shelf: 'to-read' }), { quotes: [] });
+  assert.deepEqual(shelved.errors, []);
+  assert.deepEqual(shelved.warnings.filter((warning) => /has no quotes/.test(warning)), []);
+
+  const unshelved = validateWorks(registryOf({}), { quotes: [] });
+  assert.ok(unshelved.warnings.some((warning) => /"A" is in the registry but has no quotes/.test(warning)));
+});
+
+test('the shipped registry carries his library, and it is internally consistent', async () => {
+  const registry = await read('works.json');
+  const shelved = registry.works.filter((work) => work.shelf);
+
+  // 87 books came off Goodreads on 2026-09-16: 30 read, 48 to-read,
+  // 3 currently reading, 6 did not finish.
+  assert.equal(shelved.length, 87);
+  const counts = {};
+  for (const work of shelved) counts[work.shelf] = (counts[work.shelf] ?? 0) + 1;
+  assert.deepEqual(counts, { read: 30, 'to-read': 48, reading: 3, abandoned: 6 });
+
+  // Every rating came from a Goodreads star count, so every one is even.
+  const rated = registry.works.filter((work) => work.rating != null);
+  assert.equal(rated.length, 21);
+  assert.deepEqual(rated.filter((work) => work.rating % 2 !== 0), []);
+
+  // Nothing is rated that he has not read, and nothing shelved lost its date.
+  for (const work of shelved) {
+    assert.ok(work.added, `${work.title} has no added date`);
+    assert.ok(work.goodreads?.id, `${work.title} has no Goodreads id`);
+    if (work.read) assert.ok(work.shelf === 'read', `${work.title} has a read date but is ${work.shelf}`);
+  }
+
+  // Every book has a cover, and every cover file is where the record says.
+  const covers = new Set();
+  for (const work of registry.works.filter((work) => work.kind === 'book')) {
+    assert.ok(work.cover, `${work.title} has no cover`);
+    assert.ok(!covers.has(work.cover), `two works share ${work.cover}`);
+    covers.add(work.cover);
+    assert.equal(work.cover, `assets/covers/${slug(work.title)}.webp`);
+    await assert.doesNotReject(
+      readFile(path.join(REPO_ROOT, work.cover)),
+      `${work.cover} is in the registry but not in the repository`,
+    );
+    assert.ok(work.coverSource, `${work.title} has a cover but no record of where it came from`);
+
+    // The page reserves each cover's box from this, so it has to be there and
+    // it has to be the shape of a book.
+    const [width, height] = work.coverSize ?? [];
+    assert.ok(Number.isInteger(width) && Number.isInteger(height), `${work.title} has no coverSize`);
+    assert.ok(height >= 500, `${work.title} cover is ${width}x${height}`);
+    assert.ok(width / height >= 0.55 && width / height <= 0.8, `${work.title} cover is ${width}x${height}`);
+  }
+});
+
+test('nothing but a book stands on a shelf, and every shelved book has its length', async () => {
+  const registry = await read('works.json');
+
+  // A talk, an essay or a podcast has no shelf: the page puts those in their
+  // own section with a typographic cover, and a shelf status on one of them
+  // would put the same work in two places at once.
+  const oddities = registry.works.filter((work) => work.shelf && work.kind !== 'book');
+  assert.deepEqual(oddities.map((work) => `${work.title} (${work.kind})`), []);
+
+  // Page counts drive the drawn height of a book on the shelf, and the page
+  // draws nothing rather than guessing one. Exactly one of the 87 has none:
+  // Goodreads left it blank and Open Library's own figure for it is a
+  // placeholder, so it stays absent rather than being invented. Named here
+  // rather than tolerated, so a second one cannot appear unnoticed.
+  const unmeasured = registry.works.filter((work) => work.shelf && work.pages == null);
+  assert.deepEqual(
+    unmeasured.map((work) => work.title),
+    ['Power and Progress: Our Thousand-Year Struggle Over Technology and Prosperity'],
+  );
 });

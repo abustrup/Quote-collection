@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-edition="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Front page header – motion mockup</title>
+<meta name="description" content="The top of index.html: masthead and nav row, motion mockup, 2026-09-16.">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/shelf.css">
+<style>
+  /* Front-page-only. The shelf's header is a working bar; the front page's is
+     a masthead, so the nav row sits under it rather than beside it. Same
+     pills, same primary treatment, so the two pages are one site. */
+
+  .fp-utility {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .35rem;
+    padding: .55rem 0 0;
+  }
+
+  .fp-masthead { text-align: center; padding: clamp(.6rem, 2vw, 1.4rem) 0 0; }
+
+  .fp-masthead h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 1.2rem + 4.6vw, 4.3rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: .25rem 0 0;
+  }
+
+  .fp-dek {
+    margin: .6rem auto 0;
+    max-width: 30em;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--body-soft);
+  }
+
+  .fp-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .35rem;
+    flex-wrap: wrap;
+    padding: clamp(1rem, 2.4vw, 1.5rem) 0 1.1rem;
+  }
+
+  .fp-nav .nav-link { font-size: .86rem; padding: .5rem .85rem; }
+  .fp-nav .nav-link.is-primary { padding: .5rem 1.05rem; }
+  .fp-nav .nav-add { margin-left: .25rem; }
+
+  /* the 260 px line the brief asks the header to live inside */
+  .fold {
+    position: absolute;
+    left: 0; right: 0; top: 260px;
+    border-top: 1px dashed var(--rule);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .fold span {
+    position: absolute;
+    right: 8px; top: -9px;
+    background: var(--bg);
+    padding: 0 .4rem;
+    font-family: var(--font-ui);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* what sits below, only so the header is seen in context */
+  .fp-below { border-top: 1px solid var(--rule-soft); }
+
+  .fp-quote {
+    padding: clamp(2rem, 5vw, 3.2rem) 0 1rem;
+    max-width: 34em;
+    margin-inline: 0;   /* the quotes start at the page's left edge, as today */
+  }
+
+  .fp-quote blockquote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.32rem, 1.05rem + 1.15vw, 1.85rem);
+    line-height: 1.46;
+    letter-spacing: -0.011em;
+  }
+
+  .fp-quote figcaption {
+    margin-top: .8rem;
+    font-family: var(--font-ui);
+    font-size: .78rem;
+    color: var(--muted);
+  }
+
+  .fp-quote figcaption b { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 760px) {
+    .fold { top: 260px; }
+    .fp-nav { gap: .3rem; padding-bottom: .8rem; }
+    .fp-nav .nav-link { font-size: .8rem; padding: .45rem .7rem; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="fold" aria-hidden="true"><span>260 px</span></div>
+
+<div class="shell fp-utility">
+  <button class="lang-btn" id="lang" type="button" aria-label="Language"><b>EN</b><span>/</span>DA</button>
+  <button class="icon-btn" id="theme" type="button" aria-label="Light or dark">◑ Light</button>
+</div>
+
+<header class="shell fp-masthead">
+  <p class="kicker" id="kicker">A personal collection</p>
+  <h1 id="title">Lines Worth Keeping</h1>
+  <p class="fp-dek" id="dek">Everything I have wanted to remember, and the shelf it all came off.</p>
+</header>
+
+<nav class="shell fp-nav" aria-label="Sections">
+  <a class="nav-link" id="nav-quotes" href="#" aria-current="page">Quotes</a>
+  <a class="nav-link is-primary" id="nav-shelf" href="index.html"><span aria-hidden="true">▮</span><span id="nav-shelf-label">Shelf</span></a>
+  <a class="nav-link" id="nav-board" href="../../../scout.html">Board</a>
+  <a class="nav-link" id="nav-next" href="../../../suggest.html">Read next</a>
+  <a class="nav-add" id="nav-add" href="#" title="Add a quote">+ Add</a>
+</nav>
+
+<div class="fp-below">
+  <div class="controls" style="position:static">
+    <div class="shell controls-row">
+      <div class="search"><input id="search" type="search" placeholder="Search quotes, authors, works…" autocomplete="off"></div>
+      <div class="chips">
+        <button class="chip" type="button" id="c-fav">Favourites <span class="n">18</span></button>
+        <button class="chip" type="button" id="c-focus">Focus</button>
+        <a class="nav-link" id="c-shelf" href="index.html" style="border:1px solid var(--rule)"><span aria-hidden="true">▮</span> <span id="c-shelf-label">Shelf</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell fp-quote">
+    <figure style="margin:0">
+      <blockquote id="q-text">“How did we do this with our brains that were evolved for hunter-gathering out in the tundra?”</blockquote>
+      <figcaption><b>Demis Hassabis</b> · Sir Demis Hassabis on Creativity and AI · 2026</figcaption>
+    </figure>
+  </div>
+</div>
+
+<script type="module">
+  /* Two small dictionaries, the same shape as the shelf's. */
+  const DICT = {
+    en: {
+      kicker: 'A personal collection', title: 'Lines Worth Keeping',
+      dek: 'Everything I have wanted to remember, and the shelf it all came off.',
+      quotes: 'Quotes', shelf: 'Shelf', board: 'Board', next: 'Read next', add: '+ Add',
+      search: 'Search quotes, authors, works…', fav: 'Favourites', focus: 'Focus',
+      other: 'DA', light: 'Light', dark: 'Dark',
+    },
+    da: {
+      kicker: 'En personlig samling', title: 'Linjer værd at gemme',
+      dek: 'Alt jeg har villet huske, og reolen det hele kom fra.',
+      quotes: 'Citater', shelf: 'Reolen', board: 'Tavlen', next: 'Læs næst', add: '+ Tilføj',
+      search: 'Søg i citater, forfattere, værker…', fav: 'Favoritter', focus: 'Fokus',
+      other: 'EN', light: 'Lys', dark: 'Mørk',
+    },
+  };
+
+  const p = new URLSearchParams(location.search);
+  let lang = p.get('lang') === 'da' ? 'da' : 'en';
+  document.documentElement.dataset.edition = p.get('edition') === 'night' ? 'night' : 'paper';
+
+  const $ = (s) => document.querySelector(s);
+
+  function paint() {
+    const d = DICT[lang];
+    document.documentElement.lang = lang;
+    $('#kicker').textContent = d.kicker;
+    $('#title').textContent = d.title;
+    $('#dek').textContent = d.dek;
+    $('#nav-quotes').textContent = d.quotes;
+    $('#nav-shelf-label').textContent = d.shelf;
+    $('#c-shelf-label').textContent = d.shelf;
+    $('#nav-board').textContent = d.board;
+    $('#nav-next').textContent = d.next;
+    $('#nav-add').textContent = d.add;
+    $('#search').placeholder = d.search;
+    $('#c-fav').innerHTML = d.fav + ' <span class="n">18</span>';
+    $('#c-focus').textContent = d.focus;
+    $('#lang').innerHTML = `<b>${lang.toUpperCase()}</b><span>/</span>${d.other}`;
+    const dark = document.documentElement.dataset.edition === 'night';
+    $('#theme').innerHTML = `${dark ? '◐' : '◑'} ${dark ? d.dark : d.light}`;
+  }
+
+  $('#lang').addEventListener('click', () => { lang = lang === 'en' ? 'da' : 'en'; paint(); });
+  $('#theme').addEventListener('click', () => {
+    const r = document.documentElement;
+    r.dataset.edition = r.dataset.edition === 'night' ? 'paper' : 'night';
+    paint();
+  });
+
+  paint();
+</script>
+</body>
+</html>

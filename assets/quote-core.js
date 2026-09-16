@@ -47,6 +47,17 @@ export const SUBJECTS = [
 ];
 
 /**
+ * Shelves — where a book stands in his reading, not what it is about.
+ *
+ * The registry became his library on 2026-09-16, when 87 books arrived from
+ * Goodreads, so a record now answers two different questions: `subject` says
+ * what field the work belongs to, and `shelf` says whether he has read it.
+ * Non-book works, and books quoted but never shelved, simply have no shelf —
+ * absence is the fifth state and does not need a name.
+ */
+export const SHELVES = ['read', 'reading', 'to-read', 'abandoned'];
+
+/**
  * Eras, as year ranges. Nothing here is a judgement: a work's era is a
  * consequence of its date, so it is computed rather than assigned, and a work
  * with no known date simply has no era instead of being guessed into one.
@@ -59,6 +70,13 @@ export const ERAS = [
   { id: 'c20', label: '20th century', from: 1901, to: 2000 },
   { id: 'contemporary', label: 'Contemporary', from: 2001, to: 2200 },
 ];
+
+/** True for a plain calendar day, `yyyy-mm-dd`, that really exists. */
+export function isIsoDay(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
 
 /** The era a year falls in, or null when the year is unknown. */
 export function eraFor(year) {
@@ -615,6 +633,51 @@ export function validateWorks(registry, collection) {
     if (work.url != null && !/^https:\/\//.test(work.url)) {
       errors.push(`${where}: url must be https, found "${work.url}"`);
     }
+
+    // Library fields. All optional: a work with none of them is a citation,
+    // a work with them is a book on a shelf, and both are valid records.
+    if (work.shelf != null && !SHELVES.includes(work.shelf)) {
+      errors.push(`${where}: unknown shelf "${work.shelf}"`);
+    }
+    for (const field of ['rating', 'want']) {
+      const score = work[field];
+      if (score != null && (!Number.isInteger(score) || score < 0 || score > 10)) {
+        errors.push(`${where}: ${field} must be a whole number from 0 to 10, found ${JSON.stringify(score)}`);
+      }
+    }
+    if (work.pages != null && (!Number.isInteger(work.pages) || work.pages < 1)) {
+      errors.push(`${where}: pages must be a positive whole number, found ${JSON.stringify(work.pages)}`);
+    }
+    // A repo-relative path, never a remote URL: the covers are in the
+    // repository so the shelf still draws with the network switched off, and
+    // so a cover cannot quietly change under a link somebody else controls.
+    if (work.cover != null && !/^assets\/covers\/[a-z0-9-]+\.webp$/.test(work.cover)) {
+      errors.push(`${where}: cover must be assets/covers/<slug>.webp, found "${work.cover}"`);
+    }
+    // The cover's pixel size, so the page can give each book its own box
+    // before the image has loaded. Covers are not a single shape — 0.55 and
+    // 0.80 wide over tall are both allowed — so a page that assumed one would
+    // have to crop, and cropping a cover cuts the title off.
+    if (work.coverSize != null) {
+      const size = work.coverSize;
+      const sane = Array.isArray(size) && size.length === 2
+        && size.every((side) => Number.isInteger(side) && side > 0);
+      if (!sane) {
+        errors.push(`${where}: coverSize must be [width, height] in whole pixels, found ${JSON.stringify(size)}`);
+      }
+    }
+    for (const field of ['added', 'read']) {
+      const date = work[field];
+      if (date != null && !isIsoDay(date)) {
+        errors.push(`${where}: ${field} must be an ISO date, yyyy-mm-dd, found ${JSON.stringify(date)}`);
+      }
+    }
+    if (work.goodreads != null) {
+      const { url } = work.goodreads;
+      if (url != null && !/^https:\/\//.test(url)) {
+        errors.push(`${where}: goodreads.url must be https, found "${url}"`);
+      }
+    }
   }
 
   const quotes = collection?.quotes ?? [];
@@ -629,8 +692,15 @@ export function validateWorks(registry, collection) {
   for (const title of quoted) {
     if (!seen.has(title)) warnings.push(`work "${title}" is quoted but not in the registry, so it has no subject or era`);
   }
-  for (const title of seen.keys()) {
-    if (!quoted.has(title)) warnings.push(`work "${title}" is in the registry but has no quotes`);
+  // A shelved book with no quotes is the normal case, not a leftover: the
+  // registry holds his library as well as his citations, and most of a library
+  // is books nobody has pulled a line out of yet. Only an unshelved record with
+  // no quotes is the thing this warning was written for — a citation left
+  // behind when its last quote went.
+  for (const [title, index] of seen) {
+    if (quoted.has(title)) continue;
+    if (registry.works[index]?.shelf) continue;
+    warnings.push(`work "${title}" is in the registry but has no quotes`);
   }
 
   return { errors, warnings };

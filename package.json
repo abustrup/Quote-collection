@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Alexander Bustrup's personal quote library — a static site with no build step.",
   "scripts": {
-    "check": "node scripts/validate.mjs && node scripts/validate-works.mjs && node scripts/validate-library.mjs",
+    "check": "node scripts/validate.mjs && node scripts/validate-works.mjs && node scripts/validate-library.mjs && node scripts/check-covers.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",
     "serve": "node scripts/serve.mjs",
     "check:ui": "node scripts/check-ui.mjs",
@@ -13,6 +13,8 @@
     "sync:shelf": "node scripts/apply-shelf-state.mjs",
     "sync:shelf:dry": "node scripts/apply-shelf-state.mjs --dry-run",
     "worker:dev": "npx wrangler dev --cwd worker --local",
-    "worker:deploy": "npx wrangler deploy --cwd worker"
+    "worker:deploy": "npx wrangler deploy --cwd worker",
+    "check:covers": "node scripts/check-covers.mjs",
+    "covers:sheet": "node scripts/covers-sheet.mjs"
   }
 }
