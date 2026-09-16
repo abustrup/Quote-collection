@@ -36,8 +36,8 @@ const THEME_COLOR = { paper: '#f6efe4', night: '#14110d', folio: '#fbf7f0', inde
 register({
   'nav.sections': { en: 'Sections', da: 'Sektioner' },
   'nav.addShort': { en: 'Add', da: 'Tilføj' },
-  'nav.toNight': { en: 'Switch to the night edition', da: 'Skift til nataudgaven' },
-  'nav.toPaper': { en: 'Switch to the paper edition', da: 'Skift til papiraudgaven' },
+  'nav.toNight': { en: 'Switch to the night edition', da: 'Skift til natudgaven' },
+  'nav.toPaper': { en: 'Switch to the paper edition', da: 'Skift til papirudgaven' },
 });
 
 /** The four pills, in the order they are read. */

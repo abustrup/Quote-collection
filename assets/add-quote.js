@@ -64,7 +64,7 @@ register({
 
   'add.error.unconfigured': {
     en: 'Editing is not set up yet, so the quote cannot be sent from here.',
-    da: 'Redigering er ikke sat op endnu, så citatet kan ikke sendes herfra.',
+    da: 'Redigering er ikke slået til endnu, så citatet kan ikke sendes herfra.',
   },
   'add.error.offline': {
     en: 'Could not reach the collection service. Your words are still here — try again, or use the GitHub form.',

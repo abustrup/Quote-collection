@@ -44,16 +44,16 @@ import {
 register({
   'shelf.title': { en: 'The shelf', da: 'Hylden' },
   'shelf.dek': {
-    en: 'Every book he owns the reading of, the talks worth keeping, and the lines they gave him.',
-    da: 'Hver bog han har læst eller vil læse, de taler der er værd at gemme, og de linjer de gav ham.',
+    en: 'Everything I have read, am reading, or mean to read one day, the talks worth keeping, and the lines they gave me.',
+    da: 'Alt hvad jeg har læst, læser, eller vil læse en dag, de foredrag der er værd at gemme, og de linjer de gav mig.',
   },
-  'shelf.stats': { en: '{books} books · {talks} talks & essays · {quotes} quotes', da: '{books} bøger · {talks} taler & essays · {quotes} citater' },
+  'shelf.stats': { en: '{books} books · {talks} talks & essays · {quotes} quotes', da: '{books} bøger · {talks} foredrag & essays · {quotes} citater' },
   'shelf.registry': { en: 'The registry', da: 'Registret' },
 
   'shelf.searchLabel': { en: 'Search by title or author', da: 'Søg på titel eller forfatter' },
   'shelf.searchPlaceholder': { en: 'Title or author', da: 'Titel eller forfatter' },
   'shelf.shelvesLabel': { en: 'Shelves', da: 'Hylder' },
-  'shelf.arrangeLabel': { en: 'Arrange', da: 'Ordn' },
+  'shelf.arrangeLabel': { en: 'Arranged by', da: 'Ordnet efter' },
   'shelf.all': { en: 'All', da: 'Alle' },
 
   'shelf.arrange.shelf': { en: 'Shelf status', da: 'Hyldestatus' },
@@ -66,7 +66,7 @@ register({
   'shelf.arrange.quotes': { en: 'How often quoted', da: 'Hvor ofte citeret' },
 
   'shelf.group.unshelved': { en: 'Not on a shelf yet', da: 'Ikke på hylden endnu' },
-  'shelf.group.talks': { en: 'Talks & essays', da: 'Taler & essays' },
+  'shelf.group.talks': { en: 'Talks & essays', da: 'Foredrag & essays' },
   'shelf.group.undated': { en: 'Undated', da: 'Uden år' },
   'shelf.group.noDate': { en: 'No date recorded', da: 'Ingen dato' },
   'shelf.group.unfinished': { en: 'Not finished', da: 'Ikke læst færdig' },
@@ -114,7 +114,7 @@ register({
   'shelf.era.contemporary': { en: 'Contemporary', da: 'Nutiden' },
 
   'shelf.hero.reading': { en: 'Currently reading', da: 'Læser lige nu' },
-  'shelf.hero.also': { en: 'Also reading', da: 'Læser også' },
+  'shelf.hero.feature': { en: 'Stand this one at the front', da: 'Stil denne forrest' },
   'shelf.hero.lastAdded': { en: 'Last added', da: 'Sidst tilføjet' },
   'shelf.hero.bestRated': { en: 'Best rated', da: 'Bedst bedømt' },
 
@@ -135,6 +135,7 @@ register({
   'shelf.added': { en: 'Added {d}', da: 'Tilføjet {d}' },
   'shelf.finished': { en: 'Finished {d}', da: 'Læst færdig {d}' },
   'shelf.notRated': { en: 'Not rated', da: 'Ikke bedømt' },
+  'shelf.notRatedYet': { en: 'Not rated yet', da: 'Ikke bedømt endnu' },
   'shelf.of10': { en: '{n} of 10', da: '{n} af 10' },
   'shelf.star': { en: '{n} of 10', da: '{n} af 10' },
 
@@ -153,9 +154,9 @@ register({
   'shelf.unlockNow': { en: 'Unlock editing', da: 'Lås redigering op' },
   'shelf.savedHere': {
     en: 'Saved on this device; it syncs when the connection is back.',
-    da: 'Gemt på denne enhed; den synkroniserer, når forbindelsen er tilbage.',
+    da: 'Gemt på denne enhed; den synkroniseres, når forbindelsen er tilbage.',
   },
-  'shelf.notSetUp': { en: 'Editing is not set up.', da: 'Redigering er ikke sat op.' },
+  'shelf.notSetUp': { en: 'Editing is not set up.', da: 'Redigering er ikke slået til.' },
   'shelf.saveFailed': { en: 'That change could not be saved.', da: 'Ændringen kunne ikke gemmes.' },
 });
 
@@ -246,7 +247,11 @@ function collator() {
 const SHELF_KEYS = ['reading', 'read', 'to-read', 'abandoned'];
 
 /** One constant per shelf scale. A page count may move a book ±8% from it. */
-const BASE_HEIGHT = 190;
+/* A 2:3 jacket stands 145px wide at this height, which puts six books in a
+   1152px row rather than seven. Six is the number: the covers are the page, and
+   at seven-up they had become a contact sheet of the covers. The phone scales
+   the same constant down rather than carrying a second one. */
+const BASE_HEIGHT = 218;
 const DEFAULT_ASPECT = 2 / 3;
 const WARM_HUES = [18, 28, 38, 46, 56, 84, 10];
 
@@ -653,31 +658,58 @@ function paintBook(item) {
    ========================================================================== */
 
 let plate = null;
+let plateOwner = null;
+let plateHide = null;
 
 function showPlate(node, item) {
-  hidePlate();
+  // The same book, entered again: keep the plate that is already standing.
+  // A pointer crossing from the cover to the caption, or a layout that shifts
+  // under a stationary pointer, fires leave-then-enter on the same book — and
+  // rebuilding it there restarts the fade, so the plate flickers for something
+  // the reader did not do. It is also why a full-page screenshot of the shelf
+  // used to catch it half-transparent.
+  if (plateHide) { clearTimeout(plateHide); plateHide = null; }
+  if (plate && plateOwner === node) { plate.classList.add('show'); return; }
+
+  dropPlate();
   const card = el('span', 'plate');
-  const facts = [fmtYear(item.year), item.pages ? t('shelf.pages', { n: item.pages }) : null].filter(Boolean).join(' · ');
-  card.append(el('span', 'p-facts', facts || kindLabel(item)));
+
+  // The plate covers this book's own caption, so it carries the title itself —
+  // otherwise hovering a book is the one moment its name is not on screen.
+  card.append(el('span', 'p-title', item.title));
+
+  const facts = [fmtYear(item.year), item.pages ? t('shelf.pages', { n: item.pages }) : null]
+    .filter(Boolean).join(' · ');
+  card.append(el('span', 'p-facts', facts || item.author || kindLabel(item)));
 
   const foot = el('span', 'p-foot');
   foot.append(el('span', 'p-shelf', item.shelf ? t(`shelf.${item.shelf}`) : kindLabel(item)));
 
   const score = scoreOf(item);
-  const box = el('span', 'p-score');
   if (score.value != null) {
+    const box = el('span', 'p-score');
     const stars = el('span', 'stars-inline');
     const filled = Math.round(score.value / 2);
     for (let i = 0; i < 5; i += 1) stars.append(starSvg(i < filled ? null : 'off'));
     box.append(stars, el('span', null, String(score.value)));
-  } else if (item.quotes) {
-    box.append(el('span', null, nQuotes(item.quotes)));
+    foot.append(box);
   }
-  foot.append(box);
   card.append(foot);
+
+  if (item.quotes) card.append(el('span', 'p-quotes', nQuotes(item.quotes)));
 
   node.append(card);
   plate = card;
+  plateOwner = node;
+
+  // The one thing the stylesheet cannot know: whether this book is the last in
+  // its row. A 200px plate hanging off a 145px column in the last position
+  // would widen the document, so there it hangs the other way. One rect each,
+  // read once on enter — never in a pointermove handler.
+  const room = shelfEl.getBoundingClientRect();
+  const here = node.getBoundingClientRect();
+  if (here.left + card.offsetWidth > room.right - 1) card.classList.add('is-right');
+
   // Flush the style so the browser has a "from" value, then reveal. A
   // requestAnimationFrame would do the same on a page that is being painted
   // and nothing at all on one that is not.
@@ -685,9 +717,24 @@ function showPlate(node, item) {
   card.classList.add('show');
 }
 
+/* Leaving is deferred so that a leave immediately followed by an enter on the
+   same book is not a removal and a rebuild.
+
+   140 ms rather than a frame, because the gap is not always a frame: a scroll
+   that moves the shelf under a stationary pointer fires the leave and the enter
+   about 30 ms apart, and one frame of grace missed it — which is how a
+   full-page screenshot of the shelf kept catching the plate a third of the way
+   through its fade. Moving to a different book does not wait: that calls
+   showPlate, which drops the old plate at once. */
 function hidePlate() {
+  if (plateHide || !plate) return;
+  plateHide = setTimeout(() => { plateHide = null; dropPlate(); }, 140);
+}
+
+function dropPlate() {
   plate?.remove();
   plate = null;
+  plateOwner = null;
 }
 
 /* ==========================================================================
@@ -1016,7 +1063,19 @@ function wireHover() {
     const node = event.target.closest?.('.book');
     if (node && node === hovered && !node.contains(event.relatedTarget)) leaveBook();
   });
-  window.addEventListener('scroll', () => { if (hovered) leaveBook(); }, { passive: true });
+  // A scroll takes the book out from under a stationary pointer, so the lift
+  // and its plate go with it. Guarded on the document actually having moved:
+  // a `scroll` event that leaves scrollY where it was is the browser resizing
+  // its own viewport — which is what a full-page screenshot does — and
+  // dismissing the plate for that dismissed it in the picture of it.
+  let lastY = window.scrollY;
+  let lastX = window.scrollX;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY === lastY && window.scrollX === lastX) return;
+    lastY = window.scrollY;
+    lastX = window.scrollX;
+    if (hovered) leaveBook();
+  }, { passive: true });
 }
 
 /* ==========================================================================
@@ -1027,7 +1086,7 @@ function wireHover() {
    takes the focus with it and the next press goes nowhere.
    ========================================================================== */
 
-function rateControl(item, { onChanged } = {}) {
+function rateControl(item, { onChanged, empty = 'shelf.notRated' } = {}) {
   const wrap = el('div', 'rate');
   wrap.setAttribute('role', 'radiogroup');
   wrap.setAttribute('aria-label', rateLabelFor(item));
@@ -1077,8 +1136,12 @@ function rateControl(item, { onChanged } = {}) {
       value.append(document.createTextNode(String(score.value)));
       value.append(el('em', null, ` ${lang() === 'da' ? 'af 10' : 'of 10'}`));
     } else {
-      value.append(el('em', null, t('shelf.notRated')));
+      value.append(el('em', null, t(empty)));
     }
+    // Ten grey stars beside a label is the one state of this control that
+    // reads as broken rather than as empty. The class lets the detail hold it
+    // back until the reader goes for it.
+    wrap.classList.toggle('is-empty', score.value == null);
   }
 
   async function press(n) {
@@ -1277,6 +1340,7 @@ function buildDetail(item) {
   const rateLabel = el('span', 'detail-label', rateLabelFor(item));
   rateBlock.append(rateLabel);
   const rate = rateControl(item, {
+    empty: 'shelf.notRatedYet',
     onChanged: () => {
       paintBook(item);
       paintHero();
@@ -1563,26 +1627,76 @@ function spring2d(onFrame) {
 
 const heroEl = $('hero');
 
-function heroBook() {
+/* The book standing large on the hero's ledge. It starts as the most recently
+   added `reading` book and changes when the reader clicks one of the others,
+   which is why it is state rather than a derived value: a language switch or a
+   rating repaints the hero, and the book he chose has to survive that. */
+let heroFeatured = null;
+
+/** The three `reading` books, featured first. */
+function heroBooks() {
   const reading = works.filter((item) => item.shelf === 'reading')
     .sort((a, b) => String(b.added || '').localeCompare(String(a.added || '')));
-  return { featured: reading[0] || null, others: reading.slice(1) };
+  if (!reading.length) return { featured: null, others: [] };
+  const chosen = reading.find((item) => item.slug === heroFeatured) || reading[0];
+  heroFeatured = chosen.slug;
+  return { featured: chosen, others: reading.filter((item) => item !== chosen) };
+}
+
+/* One cover 200px wide would be 324px tall for a jacket as narrow as Genesis,
+   and the card has a height budget: the shelf itself has to start above the
+   fold. So the width is the target and the height is the cap, and a tall jacket
+   gives up a little width rather than the card giving up its proportions. */
+const HERO_W = 200;
+const HERO_H = 288;
+const HERO_MINI_W = 120;
+
+function heroCoverHeight(item, { narrow, mini }) {
+  if (narrow) return (mini ? 46 : 96) / item.aspect;
+  if (mini) return Math.min(HERO_H * 0.66, HERO_MINI_W / item.aspect);
+  return Math.min(HERO_H, HERO_W / item.aspect);
+}
+
+/** One of the books standing on the hero's ledge. */
+function heroBookNode(item, { narrow, mini }) {
+  const node = el('button', `hero-book${mini ? ' is-mini' : ' is-featured'}`);
+  node.type = 'button';
+  node.dataset.slug = item.slug;
+  const tilt = el('span', mini ? 'hero-mini-tilt' : 'hero-tilt');
+  tilt.append(coverBox(item, { height: heroCoverHeight(item, { narrow, mini }), eager: true }));
+  node.append(tilt);
+  if (mini) {
+    node.setAttribute('aria-label', `${t('shelf.hero.feature')}: ${item.title}`);
+    node.title = item.title;
+    node.addEventListener('click', () => featureHero(item.slug));
+  } else {
+    node.setAttribute('aria-label', `${t('shelf.openBook')}: ${item.title}`);
+    node.addEventListener('click', () => openBook(item.slug, null));
+  }
+  return node;
 }
 
 function paintHero() {
   unplace();
-  const { featured, others } = heroBook();
-  if (!featured) { heroEl.hidden = true; paintHeroAlso(others); return; }
+  const { featured, others } = heroBooks();
+  if (!featured) { heroEl.hidden = true; return; }
   heroEl.hidden = false;
   heroEl.replaceChildren();
 
   const narrow = window.matchMedia('(max-width: 760px)').matches;
-  const coverHeight = narrow ? 96 / featured.aspect : 220 / featured.aspect;
 
-  const stage = el('div', 'hero-stage');
-  const tilt = el('span', 'hero-tilt');
-  tilt.append(coverBox(featured, { height: coverHeight, eager: true }));
-  stage.append(tilt);
+  const lead = heroBookNode(featured, { narrow, mini: false });
+  heroEl.append(lead);
+  // The phone layout indents the thumbnails past the featured cover so they sit
+  // under the text rather than under the book; only the layout knows how wide
+  // that cover ended up, so it is handed to the stylesheet rather than guessed.
+  heroEl.style.setProperty('--hero-lead-w', `${Math.round(heroCoverHeight(featured, { narrow, mini: false }) * featured.aspect)}px`);
+
+  if (others.length) {
+    const rest = el('div', 'hero-others');
+    for (const item of others) rest.append(heroBookNode(item, { narrow, mini: true }));
+    heroEl.append(rest);
+  }
 
   const body = el('div', 'hero-body');
   body.append(el('p', 'hero-kicker', t('shelf.hero.reading')));
@@ -1625,31 +1739,23 @@ function paintHero() {
   actions.append(details);
   body.append(actions);
 
-  heroEl.append(stage, body);
-  wireHeroTilt(stage, tilt);
-  paintHeroAlso(others, featured);
+  heroEl.append(body, heroFoot(featured));
+  wireHeroTilt();
 }
 
 /**
- * One quiet line of text, not a row of tiles.
+ * The quiet line at the card's foot.
  *
- * Each fact is its own span rather than a run of text with separators typed
- * between them: on a phone they become one line each, truncated, instead of a
- * 160-pixel paragraph with orphaned middots standing on lines of their own.
- * The separators are the stylesheet's job, so they disappear when the layout
- * changes rather than surviving it as debris.
+ * "Also reading" used to live here as a list of titles. It does not any more:
+ * the other books he is reading are standing on the ledge above it, which is
+ * the same fact told as a shelf rather than as a sentence. What is left is the
+ * two facts no cover can carry.
  */
-function paintHeroAlso(others, featured) {
-  const line = $('hero-also');
-  line.replaceChildren();
+function heroFoot(featured) {
+  const line = el('p', 'hero-foot');
 
-  // Anchors, not buttons. Two reasons, and the second is the one that shows:
-  // `works.html#<slug>` is a real address for a book, so middle-click and "open
-  // in a new tab" behave; and a button is an atomic inline box, so on a phone
-  // `text-overflow: ellipsis` cannot trim a long title inside one — it drops
-  // the whole thing and leaves a line reading "Also reading: …".
   const link = (item) => {
-    const anchor = el('a', 'hero-also-link', item.title);
+    const anchor = el('a', 'hero-foot-link', item.title);
     anchor.href = `#${encodeURIComponent(item.slug)}`;
     anchor.addEventListener('click', (event) => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
@@ -1660,19 +1766,11 @@ function paintHeroAlso(others, featured) {
   };
 
   const bit = (label) => {
-    const span = el('span', 'hero-also-bit');
+    const span = el('span', 'hero-foot-bit');
     span.append(el('b', null, `${label}: `));
     line.append(span);
     return span;
   };
-
-  if (others.length) {
-    const span = bit(t('shelf.hero.also'));
-    others.forEach((item, index) => {
-      if (index) span.append(document.createTextNode(' · '));
-      span.append(link(item));
-    });
-  }
 
   const pool = works.filter((item) => item !== featured);
   const lastAdded = pool.filter((item) => item.added).sort((a, b) => b.added.localeCompare(a.added))[0];
@@ -1684,12 +1782,89 @@ function paintHeroAlso(others, featured) {
     const span = bit(t('shelf.hero.bestRated'));
     span.append(link(best), document.createTextNode(` ${best.rating}/10`));
   }
+  return line;
 }
 
-let heroSpring = null;
-function wireHeroTilt(stage, tilt) {
+/**
+ * Put one of the small books in the large place.
+ *
+ * A FLIP, for the same reason the shelf uses one: the two covers swap sizes and
+ * positions, and a crossfade alone would read as two pictures being exchanged
+ * rather than as two objects trading places. Read both rects, mutate once, read
+ * again, then write — and the transforms are inline styles cleared on the way
+ * out, so nothing stays resident on the element afterwards.
+ */
+function featureHero(slug) {
+  if (slug === heroFeatured) return;
+
+  const before = new Map();
+  for (const node of heroEl.querySelectorAll('.hero-book')) {
+    before.set(node.dataset.slug, node.getBoundingClientRect());
+  }
+
+  heroFeatured = slug;
+  paintHero();
+  heroEl.querySelector('.hero-body')?.classList.add('is-swapped');
+
   if (reduced) return;
+
+  const moved = [];
+  for (const node of heroEl.querySelectorAll('.hero-book')) {
+    const was = before.get(node.dataset.slug);
+    if (!was) continue;
+    const now = node.getBoundingClientRect();
+    if (!now.width || !was.width) continue;
+    const dx = (was.left + was.width / 2) - (now.left + now.width / 2);
+    const dy = was.bottom - now.bottom;
+    const scale = was.width / now.width;
+    if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(scale - 1) < 0.01) continue;
+    moved.push({ node, dx, dy, scale });
+  }
+
+  for (const entry of moved) {
+    entry.node.style.transformOrigin = 'bottom center';
+    entry.node.style.transition = 'none';
+    entry.node.style.transform = `translate(${entry.dx}px, ${entry.dy}px) scale(${entry.scale.toFixed(4)})`;
+  }
+
+  // Flush the inverted position into computed style before the frame that
+  // plays it back. Without this there is no "from" value to transition out of:
+  // requestAnimationFrame callbacks run before style is recalculated, so the
+  // browser would only ever see the final transform and the books would jump.
+  if (moved.length) void moved[0].node.offsetWidth;
+
+  requestAnimationFrame(() => {
+    for (const entry of moved) {
+      entry.node.style.transition = `transform 460ms var(--shelf-ease)`;
+      entry.node.style.transform = '';
+    }
+    setTimeout(() => {
+      for (const entry of moved) {
+        entry.node.style.transition = '';
+        entry.node.style.transform = '';
+        entry.node.style.transformOrigin = '';
+      }
+    }, 520);
+  });
+}
+
+/**
+ * The featured book leans toward the pointer.
+ *
+ * Wired to the section once and never again: `paintHero` replaces its children
+ * on every language change, every rating and every swap, and listeners added
+ * per paint would accumulate one set per repaint for the life of the page. The
+ * spring writes to whichever `.hero-tilt` is currently in the card.
+ */
+let heroSpring = null;
+let heroWired = false;
+
+function wireHeroTilt() {
+  if (reduced || heroWired) return;
+  heroWired = true;
   heroSpring = spring2d((rx, ry) => {
+    const tilt = heroEl.querySelector('.hero-tilt');
+    if (!tilt) return;
     tilt.style.setProperty('--rx', `${rx.toFixed(2)}deg`);
     tilt.style.setProperty('--ry', `${ry.toFixed(2)}deg`);
   });
@@ -1702,8 +1877,13 @@ function wireHeroTilt(stage, tilt) {
     heroSpring.to(Math.max(-6, Math.min(6, -ny * 14)), Math.max(-6, Math.min(6, nx * 14)));
   });
   heroEl.addEventListener('pointerleave', () => heroSpring.to(0, 0));
-  void stage;
 }
+
+/* The hero is laid out one way beside a mouse and another on a phone — the
+   thumbnails move from the ledge to under the text — and which one it is, is a
+   decision JavaScript makes when it builds the covers. A rotation crosses that
+   line without a reload, so the card is rebuilt when it does. */
+window.matchMedia('(max-width: 760px)').addEventListener?.('change', () => paintHero());
 
 /* ==========================================================================
    Chrome

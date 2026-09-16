@@ -26,7 +26,8 @@
   --shelf-on-gold: #241a09;
 
   --shelf-card: #fdfaf4;
-  --shelf-plate: #fdfaf4;
+  --shelf-plate: var(--surface);
+  --shelf-plate-rule: var(--rule);
   --shelf-ledge-line: #cbb794;
   --shelf-ledge-face: #e6dac4;
   --shelf-contact: rgba(58, 42, 20, 0.34);
@@ -50,8 +51,8 @@
   /* Tall enough for two lines of title, the author and a quote count: measured
      at 68px, so the row constant is 74 and nothing is shaved off the bottom. */
   --shelf-cap-h: 74px;
-  --shelf-rowgap: 42px;
-  --shelf-gap: clamp(10px, 1.5vw, 24px);
+  --shelf-rowgap: 48px;
+  --shelf-gap: clamp(10px, 1.9vw, 28px);
 
   --shelf-ease: cubic-bezier(0.2, 0, 0, 1);
   --shelf-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
@@ -64,8 +65,12 @@
 
   --shelf-card: #1f1a14;
   /* Lifted clear of the page rather than matched to it: at #1f1a14 on #14110d
-     the popover was a rumour. */
-  --shelf-plate: #2b241b;
+     the popover was a rumour, and at the night edition's own --surface
+     (#1c1813) it was barely better. This is the one place on the page that
+     deliberately ignores a token, because a popover has to win against the
+     ground it floats over. */
+  --shelf-plate: #352d22;
+  --shelf-plate-rule: #5d5140;
   --shelf-ledge-line: #4a4136;
   --shelf-ledge-face: #241f19;
   /* On a near-black page a cast shadow is invisible, so the mark a book leaves
@@ -90,7 +95,8 @@
   --shelf-gold: #bd8c3d;
   --shelf-gold-ink: #7a5310;
   --shelf-card: #fffdf8;
-  --shelf-plate: #fffdf8;
+  --shelf-plate: var(--surface);
+  --shelf-plate-rule: var(--rule);
   --shelf-ledge-line: #cdbda0;
   --shelf-ledge-face: #ece2d1;
 }
@@ -102,7 +108,8 @@
   --shelf-gold-ink: #6d4c08;
   --shelf-on-gold: #ffffff;
   --shelf-card: #ffffff;
-  --shelf-plate: #ffffff;
+  --shelf-plate: var(--surface);
+  --shelf-plate-rule: var(--rule);
   --shelf-ledge-line: #b9bdc4;
   --shelf-ledge-face: #e3e6ea;
   --shelf-contact: rgba(20, 23, 28, 0.18);
@@ -155,50 +162,82 @@
 }
 
 /* ==========================================================================
-   The hero — one book, standing on its own ledge
+   The hero — the three books he is reading, on one ledge
+   --------------------------------------------------------------------------
+   One card, one ledge, three books standing on it: the one he is furthest into
+   large at the front, the other two smaller beside it. Clicking a small one
+   brings it forward. What used to be a line of linked titles under the card is
+   now the shelf itself, and the two facts a cover cannot carry — the last book
+   added and the best rated — sit quietly at the card's foot, inside it.
+
+   The layout is one wrapping flex row rather than a grid, because the phone
+   and the desktop want the same three parts in a different order and `order`
+   with a full-width basis says that in two lines. Nothing is measured in
+   JavaScript except the featured cover's width, which the phone layout needs
+   to indent the thumbnails past it.
    ========================================================================== */
 
 .hero {
+  --hero-gap: 10px;
+  --hero-ledge: 10px;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
-  gap: clamp(1.2rem, 3vw, 2.4rem);
+  column-gap: var(--hero-gap);
+  row-gap: 0;
   margin-top: clamp(1.4rem, 3vw, 2.2rem);
-  padding: clamp(1.1rem, 2.4vw, 1.8rem);
+  padding: clamp(0.8rem, 1.6vw, 0.95rem) clamp(1.1rem, 2.4vw, 1.6rem) clamp(0.6rem, 1.2vw, 0.8rem);
   background: var(--shelf-card);
   border: 1px solid var(--rule-soft);
   border-radius: 18px;
-  /* The hero book tilts toward the pointer; the perspective lives on the
+  /* The featured book tilts toward the pointer; the perspective lives on the
      container so the tilt reads as depth rather than as a skew. */
   perspective: 1200px;
 }
 
 .hero[hidden] { display: none; }
 
-.hero-stage {
+/* A book on the ledge. At a desk the ledge is the card's own foot rule, drawn
+   the full width of the card, so the three books stand on one painted board
+   rather than on three segments with a second rule underneath them. */
+.hero-book {
   position: relative;
   flex: 0 0 auto;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 14px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
   transform-style: preserve-3d;
 }
 
-/* The hero's own ledge: one line, one thin face, the same two colours as the
-   shelf below it. */
-.hero-stage::after {
-  content: "";
-  position: absolute;
-  left: -8%;
-  right: -8%;
-  bottom: 0;
-  height: 6px;
-  border-top: 2px solid var(--shelf-ledge-line);
-  background: var(--shelf-ledge-face);
-  border-radius: 0 0 2px 2px;
+.hero-book .cover-box { box-shadow: var(--shelf-shadow-2); }
+.hero-book.is-mini .cover-box { box-shadow: var(--shelf-shadow-1); }
+
+.hero-others {
+  order: 2;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--hero-gap);
 }
 
-.hero-stage .cover-box { box-shadow: var(--shelf-shadow-2); }
+.hero-book.is-featured { order: 1; }
+
+/* The small books answer the pointer the way the shelf's do: they lift clear
+   of the ledge and their shadow deepens. Keyboard focus gets the same. */
+.hero-mini-tilt {
+  display: block;
+  transition: transform 0.18s var(--shelf-ease);
+}
+
+.hero-book.is-mini:hover .hero-mini-tilt,
+.hero-book.is-mini:focus-visible .hero-mini-tilt { transform: translateY(-7px); }
+.hero-book.is-mini:hover .cover-box,
+.hero-book.is-mini:focus-visible .cover-box { box-shadow: var(--shelf-shadow-2); }
+.hero-book:focus-visible { outline: none; }
+.hero-book:focus-visible .cover-box { outline: 2px solid var(--shelf-gold-ink); outline-offset: 3px; }
 
 .hero-tilt {
   display: block;
@@ -208,10 +247,19 @@
 }
 
 .hero-body {
-  flex: 1 1 auto;
+  order: 3;
+  flex: 1 1 260px;
   min-width: 0;
-  padding-bottom: 0.2rem;
+  padding: 0 0 0.35rem clamp(0.6rem, 1.6vw, 1.4rem);
 }
+
+/* The words fade in only when a different book comes to the front, so the swap
+   reads as one movement with the FLIP. Not on every repaint: a language switch
+   and a rating both rebuild this block, and an animation that runs on each of
+   them is one the page is never quite finished playing. */
+.hero-body.is-swapped { animation: hero-body-in 320ms var(--shelf-ease); }
+
+@keyframes hero-body-in { from { opacity: 0; } to { opacity: 1; } }
 
 .hero-kicker {
   margin: 0;
@@ -224,9 +272,9 @@
 }
 
 .hero-title {
-  margin: 0.4rem 0 0.2rem;
+  margin: 0.35rem 0 0.2rem;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 1.05rem + 1.1vw, 2rem);
+  font-size: clamp(1.35rem, 0.95rem + 1.15vw, 1.95rem);
   font-weight: var(--title-weight, 400);
   line-height: 1.12;
   letter-spacing: -0.016em;
@@ -240,7 +288,7 @@
 .hero-title-link:hover { color: var(--shelf-gold-ink); }
 
 .hero-meta {
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.75rem;
   color: var(--muted);
   font-family: var(--font-label);
   font-size: 0.8rem;
@@ -262,30 +310,47 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.45rem;
-  margin-top: 0.9rem;
+  margin-top: 0.85rem;
 }
 
-/* One quiet line, not a row of cards: the other things worth knowing about
-   the shelf, set as a sentence. */
-.hero-also {
-  margin: clamp(0.7rem, 1.6vw, 1rem) 0 0;
+/* One quiet line at the foot of the card, on its own row: the two facts the
+   covers above it cannot carry — and the board the books above it stand on.
+   The same 2px edge and 5px painted face the shelf below uses, so the card is
+   a shelf with a label on it rather than a card with a rule in it. */
+.hero-foot {
+  position: relative;
+  order: 4;
+  flex: 1 0 100%;
+  margin: 0;
+  padding-top: 0.85rem;
+  border-top: 2px solid var(--shelf-ledge-line);
   color: var(--muted);
   font-family: var(--font-label);
-  font-size: 0.78rem;
-  line-height: 1.6;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
-.hero-also-link {
+.hero-foot::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  background: var(--shelf-ledge-face);
+}
+
+.hero-foot-link {
   color: var(--body-soft);
   text-decoration: underline;
   text-decoration-color: var(--rule);
   text-underline-offset: 2px;
 }
 
-.hero-also-link:hover { color: var(--shelf-gold-ink); text-decoration-color: currentColor; }
-.hero-also b { color: var(--ink); font-weight: 600; }
+.hero-foot-link:hover { color: var(--shelf-gold-ink); text-decoration-color: currentColor; }
+.hero-foot b { color: var(--ink); font-weight: 600; }
 
-.hero-also-bit + .hero-also-bit::before { content: " · "; color: var(--rule); }
+.hero-foot-bit + .hero-foot-bit::before { content: " · "; color: var(--rule); }
 
 /* ==========================================================================
    The control row
@@ -631,36 +696,63 @@
 
 /* ------------------------------------------------------------ the plate */
 
-/* What the caption cannot hold: the year, the pages, where the book stands,
-   and the score. It lives in the gap under its own book and is exactly that
-   book's column wide, so it can never sit on top of a neighbouring cover. */
+/* What the caption cannot hold: the year, the pages, where the book stands, the
+   score and how often it has been quoted.
+
+   It is anchored under its own book's cover and never leaves that book's own
+   row box, so the band it occupies — its caption plus the gap below it — holds
+   no cover anywhere along the row. That is the whole reason it can be 200px
+   wide on a 145px column: overhanging a neighbour costs that neighbour its
+   caption for as long as the pointer is here, and can never cost it its cover.
+   The one case CSS cannot see is the last column, where 200px would run off the
+   page; showPlate() reads one rect and flips it to right-aligned there. */
 .plate {
   position: absolute;
   left: 0;
-  top: calc(var(--cover-h) + var(--shelf-cap-h) + 3px);
-  width: 100%;
-  height: calc(var(--shelf-rowgap) - 6px);
+  top: calc(var(--cover-h) + 6px);
+  width: 200px;
+  max-width: none;
+  max-height: calc(var(--shelf-cap-h) + var(--shelf-rowgap) - 8px);
   overflow: hidden;
-  padding: 0.22rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.16rem;
+  padding: 0.45rem 0.55rem 0.5rem;
   background: var(--shelf-plate);
-  border: 1px solid var(--rule);
-  border-radius: 9px;
-  box-shadow: var(--shelf-shadow-card);
+  border: 1px solid var(--shelf-plate-rule);
+  border-radius: 10px;
+  box-shadow: var(--shelf-shadow-2);
   opacity: 0;
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   transition: opacity 0.16s var(--shelf-ease), transform 0.18s var(--shelf-ease);
   pointer-events: none;
-  z-index: 5;
+  z-index: 8;
 }
+
+.plate.is-right { left: auto; right: 0; }
 
 .plate.show { opacity: 1; transform: none; }
 
+.plate .p-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: var(--title-weight, 400);
+  line-height: 1.22;
+  letter-spacing: -0.008em;
+  hyphens: none;
+}
+
 .plate .p-facts {
   display: block;
-  color: var(--muted);
+  color: var(--body-soft);
   font-family: var(--font-label);
-  font-size: 0.6rem;
-  line-height: 1.25;
+  font-size: 0.68rem;
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -669,21 +761,23 @@
 .plate .p-foot {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.1rem;
+  gap: 0.35rem;
+  margin-top: 0.12rem;
 }
 
 .p-shelf {
   display: inline-flex;
   align-items: center;
-  padding: 0.02rem 0.34rem;
-  border: 1px solid var(--rule);
+  padding: 0.05rem 0.4rem;
+  /* The plate's own rule, not the page's: on night the page rule is a shade
+     darker than the plate it would be drawn on and the pill lost its outline. */
+  border: 1px solid var(--shelf-plate-rule);
   border-radius: 999px;
   color: var(--body-soft);
   font-family: var(--font-label);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -692,13 +786,22 @@
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.18rem;
   color: var(--shelf-gold-ink);
   font-family: var(--font-label);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.p-quotes {
+  display: block;
+  color: var(--shelf-gold-ink);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ------------------------------------------------- typographic covers */
@@ -789,6 +892,14 @@
 }
 
 .rate-btn .star { display: block; width: 19px; height: 19px; fill: currentColor; }
+
+/* An unrated book in the detail: the stars wait at 40% until the reader reaches
+   for them, so the block reads as an invitation rather than as ten dead stars.
+   Focus reveals it exactly as hover does — nothing a pointer uncovers is hidden
+   from a keyboard. */
+.detail .rate.is-empty .rate-btn { opacity: 0.4; transition: opacity 0.18s var(--shelf-ease), color 0.16s var(--shelf-ease); }
+.detail .rate.is-empty:hover .rate-btn,
+.detail .rate.is-empty:focus-within .rate-btn { opacity: 1; }
 .rate-btn.on { color: var(--shelf-gold); }
 .rate-btn:hover { color: var(--shelf-gold-ink); }
 .rate-btn:focus-visible { outline: 2px solid var(--shelf-gold-ink); outline-offset: -2px; border-radius: 6px; }
@@ -1188,7 +1299,8 @@
 
 @media (max-width: 760px) {
   :root {
-    --shelf-scale: 0.62;
+    /* 190/218: the shelf grew at 1440 and the phone keeps the size it had. */
+    --shelf-scale: 0.54;
     --shelf-rowgap: 16px;
   }
 
@@ -1197,30 +1309,77 @@
   .plate { display: none !important; }
 
   /* Compact hero: the cover beside the text, not above it, so the controls and
-     the first row of the shelf are reachable without a scroll. */
+     the first row of the shelf are reachable without a scroll. The other two
+     books he is reading drop below the text as thumbnails — small enough to be
+     a reminder rather than a second shelf, indented past the featured cover so
+     they read as part of the text column. */
   .hero {
-    gap: 0.9rem;
-    padding: 0.9rem;
-    align-items: flex-start;
+    --hero-ledge: 9px;
+    column-gap: 0;
+    padding: 0.85rem 0.9rem 0.75rem;
+    align-items: flex-end;
   }
 
-  .hero-stage { padding-bottom: 10px; }
-  .hero-stage::after { height: 5px; }
+  /* The thumbnails sit between the books and the card's foot here, so the foot
+     cannot be the board. It goes back under the featured cover. */
+  .hero-book.is-featured { padding-bottom: var(--hero-ledge); }
+
+  .hero-book.is-featured::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -6px;
+    bottom: 0;
+    height: 5px;
+    border-top: 2px solid var(--shelf-ledge-line);
+    background: var(--shelf-ledge-face);
+  }
+
+  .hero-others {
+    order: 3;
+    flex: 1 0 100%;
+    gap: 8px;
+    margin-top: 0.7rem;
+    padding-left: calc(var(--hero-lead-w, 96px) + 0.9rem);
+  }
+
+  /* No ledge under a thumbnail: two 46px covers on a painted shelf of their own
+     read as a second, smaller library rather than as a footnote to this one. */
+  .hero-others .hero-book { padding-bottom: 0; }
+  .hero-others .hero-book::after { display: none; }
+
+  .hero-body {
+    order: 2;
+    flex: 1 1 180px;
+    padding: 0 0 var(--hero-ledge) 0.9rem;
+  }
+
   .hero-title { font-size: 1.1rem; margin-top: 0.25rem; }
   .hero-meta { font-size: 0.72rem; margin-bottom: 0.55rem; }
   .hero-actions { margin-top: 0.6rem; }
   .hero-rate { display: none; }        /* the detail carries it on a phone */
 
-  /* One fact per line, each truncated to that line. Left to wrap, three facts
+  /* One fact per line, each truncated to that line. Left to wrap, both facts
      with full book titles in them ran to 160px of the screen above the fold. */
-  .hero-also { margin-top: 0.6rem; font-size: 0.74rem; line-height: 1.5; }
-  .hero-also-bit {
+  .hero-foot {
+    order: 4;
+    margin-top: 0.7rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  .hero-foot::before { display: none; }
+
+  .hero-foot-bit {
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .hero-also-bit + .hero-also-bit::before { content: none; }
+
+  .hero-foot-bit + .hero-foot-bit::before { content: none; }
 
   .shelf-arrange { margin-left: 0; width: 100%; }
   .shelf-arrange select { flex: 1 1 auto; max-width: none; }
@@ -1259,7 +1418,7 @@
     transition-property: opacity, background-color, color, border-color !important;
   }
 
-  .tilt, .hero-tilt, .detail-cover-wrap { transform: none !important; }
+  .tilt, .hero-tilt, .hero-mini-tilt, .detail-cover-wrap { transform: none !important; }
   .book.lean .tilt { transform: none !important; }
   .ring { display: none; }
   .detail-card .d-item { animation: none; opacity: 1; }

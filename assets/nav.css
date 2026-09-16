@@ -138,14 +138,20 @@
 
 /* ------------------------------------------------------- the front page */
 
-/* Pills centred under the masthead's dek; the two toggles at the very top
-   right of the page. With no positioned ancestor, `absolute` resolves against
-   the initial containing block, which is exactly the corner the mockup puts
-   them in — and it keeps them out of the masthead's own centred flow. */
+/* One row under the masthead's dek: the four destinations, "+ Add", then the
+   two toggles, centred together.
+
+   The toggles used to be positioned out of the flow at the page's top-right
+   corner. That is two rows the eye has to find instead of one, it left them
+   floating half a pill below the row at 1440, and on a phone the pills wrapped
+   up underneath them — which the collection then had to patch by measuring the
+   collision at runtime. They are the last two items in the row now, and the
+   patch is gone. */
 
 #site-nav[data-variant="row"] .nav-row {
   justify-content: center;
   flex-wrap: wrap;
+  gap: 0.3rem;
   min-height: 0;
   padding-block: 0 1.05rem;
   border-bottom: 1px solid var(--nav-gold);
@@ -154,6 +160,7 @@
 #site-nav[data-variant="row"] .nav-brand { display: none; }
 
 #site-nav[data-variant="row"] .nav-links {
+  order: 1;
   margin-left: 0;
   justify-content: center;
   flex-wrap: wrap;
@@ -161,10 +168,10 @@
 }
 
 #site-nav[data-variant="row"] .nav-tools {
-  position: absolute;
-  top: 0.85rem;
-  right: var(--gutter);
-  z-index: 31;
+  order: 2;
+  margin-left: 0;
+  row-gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
 /* ------------------------------------------------------------- narrow */
@@ -183,26 +190,26 @@
 
   #site-nav .nav-brand { font-size: 0.98rem; }
 
-  #site-nav .nav-links {
+  /* The pills wrap onto a second line rather than scrolling off the edge of
+     one. A horizontally scrollable row hid "+ Add" behind the screen edge with
+     nothing to say it was there — a pill you cannot see is a pill that does not
+     exist, and on a page this short there is room for the extra line. */
+  #site-nav[data-variant="bar"] .nav-links {
     order: 3;
     flex: 1 0 100%;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin-left: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-    /* Bleed to the screen edge so the row can be scrolled to its end without
-       the last pill hiding under the gutter. */
-    margin-inline: calc(var(--gutter) * -1);
-    padding: 0.15rem var(--gutter) 0.3rem;
+    row-gap: 0.4rem;
   }
 
-  #site-nav .nav-links::-webkit-scrollbar { display: none; }
-  #site-nav .nav-links > * { flex: 0 0 auto; }
+  /* The toggles keep the first line, beside the brand. */
+  #site-nav[data-variant="bar"] .nav-tools { margin-left: auto; }
 
-  #site-nav .nav-tools { margin-left: auto; }
-
-  #site-nav[data-variant="row"] .nav-tools {
-    top: 0.6rem;
-    right: max(0.6rem, calc(var(--gutter) - 0.4rem));
-  }
+  /* The front page has no brand in the row, so all seven controls are one set
+     and should wrap as one. Without this the four destinations fill a line, the
+     "+ Add" pill wraps alone onto a second, and the two toggles take a third.
+     `display: contents` drops the <nav> box while keeping the element — and its
+     navigation role and label — in the accessibility tree. */
+  #site-nav[data-variant="row"] .nav-links { display: contents; }
+  #site-nav[data-variant="row"] .nav-row { row-gap: 0.4rem; }
 }

@@ -8,16 +8,21 @@ step and no server: the quotations live in one JSON file, and the site reads it.
 
 ---
 
-## The four things you will actually do
+## The five things you will actually do
 
-### 1. Add a quote (no terminal, works from a phone)
+### 1. Add a quote (from the page itself, or from a phone)
 
-Open **[Add a quote](https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml)**,
-fill in the quotation and who said it, and submit. Within a minute or two a
-robot files it into the collection, the site rebuilds, and it replies with a
-direct link to your new quote. Then it closes the issue.
+Press **+ Add** in the header, type the quotation and who said it, and press
+**Add it**. It appears at the top of the collection at once, marked *pending*,
+and within a few hours a scheduled job writes it into `data/quotes.json` and
+the mark goes away. The first time on a new device the page asks for your
+**edit code** – it lives in `.env` next to this README as `EDIT_KEY`, and the
+page remembers it after that.
 
-That is the whole loop. You never touch a file.
+Without the code (or on someone else's device) the same button opens the
+**[Add a quote](https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml)**
+issue form on GitHub instead, and a robot files it within a minute or two.
+Either way you never touch a file.
 
 ### 1b. Remove or fix one (press **Curate**)
 
@@ -40,18 +45,38 @@ Anything you leave blank stays as it is. Changing the *wording* can give the
 quote a new link – identity is a hash of the text – and the reply tells you
 when it did.
 
-### 2. Nothing, for Goodreads
+### 2. The shelf is your library (Goodreads, retired)
 
-The Goodreads list looks after itself. A job runs every morning, reads the
-public quote list at the profile recorded in `data/sources.json`, and adds
-anything new. It has already brought over all 174.
+**[The shelf](https://abustrup.github.io/Quote-collection/works.html)** holds
+every book you have read, are reading, mean to read, or gave up on – the 87
+books that were on Goodreads on 16 September 2026 came across with their
+shelves, dates and star ratings – plus every talk and essay the collection
+quotes from. Each book stands on a ledge with its real cover; hover to lift
+it, click to open it.
 
-If you ever want it sooner, run
+Inside a book: a **0–10 rating** (for a book you have read it is *how good was
+it*; for one you have not it is *how much do I want to read it*, and the
+label follows the shelf), the four shelves, one line the book gave you, a
+button straight to its quotes, and the books next to it. Arrange the shelf by
+shelf status, subject, author, year, date added, date read, rating or how
+often quoted, and the books glide into their new places.
+
+Ratings and shelf changes save through a tiny service on Cloudflare (free
+tier, your own account) and show on every device at once; the same scheduled
+job that files new quotes writes them into `data/works.json` every three
+hours, so the repository stays the archive. Editing needs the edit code once
+per device; without it, or offline, the shelf still reads perfectly and the
+controls say so.
+
+### 2a. Nothing, for the Goodreads *quotes*
+
+The Goodreads quote list still looks after itself. A job runs every morning,
+reads the public quote list at the profile recorded in `data/sources.json`,
+and adds anything new. Quotes arriving this way are marked *unverified*,
+because Goodreads quotations are transcribed by other readers and nobody has
+checked them. If you ever want it sooner, run
 **[Sync from Goodreads](https://github.com/abustrup/Quote-collection/actions/workflows/sync-goodreads.yml)**
-and press the button. Nothing needs typing; the profile is remembered.
-
-Quotes arriving this way are marked *unverified*, because Goodreads
-quotations are transcribed by other readers and nobody has checked them.
+and press the button.
 
 <details>
 <summary>If the sync ever breaks — the manual way in</summary>
@@ -110,12 +135,13 @@ bills your own account, so it stays switched off until you turn it on.
 |---|---|
 | **Search** | Type anything – words in the quote, an author, a book |
 | **Filter** | By author, **work**, **subject** or **era**. Every filter is in the URL, so any view can be sent to someone |
-| **The shelf** | [works.html](https://abustrup.github.io/Quote-collection/works.html) – every book quoted here, arranged by subject, era, author or how often you quote it |
-| **Editions** | *Paper* to read slowly, *Night* for the dark, *Folio* for one line at a time, *Index* to scan hundreds fast |
-| **Focus** | One quote, nothing else. Press <kbd>F</kbd>, or the Focus button |
+| **The shelf** | [works.html](https://abustrup.github.io/Quote-collection/works.html) – your library: every book with its cover, shelf and rating, and every talk quoted here |
+| **Editions** | *Paper* to read slowly, *Night* for the dark, *Folio* for one line at a time, *Index* to scan hundreds fast. The moon in the header flips paper and night |
+| **Language** | The **DA / EN** pill switches every label and button; the quotations themselves are never translated |
+| **Focus** | One quote, nothing else. Press <kbd>F</kbd>, or the Focus button; <kbd>S</kbd> stars it |
 | **Keyboard** | <kbd>/</kbd> search · <kbd>J</kbd>/<kbd>K</kbd> move · <kbd>F</kbd> focus · <kbd>R</kbd> random · <kbd>C</kbd> curate · <kbd>Esc</kbd> clear |
 | **Links** | Every quote has its own permanent link, so you can send one to someone |
-| **Favourites** | The star keeps a quote in your own shortlist, stored on your device |
+| **Favourites** | The star keeps a quote in your shortlist – on every device once editing is unlocked, on this device otherwise |
 
 ---
 
@@ -170,21 +196,28 @@ show no badge at all – the badge appears only when there is something to say.
 
 ```
 index.html            the collection
-works.html            the shelf – every book quoted here
+works.html            the shelf – your library, every book with its cover
 scout.html            the board – proposed lines, waiting to be kept or let go
-import.html           the Goodreads importer
+import.html           the Goodreads quote importer
 suggest.html          reading suggestions
 data/quotes.json      every quotation – the only file that really matters
 data/proposals.json   the board: what has been proposed, and what became of it
-data/works.json       one record per work: its subject, year and kind
+data/works.json       one record per work: subject, year, kind, and for books
+                      the shelf, rating, want, cover, pages and dates
 data/removed.json     quotes deliberately deleted, so no importer re-adds them
-data/sources.json     which Goodreads profile the daily sync reads
+data/sources.json     the Goodreads profile the daily sync reads, and the
+                      address of the shelf's write service
 data/library.json     the curated works the recommender can suggest
 data/schema.json      the shape data/quotes.json must keep to
+assets/covers/        one WebP per book, fetched by scripts/fetch-covers.py
+assets/fonts/         Playfair Display, Source Serif 4 and DM Sans, subset
+worker/               the Cloudflare Worker that takes ratings, shelves,
+                      favourites and new quotes from the page
 scout-log.md          what the weekly scout tried, and how often it was right
 assets/               styles, fonts, and the code the pages run
-scripts/              the validators, the issue-to-quote importer, and curate.mjs
-.github/              the issue forms, the daily Goodreads sync, and the checks
+scripts/              validators, importers, the cover fetcher, check-ui
+docs/                 the plan, the acceptance bar, the build brief
+.github/              the issue forms, the two syncs, and the checks
 ```
 
 `data/quotes.json` is plain text and will still open in any editor in twenty
@@ -197,10 +230,19 @@ years, with or without this website.
 No build step, no dependencies, no framework. Serve the folder and it works.
 
 ```sh
-npm run serve    # http://localhost:8080
-npm run check    # validate the collection and the library
-npm test         # run the parser tests
+npm run serve      # http://localhost:8080
+npm run check      # validate the collection, the registry, the library, the covers
+npm test           # run the unit tests
+npm run check:ui   # drive both pages in headless Chrome: layout, motion, editing
 ```
+
+`npm run check:ui` is the executable half of `docs/ACCEPTANCE.md`: it opens
+the front page and the shelf at 1440 and 390 px in paper and night, re-sorts
+the shelf and measures the animation, opens a book, rates it against a stub
+of the write service, flips the language, and writes every screen it saw to
+`data/shots/`. The write service itself lives in `worker/` and deploys with
+`npm run worker:deploy`; its edit code is a Worker secret and a repository
+secret, never a file in git.
 
 `assets/quote-core.js` is the one file everything agrees on: it defines what a
 quote is, how its identity is computed, and how two records merge. A quote's
@@ -208,6 +250,8 @@ quote is, how its identity is computed, and how two records merge. A quote's
 creating duplicates, and what keeps a permalink working after a typo is fixed in
 the surrounding metadata.
 
-Typography and palette are inherited from
-[Alexanders Brief](https://abustrup.github.io/alexanders-brief/) so the two
-sites read as one hand.
+The palette is inherited from
+[Alexanders Brief](https://abustrup.github.io/alexanders-brief/). The type is
+the collection's own since 16 September 2026: Playfair Display for headlines,
+Source Serif 4 for the quotations, DM Sans for the interface, chosen by
+rendering four pairings from the owner's font library side by side.

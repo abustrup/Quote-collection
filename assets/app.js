@@ -133,7 +133,7 @@ register({
 
   'index.fav.offline': {
     en: 'Kept on this device; it syncs when the connection is back',
-    da: 'Gemt på denne enhed; den synkroniseres når forbindelsen er tilbage',
+    da: 'Gemt på denne enhed; den synkroniseres, når forbindelsen er tilbage',
   },
   'index.fav.local': { en: 'Kept on this device', da: 'Gemt på denne enhed' },
   'index.fav.refused': {
@@ -1484,34 +1484,13 @@ async function mountHeader() {
     if (button) dom.edition?.parentElement?.append(button);
   }
   hydrate(document);
-  keepToolsClear();
-  window.addEventListener('resize', keepToolsClear, { passive: true });
-  document.fonts?.ready?.then(keepToolsClear).catch(() => {});
 }
 
-/**
- * Keep the header's two toggles off its pills.
- *
- * In the row variant the DA/EN and light/dark buttons are positioned out of
- * the flow so they can sit at the top right, which is right at a desk and
- * wrong on a phone: the pills wrap towards them and the last one ends up
- * underneath. This measures instead of assuming a breakpoint, so it corrects
- * a real collision and does nothing at all when there is none — including if
- * the header is later laid out differently.
- */
-function keepToolsClear() {
-  const header = document.getElementById('site-nav');
-  const tools = header?.querySelector('.nav-tools');
-  const links = header?.querySelector('.nav-links');
-  if (!header || !tools || !links) return;
-
-  header.style.paddingTop = '';
-  const bar = tools.getBoundingClientRect();
-  const row = links.getBoundingClientRect();
-  const overlaps = bar.left < row.right && bar.right > row.left
-    && bar.top < row.bottom && bar.bottom > row.top;
-  if (overlaps) header.style.paddingTop = `${Math.ceil(bar.height + 14)}px`;
-}
+/* The two toggles used to be positioned out of the header's flow, so the pills
+   wrapped underneath them on a phone and this file measured the collision on
+   every resize and pushed the header down by hand. nav.css now lays them out as
+   the last two items of the same row, so there is no collision to measure and
+   the patch has gone with it [2026-09-16]. */
 
 async function init() {
   favorites = readFavorites();
