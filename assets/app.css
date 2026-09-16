@@ -917,3 +917,65 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   text-decoration-color: var(--accent);
   text-decoration-thickness: 1px;
 }
+/* ==========================================================================
+   Type — candidate D — Playfair Display / Source Serif 4 / DM Sans
+   Appended after the edition blocks above, so these win on source order.
+
+   Three jobs, three tokens:
+     --font-display  masthead, section headings, book titles
+     --font-body     the quotation and every run of reading text
+     --font-label    labels, pills, buttons, meta
+   app.css let running text inherit the display face, which is fine when the
+   display face is also a text face and wrong when it is not. --font-body makes
+   that explicit so a real display serif can be used without setting a
+   paragraph in it.
+
+   The masthead's weight and tracking become tokens for the same reason: a
+   single-weight display face must never be asked for 700, because Chrome fakes
+   the bold. font-synthesis-weight: none makes that safe everywhere.
+   ========================================================================== */
+
+:root {
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-quote: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-label: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display-weight: 700;
+  --display-tracking: -0.026em;
+  --title-weight: 400;
+  font-synthesis-weight: none;
+}
+
+:root[data-edition="night"] {
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-quote: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-label: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --quote-weight: 300;
+}
+
+:root[data-edition="folio"] {
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-quote: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-label: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display-weight: 700;
+}
+
+:root[data-edition="index"] {
+  --font-display: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-quote: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-label: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display-weight: 700;
+  --display-tracking: -0.03em;
+}
+
+body { font-family: var(--font-body); }
+
+.masthead h1 {
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+}
+
+.book-title { font-weight: var(--title-weight); }

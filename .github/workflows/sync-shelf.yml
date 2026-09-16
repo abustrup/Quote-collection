@@ -1,0 +1,161 @@
+# Carry the site's own edits back into the repository.
+#
+# He can rate a book, move it to another shelf, star a quote or add a quote
+# from the site itself. Those changes land in the little Cloudflare Worker in
+# worker/, because a static page on GitHub Pages cannot write to a repository.
+# This job is the other half of that trip: every three hours it reads the
+# Worker's state and folds it into the data files, so the repository stays what
+# the README promises — plain files, whole history in git, nothing important
+# living only in somebody's database.
+#
+# WHAT THIS JOB MAY WRITE: data/works.json and data/quotes.json. Nothing else.
+# It commits with the built-in GITHUB_TOKEN, scoped to this repository for the
+# length of the run — there is NO personal access token anywhere in this
+# workflow, and adding one would widen it from this repository to his whole
+# account.
+#
+# The only secret it uses is SHELF_EDIT_KEY, the Worker's edit key, and only to
+# tell the Worker "those pending quotes are committed now, stop offering them".
+# Without that secret everything else still runs; the quotes simply arrive again
+# next time and merge to nothing, which is harmless.
+#
+# EXPIRES 2026-12-31 — by then, say whether this is still wanted. The test is
+# whether he has edited anything from the site since; if the Worker's state has
+# been empty for months, this and the Worker can both go.
+name: Apply shelf changes
+
+on:
+  schedule:
+    # Every three hours, at :40, so it does not queue behind everything else
+    # scheduled on the hour.
+    - cron: '40 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only say what would change. Writes nothing, acks nothing.'
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+# The same group the Goodreads sync uses: both of these rewrite data/, and two
+# of them rebasing onto each other is a needless way to lose a commit.
+concurrency:
+  group: quotes-data
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    name: Apply
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Find the shelf service
+        id: api
+        run: |
+          url=$(node -e "const s=require('./data/sources.json');process.stdout.write(s?.shelfApi?.url ?? '')")
+          if [ -z "$url" ]; then
+            echo "waiting=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::No shelfApi.url in data/sources.json yet, so there is nothing to apply."
+          else
+            echo "url=$url" >> "$GITHUB_OUTPUT"
+            echo "Reading $url/state"
+          fi
+
+      - name: Apply the state
+        id: apply
+        if: steps.api.outputs.waiting != 'true'
+        run: |
+          node scripts/apply-shelf-state.mjs \
+            --url "${{ steps.api.outputs.url }}" \
+            --ack-file "${{ runner.temp }}/shelf-ack.json" \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Check the data still validates
+        if: steps.api.outputs.waiting != 'true'
+        run: |
+          node scripts/validate.mjs
+          node scripts/validate-works.mjs
+
+      - name: Commit anything that changed
+        if: steps.api.outputs.waiting != 'true'
+        run: |
+          if git diff --quiet -- data/works.json data/quotes.json; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/works.json data/quotes.json
+          git commit --message "Apply shelf changes from the site"
+
+          # Three tries, rebasing in between: another job writing to data/ in
+          # the same minute is the ordinary case here, not an emergency.
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          exit 1
+
+      # Only now, with the commit safely pushed: tell the Worker those pending
+      # quotes have landed. Acking earlier would lose a quote whenever the push
+      # failed, which is the one outcome this whole path exists to prevent.
+      - name: Tell the Worker what was taken
+        if: steps.api.outputs.waiting != 'true' && !inputs.dry_run
+        env:
+          EDIT_KEY: ${{ secrets.SHELF_EDIT_KEY }}
+          ACK_FILE: ${{ runner.temp }}/shelf-ack.json
+        run: |
+          if [ -z "$EDIT_KEY" ]; then
+            echo "::notice::No SHELF_EDIT_KEY set, so pending quotes stay pending. They merge to nothing next run."
+            exit 0
+          fi
+          if [ ! -s "$ACK_FILE" ]; then
+            echo "Nothing to acknowledge."
+            exit 0
+          fi
+          count=$(node -e "process.stdout.write(String(require(process.env.ACK_FILE).ids.length))")
+          if [ "$count" = "0" ]; then
+            echo "Nothing to acknowledge."
+            exit 0
+          fi
+          code=$(curl -sS -o /tmp/ack-reply.json -w '%{http_code}' \
+            -X POST "${{ steps.api.outputs.url }}/ack" \
+            -H "authorization: Bearer $EDIT_KEY" \
+            -H 'content-type: application/json' \
+            --data-binary "@$ACK_FILE")
+          echo "acknowledged $count, service said $code"
+          cat /tmp/ack-reply.json
+          # A 503 means nobody has set the Worker's EDIT_KEY yet, which is a
+          # waiting state rather than a fault. Anything else non-2xx is real.
+          case "$code" in
+            2*) exit 0 ;;
+            503) echo "::notice::The Worker has no EDIT_KEY set, so it is not accepting writes yet." ; exit 0 ;;
+            *) exit 1 ;;
+          esac
+
+      - name: Say what happened
+        if: always()
+        run: |
+          {
+            echo "### Shelf changes"
+            echo
+            if [ "${{ steps.api.outputs.waiting }}" = "true" ]; then
+              echo "No shelf service configured yet."
+            else
+              echo "- ${{ steps.apply.outputs.works || 0 }} book fields"
+              echo "- ${{ steps.apply.outputs.favorites || 0 }} favourites"
+              echo "- ${{ steps.apply.outputs.added || 0 }} new quotes"
+              echo "- ${{ steps.apply.outputs.refused || 0 }} refused (deliberately removed before)"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

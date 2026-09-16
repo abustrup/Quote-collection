@@ -1,0 +1,23 @@
+# The write path for the shelf: a single Worker on the free tier, his account.
+#
+# Everything the site cannot do from a static page — rate a book, move it to
+# another shelf, star a quote, add a quote — lands here first and reaches the
+# repository later, when .github/workflows/sync-shelf.yml pulls this state into
+# data/works.json and data/quotes.json. The repository stays the archive; this
+# is the inbox that keeps the site editable from a phone.
+#
+# No routes and no custom domain: workers.dev is enough, and a custom domain
+# would need a zone. No secret is stored here. EDIT_KEY is set separately with
+# `wrangler secret put EDIT_KEY`, and until it exists every write answers 503
+# "editing not configured" rather than failing in some way nobody can read.
+name = "quote-shelf"
+main = "src/index.mjs"
+compatibility_date = "2026-09-01"
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "quote-shelf"
+database_id = "64f30891-d818-4b4d-8e39-f92af6b82016"

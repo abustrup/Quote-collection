@@ -1,0 +1,4 @@
+# wrangler's local state: a local D1 copy, build output and caches. None of it
+# belongs in the repository, and the local database is throwaway by design.
+.wrangler/
+node_modules/

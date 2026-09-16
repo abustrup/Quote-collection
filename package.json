@@ -7,6 +7,12 @@
   "scripts": {
     "check": "node scripts/validate.mjs && node scripts/validate-works.mjs && node scripts/validate-library.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",
-    "serve": "node scripts/serve.mjs"
+    "serve": "node scripts/serve.mjs",
+    "check:ui": "node scripts/check-ui.mjs",
+    "check:ui:live": "node scripts/check-ui.mjs --url https://abustrup.github.io/Quote-collection",
+    "sync:shelf": "node scripts/apply-shelf-state.mjs",
+    "sync:shelf:dry": "node scripts/apply-shelf-state.mjs --dry-run",
+    "worker:dev": "npx wrangler dev --cwd worker --local",
+    "worker:deploy": "npx wrangler deploy --cwd worker"
   }
 }

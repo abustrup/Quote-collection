@@ -3,5 +3,9 @@
   "goodreads": {
     "profileUrl": "https://www.goodreads.com/quotes/list/149695942",
     "note": "Set this once and the collection keeps itself current. Either paste a Goodreads profile or quotes-list URL into the 'Sync from Goodreads' workflow, which writes it here, or fill it in by hand. Accepts https://www.goodreads.com/user/show/<id>-<name>, https://www.goodreads.com/quotes/list/<id>, or the bare numeric id."
+  },
+  "shelfApi": {
+    "url": "https://quote-shelf.abustrup.workers.dev",
+    "note": "The little Cloudflare Worker in worker/ that takes ratings, shelf changes, favourites and new quotes from the site; the site reads GET /state on load and .github/workflows/sync-shelf.yml folds that state into data/works.json and data/quotes.json every three hours."
   }
 }
