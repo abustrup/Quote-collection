@@ -315,8 +315,13 @@ export async function setWork(slug, patch) {
   const next = { ...(before ?? {}) };
   for (const field of ['rating', 'want', 'shelf']) {
     if (!(field in patch)) continue;
-    if (patch[field] === null) delete next[field];
-    else next[field] = patch[field];
+    // A null is kept, not deleted. It is the tombstone the Worker stores and
+    // `applyWork` already knows how to read: "this was cleared on the site,
+    // ignore what the repository still says." Deleting it here instead left the
+    // registry's own value showing, so clearing a rating or taking a book off
+    // the shelf changed nothing on screen until the next reload fetched the
+    // Worker's copy of the same fact.
+    next[field] = patch[field];
   }
   next.updatedAt = new Date().toISOString();
 

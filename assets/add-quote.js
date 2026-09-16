@@ -355,10 +355,12 @@ async function onSubmit(event) {
       showLocked(true);
       say(t('add.error.unconfigured'), 'bad');
     } else if (code === 'offline') {
-      showLocked(true);
+      // No locked panel here. The device is unlocked; the network is not there.
+      // Revealing "editing is locked on this device" beside "could not reach
+      // the service" tells him two different stories about one failure, and
+      // offers him a code field that would not have helped.
       say(t('add.error.offline'), 'bad');
     } else {
-      showLocked(true);
       say(t('add.error.failed'), 'bad');
     }
   } finally {

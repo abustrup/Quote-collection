@@ -279,6 +279,13 @@ button {
   appearance: none;
 }
 
+/* The dropdown itself is drawn by the operating system, and it inherits from
+   the control rather than from the page. Said here too, or the night edition
+   opens a white menu. */
+select.pill option { background-color: var(--surface); color: var(--ink); }
+
+select.pill:hover { border-color: var(--ink); }
+
 .search input::placeholder { color: var(--muted); }
 
 .search input:focus-visible {
@@ -353,6 +360,14 @@ select.pill {
      past the viewport on a phone. The cap is on the closed control only; the
      open menu still shows each title in full. */
   max-width: min(100%, 15rem);
+  /* Said out loud, in every edition. `appearance: none` strips the widget but
+     not the UA's own fill, so a select left with no background of its own kept
+     Chrome's light Field colour under the page's muted text — 2.89:1 in the
+     night edition, on the Arrange control and on all five filters. Ink on the
+     page's own surface is the same colour pair the rest of the row uses. */
+  background-color: var(--surface);
+  color: var(--ink);
+  border-color: var(--rule);
   overflow: hidden;
   text-overflow: ellipsis;
   padding-right: 1.6rem;
@@ -562,8 +577,10 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  /* 36, not 32. The glyph inside stays 16px — what grows is the part a thumb
+     has to hit, and three of these sit side by side at the foot of a quote. */
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius);
   color: var(--muted);
   transition: color 0.16s var(--ease), background-color 0.16s var(--ease);

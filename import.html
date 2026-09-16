@@ -205,9 +205,9 @@
 <a class="skip-link" href="#dropzone">Skip to the importer</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker">Quote Collection</p>
-  <h1>Import from Goodreads</h1>
-  <p class="masthead-dek lede">
+  <p class="masthead-kicker" data-i18n="import.kicker">Quote Collection</p>
+  <h1 data-i18n="import.title">Import from Goodreads</h1>
+  <p class="masthead-dek lede" data-i18n="import.dek">
     Goodreads has no export worth the name, but it will print. Drop the printed
     pages here and they become quotes again – read in this browser, on this
     device, and never sent anywhere.
@@ -575,6 +575,23 @@
   });
 </script>
 
-<script type="module">import('./assets/nav.js').then((nav) => nav.mountNav({ active: 'import', variant: 'bar' })).catch(() => {});</script>
+<!-- The header, and the masthead's own three lines in both languages. The
+     deeper interface on this page is still English only: it is a workbench,
+     not a reading page, and translating it is a separate job. -->
+<script type="module">
+  Promise.all([import('./assets/nav.js'), import('./assets/i18n.js')]).then(([nav, i18n]) => {
+    i18n.register({
+    'import.kicker': { en: 'Quote Collection', da: 'Citatsamlingen' },
+    'import.title': { en: 'Import from Goodreads', da: 'Importér fra Goodreads' },
+    'import.dek': {
+      en: 'Goodreads has no export worth the name, but it will print. Drop the printed pages here and they become quotes again – read in this browser, on this device, and never sent anywhere.',
+      da: 'Goodreads har ingen eksport værd at tale om, men den kan printe. Læg de printede sider her, så bliver de til citater igen – læst i denne browser, på denne enhed, og aldrig sendt nogen steder hen.',
+    },
+    });
+    nav.mountNav({ active: 'import', variant: 'bar' });
+    i18n.hydrate(document);
+    i18n.onLang(() => i18n.hydrate(document));
+  }).catch(() => {});
+</script>
 </body>
 </html>

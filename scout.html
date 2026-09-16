@@ -280,9 +280,9 @@
 <a class="skip-link" href="#board">Skip to the board</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker">Quote Collection</p>
-  <h1>The Board</h1>
-  <p class="masthead-dek">
+  <p class="masthead-kicker" data-i18n="board.kicker">Quote Collection</p>
+  <h1 data-i18n="board.title">The Board</h1>
+  <p class="masthead-dek" data-i18n="board.dek">
     Closed on 3 September 2026. For five weeks a routine read the shape of the
     collection and went looking for lines from works it did not hold. This is
     the record of what it offered and what was kept.
@@ -364,6 +364,23 @@
 </noscript>
 
 <script type="module" src="assets/scout.js"></script>
-<script type="module">import('./assets/nav.js').then((nav) => nav.mountNav({ active: 'board', variant: 'bar' })).catch(() => {});</script>
+<!-- The header, and the masthead's own three lines in both languages. The
+     deeper interface on this page is still English only: it is a workbench,
+     not a reading page, and translating it is a separate job. -->
+<script type="module">
+  Promise.all([import('./assets/nav.js'), import('./assets/i18n.js')]).then(([nav, i18n]) => {
+    i18n.register({
+    'board.kicker': { en: 'Quote Collection', da: 'Citatsamlingen' },
+    'board.title': { en: 'The Board', da: 'Tavlen' },
+    'board.dek': {
+      en: 'Closed on 3 September 2026. For five weeks a routine read the shape of the collection and went looking for lines from works it did not hold. This is the record of what it offered and what was kept.',
+      da: 'Lukket den 3. september 2026. I fem uger læste en rutine samlingens form og gik på jagt efter linjer fra værker, den ikke havde. Her står, hvad den bød ind med, og hvad der blev gemt.',
+    },
+    });
+    nav.mountNav({ active: 'board', variant: 'bar' });
+    i18n.hydrate(document);
+    i18n.onLang(() => i18n.hydrate(document));
+  }).catch(() => {});
+</script>
 </body>
 </html>

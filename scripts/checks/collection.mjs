@@ -17,6 +17,47 @@
 const PAGE = '/index.html';
 const READY = '.collection li';
 
+/**
+ * The contrast of every native <select> against whatever is actually behind it.
+ *
+ * `appearance: none` strips the widget but not the UA's own fill, so a select
+ * with no background of its own keeps Chrome's light Field colour — which in
+ * the night edition put muted text on near-white at 2.89:1. Measured from
+ * computed style rather than from a screenshot, and the background is walked up
+ * the ancestors until something opaque is found, because a transparent control
+ * is the colour of whatever it is sitting on.
+ */
+const SELECT_CONTRAST = `(() => {
+  const chan = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const lum = (c) => 0.2126 * chan(c[0]) + 0.7152 * chan(c[1]) + 0.0722 * chan(c[2]);
+  const parse = (s) => {
+    const n = String(s).match(/-?[\\d.]+/g) || [];
+    return { rgb: n.slice(0, 3).map(Number), a: n.length > 3 ? Number(n[3]) : 1 };
+  };
+  const under = (el) => {
+    for (let n = el; n; n = n.parentElement) {
+      const c = parse(getComputedStyle(n).backgroundColor);
+      if (c.a > 0.99) return c.rgb;
+    }
+    return [255, 255, 255];
+  };
+  return [...document.querySelectorAll('select.pill')]
+    .filter((el) => el.getClientRects().length)
+    .map((el) => {
+      const s = getComputedStyle(el);
+      const own = parse(s.backgroundColor);
+      const bg = own.a > 0.99 ? own.rgb : under(el.parentElement);
+      const a = lum(parse(s.color).rgb) + 0.05;
+      const b = lum(bg) + 0.05;
+      return {
+        id: el.id || el.name || 'select',
+        ratio: Math.round((Math.max(a, b) / Math.min(a, b)) * 100) / 100,
+        ink: s.color,
+        fill: s.backgroundColor,
+      };
+    });
+})()`;
+
 /* --------------------------------------------------------------- helpers */
 
 /** Reload without going through goto(), which would reset localStorage. */
@@ -627,6 +668,46 @@ async function keyboardAndUrl(ctx) {
 
 /* ------------------------------------------------------------------ run */
 
+/** 19b — a work slug the collection has never held says so, and offers a way out. */
+async function unknownWork(ctx) {
+  await ctx.goto(`${PAGE}?work=no-such-work-anywhere`, {
+    width: 1440, height: 1000, edition: 'paper', lang: 'en', quiet: 900,
+  });
+  const shown = await ctx.ev(`(() => ({
+    items: document.querySelectorAll('.collection li').length,
+    emptyShown: !document.getElementById('empty').hidden,
+    detail: ((document.getElementById('empty-detail') || {}).textContent || '').trim(),
+    clears: [...document.querySelectorAll('#active-filters [data-clear]')].map((c) => c.dataset.clear),
+  }))()`);
+
+  ctx.rec('a work slug the collection never had shows the empty state, not the whole collection',
+    shown.items === 0 && shown.emptyShown && /no quotes from that work/i.test(shown.detail)
+      && shown.clears.includes('all'),
+    `./?work=no-such-work-anywhere → ${shown.items} quotes listed, empty state up saying "${shown.detail}", `
+    + `chips [${shown.clears.join(', ')}]. It used to answer with all 240, because the filter was dropped `
+    + `the moment the menu had no option for it`);
+  await ctx.shot('index-unknown-work');
+}
+
+/** 23 — the five filters and the edition picker, read against their own fill. */
+async function selectContrast(ctx) {
+  const rows = [];
+  for (const edition of ['paper', 'night', 'folio', 'index']) {
+    await ctx.goto(PAGE, { width: 1440, height: 1000, edition, lang: 'en', waitFor: READY });
+    for (const row of await ctx.ev(SELECT_CONTRAST)) rows.push({ edition, ...row });
+  }
+  const dim = rows.filter((row) => row.ratio < 4.5);
+  ctx.rec('23 · every filter and the edition picker are legible in every edition',
+    rows.length > 0 && dim.length === 0,
+    dim.length
+      ? dim.map((row) => `${row.edition} #${row.id}: ${row.ratio}:1 (${row.ink} on ${row.fill})`).join('\n')
+      : `${rows.length} selects measured; worst ${Math.min(...rows.map((r) => r.ratio))}:1 `
+        + `(${[...new Set(rows.map((r) => `${r.edition} ${Math.min(...rows.filter((x) => x.edition === r.edition).map((x) => x.ratio))}:1`))].join(', ')})`);
+
+  await ctx.goto(PAGE, { width: 1440, height: 1000, edition: 'night', lang: 'en', waitFor: READY });
+  await ctx.shot('index-controls-1440-night');
+}
+
 export async function run(ctx) {
   await shelfAboveFold(ctx, 1440, 1000);
   await shelfAboveFold(ctx, 390, 844);
@@ -638,4 +719,6 @@ export async function run(ctx) {
   await addQuoteUnlocked(ctx);
   await headerOnEveryPage(ctx);
   await keyboardAndUrl(ctx);
+  await unknownWork(ctx);
+  await selectContrast(ctx);
 }

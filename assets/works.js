@@ -82,21 +82,9 @@ register({
   'shelf.band.quotes.one': { en: 'One quote', da: 'Ét citat' },
   'shelf.band.quotes.none': { en: 'Not quoted yet', da: 'Ikke citeret endnu' },
 
-  'shelf.subject.literature': { en: 'Literature', da: 'Litteratur' },
-  'shelf.subject.philosophy': { en: 'Philosophy', da: 'Filosofi' },
-  'shelf.subject.ethics': { en: 'Ethics', da: 'Etik' },
-  'shelf.subject.politics': { en: 'Politics', da: 'Politik' },
-  'shelf.subject.economics': { en: 'Economics', da: 'Økonomi' },
-  'shelf.subject.psychology': { en: 'Psychology', da: 'Psykologi' },
-  'shelf.subject.sociology': { en: 'Sociology', da: 'Sociologi' },
-  'shelf.subject.science': { en: 'Science', da: 'Naturvidenskab' },
-  'shelf.subject.technology': { en: 'Technology', da: 'Teknologi' },
-  'shelf.subject.history': { en: 'History', da: 'Historie' },
-  'shelf.subject.military': { en: 'Strategy', da: 'Krigskunst' },
-  'shelf.subject.religion': { en: 'Religion', da: 'Religion' },
-  'shelf.subject.law': { en: 'Law', da: 'Jura' },
-  'shelf.subject.education': { en: 'Education', da: 'Uddannelse' },
-  'shelf.subject.none': { en: 'Unclassified', da: 'Uden emne' },
+  /* Subjects and eras now live in the shared block in assets/i18n.js: the
+     collection's filters label themselves from the same dictionary. What a
+     work *is* stays here, because only this page says it. */
 
   'shelf.kind.book': { en: 'Book', da: 'Bog' },
   'shelf.kind.essay': { en: 'Essay', da: 'Essay' },
@@ -106,12 +94,6 @@ register({
   'shelf.kind.document': { en: 'Document', da: 'Dokument' },
   'shelf.kind.other': { en: 'Work', da: 'Værk' },
 
-  'shelf.era.antiquity': { en: 'Antiquity', da: 'Antikken' },
-  'shelf.era.medieval': { en: 'Medieval', da: 'Middelalderen' },
-  'shelf.era.early-modern': { en: 'Early modern', da: 'Tidlig moderne' },
-  'shelf.era.c19': { en: '19th century', da: '1800-tallet' },
-  'shelf.era.c20': { en: '20th century', da: '1900-tallet' },
-  'shelf.era.contemporary': { en: 'Contemporary', da: 'Nutiden' },
 
   'shelf.hero.reading': { en: 'Currently reading', da: 'Læser lige nu' },
   'shelf.hero.feature': { en: 'Stand this one at the front', da: 'Stil denne forrest' },
@@ -158,6 +140,14 @@ register({
   },
   'shelf.notSetUp': { en: 'Editing is not set up.', da: 'Redigering er ikke slået til.' },
   'shelf.saveFailed': { en: 'That change could not be saved.', da: 'Ændringen kunne ikke gemmes.' },
+  'shelf.ratingCleared': { en: 'Rating cleared', da: 'Bedømmelse ryddet' },
+  /* The phone's version of the two questions. The long form is still the
+     radiogroup's accessible name, so nothing is lost to a screen reader. */
+  'shelf.rateShort.good': { en: 'Rated', da: 'Bedømt' },
+  'shelf.rateShort.want': { en: 'Want', da: 'Vil læse' },
+  'shelf.skip': { en: 'Skip to the shelf', da: 'Spring til hylden' },
+  'shelf.repo': { en: 'Source', da: 'Kildekode' },
+  'shelf.removed': { en: 'Removed from the shelf', da: 'Fjernet fra hylden' },
 });
 
 /* ==========================================================================
@@ -205,6 +195,28 @@ const fmtYear = (year) => {
 };
 
 const nQuotes = (n) => (n === 1 ? t('shelf.quote1') : t('shelf.quotes', { n }));
+
+/**
+ * One spelling for the search box and the shelf both.
+ *
+ * `slug()` in quote-core folds a name down to something a URL can carry;
+ * searching wants the same folding without the hyphens, so a reader who types
+ * "zizek" finds Žižek, "acemoglu" finds Acemoğlu, and "claude's" finds a title
+ * set with a curly apostrophe. The Nordic letters are transliterated the way
+ * `slug()` transliterates them, because NFD leaves ø and æ standing.
+ */
+const NORDIC = { 'ø': 'o', 'æ': 'ae', 'å': 'aa', 'ð': 'd', 'þ': 'th', 'œ': 'oe', 'ß': 'ss', 'đ': 'd', 'ł': 'l', 'ı': 'i' };
+
+function fold(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/[øæåðþœßđłı]/g, (letter) => NORDIC[letter] ?? letter)
+    .normalize('NFD')
+    .replace(/\p{M}+/gu, '')
+    .replace(/[\u2018\u2019\u02bc]/g, "'")
+    .replace(/[\u201c\u201d]/g, '"')
+    .replace(/[\u2010-\u2015]/g, '-');
+}
 
 /**
  * The name a shelf sorts by.
@@ -269,6 +281,11 @@ function hueFor(key) {
 
 let works = [];
 const bySlug = new Map();
+/* Every quote in data/quotes.json, including the ones attributed to no work.
+   Summing the per-work counts instead said "239 quotes" beside the collection's
+   own "240", and a number that disagrees with the page next door is worse than
+   no number at all. */
+let quoteTotal = 0;
 
 function makeItem(raw, counts) {
   const key = slug(raw.title);
@@ -301,6 +318,7 @@ function makeItem(raw, counts) {
     width: Math.round(height * aspect),
     hue: hueFor(key),
     surname: surname(raw.author),
+    search: fold(`${raw.title} ${raw.author || ''}`),
     shelf: null,
     rating: null,
     want: null,
@@ -497,11 +515,11 @@ function groupsFor(items) {
 }
 
 function visible() {
-  const query = view.query.trim().toLowerCase();
+  const query = fold(view.query.trim());
   return works.filter((item) => {
     if (view.filter !== 'all' && item.shelf !== view.filter) return false;
     if (!query) return true;
-    return `${item.title} ${item.author}`.toLowerCase().includes(query);
+    return item.search.includes(query);
   });
 }
 
@@ -647,7 +665,11 @@ function paintBook(item) {
   const count = node.querySelector('.c-quotes');
   if (count) count.textContent = quotes;
   const kind = node.querySelector('.tc-kind');
-  if (kind) kind.textContent = [item.kind === 'book' ? '' : kindLabel(item), fmtYear(item.year)].filter(Boolean).join(' · ');
+  // The year leads, and the kind follows it. On a 78px typographic cover the
+  // kicker does not fit, and whichever half is written last is the half that
+  // gets the ellipsis — "Interview · 202…" on 14 of the 24 talks. The year is
+  // the informative half, so the kind is the one that yields.
+  if (kind) kind.textContent = [fmtYear(item.year), item.kind === 'book' ? '' : kindLabel(item)].filter(Boolean).join(' · ');
 }
 
 /* ==========================================================================
@@ -868,6 +890,105 @@ function measureBooks() {
 /** Say that the page has moved under the last measurement. */
 function unplace() { placed = null; }
 
+/**
+ * Put the page's one fixed box back where the viewport actually is.
+ *
+ * A window that changes size while a transition is playing can leave Chrome's
+ * own idea of the viewport behind: `window.innerWidth` went on reading 1089 on
+ * a 390px screen for as long as a re-sort ran, and `#shelf-toast` — the only
+ * `position: fixed` box on this page — was laid out against that stale number
+ * and widened the document by 699px, permanently. Nothing short of taking the
+ * box out of the layout and putting it back re-resolves it: a forced layout
+ * read does not, and neither does invalidating style [measured 2026-09-16].
+ *
+ * Guarded on the document having actually gone wide, so an ordinary resize
+ * costs nothing and a toast mid-fade is never interrupted for no reason.
+ */
+/* What the page last understood the viewport to be. Module scope, because the
+   delayed settle below asks the same question again a second later: a viewport
+   that changes during an animation does not always tell the page so in one go,
+   and a card built for the wrong width is worse than a late repaint. */
+let lastViewportWidth = null;
+let lastNarrow = null;
+const viewportWork = { calls: 0, heroRepaints: 0, flipsCut: 0 };
+
+/**
+ * The window changed size. Three things have to answer it.
+ *
+ * The hero is rebuilt if the phone boundary was crossed. Its two layouts are a
+ * JavaScript decision — the thumbnails are built at 46px or at 120px — so a
+ * card built at 1440 and left standing in a 390px window puts 440px of books
+ * in a 353px card, which is what a window narrowed during a re-sort was left
+ * holding, and what widened the document by 99px for good.
+ *
+ * A FLIP in flight is cut short. It holds every book at the position it had in
+ * the *old* viewport as an inline transform, up to a thousand pixels right of
+ * the new one, and a phone answers a document wider than its screen by zooming
+ * out — which it does not undo when the animation ends. The books are already
+ * where they belong, so the worst of ending it here is a re-sort that did not
+ * glide across a resize nobody performs mid-animation on purpose.
+ *
+ * And the lean is re-measured, because every rect it rests on has moved.
+ */
+function viewportChanged() {
+  viewportWork.calls += 1;
+  const width = document.documentElement.clientWidth;
+  const widthChanged = lastViewportWidth !== null && width !== lastViewportWidth;
+  lastViewportWidth = width;
+
+  if (widthChanged && document.documentElement.classList.contains('is-flipping')) {
+    viewportWork.flipsCut += 1;
+    endFlip();
+  }
+  let repainted = false;
+  if (narrowQuery.matches !== lastNarrow) {
+    lastNarrow = narrowQuery.matches;
+    viewportWork.heroRepaints += 1;
+    paintHero();
+    repainted = true;
+  }
+  if (widthChanged || repainted) {
+    unplace();
+    applyLean();
+  }
+  if (widthChanged) scheduleSettle();
+  return widthChanged || repainted;
+}
+
+function pokeFixed() {
+  const node = $('shelf-toast');
+  if (!node) return;
+  node.style.display = 'none';
+  void node.offsetWidth;
+  node.style.display = '';
+  void node.offsetWidth;
+}
+
+/** The same poke, but only when the page has actually gone wide. */
+function settleFixed() {
+  const doc = document.documentElement;
+  if (doc.scrollWidth <= doc.clientWidth + 1) return false;
+  pokeFixed();
+  return true;
+}
+
+/* Four attempts rather than one: the stale viewport does not always arrive
+   with the resize event — it can turn up a few hundred milliseconds later,
+   while the re-sort is still playing — and a poke that lands before it is a
+   poke wasted. The timers restart on every resize event, so dragging a window
+   edge pokes once at the end rather than on every pixel. */
+let settleTimers = [];
+function scheduleSettle() {
+  for (const id of settleTimers) clearTimeout(id);
+  settleTimers = [90, 320, 900, 1800].map((ms) => setTimeout(() => {
+    pokeFixed();
+    // And ask again. A media query can still be answering for the old viewport
+    // at the instant the resize is announced, so the layout decision the card
+    // makes in JavaScript has to be re-taken once the dust has settled.
+    viewportChanged();
+  }, ms));
+}
+
 function endFlip() {
   document.documentElement.classList.remove('is-flipping');
   for (const node of nodes.values()) {
@@ -876,6 +997,7 @@ function endFlip() {
     node.style.opacity = '';
   }
   applyLean();
+  settleFixed();
 }
 
 function flip(mutate) {
@@ -1019,6 +1141,9 @@ function applyLean() {
 
 let hovered = null;
 let hoverRect = null;
+/* Set only by ?hover=<n>. A frozen hover is a still being posed, and nothing —
+   a scroll, a pointer that was never there — is allowed to undo it. */
+let hoverFrozen = false;
 
 function tiltTo(node, clientX) {
   if (!hoverRect || document.documentElement.classList.contains('is-flipping')) return;
@@ -1030,7 +1155,7 @@ function tiltTo(node, clientX) {
 }
 
 function leaveBook() {
-  if (!hovered) return;
+  if (hoverFrozen || !hovered) return;
   hovered.classList.remove('is-hover');
   const tilt = hovered.querySelector('.tilt');
   if (tilt) tilt.style.transform = '';
@@ -1148,8 +1273,11 @@ function rateControl(item, { onChanged, empty = 'shelf.notRated' } = {}) {
     const score = scoreOf(item);
     const previous = score.value ?? 0;
     const next = score.value === n ? null : n;
-    const ok = await commit(item, { [score.field]: next });
-    paint({ pressed: ok && next ? n : null, previous });
+    const result = await commit(item, { [score.field]: next });
+    paint({ pressed: result && next ? n : null, previous });
+    // Clearing has no animation to speak for it — the stars simply go out —
+    // so it says what happened instead.
+    if (result === 'saved' && next === null) toast(t('shelf.ratingCleared'));
     onChanged?.();
   }
 
@@ -1163,6 +1291,13 @@ function rateControl(item, { onChanged, empty = 'shelf.notRated' } = {}) {
 
 let pendingAfterUnlock = null;
 
+/**
+ * Send one change, and say in a word how it went.
+ *
+ * 'saved' and 'offline' are both successes as far as the screen is concerned —
+ * the local copy holds the change either way — but only one of them is allowed
+ * to put a message of its own on top of "saved on this device".
+ */
 async function commit(item, patch) {
   if (!isUnlocked()) {
     openUnlock(() => commit(item, patch).then(() => { paintAll(); }));
@@ -1170,13 +1305,13 @@ async function commit(item, patch) {
   }
   try {
     await setWork(item.slug, patch);
-    return true;
+    return 'saved';
   } catch (error) {
     if (error?.code === 'locked') {
       openUnlock(() => commit(item, patch).then(() => { paintAll(); }));
     } else if (error?.code === 'offline') {
       toast(t('shelf.savedHere'));
-      return true;           // the local copy holds it, and the queue replays it
+      return 'offline';      // the local copy holds it, and the queue replays it
     } else if (error?.code === 'unconfigured') {
       toast(t('shelf.notSetUp'));
     } else {
@@ -1188,7 +1323,10 @@ async function commit(item, patch) {
 
 function toast(message) {
   const node = $('shelf-toast');
-  node.textContent = message;
+  // The wrapper is a full-width row; the bubble inside it is what is seen and
+  // what moves. Writing to the wrapper would throw the bubble away.
+  const body = node.querySelector('.shelf-toast-body') || node;
+  body.textContent = message;
   node.dataset.visible = 'true';
   clearTimeout(toast.timer);
   toast.timer = setTimeout(() => { node.dataset.visible = 'false'; }, 4200);
@@ -1235,7 +1373,10 @@ function wireUnlock() {
   });
   $('unlock-cancel').addEventListener('click', closeUnlock);
   unlockEl.addEventListener('click', (event) => { if (event.target === unlockEl) closeUnlock(); });
-  unlockEl.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeUnlock(); });
+  // No Escape handler here on purpose. There used to be one, and because it ran
+  // first and hid this dialog, the document's handler underneath it then saw no
+  // dialog open and closed the book detail as well — one key, two layers. The
+  // document's handler is the only one, and it closes the top-most layer.
 
   $('shelf-lock').addEventListener('click', () => {
     if (isUnlocked()) { lock(); paintLock(); toast(t('edit.locked')); }
@@ -1277,6 +1418,11 @@ const detailEl = $('detail');
 const scrimEl = $('detail-scrim');
 let openSlug = null;
 let openedFrom = null;
+/* True when opening the detail is what put the current entry in the history,
+   and therefore when closing it is allowed to take that entry back out. A
+   detail opened by a deep link owns no entry of its own, so Escape there must
+   not send the reader off the page. */
+let pushedDetail = false;
 
 function metaLine(item) {
   return [
@@ -1335,22 +1481,25 @@ function buildDetail(item) {
     body.append(item_(el('p', 'detail-quote', `“${typographic(item.sample)}”`)));
   }
 
-  // Rating, and the shelf that decides what the rating means.
-  const rateBlock = item_(el('div', 'detail-block'));
-  const rateLabel = el('span', 'detail-label', rateLabelFor(item));
-  rateBlock.append(rateLabel);
-  const rate = rateControl(item, {
-    empty: 'shelf.notRatedYet',
-    onChanged: () => {
-      paintBook(item);
-      paintHero();
-      if (view.sort === 'rating') render({ animate: true });
-    },
-  });
-  rateBlock.append(rate.root);
-  body.append(rateBlock);
-
+  // Rating and shelf, together, and only for a book. A talk is not on a shelf
+  // and is not waiting to be read, so "How much do I want to read it" under a
+  // conference video was a question about nothing — the brief gives non-books
+  // no rating and no shelf control, just the quotes and the links.
   if (isBook(item)) {
+    const rateBlock = item_(el('div', 'detail-block'));
+    const rateLabel = el('span', 'detail-label', rateLabelFor(item));
+    rateBlock.append(rateLabel);
+    const rate = rateControl(item, {
+      empty: 'shelf.notRatedYet',
+      onChanged: () => {
+        paintBook(item);
+        paintHero();
+        if (view.sort === 'rating') render({ animate: true });
+      },
+    });
+    rateBlock.append(rate.root);
+    body.append(rateBlock);
+
     const shelfBlock = item_(el('div', 'detail-block'));
     shelfBlock.append(el('span', 'detail-label', t('shelf.shelfLabel')));
     const choice = el('div', 'detail-shelves');
@@ -1435,6 +1584,11 @@ function paintDetail(item) {
   detailEl.replaceChildren(buildDetail(item));
   detailEl.hidden = false;
   scrimEl.hidden = false;
+  // Both, not one. The document scrolls on <html>, so hiding the body's
+  // overflow alone left the shelf sliding about behind the open sheet at a
+  // desk. The gutter is reserved in CSS (`scrollbar-gutter: stable`) so taking
+  // the scrollbar away does not shift the page sideways underneath it.
+  document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
   detailEl.scrollTop = 0;
   $('detail-close').focus({ preventScroll: true });
@@ -1442,7 +1596,8 @@ function paintDetail(item) {
 }
 
 function setShelf(item, next) {
-  commit(item, { shelf: next }).then(() => {
+  commit(item, { shelf: next }).then((result) => {
+    if (result === 'saved' && next === null) toast(t('shelf.removed'));
     refresh(item);
     detailEl.__repaintShelf?.();
     paintBook(item);
@@ -1483,13 +1638,25 @@ function wireDetailTilt() {
  * captured and hands it over inside the callback — the handover is the
  * transition.
  */
-function openBook(key, source, { animate = true } = {}) {
+function openBook(key, source, { animate = true, push = true } = {}) {
   const item = bySlug.get(key);
   if (!item) return;
+  const wasOpen = !detailEl.hidden;
   if (source) openedFrom = source;
   openSlug = key;
   leaveBook();
-  history.replaceState(null, '', `#${key}`);
+
+  // Opening pushes, so Back closes the sheet rather than leaving the site.
+  // Moving from one book to a neighbour replaces instead: seven neighbours
+  // deep, a reader still expects one Back to put them on the shelf.
+  const url = `#${encodeURIComponent(key)}`;
+  if (!push || wasOpen) {
+    history.replaceState({ book: key }, '', url);
+    if (!wasOpen) pushedDetail = false;
+  } else {
+    history.pushState({ book: key }, '', url);
+    pushedDetail = true;
+  }
 
   const sourceCover = source?.querySelector('.cover-box') || null;
 
@@ -1527,7 +1694,7 @@ function openBook(key, source, { animate = true } = {}) {
   detailEl.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'cubic-bezier(0.2, 0, 0, 1)', fill: 'none' });
 }
 
-function closeBook() {
+function closeBook({ viaHistory = false } = {}) {
   if (detailEl.hidden) return;
   const key = openSlug;
   openSlug = null;
@@ -1535,8 +1702,17 @@ function closeBook() {
     detailEl.hidden = true;
     scrimEl.hidden = true;
     detailEl.replaceChildren();
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
-    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (viaHistory) {
+      // The browser has already moved; undoing that would fight the reader.
+      pushedDetail = false;
+    } else if (pushedDetail) {
+      pushedDetail = false;
+      history.back();          // pops the entry opening it pushed
+    } else if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
     // Focus goes back to the book that opened the detail, not to the top of
     // the document: a reader who opened the fortieth book keeps their place.
     const home = openedFrom?.isConnected ? openedFrom : nodes.get(key);
@@ -1627,6 +1803,17 @@ function spring2d(onFrame) {
 
 const heroEl = $('hero');
 
+/**
+ * Is this the phone layout?
+ *
+ * Held in a variable rather than asked for each time, and deliberately not
+ * `window.matchMedia(...).addEventListener(...)` on a throwaway object: a
+ * MediaQueryList nothing keeps a reference to can be collected with its
+ * listener still attached, and then the card simply never hears that the
+ * window crossed the boundary. The resize path below asks this object instead.
+ */
+const narrowQuery = window.matchMedia('(max-width: 760px)');
+
 /* The book standing large on the hero's ledge. It starts as the most recently
    added `reading` book and changes when the reader clicks one of the others,
    which is why it is state rather than a derived value: a language switch or a
@@ -1683,7 +1870,7 @@ function paintHero() {
   heroEl.hidden = false;
   heroEl.replaceChildren();
 
-  const narrow = window.matchMedia('(max-width: 760px)').matches;
+  const narrow = narrowQuery.matches;
 
   const lead = heroBookNode(featured, { narrow, mini: false });
   heroEl.append(lead);
@@ -1720,12 +1907,19 @@ function paintHero() {
   ].filter(Boolean).join(' · ')));
 
   const rateWrap = el('div', 'hero-rate');
-  rateWrap.append(el('span', 'hero-rate-label', rateLabelFor(featured)));
+  const shortLabel = featured.shelf === 'read' || featured.shelf === 'abandoned'
+    ? t('shelf.rateShort.good')
+    : t('shelf.rateShort.want');
+  rateWrap.append(el('span', 'hero-rate-label', narrow ? shortLabel : rateLabelFor(featured)));
   const rate = rateControl(featured, {
     onChanged: () => { paintBook(featured); if (view.sort === 'rating') render({ animate: true }); },
   });
   rateWrap.append(rate.root);
-  body.append(rateWrap);
+  // On a phone the rating is its own band across the card, not a block inside
+  // the text column: the text column is the taller of the two, so anything put
+  // there is added straight to the card's height and the shelf goes down the
+  // screen with it. `order` in the stylesheet decides where the band lands.
+  if (!narrow) body.append(rateWrap);
 
   const actions = el('div', 'hero-actions');
   if (featured.quotes) {
@@ -1739,7 +1933,9 @@ function paintHero() {
   actions.append(details);
   body.append(actions);
 
-  heroEl.append(body, heroFoot(featured));
+  heroEl.append(body);
+  if (narrow) heroEl.append(rateWrap);
+  heroEl.append(heroFoot(featured));
   wireHeroTilt();
 }
 
@@ -1882,8 +2078,10 @@ function wireHeroTilt() {
 /* The hero is laid out one way beside a mouse and another on a phone — the
    thumbnails move from the ledge to under the text — and which one it is, is a
    decision JavaScript makes when it builds the covers. A rotation crosses that
-   line without a reload, so the card is rebuilt when it does. */
-window.matchMedia('(max-width: 760px)').addEventListener?.('change', () => paintHero());
+   line without a reload, so the card is rebuilt when it does. The resize path
+   in wireControls() asks the same question and is the one that has to be
+   right; this listener is the cheap half of the same answer. */
+narrowQuery.addEventListener?.('change', () => paintHero());
 
 /* ==========================================================================
    Chrome
@@ -1930,7 +2128,7 @@ function paintArrange() {
 function paintStats() {
   const books = works.filter(isBook).length;
   const talks = works.length - books;
-  const quotes = works.reduce((total, item) => total + item.quotes, 0);
+  const quotes = quoteTotal;
   $('shelf-stats').textContent = t('shelf.stats', { books, talks, quotes });
   $('shelf-foot-count').textContent = t('shelf.footCount', { books, quotes });
 }
@@ -1950,7 +2148,28 @@ function paintAll() {
    Boot
    ========================================================================== */
 
+/**
+ * Where the top of the page is, as far as a jump is concerned.
+ *
+ * Two things stick here — the header and the control row — so "Skip to the
+ * shelf" landed the first ledge underneath both of them. Measured rather than
+ * assumed: the header is two rows on a phone, and the control row wraps.
+ */
+function measureStuck() {
+  const height = (node) => (node && getComputedStyle(node).position === 'sticky' ? node.offsetHeight : 0);
+  const total = height(document.getElementById('site-nav')) + height($('shelf-controls'));
+  document.documentElement.style.scrollPaddingTop = `${Math.round(total + 12)}px`;
+}
+
 function wireControls() {
+  measureStuck();
+  if (typeof ResizeObserver === 'function') {
+    const watch = new ResizeObserver(measureStuck);
+    for (const node of [document.getElementById('site-nav'), $('shelf-controls')]) if (node) watch.observe(node);
+  } else {
+    window.addEventListener('resize', measureStuck);
+  }
+
   $('shelf-arrange').addEventListener('change', (event) => {
     view.sort = ARRANGE.includes(event.target.value) ? event.target.value : 'shelf';
     render({ animate: true });
@@ -1975,11 +2194,59 @@ function wireControls() {
     trapTab(event);
   });
 
-  window.addEventListener('resize', () => { unplace(); applyLean(); });
-  window.addEventListener('hashchange', () => {
+  /**
+   * The window changed size. Three things have to answer it.
+   *
+   * The hero is rebuilt if the phone boundary was crossed. Its two layouts are
+   * a JavaScript decision — the thumbnails are built at 46px or at 120px — so a
+   * card built at 1440 and left standing in a 390px window puts 440px of books
+   * in a 353px card, which is exactly what a window narrowed during a re-sort
+   * was left holding.
+   *
+   * A FLIP in flight is cut short. It holds every book at the position it had
+   * in the *old* viewport as an inline transform, up to a thousand pixels to
+   * the right of the new one, and a phone answers a document wider than its
+   * screen by zooming out — which it does not undo when the animation ends. The
+   * books are already in their right places, so the worst of ending it here is
+   * a re-sort that did not glide across a resize nobody performs mid-animation
+   * on purpose.
+   *
+   * And the lean is re-measured, because every rect it was based on has moved.
+   */
+  lastViewportWidth = document.documentElement.clientWidth;
+  lastNarrow = narrowQuery.matches;
+
+  window.addEventListener('resize', viewportChanged);
+
+  /* The window's own resize event is not a reliable witness to the window
+     changing size: when it changes while a transition is playing, Chrome can go
+     on reporting the old `window.innerWidth` and fire it late or not at all.
+     The document element's box did change, and a ResizeObserver sees that —
+     but it also sees the page getting taller, which is what a re-sort does
+     every time, so anything but a change of width is none of its business. */
+  if (typeof ResizeObserver === 'function') {
+    new ResizeObserver(() => {
+      if (document.documentElement.clientWidth === lastViewportWidth) return;
+      viewportChanged();
+    }).observe(document.documentElement);
+  }
+
+  /* Back and Forward move through the books, and off the end of them.
+     `push: false` throughout: the entry the reader has just travelled to is
+     already in the history, and opening it again must not add a second. */
+  const followHistory = () => {
     const key = decodeURIComponent(location.hash.slice(1));
-    if (key && bySlug.has(key) && key !== openSlug) openBook(key, nodes.get(key) || null);
-  });
+    if (key && bySlug.has(key)) {
+      pushedDetail = false;
+      if (key !== openSlug) openBook(key, nodes.get(key) || null, { push: false });
+      return;
+    }
+    if (!detailEl.hidden) closeBook({ viaHistory: true });
+  };
+  window.addEventListener('popstate', followHistory);
+  // A hash typed into the address bar is a navigation, not a traversal, and in
+  // some browsers only this fires. The guard inside makes the overlap harmless.
+  window.addEventListener('hashchange', followHistory);
 
   onLang(() => {
     paintAll();
@@ -2008,6 +2275,7 @@ async function boot() {
   ]);
 
   const quotes = Array.isArray(collection) ? collection : (collection.quotes || []);
+  quoteTotal = quotes.length;
   const counts = new Map();
   for (const quote of quotes) {
     const key = quote.work;
@@ -2043,7 +2311,7 @@ async function boot() {
   const deep = decodeURIComponent(location.hash.slice(1));
   const asked = params.get('open');
   const target = asked && asked !== '1' ? asked : (asked === '1' ? mostQuoted() : deep);
-  if (target && bySlug.has(target)) openBook(target, nodes.get(target) || null, { animate: false });
+  if (target && bySlug.has(target)) openBook(target, nodes.get(target) || null, { animate: false, push: false });
 
   const hover = params.get('hover');
   if (hover) freezeHover(Number(hover) || 1);
@@ -2058,14 +2326,28 @@ function freezeHover(n) {
   const list = [...shelfEl.querySelectorAll('.book')];
   const node = list[Math.max(0, Math.min(list.length - 1, n - 1))];
   if (!node) return;
+
+  // Frozen before the scroll, not after. `scrollIntoView` fires a scroll event
+  // of its own a frame later, and the scroll handler's job is to take the lift
+  // and its plate away — which is why the plate used to stand for about 200 ms
+  // and then vanish, and why a headless still of ?hover= photographed a shelf
+  // at rest.
+  hoverFrozen = true;
   node.scrollIntoView({ block: 'center' });
-  enterBook(node);
-  const box = node.querySelector('.cover-box');
-  if (!box) return;
-  hoverRect = box.getBoundingClientRect();
-  const item = bySlug.get(node.dataset.slug);
-  if (item) showPlate(node, item);
-  tiltTo(node, hoverRect.left + hoverRect.width * 0.78);
+
+  const pose = () => {
+    enterBook(node);
+    const box = node.querySelector('.cover-box');
+    if (!box) return;
+    hoverRect = box.getBoundingClientRect();
+    const item = bySlug.get(node.dataset.slug);
+    if (item) showPlate(node, item);
+    tiltTo(node, hoverRect.left + hoverRect.width * 0.78);
+  };
+  pose();
+  // Again once the scroll has landed, so the rect the tilt and the plate's
+  // viewport nudge are read from is the one on the screen.
+  setTimeout(pose, 140);
 }
 
 /** ?probe=1 prints what a still cannot show: whether anything overflows. */
@@ -2144,6 +2426,7 @@ window.__shelf = {
     const score = scoreOf(found);
     return { slug: found.slug, shelf: found.shelf, field: score.field, value: score.value, quotes: found.quotes };
   },
+  viewport: () => ({ ...viewportWork, lastViewportWidth, lastNarrow, narrow: narrowQuery.matches }),
   count: () => works.length,
   shelved: () => works.filter((item) => isBook(item)).length,
   sort: () => view.sort,

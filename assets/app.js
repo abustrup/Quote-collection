@@ -6,7 +6,7 @@
  * can be shared, and nothing animates that does not need to.
  */
 
-import { ERAS, VERIFICATION_LABELS, eraFor, quoteId, slug, typographic } from './quote-core.js';
+import { ERAS, SUBJECTS, VERIFICATION_LABELS, eraFor, quoteId, slug, typographic } from './quote-core.js';
 import { hydrate, langToggle, locale, onLang, register, t } from './i18n.js';
 import {
   favorites as storedFavorites,
@@ -99,6 +99,10 @@ register({
     en: 'The collection is empty. Import your Goodreads quotes to fill it.',
     da: 'Samlingen er tom. Importér dine Goodreads-citater for at fylde den.',
   },
+  'index.empty.work': {
+    en: 'No quotes from that work.',
+    da: 'Ingen citater fra det værk.',
+  },
   'index.empty.filtered': {
     en: 'No quote matches that. Try fewer words, or clear the filters.',
     da: 'Ingen citater passer. Prøv færre ord, eller ryd filtrene.',
@@ -154,6 +158,19 @@ const ERA_LABELS = new Map(ERAS.map((era) => [era.id, era.label]));
 
 /** Subjects read better capitalised in a menu than they do in the data. */
 const sentenceCase = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+
+/**
+ * The two vocabularies both pages share.
+ *
+ * The shelf already speaks Danish about subjects and eras — Litteratur,
+ * Teknologi, Antikken, 1800-tallet — and they live in the shared block of
+ * assets/i18n.js under the same ids. Reading them from there is the only way
+ * the same twenty words cannot end up translated on one page and not the
+ * other. Anything the registry has that the dictionary does not falls back to
+ * the raw value rather than to a visible `shelf.subject.foo`.
+ */
+const subjectLabel = (id) => (SUBJECTS.includes(id) ? t(`shelf.subject.${id}`) : sentenceCase(String(id || '')));
+const eraLabel = (id) => (ERA_LABELS.has(id) ? t(`shelf.era.${id}`) : String(id || ''));
 const EDITIONS = ['paper', 'night', 'folio', 'index'];
 const THEME_COLORS = { paper: '#f6efe4', night: '#14110d', folio: '#fbf7f0', index: '#eef0f3' };
 
@@ -162,6 +179,28 @@ const SHORT_QUOTE = 120;
 const LONG_QUOTE = 320;
 
 const el = (id) => document.getElementById(id);
+
+/**
+ * One spelling for the search box and the collection both.
+ *
+ * `slug()` in quote-core folds a name down to something a URL can carry;
+ * searching wants the same folding without the hyphens, so "zizek" finds
+ * Žižek, "acemoglu" finds Acemoğlu, and "claude's" finds a line typeset with a
+ * curly apostrophe. NFD leaves ø and æ standing, so those are transliterated
+ * the way slug() transliterates them.
+ */
+const NORDIC = { 'ø': 'o', 'æ': 'ae', 'å': 'aa', 'ð': 'd', 'þ': 'th', 'œ': 'oe', 'ß': 'ss', 'đ': 'd', 'ł': 'l', 'ı': 'i' };
+
+function fold(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/[øæåðþœßđłı]/g, (letter) => NORDIC[letter] ?? letter)
+    .normalize('NFD')
+    .replace(/\p{M}+/gu, '')
+    .replace(/[\u2018\u2019\u02bc]/g, "'")
+    .replace(/[\u201c\u201d]/g, '"')
+    .replace(/[\u2010-\u2015]/g, '-');
+}
 
 const dom = {
   search: el('search'),
@@ -443,7 +482,7 @@ function matchesQuery(quote, terms) {
 }
 
 function applyFilters() {
-  const terms = state.query.toLowerCase().split(/\s+/).filter(Boolean);
+  const terms = fold(state.query).split(/\s+/).filter(Boolean);
 
   let list = state.all.filter((quote) => {
     if (state.author && quote._authorSlug !== state.author) return false;
@@ -756,8 +795,8 @@ function renderActiveFilters() {
     const match = state.all.find((quote) => quote._workSlug === state.work);
     chips.push(['work', match?.work ?? state.work]);
   }
-  if (state.subject) chips.push(['subject', sentenceCase(state.subject)]);
-  if (state.era) chips.push(['era', ERA_LABELS.get(state.era) ?? state.era]);
+  if (state.subject) chips.push(['subject', subjectLabel(state.subject)]);
+  if (state.era) chips.push(['era', eraLabel(state.era)]);
   if (state.theme) chips.push(['theme', state.theme]);
   if (state.tag) chips.push(['tag', state.tag]);
   if (state.favoritesOnly) chips.push(['fav', t('index.chip.favourites')]);
@@ -801,9 +840,10 @@ function render() {
 
   dom.empty.hidden = shown > 0;
   if (!shown) {
+    const unknownWork = state.work && !state.all.some((quote) => quote._workSlug === state.work);
     dom.emptyDetail.textContent = total === 0
       ? t('index.empty.none')
-      : t('index.empty.filtered');
+      : (unknownWork ? t('index.empty.work') : t('index.empty.filtered'));
   }
 
   dom.favoritesCount.textContent = favorites.size ? String(favorites.size) : '';
@@ -839,8 +879,8 @@ function populateFilterOptions() {
   for (const quote of state.all) {
     bump(authors, quote._authorSlug, quote.author);
     bump(works, quote._workSlug, quote.work);
-    bump(subjects, quote._subject, sentenceCase(quote._subject || ''));
-    bump(eras, quote._era, ERA_LABELS.get(quote._era) ?? quote._era);
+    bump(subjects, quote._subject, subjectLabel(quote._subject));
+    bump(eras, quote._era, eraLabel(quote._era));
   }
 
   const byCount = (a, b) => b[1].count - a[1].count || a[1].label.localeCompare(b[1].label, 'en');
@@ -851,6 +891,9 @@ function populateFilterOptions() {
   const fill = (select, map, sorter = byCount) => {
     for (const [value, { label, count }] of [...map.entries()].sort(sorter)) {
       const option = new Option(`${shorten(label)} (${count})`, value);
+      // Kept on the option so a language change can rewrite the word without
+      // losing the number beside it, and without counting the collection again.
+      option.dataset.count = String(count);
       if (label.length > 42) option.title = label;
       select.append(option);
     }
@@ -894,6 +937,22 @@ function relabelSelects() {
   };
   relabel(dom.sort, 'index.sort');
   relabel(dom.edition, 'edition');
+
+  /* Subjects and eras are interface words that happen to be filled from the
+     data, so they translate — with their counts kept — while authors and
+     titles never do. */
+  const relabelCounted = (select, label) => {
+    if (!select) return;
+    const chosen = select.value;
+    for (const option of select.options) {
+      if (!option.value) continue;
+      const n = option.dataset.count;
+      option.textContent = n ? `${label(option.value)} (${n})` : label(option.value);
+    }
+    select.value = chosen;
+  };
+  relabelCounted(dom.subject, subjectLabel);
+  relabelCounted(dom.era, eraLabel);
 }
 
 /* ---------------------------------------------------------------------------
@@ -1307,10 +1366,14 @@ function syncControlsFromState() {
   // A filter for a value that is not in the data leaves its select showing
   // "All", so fall the state back to match what is actually displayed rather
   // than filtering by something the reader cannot see or clear.
+  /* A filter the menu has no option for is kept, not quietly dropped. Dropping
+     it is what made `./?work=some-unknown-slug` answer with the whole
+     collection: the select fell back to "", the state followed it, and nothing
+     said that the thing asked for was not here. Now the filter stands, the page
+     shows its empty state, and the chip above it offers to clear it. */
   for (const [key, select] of [['author', dom.author], ['work', dom.work],
     ['subject', dom.subject], ['era', dom.era]]) {
     select.value = state[key];
-    if (select.value !== state[key]) state[key] = select.value;
   }
 }
 
@@ -1344,8 +1407,8 @@ function prepare(quotes, works) {
       // Joined with a newline: search terms are split on whitespace, so no term
       // can ever span two fields, and the separator stays a character nobody
       // can type into the box.
-      _haystack: [quote.text, quote.author, quote.work ?? '', quote.note ?? '',
-        ...(quote.tags ?? []), ...(quote.themes ?? [])].join('\n').toLowerCase(),
+      _haystack: fold([quote.text, quote.author, quote.work ?? '', quote.note ?? '',
+        ...(quote.tags ?? []), ...(quote.themes ?? [])].join('\n')),
     };
   });
 }
@@ -1492,9 +1555,27 @@ async function mountHeader() {
    the last two items of the same row, so there is no collision to measure and
    the patch has gone with it [2026-09-16]. */
 
+/**
+ * Where the top of the page is, as far as a jump is concerned.
+ *
+ * The control row sticks, so "Skip to the quotes" — and every `#id` permalink —
+ * used to land the first quotation underneath it. Measured rather than assumed:
+ * the row wraps to two and three lines as the window narrows.
+ */
+function measureStuck() {
+  const stuck = (node) => (node && getComputedStyle(node).position === 'sticky' ? node.offsetHeight : 0);
+  const total = stuck(document.getElementById('site-nav')) + stuck(dom.controls);
+  document.documentElement.style.scrollPaddingTop = `${Math.round(total + 12)}px`;
+}
+
 async function init() {
   favorites = readFavorites();
-  setEdition(localStorage.getItem(STORAGE.edition) ?? document.documentElement.dataset.edition);
+  // Not `typeof localStorage` — in a browser with site data blocked it is the
+  // accessor itself that throws, and an unguarded read here took the whole page
+  // down with it: no quotes, no controls, one SecurityError in the console.
+  let remembered = null;
+  try { remembered = localStorage.getItem(STORAGE.edition); } catch { /* storage is off */ }
+  setEdition(remembered ?? document.documentElement.dataset.edition);
   readStateFromUrl();
   relabelSelects();
   hydrate(document);
@@ -1518,6 +1599,14 @@ async function init() {
   wireControls();
   render();
   renderFooter();
+
+  measureStuck();
+  if (typeof ResizeObserver === 'function') {
+    const watch = new ResizeObserver(measureStuck);
+    for (const node of [document.getElementById('site-nav'), dom.controls]) if (node) watch.observe(node);
+  } else {
+    window.addEventListener('resize', measureStuck);
+  }
 
   onLang(() => {
     relabelSelects();

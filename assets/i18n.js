@@ -83,6 +83,33 @@ export const T = {
   'shelf.abandoned': { en: 'Did not finish', da: 'Ikke færdig' },
   'shelf.unshelved': { en: 'Not shelved', da: 'Ikke på hylden' },
 
+  // ---- what a work is about, and when it was written. Shared rather than
+  // page-owned: the shelf groups by them and the collection filters by them,
+  // and two dictionaries for one set of fourteen subjects is how one page ends
+  // up saying "Teknologi" while the other says "Technology" [2026-09-16].
+  'shelf.subject.literature': { en: 'Literature', da: 'Litteratur' },
+  'shelf.subject.philosophy': { en: 'Philosophy', da: 'Filosofi' },
+  'shelf.subject.ethics': { en: 'Ethics', da: 'Etik' },
+  'shelf.subject.politics': { en: 'Politics', da: 'Politik' },
+  'shelf.subject.economics': { en: 'Economics', da: 'Økonomi' },
+  'shelf.subject.psychology': { en: 'Psychology', da: 'Psykologi' },
+  'shelf.subject.sociology': { en: 'Sociology', da: 'Sociologi' },
+  'shelf.subject.science': { en: 'Science', da: 'Naturvidenskab' },
+  'shelf.subject.technology': { en: 'Technology', da: 'Teknologi' },
+  'shelf.subject.history': { en: 'History', da: 'Historie' },
+  'shelf.subject.military': { en: 'Strategy', da: 'Krigskunst' },
+  'shelf.subject.religion': { en: 'Religion', da: 'Religion' },
+  'shelf.subject.law': { en: 'Law', da: 'Jura' },
+  'shelf.subject.education': { en: 'Education', da: 'Uddannelse' },
+  'shelf.subject.none': { en: 'Unclassified', da: 'Uden emne' },
+
+  'shelf.era.antiquity': { en: 'Antiquity', da: 'Antikken' },
+  'shelf.era.medieval': { en: 'Medieval', da: 'Middelalderen' },
+  'shelf.era.early-modern': { en: 'Early modern', da: 'Tidlig moderne' },
+  'shelf.era.c19': { en: '19th century', da: '1800-tallet' },
+  'shelf.era.c20': { en: '20th century', da: '1900-tallet' },
+  'shelf.era.contemporary': { en: 'Contemporary', da: 'Nutiden' },
+
   // ---- two questions, because one number would change meaning the day a book
   // moves from "want to read" to "read".
   'rating.good': { en: 'How good was it', da: 'Hvor god var den' },

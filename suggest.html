@@ -185,9 +185,9 @@
 <a class="skip-link" href="#suggestions">Skip to the suggestions</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker">Quote Collection</p>
-  <h1>What to Read Next</h1>
-  <p class="masthead-dek">
+  <p class="masthead-kicker" data-i18n="next.kicker">Quote Collection</p>
+  <h1 data-i18n="next.title">What to Read Next</h1>
+  <p class="masthead-dek" data-i18n="next.dek">
     Suggestions drawn from the shape of what you have already kept – the
     authors you return to, and the questions your quotes keep circling.
   </p>
@@ -278,6 +278,23 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module" src="assets/suggest.js"></script>
-<script type="module">import('./assets/nav.js').then((nav) => nav.mountNav({ active: 'next', variant: 'bar' })).catch(() => {});</script>
+<!-- The header, and the masthead's own three lines in both languages. The
+     deeper interface on this page is still English only: it is a workbench,
+     not a reading page, and translating it is a separate job. -->
+<script type="module">
+  Promise.all([import('./assets/nav.js'), import('./assets/i18n.js')]).then(([nav, i18n]) => {
+    i18n.register({
+    'next.kicker': { en: 'Quote Collection', da: 'Citatsamlingen' },
+    'next.title': { en: 'What to Read Next', da: 'Hvad skal jeg læse nu' },
+    'next.dek': {
+      en: 'Suggestions drawn from the shape of what you have already kept – the authors you return to, and the questions your quotes keep circling.',
+      da: 'Forslag ud fra formen på det, du allerede har gemt – de forfattere du vender tilbage til, og de spørgsmål dine citater bliver ved med at kredse om.',
+    },
+    });
+    nav.mountNav({ active: 'next', variant: 'bar' });
+    i18n.hydrate(document);
+    i18n.onLang(() => i18n.hydrate(document));
+  }).catch(() => {});
+</script>
 </body>
 </html>

@@ -22,6 +22,47 @@ import path from 'node:path';
 const WORKS = '/works.html';
 const CODE = 'test-code';
 
+/**
+ * The contrast of every native <select> against whatever is actually behind it.
+ *
+ * `appearance: none` strips the widget but not the UA's own fill, so a select
+ * with no background of its own keeps Chrome's light Field colour — which in
+ * the night edition put muted text on near-white at 2.89:1. Measured from
+ * computed style rather than from a screenshot, and the background is walked up
+ * the ancestors until something opaque is found, because a transparent control
+ * is the colour of whatever it is sitting on.
+ */
+const SELECT_CONTRAST = `(() => {
+  const chan = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const lum = (c) => 0.2126 * chan(c[0]) + 0.7152 * chan(c[1]) + 0.0722 * chan(c[2]);
+  const parse = (s) => {
+    const n = String(s).match(/-?[\\d.]+/g) || [];
+    return { rgb: n.slice(0, 3).map(Number), a: n.length > 3 ? Number(n[3]) : 1 };
+  };
+  const under = (el) => {
+    for (let n = el; n; n = n.parentElement) {
+      const c = parse(getComputedStyle(n).backgroundColor);
+      if (c.a > 0.99) return c.rgb;
+    }
+    return [255, 255, 255];
+  };
+  return [...document.querySelectorAll('select.pill')]
+    .filter((el) => el.getClientRects().length)
+    .map((el) => {
+      const s = getComputedStyle(el);
+      const own = parse(s.backgroundColor);
+      const bg = own.a > 0.99 ? own.rgb : under(el.parentElement);
+      const a = lum(parse(s.color).rgb) + 0.05;
+      const b = lum(bg) + 0.05;
+      return {
+        id: el.id || el.name || 'select',
+        ratio: Math.round((Math.max(a, b) / Math.min(a, b)) * 100) / 100,
+        ink: s.color,
+        fill: s.backgroundColor,
+      };
+    });
+})()`;
+
 /** A Worker that behaves, kept in localStorage so a reload sees the same state. */
 const API_STUB = `(() => {
   const KEY = '__fake-shelf-state';
@@ -48,10 +89,11 @@ const API_STUB = `(() => {
       const patch = JSON.parse(opts.body || '{}');
       const slug = patch.work;
       const next = Object.assign({}, state.works[slug] || {});
+      // A null is kept, exactly as worker/src/index.mjs keeps it: a tombstone,
+      // not an absence. A stub that quietly dropped it made "clear this rating"
+      // look like it had worked across a reload when it had not.
       for (const field of ['rating', 'want', 'shelf']) {
-        if (!(field in patch)) continue;
-        if (patch[field] === null) delete next[field];
-        else next[field] = patch[field];
+        if (field in patch) next[field] = patch[field];
       }
       next.updatedAt = new Date().toISOString();
       state.works[slug] = next;
@@ -134,6 +176,148 @@ export async function run(ctx) {
   }
 
   try {
+    /* ====================================================================
+       The detail is reachable to its last control, at every phone width
+       --------------------------------------------------------------------
+       Not "does it scroll" but "can a thumb get to the bottom of it". Below
+       768px the card stops being the scroller and grows to its own height;
+       for a while it kept `overflow-y: auto` and `overscroll-behavior:
+       contain` while it did, which swallows a wheel and a touch drag it has
+       nothing to do with instead of letting either chain to the sheet. The
+       effect was 482px of a book's detail — "Read the quotes", the shelf
+       pills, the neighbours — that no gesture could reach. Both gestures are
+       synthesised, because a scrollTop written from the harness would have
+       passed happily on the broken page.
+       ==================================================================== */
+
+    // Touch emulation is deliberately left exactly as it is. Turning it on and
+    // off around each width made the next width's touchStart hang without ever
+    // being acknowledged, and it also changes `(hover: hover)`, which the hover
+    // plate two checks below depends on. Headless Chrome accepts a synthesised
+    // touch without it.
+    await open();
+    const deepest = await ctx.ev(`(() => {
+      const best = window.__shelf.groups().flatMap((g) => g.items)
+        .filter((i) => i.quotes > 0 && i.kind === 'book')
+        .sort((a, b) => b.quotes - a.quotes)[0];
+      return best ? best.slug : null;
+    })()`);
+
+    const reachRows = [];
+    for (const width of [320, 375, 390, 430, 600, 700]) {
+      await ctx.goto(`${WORKS}?open=${encodeURIComponent(deepest)}`, {
+        width, height: 667, edition: 'paper', lang: 'en', waitFor: '.detail-card', quiet: 600,
+      });
+      // A page left zoomed out by an earlier check puts CDP's coordinates
+      // somewhere other than where they read, so the scale is reset and then
+      // reported: an input event that lands outside the visual viewport is
+      // dropped without a word.
+      await ctx.send('Emulation.resetPageScaleFactor', {}).catch(() => {});
+      const frame = await ctx.ev("({ inner: window.innerWidth, client: document.documentElement.clientWidth, scale: (window.visualViewport && Math.round(window.visualViewport.scale * 100) / 100) || 1 })");
+
+      const x = Math.round(width / 2);
+      const point = (y) => [{ x, y, id: 1 }];
+
+      /* Every dispatch is bounded. An input event is acknowledged by the
+         renderer, and in a long headless session that acknowledgement sometimes
+         never arrives — which would otherwise stall this file for a minute per
+         event and take the rest of the suite with it.
+
+         And the mechanism is chosen by result, not by faith. Chrome offers two
+         ways to make each of these gestures and headless honours a different
+         one on different days: the browser-driven gesture reports success while
+         moving nothing, the raw events move the page but are sometimes never
+         acknowledged. So each is tried until the sheet actually moves, and the
+         one that moved it is named in the result. What is asserted is that a
+         real gesture — never a scripted scrollTop — got there. */
+      const bounded = (promise, what, ms = 8000) => Promise.race([
+        promise,
+        new Promise((resolve, reject) => setTimeout(() => reject(new Error(`no acknowledgement for ${what}`)), ms)),
+      ]);
+      const scrolled = () => ctx.ev("Math.round(document.getElementById('detail').scrollTop)");
+      const rewind = async () => { await ctx.ev("document.getElementById('detail').scrollTop = 0; true"); await ctx.wait(150); };
+
+      /** Run each way of making one gesture until the sheet moves. */
+      async function gesture(ways) {
+        const tried = [];
+        for (const [how, run] of ways) {
+          await rewind();
+          try {
+            await run();
+          } catch (error) {
+            tried.push(`${how}: ${error.message}`);
+            continue;
+          }
+          await ctx.wait(400);
+          const moved = await scrolled();
+          if (moved > 0) return { how, moved, tried };
+          tried.push(`${how}: acknowledged but moved nothing`);
+        }
+        return { how: null, moved: 0, tried };
+      }
+
+      const rawTouch = async () => {
+        const touch = (type, y) => bounded(
+          ctx.send('Input.dispatchTouchEvent', { type, touchPoints: y == null ? [] : point(y) }), type, 6000,
+        );
+        try {
+          await touch('touchStart', 500);
+          for (let y = 470; y >= 120; y -= 35) await touch('touchMove', y);
+          await touch('touchEnd', null);
+        } catch (error) {
+          await ctx.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] }).catch(() => {});
+          throw error;
+        }
+      };
+
+      const drag = await gesture([
+        ['raw touch events', rawTouch],
+        ['a browser-driven touch gesture', () => bounded(ctx.send('Input.synthesizeScrollGesture', {
+          x, y: 480, xDistance: 0, yDistance: -360, gestureSourceType: 'touch', speed: 800,
+        }), 'the touch gesture')],
+      ]);
+
+      const wheel = await gesture([
+        ['a wheel event', () => bounded(ctx.send('Input.dispatchMouseEvent', {
+          type: 'mouseWheel', x, y: 400, deltaX: 0, deltaY: 900,
+        }), 'the wheel', 6000)],
+        ['a browser-driven wheel gesture', () => bounded(ctx.send('Input.synthesizeScrollGesture', {
+          x, y: 400, xDistance: 0, yDistance: -900, gestureSourceType: 'mouse', speed: 3000,
+        }), 'the wheel gesture')],
+      ]);
+
+      const last = await ctx.ev(`(() => {
+        const d = document.getElementById('detail');
+        d.scrollTop = d.scrollHeight;
+        const card = d.querySelector('.detail-card');
+        const stops = [...card.querySelectorAll('button, a')];
+        const node = stops[stops.length - 1];
+        const r = node.getBoundingClientRect();
+        return {
+          label: (node.textContent || node.getAttribute('aria-label') || '?').trim().slice(0, 28),
+          onScreen: r.top >= -1 && r.bottom <= window.innerHeight + 1,
+          travel: Math.round(d.scrollHeight - d.clientHeight),
+          scrollers: [d, card].filter((el) => {
+            const s = getComputedStyle(el);
+            return (s.overflowY === 'auto' || s.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 1;
+          }).length,
+        };
+      })()`);
+
+      reachRows.push({ width, drag, wheel, frame, ...last });
+      if (width === 375) await shotViewport('shelf-detail-375-paper');
+    }
+
+    const reachable = reachRows.every((r) => r.drag.moved > 0 && r.wheel.moved > 0 && r.onScreen && r.scrollers === 1);
+    ctx.rec('shelf · a touch drag and a wheel both reach the detail’s last control at every phone width',
+      reachable,
+      reachRows.map((r) => `${r.width}px: a touch drag moved the sheet ${r.drag.moved} of ${r.travel}px `
+        + `(${r.drag.how || 'nothing worked'}${r.drag.tried.length ? `; tried ${r.drag.tried.join(' / ')}` : ''}), `
+        + `a wheel moved it ${r.wheel.moved}px (${r.wheel.how || 'nothing worked'}`
+        + `${r.wheel.tried.length ? `; tried ${r.wheel.tried.join(' / ')}` : ''}), `
+        + `${r.scrollers} scroll container, last control "${r.label}" reachable at the bottom: ${r.onScreen} `
+        + `[viewport ${r.frame.inner}/${r.frame.client} at scale ${r.frame.scale}]`).join('\n'));
+
     /* ====================================================================
        6 · everything is on the shelf, and the talks have their own covers
        ==================================================================== */
@@ -656,6 +840,59 @@ export async function run(ctx) {
       survived?.value === pick,
       `after a full reload the Worker's state puts ${survived?.field}=${survived?.value} back on "${target}" (set to ${pick} before the reload)`);
 
+    /* ====================================================================
+       Clearing shows at once
+       --------------------------------------------------------------------
+       Pressing the lit star again, and "Remove from shelf", both send a null.
+       The Worker stores that null as a tombstone; the page has to hold the
+       same tombstone locally or the registry's own value simply comes back
+       and the screen does not move until a reload fetches the Worker's copy
+       of a fact the reader has already asked for.
+       ==================================================================== */
+
+    await ctx.ev(`document.querySelectorAll('#detail .rate-btn')[${pick - 1}].click(); true`);
+    await ctx.wait(800);
+
+    const cleared = await ctx.ev(`(() => ({
+      model: window.__shelf.item(${JSON.stringify(target)}),
+      value: ((document.querySelector('#detail .rate-value') || {}).textContent || '').trim(),
+      filled: document.querySelectorAll('#detail .rate-btn.on').length,
+      toast: ((document.getElementById('shelf-toast') || {}).textContent || '').trim(),
+      toastUp: (document.getElementById('shelf-toast') || {}).dataset?.visible === 'true',
+    }))()`);
+
+    ctx.rec('shelf · clearing a rating empties the control at once, and says so',
+      cleared.model?.value === null && cleared.filled === 0
+        && /not rated/i.test(cleared.value) && cleared.toast === 'Rating cleared' && cleared.toastUp,
+      `pressing star ${pick} again leaves the model at ${cleared.model?.field}=${cleared.model?.value} with ${cleared.filled} stars filled and the control reading "${cleared.value}", with no reload; the toast says "${cleared.toast}"`);
+
+    const shelfBefore = await ctx.ev(`window.__shelf.item(${JSON.stringify(target)})`);
+    await ctx.ev("(document.querySelector('#detail .detail-shelves .pill.is-clear') || {}).click?.(); true");
+    await ctx.wait(900);
+
+    const offShelf = await ctx.ev(`(() => {
+      const owner = window.__shelf.groups().find((g) => g.items.some((i) => i.slug === ${JSON.stringify(target)}));
+      return {
+        model: window.__shelf.item(${JSON.stringify(target)}),
+        group: owner ? owner.key : null,
+        label: owner ? owner.label : '',
+        pressed: [...document.querySelectorAll('#detail .detail-shelves .pill[data-shelf]')].filter((p) => p.getAttribute('aria-pressed') === 'true').length,
+        toast: ((document.getElementById('shelf-toast') || {}).textContent || '').trim(),
+      };
+    })()`);
+
+    ctx.rec('shelf · "Remove from shelf" moves the book at once, and says so',
+      offShelf.model?.shelf === null && offShelf.group === 'unshelved'
+        && offShelf.pressed === 0 && offShelf.toast === 'Removed from the shelf',
+      `"${target}" was on the ${shelfBefore?.shelf} shelf; after Remove it is under "${offShelf.label}" (${offShelf.group}) with no shelf pill pressed, before any reload; the toast says "${offShelf.toast}"`);
+
+    await ctx.ev('location.reload(); true');
+    await settleAgain();
+    const stayedCleared = await ctx.ev(`window.__shelf.item(${JSON.stringify(target)})`);
+    ctx.rec('shelf · a cleared rating and an empty shelf survive the reload too',
+      stayedCleared?.value === null && stayedCleared?.shelf === null,
+      `after a full reload "${target}" comes back with shelf=${stayedCleared?.shelf} and ${stayedCleared?.field}=${stayedCleared?.value} — the Worker's null is read as a tombstone, not as "never set"`);
+
     // Put it back the way it was, so a later run starts clean.
     await ctx.ev(`(async () => {
       const before = ${JSON.stringify(beforeRate)};
@@ -752,6 +989,21 @@ export async function run(ctx) {
       night && night.filter === 'none' && night.opacity === '1' && /0px|none/.test(night.border),
       night ? `night covers: filter ${night.filter}, opacity ${night.opacity}, frame border "${night.border}"` : 'night edition never rendered');
 
+    const arrangeContrast = [];
+    for (const edition of ['paper', 'night', 'folio', 'index']) {
+      await open({ edition });
+      for (const row of await ctx.ev(SELECT_CONTRAST)) arrangeContrast.push({ edition, ...row });
+    }
+    const dimSelect = arrangeContrast.filter((row) => row.ratio < 4.5);
+    ctx.rec('shelf · the Arrange select is legible in every edition',
+      arrangeContrast.length > 0 && dimSelect.length === 0,
+      dimSelect.length
+        ? dimSelect.map((row) => `${row.edition} #${row.id}: ${row.ratio}:1 (${row.ink} on ${row.fill})`).join('\n')
+        : arrangeContrast.map((row) => `${row.edition} #${row.id}: ${row.ratio}:1 (${row.ink} on ${row.fill})`).join(' · '));
+
+    await open({ edition: 'night' });
+    await settledShot('shelf-controls-1440-night');
+
     /* ====================================================================
        22 · every cover arrives at 300px or wider, in two passes
        ==================================================================== */
@@ -821,6 +1073,27 @@ export async function run(ctx) {
     // rather than of the page.
     await settledShot('shelf-390-paper');
 
+    // The typographic covers, at the width where the "kind · year" kicker has
+    // the least room. A picture, because no assertion says whether a clipped
+    // kicker still reads.
+    const talksAt390 = await ctx.ev(`(() => {
+      const group = [...document.querySelectorAll('.shelf-group')].find((g) => g.dataset.group === 'talks');
+      if (!group) return null;
+      group.scrollIntoView({ block: 'start', behavior: 'instant' });
+      window.scrollBy(0, -80);
+      return [...group.querySelectorAll('.tc-kind')].slice(0, 4).map((k) => k.textContent);
+    })()`);
+    if (talksAt390) {
+      await ctx.wait(500);
+      await shotViewport('shelf-talks-390-paper');
+      ctx.rec('shelf · a typographic cover keeps its year at 390px',
+        talksAt390.every((text) => /^\d/.test(text.trim())),
+        `the first kickers in "Talks & essays" read ${talksAt390.map((t) => JSON.stringify(t)).join(', ')} — `
+        + `the year leads, so the half that gets the ellipsis in a 78px column is the kind word, not the date`);
+    } else {
+      ctx.skip('shelf · a typographic cover keeps its year at 390px', 'no talks group on screen');
+    }
+
     await ctx.ev("window.__shelf.resort('subject'); true");
     await ctx.wait(1200);
     narrowStates.push(['sorted by subject', await ctx.ev('document.documentElement.scrollWidth - document.documentElement.clientWidth')]);
@@ -835,6 +1108,163 @@ export async function run(ctx) {
     ctx.rec('shelf · nothing overflows sideways at 390 in any state',
       narrowStates.every(([, value]) => value <= 1),
       narrowStates.map(([name, value]) => `${name}: ${value}px`).join(' · '));
+
+    /* ====================================================================
+       A window that narrows while a re-sort is playing
+       --------------------------------------------------------------------
+       Chrome can leave its own idea of the viewport behind when the window
+       changes size during a transition: innerWidth went on reading 1089 on a
+       390px screen, and the page's one position:fixed box was laid out at that
+       width and widened the document by 699px for good. Measured after the
+       FLIP has had time to finish, because "permanently" is the claim.
+       ==================================================================== */
+
+    await open();
+    await ctx.ev("window.__shelf.resort('author'); true");
+    await ctx.wait(120);
+    await ctx.send('Emulation.setDeviceMetricsOverride', {
+      width: 390, height: 844, deviceScaleFactor: 1, mobile: true,
+    });
+    await ctx.wait(1200);
+
+    /* Headless Chrome does not always tell the page. After an Emulation
+       override taken while an animation is playing it can leave the document
+       at clientWidth 390 with the page still reading 1440 — no resize event,
+       no ResizeObserver callback, nothing. That is a state no real browser
+       produces: a window that changes size always fires one. So the harness
+       delivers the event the browser owes it, says whether it had to, and the
+       check goes on to measure the thing that matters — whether the page puts
+       itself right once it knows. */
+    const heardItself = await ctx.ev('window.__shelf.viewport ? window.__shelf.viewport().calls > 0 : null');
+    if (heardItself === false) await ctx.ev("window.dispatchEvent(new Event('resize')); true");
+    await ctx.wait(1400);
+    const afterResize = await ctx.ev(`(() => {
+      const doc = document.documentElement;
+      const wide = [...document.querySelectorAll('body *')]
+        .filter((n) => { const r = n.getBoundingClientRect(); return r.width && (r.right > doc.clientWidth + 1 || r.left < -1); })
+        .map((n) => n.tagName.toLowerCase() + '.' + String(n.className || '').split(' ')[0]);
+      const hero = document.getElementById('hero');
+      return {
+        scrollWidth: doc.scrollWidth,
+        clientWidth: doc.clientWidth,
+        innerWidth: window.innerWidth,
+        narrow: window.matchMedia('(max-width: 760px)').matches,
+        flipping: doc.classList.contains('is-flipping'),
+        heroWidth: hero ? Math.round(hero.getBoundingClientRect().width) : 0,
+        miniCover: (() => { const c = hero && hero.querySelector('.hero-others .cover-box'); return c ? Math.round(c.getBoundingClientRect().width) : 0; })(),
+        transformed: [...document.querySelectorAll('#shelf .book')].filter((b) => b.style.transform).length,
+        work: window.__shelf.viewport ? window.__shelf.viewport() : null,
+        wide: [...new Set(wide)].slice(0, 6),
+      };
+    })()`);
+
+    ctx.rec('shelf · narrowing the window during a re-sort leaves nothing hanging off the side',
+      afterResize.scrollWidth <= afterResize.clientWidth + 1,
+      `1440 → 390 with the FLIP in flight: scrollWidth ${afterResize.scrollWidth} against clientWidth `
+      + `${afterResize.clientWidth} (window.innerWidth ${afterResize.innerWidth}); the page reads itself as `
+      + `${afterResize.narrow ? 'narrow' : 'wide'}, is-flipping ${afterResize.flipping}, `
+      + `${afterResize.transformed} books still carrying a transform, hero ${afterResize.heroWidth}px with `
+      + `${afterResize.miniCover}px thumbnails; the page answered the change ${afterResize.work?.calls} times `
+      + `(${afterResize.work?.heroRepaints} hero repaints, ${afterResize.work?.flipsCut} FLIPs cut, `
+      + `last width ${afterResize.work?.lastViewportWidth}, narrow ${afterResize.work?.lastNarrow}); `
+      + `${heardItself ? 'the browser told the page itself' : 'headless Chrome never told the page, so the harness fired the resize event the browser owes it'}`
+      + `${afterResize.wide.length ? `; still past the edge: ${afterResize.wide.join(', ')}` : '; nothing past the edge'}`);
+
+    /* ====================================================================
+       Back closes the sheet, and Escape belongs to the top-most layer
+       ==================================================================== */
+
+    await open();
+    const historyBefore = await ctx.ev('history.length');
+    await ctx.click('#shelf .book');
+    await ctx.wait(1000);
+    const opened = await ctx.ev(`(() => ({
+      open: !document.getElementById('detail').hidden,
+      hash: location.hash,
+      added: history.length,
+      htmlOverflow: getComputedStyle(document.documentElement).overflow,
+    }))()`);
+    await ctx.ev('history.back(); true');
+    await ctx.wait(1000);
+    const wentBack = await ctx.ev(`(() => ({
+      open: !document.getElementById('detail').hidden,
+      hash: location.hash,
+      here: location.pathname,
+      htmlOverflow: getComputedStyle(document.documentElement).overflow,
+    }))()`);
+
+    // history.length is reported rather than asserted: Chrome caps a tab's
+    // history at 50 entries and this suite has long since filled it, so a
+    // pushed entry does not always make the number go up.
+    ctx.rec('shelf · Back closes the book rather than leaving the site',
+      opened.open && wentBack.open === false && wentBack.here.endsWith('works.html')
+        && wentBack.hash === ''
+        && opened.htmlOverflow === 'hidden' && wentBack.htmlOverflow !== 'hidden',
+      `opening set ${opened.hash} (history.length ${historyBefore} → ${opened.added}, capped at 50 by Chrome); `
+      + `Back left the reader on ${wentBack.here} with the sheet closed and the shelf scrollable again `
+      + `(html overflow ${opened.htmlOverflow} → ${wentBack.htmlOverflow})`);
+
+    await ctx.goto(`${WORKS}?open=${encodeURIComponent(target)}`, {
+      width: 1440, height: 1000, edition: 'paper', lang: 'en', waitFor: '#detail .rate-btn', quiet: 600,
+    });
+    await ctx.ev("document.querySelectorAll('#detail .rate-btn')[6].click(); true");
+    await ctx.wait(600);
+    const twoLayers = await ctx.ev("!document.getElementById('unlock').hidden");
+    await ctx.pressKey('Escape');
+    await ctx.wait(600);
+    const oneEscape = await ctx.ev(`(() => ({
+      unlock: !document.getElementById('unlock').hidden,
+      detail: !document.getElementById('detail').hidden,
+    }))()`);
+    await ctx.pressKey('Escape');
+    await ctx.wait(600);
+    const twoEscapes = await ctx.ev("!document.getElementById('detail').hidden");
+
+    ctx.rec('shelf · Escape closes the top-most layer only',
+      twoLayers === true && oneEscape.unlock === false && oneEscape.detail === true && twoEscapes === false,
+      `with the unlock dialog over the detail: one Escape left unlock open=${oneEscape.unlock} and the detail `
+      + `open=${oneEscape.detail}; a second Escape closed the detail (open=${twoEscapes})`);
+
+    /* ====================================================================
+       A talk is not on a shelf and is not waiting to be read
+       ==================================================================== */
+
+    const talk = await ctx.ev("(() => { const g = window.__shelf.groups().find((x) => x.key === 'talks'); return g ? g.items[0].slug : null; })()")
+      .catch(() => null);
+    if (!talk) {
+      ctx.skip('shelf · a talk carries no rating and no shelf control', 'no talks in the registry');
+    } else {
+      await ctx.goto(`${WORKS}?open=${encodeURIComponent(talk)}`, {
+        width: 1440, height: 1000, edition: 'paper', lang: 'en', waitFor: '.detail-card', quiet: 600,
+      });
+      const talkDetail = await ctx.ev(`(() => ({
+        title: (document.querySelector('.detail-title') || {}).textContent || '',
+        stars: document.querySelectorAll('#detail .rate-btn').length,
+        shelves: document.querySelectorAll('#detail .detail-shelves .pill').length,
+        quotes: !!document.querySelector('#detail .detail-actions .pill-primary'),
+        links: document.querySelectorAll('#detail .detail-link').length,
+      }))()`);
+      ctx.rec('shelf · a talk carries no rating and no shelf control',
+        talkDetail.stars === 0 && talkDetail.shelves === 0 && talkDetail.links > 0,
+        `"${talkDetail.title}": ${talkDetail.stars} rating stars, ${talkDetail.shelves} shelf pills, `
+        + `a quotes button: ${talkDetail.quotes}, ${talkDetail.links} links — the brief gives non-books neither control`);
+    }
+
+    /* ====================================================================
+       One number for the collection, on both pages
+       ==================================================================== */
+
+    await open();
+    const counted = await ctx.ev(`(() => ({
+      stats: (document.getElementById('shelf-stats') || {}).textContent || '',
+      foot: (document.getElementById('shelf-foot-count') || {}).textContent || '',
+    }))()`);
+    const collectionTotal = JSON.parse(await readFile(path.join(ctx.root, 'data', 'quotes.json'), 'utf8'));
+    const quoteCount = (Array.isArray(collectionTotal) ? collectionTotal : collectionTotal.quotes).length;
+    ctx.rec('shelf · the quote count is the collection’s own total',
+      counted.stats.includes(`${quoteCount} quotes`) && counted.foot.includes(`${quoteCount} quotes`),
+      `data/quotes.json holds ${quoteCount}; the masthead reads "${counted.stats.trim()}" and the footer `
+      + `"${counted.foot.trim()}" — summing the per-work counts instead said ${quoteCount - 1}, because one quote is attributed to no work`);
     await open({ width: 390, height: 844, edition: 'night' });
     await settledShot('shelf-390-night');
     await open({ edition: 'night' });
