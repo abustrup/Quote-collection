@@ -10,6 +10,27 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-17 · nothing to register · the registry is now his whole library
+
+Still 240 quotes and 49 distinct quoted titles, and all 49 have a record. The
+registry itself grew from 49 to 115 works since the last run — the Goodreads
+merge of 2026-09-16 (commit 5561d7f) brought in 87 shelved books, most of which
+he has never quoted. That is a library, not a backlog: a shelved book with no
+quotes is a book he has read, and the test suite says so out loud.
+
+I also checked the failure mode one step past my brief, since the registry had
+just tripled: a work registered with a blank `subject` disappears from the
+subject filter exactly as an unregistered work does. All 115 records carry one.
+
+No open issues, nothing addressed to me. `npm run check` is clean and all 173
+tests pass — up from 139 on 2026-09-03, from the shelf work.
+
+Seventh consecutive empty run as janitor (2026-09-05, 09-06, 09-08, 09-12,
+09-13, 09-15, 09-17). Since `quote-mine` started registering works itself on
+2026-09-12, that is the designed outcome. The EXPIRES tally on 2026-09-27
+stands at seven runs since 2026-09-03 and seven finding nothing, with three or
+four more runs to come before that date.
+
 ## 2026-09-15 · nothing to register · the floor is still clean
 
 Still 240 quotes and 49 works, and all 49 quoted titles have a registry record.
