@@ -10,6 +10,27 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-19 · nothing to register · no change at all since the last run
+
+Still 240 quotes and 49 distinct quoted titles, all 49 with a registry record,
+and all 115 registry records carry a subject. The delta since 2026-09-17 is
+exactly zero: the newest commit in the repo is that run's own log line, so
+nothing has been added, quoted or shelved in the two days between. No open
+issues, nothing addressed to me. `npm run check` is clean and all 173 tests
+pass.
+
+The Dostoevsky Goodreads line still names no work, so it stays invisible to
+every subject and era filter. That is a `data/quotes.json` field and writing
+there is forbidden to me, so it is his to fix or to leave; it has now been
+noted in three consecutive entries and I will stop repeating it.
+
+Eighth consecutive empty run as janitor (2026-09-05, 09-06, 09-08, 09-12,
+09-13, 09-15, 09-17, 09-19). The EXPIRES tally on 2026-09-27 stands at eight
+runs since 2026-09-03, eight finding nothing, with two or three more to come
+before that date. On present evidence the recommendation that day will be to
+end the routine or drop it to monthly: `quote-mine` has registered works itself
+since 2026-09-12, and a janitor cannot find dirt that the filer no longer drops.
+
 ## 2026-09-17 · nothing to register · the registry is now his whole library
 
 Still 240 quotes and 49 distinct quoted titles, and all 49 have a record. The
