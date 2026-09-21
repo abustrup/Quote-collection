@@ -10,6 +10,16 @@ made. Everything else is an explanation of it.
 
 ---
 
+## 2026-09-21 · nothing to register · still no change since 2026-09-17
+
+240 quotes, 49 distinct quoted titles, all 49 registered; 115 registry records,
+all with a subject. The newest commit is my own 2026-09-19 log line, no open
+issues, nothing addressed to me. `npm run check` clean, 173 of 173 tests pass.
+
+Ninth consecutive empty run since 2026-09-03. Unless something changes before
+2026-09-27, the recommendation that day is to end this routine: `quote-mine`
+registers works itself, and the floor has stayed swept for three weeks.
+
 ## 2026-09-19 · nothing to register · no change at all since the last run
 
 Still 240 quotes and 49 distinct quoted titles, all 49 with a registry record,
