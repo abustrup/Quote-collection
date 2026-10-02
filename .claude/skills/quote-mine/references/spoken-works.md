@@ -21,7 +21,23 @@ supports — fetch the page's own transcript instead). Exit 3 is no caption trac
 Machine captions carry the machine's punctuation and sentence boundaries, mark no speakers, and
 mangle names — Grok became "Rockbot" and Waymo "Whimo" on an a16z episode, 2026-08-31. If only a
 machine track exists, say so at the top of the shortlist. An uploader track marks a change of
-speaker with "- " but never names the speaker.
+speaker with "- " and a machine track with ">>"; neither ever names the speaker. When one person
+asks and another answers, the turn tells you who is speaking. Say "judged from the turn" in the
+note for any line attributed that way, and most of all for a host's line.
+
+**Clips and cuts.** A clip channel (Lex Clips and the like) carries a slice of a longer episode.
+It is one work: mine the full episode, locate the line there, and file under the episode's title
+and timestamp. The clip's own caption run is a second reading of the same audio, and the two can
+differ on a word ("second day work" in one, "second day of work" in the other). A disagreement is
+a warning to flag, never proof of either.
+
+**Caption cut-offs.** Machine tracks drop a sentence's last word and sometimes end a sentence
+mid-clause at a cue boundary. A line that ends oddly is not filed; say it was dropped for that.
+
+**Caption spellings.** Names and compounds arrive split or misspelt (`selfregulate`, `open AI`,
+`antonyym`, `alpha fold two`). `check-quotes.py --respell CAPTION=WORDS` lets the check match the
+wording you mean, and the verification note says the caption spells it differently. It is for
+spelling only; if a word could be a different word, drop the line.
 
 **Confirm the speaker before filing under a name.** The description, the host addressing them by
 name just before the answer, or the picture: download ten seconds at the timestamp and look at a

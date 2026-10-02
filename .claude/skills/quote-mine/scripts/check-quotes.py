@@ -2,7 +2,7 @@
 """Check a set of picked quotes before they are filed. Pass or fail, mechanically.
 
 Usage:
-  check-quotes.py PICKS.json SOURCE.txt [--repo DIR]
+  check-quotes.py PICKS.json SOURCE.txt [--repo DIR] [--respell CAPTION=WORDS ...]
 
 PICKS.json is the array you are about to file. SOURCE.txt is the text you read the quotes in — the
 transcript.txt from captions.py, or the work saved as plain text.
@@ -94,6 +94,9 @@ def main():
     ap.add_argument("picks")
     ap.add_argument("source")
     ap.add_argument("--repo")
+    ap.add_argument("--respell", action="append", default=[], metavar="CAPTION=WORDS",
+                    help="the caption misspells or splits a word (selfregulate, open AI, antonyym): "
+                         "treat CAPTION as WORDS when matching. Repeatable. Say it in the verification note.")
     args = ap.parse_args()
 
     repo = find_repo(args.repo)
@@ -112,6 +115,13 @@ def main():
 
     raw = Path(args.source).read_text(encoding="utf-8")
     raw = CHAPTER.sub("", MARKER.sub("", raw))
+    for rule in args.respell:
+        wrong, _, right = rule.partition("=")
+        if not wrong or not right:
+            raise SystemExit(f"--respell wants CAPTION=WORDS, got {rule!r}")
+        hits = len(re.findall(re.escape(wrong), raw, flags=re.I))
+        raw = re.sub(re.escape(wrong), right, raw, flags=re.I)
+        print(f"respelled in the source for matching: {wrong!r} -> {right!r} ({hits} place{'s' if hits != 1 else ''}) — name it in the note\n")
     src_ws = re.sub(r"\s+", " ", raw)
     src_loose = loose(raw)
     src_tokens = tokens(raw)
