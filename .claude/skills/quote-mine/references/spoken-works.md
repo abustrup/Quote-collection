@@ -25,6 +25,10 @@ speaker with "- " and a machine track with ">>"; neither ever names the speaker.
 asks and another answers, the turn tells you who is speaking. Say "judged from the turn" in the
 note for any line attributed that way, and most of all for a host's line.
 
+When the speaker call rests on turn order, check the raw `source.*.vtt` that `captions.py` keeps:
+`transcript.txt` has been seen to drop a very short turn (a lone ">> Yes.") that the raw track has,
+which makes the turn count wrong.
+
 **Clips and cuts.** A clip channel (Lex Clips and the like) carries a slice of a longer episode.
 It is one work: mine the full episode, locate the line there, and file under the episode's title
 and timestamp. The clip's own caption run is a second reading of the same audio, and the two can

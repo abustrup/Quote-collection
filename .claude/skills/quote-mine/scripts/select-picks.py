@@ -89,11 +89,15 @@ def main():
     (out / "picks.json").write_text(json.dumps(good, ensure_ascii=False, indent=2), encoding="utf-8")
     body = "### Quotes\n\n```json\n" + json.dumps(good, ensure_ascii=False, indent=2) + "\n```\n"
     (out / "issue-body.md").write_text(body, encoding="utf-8")
-    works = sorted({(r["work"], r["author"], r.get("year"), r.get("workKind")) for r in good}, key=lambda t: t[0].lower())
+    by_work: dict[tuple, list[str]] = {}
+    for r in good:
+        by_work.setdefault((r["work"], r.get("year"), r.get("workKind")), [])
+        if r["author"] not in by_work[(r["work"], r.get("year"), r.get("workKind"))]:
+            by_work[(r["work"], r.get("year"), r.get("workKind"))].append(r["author"])
     print(f"\n{len(good)} of {len(picked)} picks pass. Wrote {out/'picks.json'} and {out/'issue-body.md'}.")
-    print("Works to register after filing:")
-    for w in works:
-        print(f"  {w[0]}  ·  {w[1]}  ·  {w[2]}  ·  {w[3]}")
+    print("Works to register after filing (a host and a guest register under the guest):")
+    for (title, year, kind), authors in sorted(by_work.items(), key=lambda kv: kv[0][0].lower()):
+        print(f"  {title}  ·  {' / '.join(authors)}  ·  {year}  ·  {kind}")
     sys.exit(1 if failed else 0)
 
 
