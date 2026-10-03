@@ -1056,6 +1056,140 @@
       "addedAt": "2026-08-31"
     },
     {
+      "id": "q_0259274c4f45",
+      "text": "As soon as you complete the entire task, it doesn't matter that there's demand elasticity. That goes into the token budget. It doesn't go into the human salary budget.",
+      "author": "Bill Gates",
+      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
+        "locator": "The Ezra Klein Show, Gates to Ezra Klein · 31:43, on why \"AI creates new demand\" does not save jobs"
+      },
+      "tags": [],
+      "themes": [
+        "work",
+        "money",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: a caption note [clears throat]."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_b1df362cc658",
+      "text": "We always said when we cross these thresholds we will engage all of society because we will have created the most dangerous thing ever. This makes nuclear weapons look like nothing.",
+      "author": "Bill Gates",
+      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
+        "locator": "The Ezra Klein Show, Gates to Ezra Klein · 22:09, on why his alarm has jumped: thresholds crossed and no response from outside the industry"
+      },
+      "tags": [],
+      "themes": [
+        "risk",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"No, the key thing is\". Widely quoted (the episode's title is the last sentence). Speaker judged from the question and answer turn, the track marks no names."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_1e970e0a89e0",
+      "text": "You can't rely on the industry to self-regulate here. I mean, it's just insane.",
+      "author": "Bill Gates",
+      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
+        "locator": "The Ezra Klein Show, Gates to Ezra Klein · 16:55, on why AI needs outside rules"
+      },
+      "tags": [],
+      "themes": [
+        "power",
+        "politics",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Hyphen restored: the caption has \"selfregulate\". The line begins mid-sentence in the caption (\"is that you can't rely…\"); \"is that\" is cut and the capital added. Speaker judged from the turn."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_8aae042207e6",
+      "text": "AI is both the most powerful tool for advancing equity and the greatest threat to equity that humans have ever invented.",
+      "author": "Bill Gates",
+      "work": "The turbulent era of artificial intelligence is here",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=MLeTQWQiOvg",
+        "locator": "Bill Gates's own video statement · 0:00, opening line"
+      },
+      "tags": [],
+      "themes": [
+        "technology",
+        "ethics",
+        "power"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_6baa69ef6c31",
+      "text": "I worry that we aren't preparing. There's no plan to ease the entry into the AI era, and not even a plan to have a plan.",
+      "author": "Bill Gates",
+      "work": "The turbulent era of artificial intelligence is here",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=MLeTQWQiOvg",
+        "locator": "Bill Gates's own video statement · 1:02, on the lack of any plan for the AI transition"
+      },
+      "tags": [],
+      "themes": [
+        "risk",
+        "politics",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. The sentence before it runs on in the caption (\"If we manage the transition well, the good will vastly outweigh the bad, but\"); that lead-in is left out."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
       "id": "q_d47518628ae5",
       "text": "And then there's the companies that took the paper, you know, the filing cabinet and threw it away, they took the paper and pen and burned it. And now there's a computer at the center of every process. And those are the companies that unlock productivity improvements.",
       "author": "Boris Cherny",
@@ -2116,6 +2250,140 @@
       "addedAt": "2026-07-30"
     },
     {
+      "id": "q_02eebb0afd78",
+      "text": "Embedding evaluators may sound like a small or inconsequential step, but often the things that sound most boring or procedural are actually the most essential.",
+      "author": "Dario Amodei",
+      "work": "We Must Pace the Frontier",
+      "workKind": "essay",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "locator": "§Embedded Evaluators"
+      },
+      "tags": [],
+      "themes": [
+        "work",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "verified",
+        "note": "Read in the essay itself on the author's site, fetched 2026-10-03 (raw page text, not a summary)."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_e81d91430687",
+      "text": "Even though the AI system is going to learn for itself most of its knowledge, there'll be a residue in the system of the culture and the values of the creators of the system.",
+      "author": "Demis Hassabis",
+      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
+      "workKind": "interview",
+      "year": 2022,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
+        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 1:55:43, on why it matters who builds AI"
+      },
+      "tags": [],
+      "themes": [
+        "technology",
+        "power",
+        "ethics"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"because I think\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_2f7a0e0edb5e",
+      "text": "I start a second day of work. I call it my second day of work around 10 PM, 11 PM, and that's the time till about the small hours of the morning, four, five in the morning, where I will do my thinking.",
+      "author": "Demis Hassabis",
+      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
+      "workKind": "interview",
+      "year": 2022,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
+        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 2:00:44, on his day: office until seven, then home, then a second day"
+      },
+      "tags": [],
+      "themes": [
+        "time",
+        "work",
+        "mind"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"and then\", trailing \"and reading research writing research papers\". Read in the Lex Clips caption track for the same passage (the full episode's track has \"second day work\" there); timestamp is the full episode's."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_28cb783f1ffc",
+      "text": "Maybe we're the mechanism by which the universe is going to try and understand itself.",
+      "author": "Demis Hassabis",
+      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
+      "workKind": "interview",
+      "year": 2022,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
+        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 36:53, on the human mind building computers that study the universe"
+      },
+      "tags": [],
+      "themes": [
+        "mind",
+        "knowledge",
+        "meaning"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"that's exactly it, I mean I think that's one, you know, one could say we we are\". The speaker is judged from the turn (the track marks no names)."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_349aa9fb1b9d",
+      "text": "Step one, solve intelligence. Step two, use it to solve everything else.",
+      "author": "Demis Hassabis",
+      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
+      "workKind": "interview",
+      "year": 2022,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
+        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 56:37, on DeepMind's mission statement in 2010"
+      },
+      "tags": [],
+      "themes": [
+        "technology",
+        "knowledge",
+        "science"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: the lead-in \"back in 2010 … our mission statement, and still is today, it was used to be uh solving\" (a restart and filler). Widely quoted. The caption has the sentence run together (\"used to be solving step one solve intelligence step two use it to solve everything else\")."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
       "id": "q_8231ad4bbf79",
       "text": "How did we do this with our brains that were evolved for hunter-gathering out in the tundra?",
       "author": "Demis Hassabis",
@@ -2602,6 +2870,33 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-07-29"
+    },
+    {
+      "id": "q_bb391a12057e",
+      "text": "A lot of the ways it could actually make our lives better are sort of limited by normal human factors, but a lot of the ways it could make them worse or weirder are not.",
+      "author": "Ezra Klein",
+      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
+        "locator": "The Ezra Klein Show, Ezra Klein interviewing Bill Gates · 49:50, Klein's closing diagnosis of why AI risk outruns AI benefit"
+      },
+      "tags": [],
+      "themes": [
+        "progress",
+        "risk",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"And so\". Speaker is the host, Ezra Klein (judged from the question turn; the track marks no names)."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
     },
     {
       "id": "q_521452ea75a5",
@@ -5499,6 +5794,59 @@
       "addedAt": "2026-08-19"
     },
     {
+      "id": "q_4ff8f84fd393",
+      "text": "I hear all these stories about how AI's solving famous open problems in math, and I can't even get it to answer questions about when restaurants are open.",
+      "author": "Paul Graham",
+      "work": "Paul Graham On Startups, Ambition, and Great Founders",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=5bxp78i96S8",
+        "locator": "Y Combinator, Graham to Vivian Shen · 14:28, on how uneven current models are"
+      },
+      "tags": [],
+      "themes": [
+        "technology",
+        "truth"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: a caption note [laughter]. Speaker judged from turn order; the interviewer is named in the video description."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "id": "q_c19b6123e9a1",
+      "text": "I tell myself there has to be room for at least one generalist in a world where everyone's hyper specialized.",
+      "author": "Peter Thiel",
+      "work": "Peter Thiel: The AI Crisis, Europe’s Decline & the Battle for America",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://www.youtube.com/watch?v=B7yl7fEHeKM",
+        "locator": "MDMEETS, Thiel to Mathias Döpfner · 53:09, on his wide range of interests"
+      },
+      "tags": [],
+      "themes": [
+        "knowledge",
+        "work",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: the false start \"uh I\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-10-02"
+    },
+    {
       "id": "q_8d6c22e7e3bc",
       "text": "A 2019 study showed that a neural net analyzing natural-language clinical metrics was able to diagnose pediatric diseases better than eight junior physicians exposed to the same data—and outperformed all twenty human doctors in some areas.",
       "author": "Ray Kurzweil",
@@ -6578,354 +6926,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-31"
-    },
-    {
-      "id": "q_0259274c4f45",
-      "text": "As soon as you complete the entire task, it doesn't matter that there's demand elasticity. That goes into the token budget. It doesn't go into the human salary budget.",
-      "author": "Bill Gates",
-      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
-        "locator": "The Ezra Klein Show, Gates to Ezra Klein · 31:43, on why \"AI creates new demand\" does not save jobs"
-      },
-      "tags": [],
-      "themes": [
-        "work",
-        "money",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: a caption note [clears throat]."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_6baa69ef6c31",
-      "text": "I worry that we aren't preparing. There's no plan to ease the entry into the AI era, and not even a plan to have a plan.",
-      "author": "Bill Gates",
-      "work": "The turbulent era of artificial intelligence is here",
-      "workKind": "speech",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=MLeTQWQiOvg",
-        "locator": "Bill Gates's own video statement · 1:02, on the lack of any plan for the AI transition"
-      },
-      "tags": [],
-      "themes": [
-        "risk",
-        "politics",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. The sentence before it runs on in the caption (\"If we manage the transition well, the good will vastly outweigh the bad, but\"); that lead-in is left out."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_b1df362cc658",
-      "text": "We always said when we cross these thresholds we will engage all of society because we will have created the most dangerous thing ever. This makes nuclear weapons look like nothing.",
-      "author": "Bill Gates",
-      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
-        "locator": "The Ezra Klein Show, Gates to Ezra Klein · 22:09, on why his alarm has jumped: thresholds crossed and no response from outside the industry"
-      },
-      "tags": [],
-      "themes": [
-        "risk",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"No, the key thing is\". Widely quoted (the episode's title is the last sentence). Speaker judged from the question and answer turn, the track marks no names."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_02eebb0afd78",
-      "text": "Embedding evaluators may sound like a small or inconsequential step, but often the things that sound most boring or procedural are actually the most essential.",
-      "author": "Dario Amodei",
-      "work": "We Must Pace the Frontier",
-      "workKind": "essay",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
-        "locator": "§Embedded Evaluators"
-      },
-      "tags": [],
-      "themes": [
-        "work",
-        "truth"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "verified",
-        "note": "Read in the essay itself on the author's site, fetched 2026-10-03 (raw page text, not a summary)."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_e81d91430687",
-      "text": "Even though the AI system is going to learn for itself most of its knowledge, there'll be a residue in the system of the culture and the values of the creators of the system.",
-      "author": "Demis Hassabis",
-      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
-      "workKind": "interview",
-      "year": 2022,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
-        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 1:55:43, on why it matters who builds AI"
-      },
-      "tags": [],
-      "themes": [
-        "technology",
-        "power",
-        "ethics"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"because I think\"."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_bb391a12057e",
-      "text": "A lot of the ways it could actually make our lives better are sort of limited by normal human factors, but a lot of the ways it could make them worse or weirder are not.",
-      "author": "Ezra Klein",
-      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
-        "locator": "The Ezra Klein Show, Ezra Klein interviewing Bill Gates · 49:50, Klein's closing diagnosis of why AI risk outruns AI benefit"
-      },
-      "tags": [],
-      "themes": [
-        "progress",
-        "risk",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"And so\". Speaker is the host, Ezra Klein (judged from the question turn; the track marks no names)."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_28cb783f1ffc",
-      "text": "Maybe we're the mechanism by which the universe is going to try and understand itself.",
-      "author": "Demis Hassabis",
-      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
-      "workKind": "interview",
-      "year": 2022,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
-        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 36:53, on the human mind building computers that study the universe"
-      },
-      "tags": [],
-      "themes": [
-        "mind",
-        "knowledge",
-        "meaning"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"that's exactly it, I mean I think that's one, you know, one could say we we are\". The speaker is judged from the turn (the track marks no names)."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_1e970e0a89e0",
-      "text": "You can't rely on the industry to self-regulate here. I mean, it's just insane.",
-      "author": "Bill Gates",
-      "work": "Bill Gates: A.I. ‘Makes Nuclear Weapons Look Like Nothing’",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=A_156w0aYtU",
-        "locator": "The Ezra Klein Show, Gates to Ezra Klein · 16:55, on why AI needs outside rules"
-      },
-      "tags": [],
-      "themes": [
-        "power",
-        "politics",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Hyphen restored: the caption has \"selfregulate\". The line begins mid-sentence in the caption (\"is that you can't rely…\"); \"is that\" is cut and the capital added. Speaker judged from the turn."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_8aae042207e6",
-      "text": "AI is both the most powerful tool for advancing equity and the greatest threat to equity that humans have ever invented.",
-      "author": "Bill Gates",
-      "work": "The turbulent era of artificial intelligence is here",
-      "workKind": "speech",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=MLeTQWQiOvg",
-        "locator": "Bill Gates's own video statement · 0:00, opening line"
-      },
-      "tags": [],
-      "themes": [
-        "technology",
-        "ethics",
-        "power"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_349aa9fb1b9d",
-      "text": "Step one, solve intelligence. Step two, use it to solve everything else.",
-      "author": "Demis Hassabis",
-      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
-      "workKind": "interview",
-      "year": 2022,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
-        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 56:37, on DeepMind's mission statement in 2010"
-      },
-      "tags": [],
-      "themes": [
-        "technology",
-        "knowledge",
-        "science"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: the lead-in \"back in 2010 … our mission statement, and still is today, it was used to be uh solving\" (a restart and filler). Widely quoted. The caption has the sentence run together (\"used to be solving step one solve intelligence step two use it to solve everything else\")."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_4ff8f84fd393",
-      "text": "I hear all these stories about how AI's solving famous open problems in math, and I can't even get it to answer questions about when restaurants are open.",
-      "author": "Paul Graham",
-      "work": "Paul Graham On Startups, Ambition, and Great Founders",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=5bxp78i96S8",
-        "locator": "Y Combinator, Graham to Vivian Shen · 14:28, on how uneven current models are"
-      },
-      "tags": [],
-      "themes": [
-        "technology",
-        "truth"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: a caption note [laughter]. Speaker judged from turn order; the interviewer is named in the video description."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_c19b6123e9a1",
-      "text": "I tell myself there has to be room for at least one generalist in a world where everyone's hyper specialized.",
-      "author": "Peter Thiel",
-      "work": "Peter Thiel: The AI Crisis, Europe’s Decline & the Battle for America",
-      "workKind": "interview",
-      "year": 2026,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=B7yl7fEHeKM",
-        "locator": "MDMEETS, Thiel to Mathias Döpfner · 53:09, on his wide range of interests"
-      },
-      "tags": [],
-      "themes": [
-        "knowledge",
-        "work",
-        "character"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: the false start \"uh I\"."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
-    },
-    {
-      "id": "q_2f7a0e0edb5e",
-      "text": "I start a second day of work. I call it my second day of work around 10 PM, 11 PM, and that's the time till about the small hours of the morning, four, five in the morning, where I will do my thinking.",
-      "author": "Demis Hassabis",
-      "work": "Demis Hassabis: DeepMind - AI, Superintelligence & the Future of Humanity",
-      "workKind": "interview",
-      "year": 2022,
-      "source": {
-        "kind": "curated",
-        "url": "https://www.youtube.com/watch?v=Gfr50f6ZBvo",
-        "locator": "Lex Fridman Podcast #299, Hassabis to Lex Fridman · 2:00:44, on his day: office until seven, then home, then a second day"
-      },
-      "tags": [],
-      "themes": [
-        "time",
-        "work",
-        "mind"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "reported",
-        "note": "Machine captions (YouTube auto-generated English track), downloaded 2026-10-03; the audio was not checked. Cut: leading \"and then\", trailing \"and reading research writing research papers\". Read in the Lex Clips caption track for the same passage (the full episode's track has \"second day work\" there); timestamp is the full episode's."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-10-02"
     }
   ]
 }
