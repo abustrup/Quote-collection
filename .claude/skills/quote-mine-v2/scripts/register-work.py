@@ -82,7 +82,7 @@ def main():
         cmds = [
             ["git", "pull", "--rebase", "--quiet", "--autostash"],
             ["git", "add", "data/works.json"],
-            ["git", "commit", "--quiet", "-m", f"quote-mine: register {title} ({args.author.strip()}, {args.year})"],
+            ["git", "commit", "--quiet", "-m", f"quote-mine-v2: register {title} ({args.author.strip()}, {args.year})"],
             ["git", "push", "--quiet"],
         ]
         for cmd in cmds:

@@ -1,4 +1,4 @@
-"""Shared helpers for the quote-mine scripts: find the repository, read its controlled vocabularies."""
+"""Shared helpers for the quote-mine-v2 scripts: find the repository, read its controlled vocabularies."""
 from __future__ import annotations
 
 import json

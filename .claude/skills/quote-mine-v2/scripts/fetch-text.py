@@ -23,7 +23,7 @@ def main():
     if len(sys.argv) != 3:
         raise SystemExit(__doc__)
     url, out = sys.argv[1], Path(sys.argv[2])
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (quote-mine)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (quote-mine-v2)"})
     with urllib.request.urlopen(req, timeout=30) as r:
         page = r.read().decode(r.headers.get_content_charset() or "utf-8", errors="replace")
     page = re.sub(r"(?is)<(script|style|noscript|svg)[^>]*>.*?</\1>", "", page)
