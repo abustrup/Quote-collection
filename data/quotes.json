@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-15T18:29:08.082Z",
+  "updatedAt": "2026-11-16T17:03:08.074Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -6926,6 +6926,434 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_03567fab9489",
+      "text": "I've also come to believe that automating AI research will compress so much progress into a single year that soon thereafter, so by 2030, and plausibly as early as next year, we'll have AIs that are at least as good as the best human experts in every field.",
+      "author": "Dwarkesh Patel",
+      "work": "Recursive self-improvement has started",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/1NHPDzpfR6Y?t=31",
+        "locator": "Dwarkesh Patel, solo video essay · 0:31, on the headline claim"
+      },
+      "tags": [
+        "ai",
+        "superintelligence",
+        "timelines"
+      ],
+      "themes": [
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own caption track (en-US) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. The quote starts after the opening \"And\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_9b213085c2ff",
+      "text": "In every domain where we can check answers and give AIs thousands of rounds of practice, for example, competitive programming contests or well-scoped open math problems, they've gone from worse than most humans to better than the best humans within just a few years.",
+      "author": "Dwarkesh Patel",
+      "work": "Recursive self-improvement has started",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/1NHPDzpfR6Y?t=520",
+        "locator": "Dwarkesh Patel, solo video essay · 8:40, on why checkable domains fall to AI so fast"
+      },
+      "tags": [
+        "ai",
+        "verification",
+        "reinforcement-learning"
+      ],
+      "themes": [
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own caption track (en-US) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. Capitalisation and punctuation tidied. The quote starts after the opening \"Well\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_c529c16301b0",
+      "text": "Our general-purpose mental architecture was developed by evolution, and evolution is an optimization process with a really crude verifier. Did your genes pass on or not?",
+      "author": "Dwarkesh Patel",
+      "work": "Recursive self-improvement has started",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/1NHPDzpfR6Y?t=1302",
+        "locator": "Dwarkesh Patel, solo video essay · 21:42, on evolution as an optimizer with a crude verifier"
+      },
+      "tags": [
+        "ai",
+        "evolution",
+        "verification"
+      ],
+      "themes": [
+        "nature",
+        "mind"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own caption track (en-US) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_b896fc5b3f3c",
+      "text": "This is the largest industrial revolution in history. And we're going through the single largest infrastructure buildout in human history.",
+      "author": "Jensen Huang",
+      "work": "Trump press conference addresses AI 'accord' signed by tech leaders Amodei, Huang, Musk & Zuckerberg",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/k1sAOxPXt70?t=170",
+        "locator": "Jensen Huang, at the White House press conference on the AI accord · 2:50, on the scale of the AI buildout"
+      },
+      "tags": [
+        "ai",
+        "infrastructure",
+        "data-centers"
+      ],
+      "themes": [
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. Capitalisation and punctuation tidied. The quote starts after the opening \"Well, this is\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_33156045537e",
+      "text": "I think by far the most likely outcome is an age of abundance, where we don't have just universal basic income, we have universal high income.",
+      "author": "Elon Musk",
+      "work": "Trump press conference addresses AI 'accord' signed by tech leaders Amodei, Huang, Musk & Zuckerberg",
+      "workKind": "speech",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/k1sAOxPXt70?t=1583",
+        "locator": "Elon Musk, at the White House press conference on the AI accord · 26:23, on the likeliest outcome for jobs and income"
+      },
+      "tags": [
+        "ai",
+        "jobs",
+        "abundance"
+      ],
+      "themes": [
+        "work",
+        "progress",
+        "money"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"uh\". The quote starts mid-sentence, after \"…super intelligent Um I\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_a7ca70b2a649",
+      "text": "Traditional computers can easily automate what you can specify in code, and this latest round of LLMs can easily automate what you can verify in a certain sense.",
+      "author": "Andrej Karpathy",
+      "work": "Andrej Karpathy: From Vibe Coding to Agentic Engineering w/ Stephanie Zhan",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/96jN2OCOfLs?t=607",
+        "locator": "Sequoia AI Ascent 2026, Andrej Karpathy to Stephanie Zhan · 10:07, on what the latest LLMs automate: what you can verify"
+      },
+      "tags": [
+        "verifiability",
+        "llm"
+      ],
+      "themes": [
+        "technology",
+        "knowledge",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"uh\" x2, \"kind of\" (filler before a noun phrase ('kind of this latest round of LLMs'); the claim is the same without it), \"in a certain\" (repeated). Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…time writing about verifiability and um, basically like\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_7ae717bdc46f",
+      "text": "What is the piece of text to copy-paste to your agent? That's the programming paradigm now.",
+      "author": "Andrej Karpathy",
+      "work": "Andrej Karpathy: From Vibe Coding to Agentic Engineering w/ Stephanie Zhan",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/96jN2OCOfLs?t=286",
+        "locator": "Sequoia AI Ascent 2026, Andrej Karpathy to Stephanie Zhan · 4:46, on what programming is now"
+      },
+      "tags": [
+        "software-3.0",
+        "agents",
+        "prompting"
+      ],
+      "themes": [
+        "technology",
+        "language",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…It's just like\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_76d13ab20594",
+      "text": "The LLMs certainly don't excel at understanding. You still are uniquely in charge of that.",
+      "author": "Andrej Karpathy",
+      "work": "Andrej Karpathy: From Vibe Coding to Agentic Engineering w/ Stephanie Zhan",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/96jN2OCOfLs?t=1764",
+        "locator": "Sequoia AI Ascent 2026, Andrej Karpathy to Stephanie Zhan · 29:24, on understanding as the part humans keep"
+      },
+      "tags": [
+        "understanding",
+        "education",
+        "agents"
+      ],
+      "themes": [
+        "knowledge",
+        "mind",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…a good director if you still uh cuz\". Boundary kept on purpose: the words before the line ('you can't be a good director if you still') are a clause the speaker abandons mid-sentence; he restarts with this sentence, which says what it says without them."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_7813523aa77e",
+      "text": "Six months from now, the things that seemed hard, they're going to be easy. 12 months from now, the things that seemed impossible, the models are going to be doing them regularly.",
+      "author": "Dario Amodei",
+      "work": "Dario & Daniela Amodei: The Rise of Superintelligent AI, the End of Human Control & Humanity's Fate",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/1OdoSzfUkec?t=900",
+        "locator": "Dario Amodei to Walter Isaacson, The Builders · 15:00, on how fast the limits of the models fall"
+      },
+      "tags": [
+        "ai",
+        "forecast"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "time"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"the mo\" (false start: he begins 'the models' and restarts with 'they're going to be easy'). Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…The limitations of the models, you know, now\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_b9acf6f4f52b",
+      "text": "The thing that drives me the most is, this is the most interesting, important thing I can imagine doing, and we are now in the singularity. This is the moment.",
+      "author": "Sam Altman",
+      "work": "Sam Altman - How to Start a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/Vv3CEAS_w34?t=1017",
+        "locator": "Relentless, Sam Altman to Ti Morse · 16:57, on being in the singularity now"
+      },
+      "tags": [
+        "ai",
+        "singularity",
+        "openai"
+      ],
+      "themes": [
+        "technology",
+        "progress",
+        "time"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"like\" x2 (filler), \"Like\" (filler). Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…Well, on the to the previous question\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_4fd0a8fd6bbb",
+      "text": "If you end up in a high-stress, sort of impactful job, you will definitely learn how to deal with chaos and function very well through it, at least most people will, but I don't think it's teachable. I think it's only learnable.",
+      "author": "Sam Altman",
+      "work": "Sam Altman - How to Start a Startup",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/Vv3CEAS_w34?t=358",
+        "locator": "Relentless, Sam Altman to Ti Morse · 5:58, on handling chaos: learnable, not teachable"
+      },
+      "tags": [
+        "chaos",
+        "founders",
+        "learning"
+      ],
+      "themes": [
+        "knowledge",
+        "work",
+        "character"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…You definitely will\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_382664d81898",
+      "text": "In 36 months, but probably closer to 30 months, the most economically compelling place to put AI will be space.",
+      "author": "Elon Musk",
+      "work": "In 36 months, the cheapest place to put AI will be space",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/BYXbuik3dgA?t=255",
+        "locator": "Elon Musk to Dwarkesh Patel and John Collison · 4:15, on when space becomes the cheapest place to put AI"
+      },
+      "tags": [
+        "ai",
+        "space",
+        "data-centers",
+        "prediction"
+      ],
+      "themes": [
+        "technology",
+        "progress"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own caption track (en) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_b3ddb75a7ac5",
+      "text": "Corporations that are purely AI and robotics will vastly outperform any corporations that have people in the loop.",
+      "author": "Elon Musk",
+      "work": "In 36 months, the cheapest place to put AI will be space",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/BYXbuik3dgA?t=4558",
+        "locator": "Elon Musk to Dwarkesh Patel and John Collison · 1:15:58, on why companies with people in the loop lose"
+      },
+      "tags": [
+        "ai",
+        "robots",
+        "automation",
+        "corporations"
+      ],
+      "themes": [
+        "technology",
+        "work"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own caption track (en) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
+    },
+    {
+      "id": "q_3fe3ab3d0786",
+      "text": "Let's say that there's a million times more silicon intelligence than there is biological. I think it would be foolish to assume that there's any way to maintain control over that.",
+      "author": "Elon Musk",
+      "work": "In 36 months, the cheapest place to put AI will be space",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/BYXbuik3dgA?t=2943",
+        "locator": "Elon Musk to Dwarkesh Patel and John Collison · 49:03, on why humans will not stay in control of a far smarter AI"
+      },
+      "tags": [
+        "ai-safety",
+        "control",
+        "superintelligence"
+      ],
+      "themes": [
+        "power",
+        "mind",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in the uploader's own caption track (en) of the video, fetched with yt-dlp on 2026-11-16, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-16"
     }
   ]
 }
