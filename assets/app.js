@@ -6,14 +6,19 @@
  * can be shared, and nothing animates that does not need to.
  */
 
-import { ERAS, SUBJECTS, VERIFICATION_LABELS, eraFor, quoteId, slug, typographic } from './quote-core.js';
-import { hydrate, langToggle, locale, onLang, register, t } from './i18n.js';
+import { ERAS, SUBJECTS, eraFor, quoteId, slug, typographic } from './quote-core.js';
+import { hydrate, locale, onLang, register, t } from './i18n.js';
+import { closeMore, mountNav, setEdition as applyEdition } from './nav.js';
+import { sourceHost, sourceUrl } from './source-link.js';
 import {
   favorites as storedFavorites,
   isUnlocked,
   loadState,
   onChange,
+  pendingQuotes,
+  setCollection,
   setFavorite,
+  setLocalFavorite,
   state as shelfState,
 } from './store.js';
 
@@ -35,22 +40,20 @@ const STORAGE = {
  */
 register({
   'index.skip': { en: 'Skip to the quotes', da: 'Spring til citaterne' },
-  'index.kicker': { en: 'A personal collection', da: 'En personlig samling' },
-  'index.dek': {
-    en: 'Everything I have wanted to remember – from philosophy, technology, literature and the odd sentence that would not leave me alone.',
-    da: 'Alt hvad jeg har villet huske – fra filosofi, teknologi, litteratur og den enkelte sætning der ikke ville forlade mig igen.',
-  },
 
   'index.search.label': { en: 'Search the collection', da: 'Søg i samlingen' },
   'index.search.placeholder': { en: 'Search quotes, authors, works…', da: 'Søg i citater, forfattere, værker…' },
 
-  'index.filter.author.label': { en: 'Filter by author', da: 'Filtrér efter forfatter' },
+  // Author, work and era sit in the More panel with a visible label over each
+  // select, so the labels are short. Subject is on the row with its value
+  // showing, and keeps a hidden label of its own.
+  'index.filter.author.label': { en: 'Author', da: 'Forfatter' },
   'index.filter.author.all': { en: 'All authors', da: 'Alle forfattere' },
-  'index.filter.work.label': { en: 'Filter by work', da: 'Filtrér efter værk' },
+  'index.filter.work.label': { en: 'Work', da: 'Værk' },
   'index.filter.work.all': { en: 'All works', da: 'Alle værker' },
   'index.filter.subject.label': { en: 'Filter by subject', da: 'Filtrér efter emne' },
   'index.filter.subject.all': { en: 'All subjects', da: 'Alle emner' },
-  'index.filter.era.label': { en: 'Filter by era', da: 'Filtrér efter periode' },
+  'index.filter.era.label': { en: 'Era', da: 'Periode' },
   'index.filter.era.all': { en: 'All eras', da: 'Alle perioder' },
 
   'index.sort.label': { en: 'Sort', da: 'Sortér' },
@@ -62,10 +65,6 @@ register({
   'index.sort.length': { en: 'Shortest first', da: 'Korteste først' },
   'index.sort.random': { en: 'Shuffle', da: 'Bland' },
 
-  'index.shelf': { en: 'Shelf', da: 'Hylden' },
-  'index.shelf.title': { en: 'Every book and talk on the shelf', da: 'Alle bøger og foredrag på hylden' },
-  'index.add': { en: 'Add', da: 'Tilføj' },
-  'index.add.title': { en: 'Add a quote', da: 'Tilføj et citat' },
   'index.favourites': { en: 'Favourites', da: 'Favoritter' },
   'index.focus.title': { en: 'Read one at a time (F)', da: 'Læs ét ad gangen (F)' },
   'index.curate': { en: 'Curate', da: 'Kurater' },
@@ -75,6 +74,7 @@ register({
     da: 'Sæt kryds ved de citater der skal væk, og åbn én sag for dem alle.',
   },
   'index.curate.deselect': { en: 'Deselect', da: 'Fravælg' },
+  'index.curate.done': { en: 'Done', da: 'Færdig' },
   'index.curate.none': { en: 'Nothing selected', da: 'Intet valgt' },
   'index.curate.selected': { en: '{n} selected', da: '{n} valgt' },
   'index.curate.remove': { en: 'Remove selected…', da: 'Fjern de valgte…' },
@@ -82,9 +82,6 @@ register({
   'index.curate.removeThis': { en: 'Remove this one', da: 'Fjern denne' },
   'index.curate.edit': { en: 'Edit', da: 'Rediger' },
   'index.curate.opened': { en: 'Opened a removal issue for {n}', da: 'Åbnede en fjern-sag for {n}' },
-
-  'index.edition.label': { en: 'Edition', da: 'Udgave' },
-  'index.edition.title': { en: 'Change how the collection is set', da: 'Skift hvordan samlingen er sat' },
 
   'index.count.one': { en: '{n} quote', da: '{n} citat' },
   'index.count.many': { en: '{n} quotes', da: '{n} citater' },
@@ -107,8 +104,12 @@ register({
     en: 'No quote matches that. Try fewer words, or clear the filters.',
     da: 'Ingen citater passer. Prøv færre ord, eller ryd filtrene.',
   },
+  // The one empty state with an obvious next step, so it says what the step is.
+  'index.empty.favourites': {
+    en: 'No favourites yet. Press the star on a quote to keep it here.',
+    da: 'Ingen favoritter endnu. Tryk på stjernen ved et citat for at gemme det her.',
+  },
 
-  'index.footer.import': { en: 'Import from Goodreads', da: 'Importér fra Goodreads' },
   'index.footer.source': { en: 'Source', da: 'Kildekode' },
   'index.footer.keys': {
     en: 'Press {slash} to search, {j} and {k} to move, {f} for focus, {s} to keep one, {r} for a random line, {c} to curate.',
@@ -122,8 +123,7 @@ register({
   'index.quote.favouriteOf': { en: 'Favourite this quote by {author}', da: 'Gem dette citat af {author}' },
   'index.quote.copy': { en: 'Copy the quote', da: 'Kopiér citatet' },
   'index.quote.copyLong': { en: 'Copy this quote', da: 'Kopiér dette citat' },
-  'index.quote.permalink': { en: 'Copy a link to this quote', da: 'Kopiér et link til dette citat' },
-  'index.quote.permalinkLong': { en: 'Copy a permanent link to this quote', da: 'Kopiér et permanent link til dette citat' },
+  'index.quote.source': { en: 'Open the source ({host})', da: 'Åbn kilden ({host})' },
   'index.quote.select': { en: 'Select this quote by {author} for removal', da: 'Vælg dette citat af {author} til fjernelse' },
   'index.quote.author': { en: 'Show everything by {author}', da: 'Vis alt af {author}' },
 
@@ -171,8 +171,6 @@ const sentenceCase = (word) => word.charAt(0).toUpperCase() + word.slice(1);
  */
 const subjectLabel = (id) => (SUBJECTS.includes(id) ? t(`shelf.subject.${id}`) : sentenceCase(String(id || '')));
 const eraLabel = (id) => (ERA_LABELS.has(id) ? t(`shelf.era.${id}`) : String(id || ''));
-const EDITIONS = ['paper', 'night', 'folio', 'index'];
-const THEME_COLORS = { paper: '#f6efe4', night: '#14110d', folio: '#fbf7f0', index: '#eef0f3' };
 
 /** Quotes below this many characters are set large, above it they are set small. */
 const SHORT_QUOTE = 120;
@@ -214,9 +212,9 @@ const dom = {
   curateCount: el('curate-count'),
   curateRemove: el('curate-remove'),
   curateClear: el('curate-clear'),
+  curateDone: el('curate-done'),
   favorites: el('toggle-favorites'),
   favoritesCount: el('favorites-count'),
-  edition: el('edition'),
   activeFilters: el('active-filters'),
   summary: el('result-summary'),
   collection: el('collection'),
@@ -231,7 +229,6 @@ const dom = {
   focusFavorite: el('focus-favorite'),
   openFocus: el('open-focus'),
   footerKeys: el('footer-keys'),
-  controlsAdd: el('controls-add'),
 };
 
 const state = {
@@ -281,14 +278,18 @@ function seededRandom(seed) {
 }
 
 /**
- * Favourites now have two homes, and this page reads both.
+ * Favourites have four homes, and this page reads all of them.
  *
- * `store.favorites()` is the union of what the Worker knows and what this
- * browser has held in `quotes-favorites` since before the Worker existed, so
- * reading it is always right. Writing is the part that has to branch: when
- * editing is unlocked the star goes to the Worker and follows him to his
- * phone, and when it is not it stays in the old local key rather than failing.
- * A star that will not light is worse than a star only this device remembers.
+ * `store.favorites()` lays them over each other: the repository's own
+ * `favorite: true` flags (the durable ones; the first 21 were written into
+ * data/quotes.json on 2026-11-15), the Worker's overrides, this browser's old
+ * `quotes-favorites` list, and what was pressed here while editing was locked.
+ * Until the page tells the store what the repository holds it can only see the
+ * last three, so `refreshFavorites()` is what to call once the quotes are in.
+ *
+ * Writing is the part that branches. Unlocked, a star goes to the Worker and
+ * follows him to his phone. Locked, it is kept on this device and the page says
+ * so, because a star that looks saved and is not is how favourites were lost.
  */
 function readFavorites() {
   try {
@@ -298,12 +299,103 @@ function readFavorites() {
   }
 }
 
-function writeFavorites() {
+/** Tell the store which quotes the page has and which the repository flags, then read the lot. */
+function refreshFavorites() {
   try {
-    localStorage.setItem(STORAGE.favorites, JSON.stringify([...favorites]));
-  } catch {
-    /* Private browsing. Favourites simply will not persist; nothing else breaks. */
-  }
+    setCollection(state.all);
+  } catch { /* the store only improves the page; it is never a reason for it not to draw */ }
+  favorites = readFavorites();
+}
+
+register({
+  'index.fav.deviceOnly': {
+    en: 'Saved on this device only. Unlock to keep it everywhere.',
+    da: 'Gemt kun på denne enhed. Lås op for at beholde det overalt.',
+  },
+  // For the one case where even this device could not keep the press: the
+  // browser refused to store it, so nothing is saved and the star goes back.
+  'index.fav.notSaved': {
+    en: 'Could not save that on this device.',
+    da: 'Kunne ikke gemme det på denne enhed.',
+  },
+});
+
+let deviceOnlyShown = false;
+let actionToastTimer;
+let actionToastStyled = false;
+
+/**
+ * A plain toast is a short pill, sized by the half of the screen to the right
+ * of its centre line. This one carries a sentence and a button, which on a
+ * phone is two thirds of a screen of text: left alone it wrapped into a narrow
+ * tower of four lines. So a toast that holds a button takes the room it needs,
+ * up to the width of the screen, and rounds like a card rather than a pill.
+ * The rule is added from here, once, because the page's stylesheet is not this
+ * code's to change.
+ */
+function styleActionToast() {
+  if (actionToastStyled) return;
+  actionToastStyled = true;
+  const style = document.createElement('style');
+  style.textContent = '.toast:has(> button) { width: max-content; max-width: calc(100vw - 2rem);'
+    + ' border-radius: 1.4rem; text-align: center; line-height: 1.45; }';
+  document.head.append(style);
+}
+
+/**
+ * The toast, with one action after the words. The pill itself ignores the
+ * pointer (so it never gets in the way of the page under it); only the action
+ * takes clicks. It goes away with the toast, and is gone the moment any other
+ * toast replaces the words.
+ */
+function toastWithAction(message, label, run) {
+  styleActionToast();
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = label;
+  button.style.cssText = 'margin-left:.9rem;padding:0;border:0;background:none;color:inherit;'
+    + 'font:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px;'
+    + 'cursor:pointer;pointer-events:auto';
+  const away = () => {
+    clearTimeout(actionToastTimer);
+    if (!dom.toast.contains(button)) return;
+    button.remove();
+    dom.toast.dataset.visible = 'false';
+  };
+  button.addEventListener('click', () => { away(); run(); });
+
+  dom.toast.replaceChildren(message, button);
+  dom.toast.dataset.visible = 'true';
+  clearTimeout(toastTimer);
+  clearTimeout(actionToastTimer);
+  actionToastTimer = setTimeout(away, 7000);
+}
+
+/**
+ * A star pressed while editing is locked is kept on this device, and nothing
+ * used to say so. That is how favourites were lost: the star lit, and the only
+ * copy was one cleared browser from gone. Now it says so, once per page load,
+ * with a way straight to unlocking.
+ */
+function noteDeviceOnly() {
+  if (deviceOnlyShown) return;
+  deviceOnlyShown = true;
+  toastWithAction(t('index.fav.deviceOnly'), t('edit.unlock'), () => {
+    // add-quote.js answers this by opening its unlock panel; nobody answering
+    // means that file did not load, and then there is nothing more to offer.
+    document.dispatchEvent(new CustomEvent('quotes:unlock', { bubbles: true, cancelable: true }));
+  });
+}
+
+/**
+ * Keep a star on this device only, and say so. When the browser will not store
+ * it (site data blocked, a full quota) nothing was saved and the star is back
+ * to what it was, so the toast says that instead: "saved on this device" would
+ * be the very silence this exists to end, in a new place.
+ */
+function keepOnThisDevice(id, on) {
+  if (setLocalFavorite(id, on)) noteDeviceOnly();
+  else toast(t('index.fav.notSaved'));
 }
 
 /**
@@ -312,7 +404,7 @@ function writeFavorites() {
  * Optimistic: the state flips and the star fills before anything is sent, and
  * a refusal from the write path falls back to this device rather than undoing
  * what he just pressed. `setFavorite` rolls its own copy back when the key is
- * wrong or missing, so the local write happens *after* the await, not before.
+ * wrong or missing, so the local save happens *after* the await, not before.
  */
 async function toggleFavorite(id) {
   const on = !favorites.has(id);
@@ -321,24 +413,31 @@ async function toggleFavorite(id) {
   paintFavorites();
 
   if (!isUnlocked()) {
-    writeFavorites();
+    keepOnThisDevice(id, on);
     return;
   }
   try {
     await setFavorite(id, on);
   } catch (error) {
     const code = error?.code;
-    // `locked` here means the key stopped working, and the store has already
-    // rolled its own copy back and told the page — which repainted the star
-    // off. Re-apply what he actually pressed and keep it in the old local key:
-    // a star that un-presses itself is a worse answer than a star this device
-    // remembers on its own.
-    if (code === 'locked' || code === 'offline' || code === 'unconfigured') {
-      if (on) favorites.add(id);
-      else favorites.delete(id);
-      writeFavorites();
+    if (code === 'offline') {
+      // The store has queued it and kept its own copy: it reaches the Worker
+      // the next time the page loads with a network.
+      favorites = readFavorites();
       paintFavorites();
-      toast(t(code === 'offline' ? 'index.fav.offline' : 'index.fav.local'));
+      toast(t('index.fav.offline'));
+      return;
+    }
+    // `locked` means the key stopped working, and the store has already rolled
+    // its own copy back and told the page, which repainted the star off. Put
+    // back what he pressed and keep it on this device: a star that un-presses
+    // itself is a worse answer than one this device remembers on its own.
+    if (code === 'locked') {
+      keepOnThisDevice(id, on);
+      return;
+    }
+    if (code === 'unconfigured') {
+      toast(t(setLocalFavorite(id, on) ? 'index.fav.local' : 'index.fav.notSaved'));
       return;
     }
     // Anything else is a refusal with a reason; the rollback stands.
@@ -400,7 +499,6 @@ function svgIcon(paths) {
 const ICONS = {
   star: ['M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z'],
   copy: ['M9 9h10v10H9z', 'M5 15V5h10'],
-  link: ['M10.5 13.5a3.5 3.5 0 005 0l3-3a3.5 3.5 0 00-5-5l-1 1', 'M13.5 10.5a3.5 3.5 0 00-5 0l-3 3a3.5 3.5 0 005 5l1-1'],
 };
 
 const reducedMotion = () => (
@@ -587,10 +685,20 @@ function buildAttribution(quote, { linked = true } = {}) {
   attribution.append(author);
 
   if (quote.work) {
-    const work = document.createElement(linked ? 'a' : 'span');
+    // With a source the title is the way to it, on every card and in Focus, and
+    // the "everything from this work" filter is the Work menu's job instead.
+    // Without one it is the filter link it has always been.
+    const source = sourceUrl(quote);
+    const work = document.createElement(source || linked ? 'a' : 'span');
     work.className = 'attribution-work';
     work.textContent = quote.work;
-    if (linked) {
+    if (source) {
+      work.classList.add('attribution-source');
+      work.href = source.href;
+      work.target = '_blank';
+      work.rel = 'noopener noreferrer';
+      work.title = t('index.quote.source', { host: sourceHost(source) });
+    } else if (linked) {
       work.href = `?work=${encodeURIComponent(quote._workSlug)}`;
       work.style.textDecoration = 'none';
     }
@@ -634,16 +742,12 @@ function buildQuote(quote, terms) {
     figure.append(note);
   }
 
+  // Under the byline there is the star and the copy button, and nothing else.
+  // The themes and the verification badge used to sit here too. They are still
+  // in data/quotes.json, and the theme is still a filter in the address
+  // (?theme=), but a quotation is read for its words and not for its labels.
   const meta = document.createElement('div');
   meta.className = 'quote-meta';
-
-  for (const theme of quote.themes ?? []) {
-    const link = document.createElement('a');
-    link.className = 'tag';
-    link.href = `?theme=${encodeURIComponent(theme)}`;
-    link.textContent = theme;
-    meta.append(link);
-  }
 
   // A quote he filed from the site is on the page before the repository has
   // it. The tag is quiet on purpose: it is a note about the plumbing, not a
@@ -654,18 +758,6 @@ function buildQuote(quote, terms) {
     pending.textContent = t('index.pending');
     pending.title = t('index.pending.title');
     meta.append(pending);
-  }
-
-  const status = quote.verification?.status ?? 'unverified';
-  if (status !== 'verified' && !quote._pending) {
-    const verify = document.createElement('span');
-    verify.className = 'verify';
-    verify.dataset.status = status;
-    verify.textContent = VERIFICATION_LABELS[status]?.short ?? status;
-    verify.title = [VERIFICATION_LABELS[status]?.long, quote.verification?.note]
-      .filter(Boolean)
-      .join(' ');
-    meta.append(verify);
   }
 
   const actions = document.createElement('div');
@@ -694,18 +786,7 @@ function buildQuote(quote, terms) {
     textContent: t('index.quote.copyLong'),
   }));
 
-  const permalink = document.createElement('a');
-  permalink.className = 'icon-button';
-  permalink.href = `#${quote.id}`;
-  permalink.dataset.action = 'permalink';
-  permalink.title = t('index.quote.permalink');
-  permalink.append(svgIcon(ICONS.link));
-  permalink.append(Object.assign(document.createElement('span'), {
-    className: 'visually-hidden',
-    textContent: t('index.quote.permalinkLong'),
-  }));
-
-  actions.append(favorite, copy, permalink);
+  actions.append(favorite, copy);
   meta.append(actions);
   figure.append(meta);
   item.append(figure);
@@ -816,6 +897,9 @@ function renderActiveFilters() {
     chip.setAttribute('aria-label', t('index.filterOff', { key }));
     dom.activeFilters.append(chip);
   }
+  // With one chip showing, its own cross does exactly what "Clear all" would,
+  // so the second control only turns up once there is more than one to clear.
+  if (chips.length < 2) return;
   const clearAll = document.createElement('button');
   clearAll.className = 'pill';
   clearAll.type = 'button';
@@ -841,9 +925,13 @@ function render() {
   dom.empty.hidden = shown > 0;
   if (!shown) {
     const unknownWork = state.work && !state.all.some((quote) => quote._workSlug === state.work);
+    // "Try fewer words" is the wrong advice for someone who has not starred
+    // anything yet; that case says what to do instead.
+    const noFavourites = state.favoritesOnly && favorites.size === 0;
     dom.emptyDetail.textContent = total === 0
       ? t('index.empty.none')
-      : (unknownWork ? t('index.empty.work') : t('index.empty.filtered'));
+      : (noFavourites ? t('index.empty.favourites')
+        : (unknownWork ? t('index.empty.work') : t('index.empty.filtered')));
   }
 
   dom.favoritesCount.textContent = favorites.size ? String(favorites.size) : '';
@@ -861,6 +949,19 @@ function highlightTarget() {
   if (!id) return;
   const node = document.getElementById(id);
   if (node?.classList.contains('quote')) node.dataset.targeted = 'true';
+}
+
+/**
+ * Put the J and K cursor on the quotation the address points at, so that
+ * pressing F opens Focus on it. A card has no link button any more, so the
+ * address is how a line is sent, and the person it is sent to should be able to
+ * go from that line into Focus and not from the top of the list.
+ */
+function pointCursorAtAddress() {
+  const id = location.hash.slice(1);
+  if (!id) return;
+  const index = state.visible.findIndex((quote) => quote.id === id);
+  if (index >= 0) state.cursor = index;
 }
 
 function populateFilterOptions() {
@@ -936,7 +1037,6 @@ function relabelSelects() {
     select.value = chosen;
   };
   relabel(dom.sort, 'index.sort');
-  relabel(dom.edition, 'edition');
 
   /* Subjects and eras are interface words that happen to be filled from the
      data, so they translate — with their counts kept — while authors and
@@ -959,12 +1059,32 @@ function relabelSelects() {
  * Focus mode
  * ------------------------------------------------------------------------- */
 
+/** The address as it was before Focus started changing it. */
+let hashBeforeFocus = '';
+
+/**
+ * Keep the address on the quotation that is on screen.
+ *
+ * A card has no link button any more, so this is the way to a quotation's own
+ * link: while Focus is open the address bar holds that quotation's permanent
+ * link, and copying it, or sharing the page from a phone's browser, shares that
+ * line. `replaceState` adds nothing to the history, and closing Focus puts the
+ * address back as it was.
+ */
+function holdFocusAddress(quote) {
+  try {
+    history.replaceState(null, '', `${location.pathname}${location.search}#${quote.id}`);
+  } catch { /* an address that cannot be rewritten costs the reading nothing */ }
+}
+
 function openFocus(index = 0) {
   if (!state.visible.length) {
     toast(t('index.focus.nothing'));
     return;
   }
   state.focusIndex = Math.max(0, Math.min(index, state.visible.length - 1));
+  hashBeforeFocus = location.hash;
+  closeMore();
   dom.focus.hidden = false;
   document.body.style.overflow = 'hidden';
   renderFocus();
@@ -974,11 +1094,18 @@ function openFocus(index = 0) {
 function closeFocus() {
   dom.focus.hidden = true;
   document.body.style.overflow = '';
+  try {
+    history.replaceState(null, '', `${location.pathname}${location.search}${hashBeforeFocus}`);
+  } catch { /* see holdFocusAddress */ }
   const current = state.visible[state.focusIndex];
   if (current) {
     document.getElementById(current.id)?.scrollIntoView({ block: 'center', behavior: 'auto' });
   }
-  dom.openFocus.focus();
+  // Focus is opened from the More panel or from the F key, and the Focus button
+  // is only on screen while the panel is open. Give focus back to whichever of
+  // the two can take it.
+  const back = dom.openFocus.getClientRects().length ? dom.openFocus : el('more-toggle');
+  back?.focus();
 }
 
 function renderFocus() {
@@ -998,6 +1125,7 @@ function renderFocus() {
     index: fmtNumber(state.focusIndex + 1),
     total: fmtNumber(state.visible.length),
   });
+  holdFocusAddress(quote);
   paintFocusFavorite();
 }
 
@@ -1142,14 +1270,6 @@ function renderCurateBar() {
     : t('index.curate.remove');
 }
 
-function setEdition(edition) {
-  const value = EDITIONS.includes(edition) ? edition : 'paper';
-  document.documentElement.dataset.edition = value;
-  dom.edition.value = value;
-  document.querySelector('meta[name=theme-color]')?.setAttribute('content', THEME_COLORS[value]);
-  try { localStorage.setItem(STORAGE.edition, value); } catch { /* not fatal */ }
-}
-
 function update({ push = false } = {}) {
   writeStateToUrl(!push);
   render();
@@ -1175,14 +1295,8 @@ function wireControls() {
     if (state.sort === 'random') state.seed = Math.floor(Math.random() * 1e9);
     update();
   });
-  dom.edition.addEventListener('change', () => setEdition(dom.edition.value));
-
-  // The header's paper/night toggle writes the same key this select reads, so
-  // the two controls have to agree without either one owning the other.
-  document.addEventListener('quotes:edition', (event) => {
-    const value = event?.detail?.edition;
-    if (value && dom.edition.value !== value) dom.edition.value = value;
-  });
+  // The edition select lives in the More panel, which nav.js builds and owns on
+  // every page; this page has nothing to wire for it.
 
   dom.favorites.addEventListener('click', () => {
     state.favoritesOnly = !state.favoritesOnly;
@@ -1191,6 +1305,7 @@ function wireControls() {
 
   dom.curate.addEventListener('click', () => setCurating(!state.curating));
   dom.curateClear.addEventListener('click', () => { selected.clear(); render(); });
+  dom.curateDone.addEventListener('click', () => setCurating(false));
   dom.curateRemove.addEventListener('click', () => {
     if (!selected.size) return;
     window.open(removeIssueUrl([...selected]), '_blank', 'noopener');
@@ -1210,15 +1325,9 @@ function wireControls() {
     dom.focusFavorite.addEventListener('click', toggleFocusFavorite);
   }
 
-  // The small "+ Add" beside the shelf pill speaks the same event the header's
-  // does, so add-quote.js is the only thing that knows what adding looks like.
-  dom.controlsAdd?.addEventListener('click', () => {
-    const event = new CustomEvent('quotes:add', { cancelable: true, bubbles: true });
-    document.dispatchEvent(event);
-    if (!event.defaultPrevented) {
-      window.open(`${REPO}/issues/new?template=add-quote.yml`, '_blank', 'noopener');
-    }
-  });
+  // "Add" is built by nav.js, which dispatches `quotes:add` and lets the link
+  // go to the GitHub form when nobody answers, so add-quote.js is the only
+  // thing that knows what adding looks like.
 
   dom.activeFilters.addEventListener('click', (event) => {
     const button = event.target.closest('[data-clear]');
@@ -1271,18 +1380,9 @@ function wireControls() {
     if (action.dataset.action === 'copy') {
       event.preventDefault();
       const attribution = [quote.author, quote.work].filter(Boolean).join(', ');
-      copyText(`“${typographic(quote.text)}”\n— ${attribution}`, t('index.copied'));
-      return;
-    }
-
-    if (action.dataset.action === 'permalink') {
-      event.preventDefault();
-      const url = new URL(location.href);
-      url.search = '';
-      url.hash = quote.id;
-      copyText(url.toString(), t('ui.linkCopied'));
-      history.replaceState(null, '', `#${quote.id}`);
-      highlightTarget();
+      // A spaced en dash, the Danish tankestreg. What is copied goes into his own
+      // writing, where an em dash reads as machine-made.
+      copyText(`“${typographic(quote.text)}”\n– ${attribution}`, t('index.copied'));
     }
   });
 
@@ -1311,7 +1411,7 @@ function wireControls() {
     render();
   });
 
-  window.addEventListener('hashchange', highlightTarget);
+  window.addEventListener('hashchange', () => { highlightTarget(); pointCursorAtAddress(); });
 
   const sentinel = document.createElement('div');
   document.body.prepend(sentinel);
@@ -1435,36 +1535,34 @@ async function loadJson(url, fallback) {
 
 let pendingKey = '';
 
+/**
+ * The pending quotes as page records, in front of the filed ones.
+ *
+ * A pending quote carries what the Worker kept of it: its words, and when it
+ * was sent from the video library or the Add dialog, a source link and a place
+ * in it, a kind of work, themes, a language and a subject. All of it is kept on
+ * the record. The subject is the one that needs care. It belongs to the work,
+ * and the page looks it up from the registry by title, so a work the registry
+ * has never heard of (the sync registers it, hours from now) would leave the
+ * quote outside every subject filter. The sender's own subject is the fallback
+ * until then, and a title that differs from the registry's only in case is read
+ * as the registry's, which is what the sync does as well.
+ */
 function withPending(filed) {
   const pending = shelfState().pending ?? [];
   if (!pending.length) return filed;
 
-  const known = new Set(filed.map((quote) => quote.id));
-  const extra = [];
-  for (const entry of pending) {
-    const payload = entry?.payload;
-    if (!payload || typeof payload.text !== 'string' || !payload.text.trim()) continue;
-    // Identity, not the Worker's row id: once the sync has written the quote
-    // into the repository the two records are the same quotation, and only the
-    // filed one should be on the page.
-    const id = quoteId(payload.text);
-    if (known.has(id)) continue;
-    known.add(id);
-    extra.push({
-      id,
-      text: payload.text,
-      author: payload.author || '',
-      work: payload.work || null,
-      year: payload.year ?? null,
-      note: payload.note || null,
-      tags: Array.isArray(payload.tags) ? payload.tags : [],
-      themes: [],
-      addedAt: entry.createdAt ?? new Date().toISOString(),
-      verification: { status: 'unverified' },
-      _pending: true,
-    });
-  }
-  return extra.length ? [...prepare(extra, state.works), ...filed] : filed;
+  // `pendingQuotes` (store.js) turns the Worker's rows into records, drops the
+  // ones the repository already has by identity, and reads a title that differs
+  // from the registry's only in case as the registry's.
+  const titles = new Map([...state.works.keys()].map((title) => [title.trim().toLowerCase(), title]));
+  const extra = pendingQuotes(pending, { known: new Set(filed.map((quote) => quote.id)), titles });
+  if (!extra.length) return filed;
+
+  const prepared = prepare(extra, state.works).map((quote) => (
+    !quote._subject && quote._subjectHint ? { ...quote, _subject: quote._subjectHint } : quote
+  ));
+  return [...prepared, ...filed];
 }
 
 /** Returns true when the pending list actually changed, so render() is rare. */
@@ -1476,11 +1574,25 @@ function refreshPending() {
   return true;
 }
 
+/**
+ * populateFilterOptions() only ever adds options, so filling the menus a second
+ * time, which a changed pending list does, would list every author and work
+ * twice. The first option of each is "All …", and it stays.
+ */
+function emptyFilterOptions() {
+  for (const select of [dom.author, dom.work, dom.subject, dom.era]) {
+    while (select.options.length > 1) select.remove(1);
+  }
+}
+
 function syncFromStore() {
-  favorites = readFavorites();
-  if (refreshPending()) {
+  const pendingChanged = refreshPending();
+  refreshFavorites();
+  if (pendingChanged) {
+    emptyFilterOptions();
     populateFilterOptions();
     relabelSelects();
+    syncControlsFromState();
     render();
     renderFooter();
     return;
@@ -1527,33 +1639,27 @@ function renderFooterKeys() {
 }
 
 /**
- * The shared header.
+ * The shelf, Add and More.
  *
- * Imported dynamically and allowed to fail: `assets/nav.js` belongs to the
- * shelf, and a collection page that cannot render because the header is not
- * there yet would be a bad trade. If the header did not arrive, the language
- * toggle it carries is put in the control row instead, so the page is never
- * left without a way to switch.
+ * nav.js builds them at the end of the controls row, and moves this page's own
+ * tools, the filters that are not on the row and the Focus and Curate buttons,
+ * into the panel that More opens. The nodes are moved and not copied, so they
+ * keep their ids and the listeners wired to them below. The shelf and Add keep
+ * the ids this page and its checks have always used for them.
  */
-async function mountHeader() {
-  try {
-    const nav = await import('./nav.js');
-    nav.mountNav?.({ active: 'quotes', variant: 'row' });
-  } catch {
-    /* No shared header yet. */
-  }
-  if (!document.querySelector('.lang-toggle')) {
-    const button = langToggle();
-    if (button) dom.edition?.parentElement?.append(button);
-  }
+function mountHeader() {
+  const mounted = mountNav({
+    active: 'quotes',
+    variant: 'inline',
+    host: el('nav-actions'),
+    extras: el('more-extras'),
+    ids: { shelf: 'controls-shelf', add: 'controls-add' },
+  });
+  // If the three controls could not be built, the filters they would have
+  // carried are shown where they stand, so none of them is ever out of reach.
+  if (!mounted) el('more-extras').hidden = false;
   hydrate(document);
 }
-
-/* The two toggles used to be positioned out of the header's flow, so the pills
-   wrapped underneath them on a phone and this file measured the collision on
-   every resize and pushed the header down by hand. nav.css now lays them out as
-   the last two items of the same row, so there is no collision to measure and
-   the patch has gone with it [2026-09-16]. */
 
 /**
  * Where the top of the page is, as far as a jump is concerned.
@@ -1575,11 +1681,12 @@ async function init() {
   // down with it: no quotes, no controls, one SecurityError in the console.
   let remembered = null;
   try { remembered = localStorage.getItem(STORAGE.edition); } catch { /* storage is off */ }
-  setEdition(remembered ?? document.documentElement.dataset.edition);
+  mountHeader();
+  applyEdition(remembered ?? document.documentElement.dataset.edition);
   readStateFromUrl();
   relabelSelects();
   hydrate(document);
-  mountHeader();
+  document.title = t('nav.brand');
 
   // The registry is loaded alongside the quotes but is not required: if it
   // fails, subject and era simply have nothing to offer and the rest of the
@@ -1593,6 +1700,7 @@ async function init() {
   state.filed = prepare(collection.quotes ?? [], state.works);
   state.all = state.filed;
   refreshPending();
+  refreshFavorites();
   populateFilterOptions();
   relabelSelects();
   syncControlsFromState();
@@ -1609,6 +1717,7 @@ async function init() {
   }
 
   onLang(() => {
+    document.title = t('nav.brand');
     relabelSelects();
     render();
     renderFooter();
@@ -1618,6 +1727,7 @@ async function init() {
   if (location.hash) {
     document.getElementById(location.hash.slice(1))?.scrollIntoView({ block: 'center' });
     highlightTarget();
+    pointCursorAtAddress();
   }
 
   // The Worker's state lands after the page is already readable: favourites

@@ -42,12 +42,27 @@ if (hasDocument() && document.documentElement) document.documentElement.lang = c
 
 /** The dictionary. Shared strings only — pages add their own with register(). */
 export const T = {
-  // ---- moving between the pages
+  // ---- the name of the site, and moving between the pages. The name is one
+  // string on purpose: the wordmark in the header and the heading on the front
+  // page both read it from here, so it can never be two names.
+  'nav.brand': { en: 'My quote collection', da: 'Min citatsamling' },
   'nav.quotes': { en: 'Quotes', da: 'Citater' },
   'nav.shelf': { en: 'The shelf', da: 'Hylden' },
+  'nav.shelfShort': { en: 'Shelf', da: 'Hylden' },
+  'nav.shelf.title': { en: 'Every book and talk on the shelf', da: 'Alle bøger og foredrag på hylden' },
   'nav.board': { en: 'The board', da: 'Tavlen' },
   'nav.next': { en: 'Read next', da: 'Læs næste' },
+  'nav.import': { en: 'Import from Goodreads', da: 'Importér fra Goodreads' },
   'nav.add': { en: 'Add a quote', da: 'Tilføj et citat' },
+  'nav.addShort': { en: 'Add', da: 'Tilføj' },
+
+  // ---- the one quiet "More" control that holds everything else
+  'nav.more': { en: 'More', da: 'Mere' },
+  'nav.more.title': { en: 'More options', da: 'Flere valg' },
+  'nav.pages': { en: 'Pages', da: 'Sider' },
+  'nav.edition': { en: 'Edition', da: 'Udgave' },
+  'nav.edition.title': { en: 'Change how the collection is set', da: 'Skift hvordan samlingen er sat' },
+  'nav.language': { en: 'Language', da: 'Sprog' },
 
   // ---- how the collection is set
   'edition.paper': { en: 'Paper', da: 'Papir' },

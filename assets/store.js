@@ -22,9 +22,17 @@
  *
  * The favourites people already have must survive. `app.js` has always kept
  * them in localStorage under `quotes-favorites`, and some of them predate the
- * Worker by months. So `favorites()` is the union of the server's and that
- * list, and toggling writes both.
+ * Worker by months. A star now has four homes (the repository, the Worker, that
+ * old list and this browser's own choices) and `favorites()` reads all four;
+ * the section at the foot of this file says which one wins when they disagree.
  */
+
+// Loaded for what it does when it loads, not for anything it exports here: it
+// takes the Add dialog's `?add=1&…` parameters out of the address bar, and it
+// has to do that before `app.js` reads the address as filters. `app.js` imports
+// this file, so this is the one place that is guaranteed to run first.
+import './add-prefill.js';
+import { SUBJECTS, quoteId } from './quote-core.js';
 
 const API_FALLBACK = 'https://quote-shelf.abustrup.workers.dev';
 const SOURCES_URL = 'data/sources.json';
@@ -35,6 +43,9 @@ const KEY = {
   code: 'shelf-edit-code',
   queue: 'shelf-queue',
   legacyFavorites: 'quotes-favorites',
+  // Stars and un-stars pressed on this device while editing was locked, each
+  // with the time it was pressed: { "q_…": { on: true, at: "2026-…Z" } }.
+  choices: 'quotes-favorites-choices',
 };
 
 const EMPTY = { works: {}, favorites: {}, pending: [], generatedAt: null };
@@ -209,6 +220,9 @@ export async function unlock(code) {
   write(KEY.code, candidate);
   status.unlocked = true;
   announce();
+  // Whatever was starred on this device while it was locked is kept everywhere
+  // from now on. Not awaited: unlocking is done, and this is housekeeping.
+  void pushLocalFavorites();
   return true;
 }
 
@@ -261,6 +275,9 @@ export async function loadState() {
 
   isUnlocked();
   announce();
+  // Unlocked here, and the Worker answered: anything starred while locked,
+  // before the key was entered on this device, is carried across now.
+  if (status.online && status.unlocked) void pushLocalFavorites();
   return cache;
 }
 
@@ -352,6 +369,7 @@ export async function setWork(slug, patch) {
 export async function setFavorite(id, on) {
   const current = state();
   const before = current.favorites[id] ? { ...current.favorites[id] } : null;
+  const wasLocal = legacyFavorites().has(id);
   current.favorites[id] = { on: Boolean(on), updatedAt: new Date().toISOString() };
   write(KEY.state, current);
   writeLegacyFavorite(id, on);
@@ -367,10 +385,13 @@ export async function setFavorite(id, on) {
     if (before) current.favorites[id] = before;
     else delete current.favorites[id];
     write(KEY.state, current);
-    writeLegacyFavorite(id, Boolean(before?.on));
+    writeLegacyFavorite(id, wasLocal);
     announce();
     throw error;
   }
+  // The Worker holds it now, so a choice made earlier on this device, while it
+  // was locked, has nothing left to say.
+  forgetChoice(id);
   return Boolean(on);
 }
 
@@ -395,9 +416,104 @@ export async function addQuote(payload) {
   return result;
 }
 
+/**
+ * The Worker's pending quotes as records the page can draw.
+ *
+ * A pending quote is on the page before the sync has put it in the repository,
+ * and it keeps everything the sender gave: a source link and a place in it, a
+ * kind of work, themes, a language, a note on how well it was checked.
+ *
+ * The subject is the exception, because it does not belong to the quote. The
+ * page finds a quote's subject by looking its work up in the registry by title,
+ * and a work the registry has never heard of has no entry to look in until the
+ * sync registers it. So the sender's own subject rides along as `_subjectHint`,
+ * for the page to use when the lookup finds nothing, and it is shared by every
+ * pending quote that names the same work. A work whose title differs from the
+ * registry's only in case or spacing is read as the registry's (`titles` maps
+ * the lower-cased title to the registry's spelling), which is what the sync
+ * does when it files the quote.
+ *
+ * The hint is only trusted when a year came with the subject. The sync
+ * registers a new work only with a year (the registry's era filter needs one,
+ * and so does the repository's own test), so a subject with no year would show
+ * the quote under its subject filter until the sync ran and then drop it out
+ * again. The page promises only what the sync will keep.
+ *
+ * `known` is the ids already on the page: identity is the hash of the words,
+ * not the Worker's row id, so once the repository has the quote, only that copy
+ * is drawn. Pure, so the shape can be tested without a browser.
+ */
+export function pendingQuotes(pending, { known = new Set(), titles = new Map() } = {}) {
+  const seen = new Set(known);
+  const subjectOf = new Map();
+  const records = [];
+
+  for (const entry of Array.isArray(pending) ? pending : []) {
+    const payload = entry?.payload;
+    if (!payload || typeof payload.text !== 'string' || !payload.text.trim()) continue;
+    const id = quoteId(payload.text);
+    if (seen.has(id)) continue;
+    seen.add(id);
+
+    const named = typeof payload.work === 'string' ? payload.work.trim() : '';
+    const work = named ? (titles.get(named.toLowerCase()) ?? named) : null;
+    if (work && SUBJECTS.includes(payload.subject) && Number.isInteger(payload.year) && !subjectOf.has(work)) {
+      subjectOf.set(work, payload.subject);
+    }
+
+    records.push({
+      id,
+      text: payload.text,
+      author: payload.author || '',
+      work,
+      workKind: payload.workKind || null,
+      year: payload.year ?? null,
+      source: { kind: 'manual', url: payload.url || null, locator: payload.locator || null },
+      note: payload.note || null,
+      tags: Array.isArray(payload.tags) ? payload.tags : [],
+      themes: Array.isArray(payload.themes) ? payload.themes : [],
+      lang: payload.lang || 'en',
+      addedAt: entry.createdAt ?? new Date().toISOString(),
+      verification: payload.verification?.status ? payload.verification : { status: 'unverified' },
+      _pending: true,
+      _subjectHint: '',
+    });
+  }
+
+  for (const record of records) record._subjectHint = (record.work && subjectOf.get(record.work)) || '';
+  return records;
+}
+
 /* ---------------------------------------------------------------------------
  * Favourites
+ *
+ * Until 2026-11-15 a star lived in two places that could both be empty: the
+ * Worker, which only an unlocked device writes to, and this browser's
+ * localStorage. No unlocked device ever starred anything, so the repository held
+ * none, the Worker held none, and every favourite he had was one cleared
+ * browser from gone. These are the four homes a star has now, from the most
+ * durable down:
+ *
+ *   1. The repository. `favorite: true` on a quote in data/quotes.json. It
+ *      survives every browser and every device, which is the point. The page
+ *      tells this file what it read, with `setCollection()`.
+ *   2. The Worker's overrides (`state().favorites`): a star or un-star made
+ *      while unlocked, kept until the sync writes it into the repository. An
+ *      explicit `on: false` takes away a star the repository still has.
+ *   3. This browser's old list, `quotes-favorites`: stars only, no times. It is
+ *      older than the Worker, so any word from the Worker beats it.
+ *   4. This browser's choices, `quotes-favorites-choices`: a star or an un-star
+ *      pressed here while editing was locked, with the time it was pressed. The
+ *      only way to un-star, on this device, something the repository has
+ *      starred. It wins over the Worker only when it is newer.
+ *
+ * The repository is the floor and the rest are layers over it, newest word
+ * last. Unlocking carries every local choice up to the Worker, and the Worker's
+ * word is then the only one that is left.
  * ------------------------------------------------------------------------- */
+
+let repoFavorites = new Set();   // ids that data/quotes.json flags as favourites
+let knownQuotes = new Set();     // every id on the page, filed or pending; empty until the page says
 
 function legacyFavorites() {
   const raw = read(KEY.legacyFavorites, []);
@@ -408,25 +524,158 @@ function writeLegacyFavorite(id, on) {
   const set = legacyFavorites();
   if (on) set.add(id);
   else set.delete(id);
-  write(KEY.legacyFavorites, [...set]);
+  return write(KEY.legacyFavorites, [...set]);
+}
+
+function localChoices() {
+  const raw = read(KEY.choices, {});
+  return raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+}
+
+function forgetChoice(id) {
+  const choices = localChoices();
+  if (!(id in choices)) return;
+  delete choices[id];
+  write(KEY.choices, choices);
 }
 
 /**
- * Every starred quote id: the server's, plus the ones this browser has held
- * since before there was a server.
- *
- * Union rather than replacement, and the server's explicit `off` wins over the
- * old list — unstarring has to be able to remove something that was starred
- * here first, or nothing could ever be unstarred.
+ * Tell the store what the page has: every quote it shows, and which of them the
+ * repository flags. Called once the data has loaded, and again when a pending
+ * quote arrives. Quotes are `{ id, favorite }` records, as in data/quotes.json.
  */
-export function favorites() {
-  const current = state();
-  const set = legacyFavorites();
-  for (const [id, entry] of Object.entries(current.favorites)) {
+export function setCollection(quotes) {
+  const list = Array.isArray(quotes) ? quotes : [];
+  repoFavorites = new Set(list.filter((quote) => quote?.favorite === true && quote.id).map((quote) => quote.id));
+  knownQuotes = new Set(list.map((quote) => quote?.id).filter(Boolean));
+}
+
+/**
+ * The effective favourites, from the four layers. Pure, so the rules can be
+ * tested without a browser.
+ *
+ *   repo     ids the repository flags
+ *   legacy   ids in this browser's old list
+ *   worker   { id: { on, updatedAt } }, the Worker's overrides
+ *   choices  { id: { on, at } }, this browser's own presses
+ *   known    ids the page has; when given and not empty, anything else is
+ *            dropped, so the count matches the stars that can be seen
+ *
+ * The Worker's explicit off removes a repository star. A local choice then
+ * applies only if it is newer than the Worker's word on that quote: the one
+ * that was pressed last is the one that is meant.
+ */
+export function mergeFavorites({ repo = [], legacy = [], worker = {}, choices = {}, known = null } = {}) {
+  const set = new Set(repo);
+  for (const id of legacy) set.add(id);
+
+  for (const [id, entry] of Object.entries(worker ?? {})) {
     if (entry?.on) set.add(id);
     else set.delete(id);
   }
+
+  for (const [id, choice] of Object.entries(choices ?? {})) {
+    const theirs = worker?.[id];
+    if (theirs && !(String(choice?.at ?? '') > String(theirs.updatedAt ?? ''))) continue;
+    if (choice?.on) set.add(id);
+    else set.delete(id);
+  }
+
+  if (known && known.size) {
+    for (const id of [...set]) if (!known.has(id)) set.delete(id);
+  }
   return set;
+}
+
+/** Every starred quote id, as this device should show it. */
+export function favorites() {
+  return mergeFavorites({
+    repo: repoFavorites,
+    legacy: legacyFavorites(),
+    worker: state().favorites,
+    choices: localChoices(),
+    known: knownQuotes,
+  });
+}
+
+/**
+ * Star or un-star on this device only. This is what a press does while editing
+ * is locked: it must never throw and never pretend to be more than it is. The
+ * choice is kept with its time, and the old list is kept in step with it so an
+ * older copy of the page still finds the star.
+ *
+ * Returns whether this device kept the press. It is false when the browser will
+ * not take the write (site data blocked, a private window that refuses
+ * storage, a full quota), and then nothing was saved: the page must not say
+ * that it was. The choices list is the one that has to land, because it is what
+ * makes an un-star of a repository star stick; the old list is best effort.
+ */
+export function setLocalFavorite(id, on) {
+  const choices = localChoices();
+  // A press is later than anything the Worker has already said about this
+  // quote, because the page had that answer when the press happened. A device
+  // clock running behind the Worker's must not turn that around, or the star
+  // would light and then go out again, with nothing to say why.
+  let at = new Date().toISOString();
+  const theirs = Date.parse(state().favorites[id]?.updatedAt);
+  if (Number.isFinite(theirs) && theirs >= Date.now()) at = new Date(theirs + 1).toISOString();
+  choices[id] = { on: Boolean(on), at };
+  const kept = write(KEY.choices, choices);
+  writeLegacyFavorite(id, Boolean(on));
+  announce();
+  return kept;
+}
+
+/**
+ * Send the Worker whatever this device decided while it was locked and the
+ * Worker has not heard. Runs after unlocking and on a load that is unlocked, so
+ * a star pressed before the key was entered is not left behind.
+ *
+ * Left out, on purpose: a quote the page does not have (it would only produce a
+ * warning at every sync), a star the repository already has (it would put a
+ * row in the database that can only ever go stale), and any quote the Worker
+ * has already given a newer word on. Stops at the first failure; what is left
+ * stays local and is tried again at the next load.
+ */
+let pushing = false;
+
+async function pushLocalFavorites() {
+  if (pushing || !knownQuotes.size || !editCode()) return;
+  pushing = true;
+  try {
+    const worker = state().favorites;
+    const wanted = new Map();
+
+    for (const id of legacyFavorites()) {
+      if (knownQuotes.has(id) && !repoFavorites.has(id) && !worker[id]) wanted.set(id, true);
+    }
+    for (const [id, choice] of Object.entries(localChoices())) {
+      if (!knownQuotes.has(id)) continue;
+      const theirs = worker[id];
+      if (theirs && !(String(choice?.at ?? '') > String(theirs.updatedAt ?? ''))) {
+        forgetChoice(id);
+        continue;
+      }
+      if (!theirs && Boolean(choice?.on) === repoFavorites.has(id)) {
+        forgetChoice(id);
+        continue;
+      }
+      wanted.set(id, Boolean(choice?.on));
+    }
+
+    let sent = 0;
+    for (const [id, on] of wanted) {
+      if (sent >= 100) break;
+      try {
+        await setFavorite(id, on);
+        sent += 1;
+      } catch {
+        break;
+      }
+    }
+  } finally {
+    pushing = false;
+  }
 }
 
 /** The override for one book, or null. `{ rating?, want?, shelf?, updatedAt }` */

@@ -24,7 +24,9 @@ CREATE INDEX IF NOT EXISTS overrides_by_kind ON overrides (kind);
 
 CREATE TABLE IF NOT EXISTS pending_quotes (
   id         TEXT PRIMARY KEY,   -- crypto.randomUUID()
-  payload    TEXT NOT NULL,      -- JSON: {text,author,work,year,note,tags}
+  payload    TEXT NOT NULL,      -- JSON: {text,author,work,note,year,tags}, plus optionally
+                                 -- url, locator, workKind, themes, subject, lang, verification
+                                 -- (worker/src/intake.mjs says what each may hold)
   created_at TEXT NOT NULL,      -- ISO 8601, UTC
   acked_at   TEXT                -- NULL until the sync Action has committed it
 );

@@ -918,6 +918,8 @@ export async function run(ctx) {
       author: (document.querySelector('#shelf .book .c-author') || {}).textContent || '',
     }))()`);
 
+    // The language switch is in the header's More panel, so open that first.
+    await ctx.click('#site-nav .more-button');
     await ctx.click('#site-nav .lang-toggle');
     await ctx.wait(700);
 

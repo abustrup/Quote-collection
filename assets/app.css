@@ -195,16 +195,6 @@ button {
   text-align: center;
 }
 
-.masthead-kicker {
-  margin: 0;
-  color: var(--muted);
-  font-family: var(--font-label);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
 .masthead h1 {
   margin: 0.5rem 0 0;
   font-family: var(--font-display);
@@ -226,6 +216,16 @@ button {
   line-height: 1.5;
   text-wrap: balance;
 }
+
+/* The front page is the name and nothing else, so it is given room instead of
+   words: more air above the heading, and a longer breath before the first
+   control. On a phone the name breaks over two lines, evenly. */
+.masthead-solo { padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(1.75rem, 4vw, 2.75rem); }
+.masthead-solo h1 { text-wrap: balance; }
+
+/* The half-rem above the heading was the gap under a kicker. With no kicker the
+   heading is the first thing in the masthead and sits at its top edge. */
+.masthead h1:first-child { margin-top: 0; }
 
 /* ==========================================================================
    Controls
@@ -310,6 +310,18 @@ select.pill:hover { border-color: var(--ink); }
 
 .search input:focus-visible ~ .search-hint,
 .search input:not(:placeholder-shown) ~ .search-hint { opacity: 0; }
+
+/* Keys are for a keyboard. A phone has none, so what only names a key is not
+   shown there: the slash in the search box, the letters beside Focus and Curate
+   and in the Focus bar, and the line of shortcuts in the footer. They are still
+   in the markup, so a screen reader and the language switch read what they did. */
+@media (hover: none) {
+  .search-hint,
+  .pill-key,
+  .focus-fav-key,
+  .focus-esc,
+  #footer-keys { display: none; }
+}
 
 /* Wrapping matters: each pill keeps its own text on one line, so a group of
    them has to be free to break onto a second row or it pushes the page wider
@@ -414,6 +426,35 @@ select.pill {
 .filter-chip:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
 .filter-chip:hover::after { opacity: 1; }
 
+/* --------------------------------------------------------------------------
+   The controls row on a phone
+
+   Five things at rest need three lines at 390px: the search on its own, the
+   subject filter beside favourites, then the shelf, Add and More as three equal
+   buttons. The row lets go of the top of the screen: a sticky bar a third of a
+   phone tall leaves no room to read under it. It stays positioned, because the
+   panel that More opens is placed inside it.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .controls { position: relative; }
+  .controls-row { gap: 0.5rem; }
+  .search { flex: 1 1 100%; }
+  #filter-subject { flex: 1 1 0; min-width: 0; max-width: none; }
+}
+
+/* A thumb needs 44px. A pill is 34px for a mouse, which is right there; on a
+   phone, or anything that reports a coarse pointer, the controls grow. The
+   search text goes to 16px too, below which iOS zooms the page on focus. */
+@media (max-width: 700px), (pointer: coarse) {
+  .controls .pill,
+  .focus .pill,
+  .curate-bar .pill,
+  .filter-chip { min-height: var(--tap-min); }
+
+  .search input { min-height: var(--tap-min); font-size: 1rem; }
+}
+
 /* ==========================================================================
    The collection
    ========================================================================== */
@@ -492,7 +533,12 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   align-items: baseline;
   flex-wrap: wrap;
   gap: 0.1rem 0.5rem;
-  max-width: var(--measure);
+  /* No measure here. `--measure` is in ems, and an em on this line is the size of
+     the byline (13px), not of the quotation above it, so 34em came out at 450px
+     under a column of 800: a long title wrapped and the year was left on a line
+     of its own, and in Folio (24em) the byline broke in three. The line now runs
+     as far as it needs to, and wraps only at the edge of the page. */
+  max-width: none;
   margin: 1.15rem 0 0;
   font-family: var(--font-label);
   font-size: 0.83rem;
@@ -526,6 +572,21 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   font-style: italic;
 }
 
+/* A work with a page of its own to read is a link out. Underlined, faintly, so
+   it can be told from the plain filter link on the quotes that have none. */
+.attribution-source {
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.16s var(--ease), text-decoration-color 0.16s var(--ease);
+}
+
+.attribution-source:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
 .attribution-year {
   color: var(--muted);
   font-variant-numeric: tabular-nums;
@@ -543,9 +604,15 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
 }
 
 /* --------------------------------------------------------------------------
-   Per-quote meta row. Hidden until hover or focus on pointer devices so that
-   scrolling the collection shows only writing; always visible on touch, where
-   there is no hover to reveal it.
+   Per-quote actions, under the byline: the star and the copy button, and
+   nothing else.
+
+   The star is always there, at rest, in every edition and on every device. A
+   phone has no hover, and a way to keep a quotation that only shows when the
+   pointer happens to be over it is not a way anybody finds. Copy is the
+   second errand, so on a device with a mouse it waits for the pointer or for
+   keyboard focus; on touch it is always shown, because there is nothing to
+   wait for.
    -------------------------------------------------------------------------- */
 
 .quote-meta {
@@ -554,24 +621,27 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   gap: 0.4rem 0.55rem;
   flex-wrap: wrap;
   max-width: var(--measure);
-  margin: 1rem 0 0;
+  margin: 0.7rem 0 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .quote-actions {
+  .quote-actions [data-action="copy"] {
     opacity: 0;
-    transition: opacity 0.18s var(--ease);
+    transition: opacity 0.18s var(--ease), color 0.16s var(--ease), background-color 0.16s var(--ease);
   }
-  .quote:hover .quote-actions,
-  .quote:focus-within .quote-actions { opacity: 1; }
+  .quote:hover .quote-actions [data-action="copy"],
+  .quote:focus-within .quote-actions [data-action="copy"] { opacity: 1; }
 }
 
 .quote-actions {
   display: flex;
   align-items: center;
   gap: 0.1rem;
-  margin-left: auto;
 }
+
+/* The first thing in the row sits a little left of the text edge, so the star
+   itself, and not the button's padding around it, lines up with the byline. */
+.quote-actions:first-child { margin-left: -0.55rem; }
 
 .icon-button {
   display: inline-flex;
@@ -604,6 +674,38 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
 .icon-button[aria-pressed="true"] { color: var(--accent-ink); }
 .icon-button[aria-pressed="true"] svg { fill: currentColor; stroke: currentColor; }
 
+/* The star is the one action worth a larger mark. */
+.icon-button[data-action="favorite"] svg { width: 21px; height: 21px; }
+
+/* The same thumb rule as the controls above: the glyph stays small, the part
+   that has to be hit grows. */
+@media (max-width: 700px), (pointer: coarse) {
+  .icon-button { width: var(--tap-min); height: var(--tap-min); }
+  .quote-actions:first-child { margin-left: -0.85rem; }
+  /* Curate mode's "Edit" is a link in a row of two other things, and was 18px
+     high: the part that has to be hit grows, the word does not. */
+  .curate-link { display: inline-flex; align-items: center; min-height: var(--tap-min); }
+}
+
+/* Index is the edition for scanning hundreds of quotations, and a star on a
+   line of its own under every one of them would nearly double each entry. On a
+   wide window the actions go to the end of the row instead, in a column down
+   the right edge, at the height of the quotation's first line. On a phone the
+   quotation has the whole width, so they stay under the byline. */
+@media (min-width: 701px) {
+  :root[data-edition="index"] .quote-meta {
+    position: absolute;
+    top: calc(var(--stack) - 0.5rem);
+    right: 0;
+    margin: 0;
+    max-width: none;
+  }
+
+  :root[data-edition="index"] .quote-actions:first-child { margin-left: 0; }
+}
+
+/* The small outlined chip. Quote cards no longer carry one, but the reading
+   suggestions page still sets a work's themes and difficulty in it. */
 .tag {
   padding: 0.16rem 0.5rem;
   border: 1px solid var(--rule);
@@ -618,39 +720,6 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
 }
 
 .tag:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
-
-/* Verification is shown as a quiet dot, and only spelled out when it matters.
-   A collection that tracks how well it knows its own sources should say so
-   without turning every quotation into a footnote. */
-.verify {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--muted);
-  font-family: var(--font-label);
-  font-size: 0.7rem;
-  font-weight: 600;
-  cursor: help;
-}
-
-.verify::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.verify[data-status="verified"] { color: var(--teal); }
-.verify[data-status="reported"] { color: var(--muted); }
-.verify[data-status="unverified"] { color: var(--muted); opacity: 0.75; }
-.verify[data-status="disputed"] { color: var(--accent-ink); }
-
-.verify[data-status="reported"]::before,
-.verify[data-status="unverified"]::before {
-  background: none;
-  box-shadow: inset 0 0 0 1px currentColor;
-}
 
 /* ==========================================================================
    Empty state
@@ -895,6 +964,13 @@ main { padding-bottom: clamp(4rem, 12vw, 9rem); }
   font-weight: 400;
 }
 
+/* On a phone the buttons come first, in their own lines, and the sentence that
+   explains them takes the last one, instead of sitting between Deselect and
+   Done. */
+@media (max-width: 700px) {
+  .curate-hint { order: 1; flex: 1 0 100%; }
+}
+
 .quote-curate {
   display: flex;
   align-items: center;
@@ -1052,13 +1128,11 @@ body { font-family: var(--font-body); }
   --gold-lift: 0 1px 2px rgba(20, 23, 28, 0.12), 0 6px 14px -8px rgba(20, 23, 28, 0.28);
 }
 
-/* The shared header. Layout belongs entirely to assets/nav.css — including the
-   container width — so this only says that the element is there. */
-.site-nav-row { display: block; }
-
 /* Links that are pills are still pills, not links. */
 .pill { text-decoration: none; }
 
+/* The filled gold pill, for the one button on a page that does the main thing.
+   The shared header's shelf pill is gold on its own terms, in nav.css. */
 .pill.pill-primary {
   border-color: var(--gold);
   background: var(--gold);
@@ -1071,25 +1145,6 @@ body { font-family: var(--font-body); }
   border-color: var(--gold);
   color: var(--on-gold);
   filter: brightness(1.05);
-}
-
-/* The same book the shared header draws, so the two shelf pills are one mark. */
-.pill-glyph {
-  display: block;
-  width: 0.95em;
-  height: 0.95em;
-  flex: 0 0 auto;
-  fill: currentColor;
-  line-height: 1;
-}
-
-/* Small beside the shelf, as agreed: adding is a side errand, the shelf is a
-   destination. Named `pill-add` rather than `nav-add` so it cannot reach into
-   the shared header's own add link. */
-.pill.pill-add {
-  gap: 0.22rem;
-  padding-inline: 0.62rem;
-  font-size: 0.72rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -1380,3 +1435,36 @@ body { font-family: var(--font-body); }
 }
 
 .add-actions .pill:disabled { opacity: 0.5; cursor: progress; }
+
+/* --------------------------------------------------------------------------
+   The dialog on a phone
+
+   Adding a quote from a phone is what the dialog is for, and its own controls
+   were 34 to 42px tall, with the link to the GitHub form, the one way on for a
+   visitor who cannot unlock, at 17px. The same thumb rule as the rest of the
+   page: the part that has to be hit grows, the words and the glyphs do not.
+
+   Every selector starts at .add-dialog on purpose. add-quote.js puts its own
+   rules in a <style> after this sheet (the menus' 40px among them), and a rule
+   of equal weight written without it would lose to those.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 700px), (pointer: coarse) {
+  .add-dialog .pill,
+  .add-dialog .add-field input,
+  .add-dialog .add-field select,
+  .add-dialog .add-unlock-row input { min-height: var(--tap-min); }
+
+  .add-dialog .add-github {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-min);
+  }
+
+  /* The toggle for the source fields: padding takes the place of the gap it
+     had below it, so the fields do not move further down than they must. */
+  .add-dialog .add-more-summary {
+    margin-bottom: 0;
+    padding-block: 0.85rem;
+  }
+}

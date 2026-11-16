@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6efe4">
 <meta name="color-scheme" content="light dark">
-<title>The shelf – Quote Collection</title>
+<title>The shelf – My quote collection</title>
 <meta name="description" content="Everything I have read, am reading, or mean to read one day, the talks worth keeping, and the lines they gave me.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -103,8 +103,14 @@
   <form class="unlock-card" id="unlock-form">
     <h2 id="unlock-title" data-i18n="shelf.unlock.title">Enter your edit code to change the shelf</h2>
     <p data-i18n="shelf.unlock.help">The code lives in the owner’s .env file. It is remembered on this device only.</p>
+    <!-- A username beside the code, as in the Add dialog on the quotes page, so a
+         password manager (iCloud Keychain on his phone) sees an ordinary sign-in
+         and can keep the code once and fill it on every device. -->
+    <input id="unlock-user" name="username" type="text" value="Alexander" readonly
+           autocomplete="username" aria-label="Username" data-i18n-aria="shelf.unlock.user">
     <label class="visually-hidden" for="unlock-code" data-i18n="edit.code.placeholder">Edit code</label>
-    <input id="unlock-code" type="password" autocomplete="off"
+    <input id="unlock-code" name="password" type="password" autocomplete="current-password"
+           autocapitalize="off" spellcheck="false"
            data-i18n-placeholder="edit.code.placeholder" placeholder="Edit code">
     <div class="unlock-actions">
       <button class="pill pill-primary" id="unlock-submit" type="submit" data-i18n="edit.unlock">Unlock</button>

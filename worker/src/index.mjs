@@ -25,6 +25,9 @@
  * while rather than an error.
  */
 
+import { quoteId } from '../../assets/quote-core.js';
+import { BadRequest, readQuotePayload, trimmed } from './intake.mjs';
+
 const MAX_BODY = 32 * 1024;
 const SHELVES = ['read', 'reading', 'to-read', 'abandoned'];
 const QUOTE_ID = /^q_[0-9a-f]{12}$/;
@@ -101,8 +104,6 @@ async function refuseWrite(request, env, origin) {
  * Reading the body
  * ------------------------------------------------------------------------- */
 
-class BadRequest extends Error {}
-
 async function readJson(request) {
   const declared = Number(request.headers.get('content-length') || 0);
   if (declared > MAX_BODY) throw new BadRequest('that is too large');
@@ -138,18 +139,6 @@ function readShelf(value) {
     throw new BadRequest(`shelf must be one of ${SHELVES.join(', ')}, or null`);
   }
   return value;
-}
-
-function trimmed(value, field, { max = 4000, required = true } = {}) {
-  if (value === undefined || value === null || value === '') {
-    if (required) throw new BadRequest(`${field} is missing`);
-    return null;
-  }
-  if (typeof value !== 'string') throw new BadRequest(`${field} must be text`);
-  const text = value.trim();
-  if (required && !text) throw new BadRequest(`${field} is missing`);
-  if (text.length > max) throw new BadRequest(`${field} is too long`);
-  return text || null;
 }
 
 /* ---------------------------------------------------------------------------
@@ -252,31 +241,18 @@ async function postFavorite(request, env, origin) {
 }
 
 async function postQuote(request, env, origin) {
-  const body = await readJson(request);
-  const payload = {
-    text: trimmed(body.text, 'text', { max: 4000 }),
-    author: trimmed(body.author, 'author', { max: 200 }),
-    work: trimmed(body.work, 'work', { max: 300, required: false }),
-    note: trimmed(body.note, 'note', { max: 2000, required: false }),
-    year: null,
-    tags: [],
-  };
-  if (body.year !== undefined && body.year !== null && body.year !== '') {
-    const year = Number(body.year);
-    if (!Number.isInteger(year) || year < -800 || year > 2100) throw new BadRequest('year looks wrong');
-    payload.year = year;
-  }
-  if (body.tags !== undefined && body.tags !== null) {
-    const tags = Array.isArray(body.tags) ? body.tags : String(body.tags).split(',');
-    payload.tags = tags.map((tag) => String(tag).trim()).filter(Boolean).slice(0, 20);
-  }
+  // What is allowed, and how long each part may be, lives in intake.mjs so the
+  // tests can run it without a deployed Worker.
+  const payload = readQuotePayload(await readJson(request));
 
   const id = crypto.randomUUID();
   const createdAt = new Date().toISOString();
   await env.DB.prepare('INSERT INTO pending_quotes (id, payload, created_at, acked_at) VALUES (?, ?, ?, NULL)')
     .bind(id, JSON.stringify(payload), createdAt).run();
 
-  return json({ ok: true, id, createdAt }, 200, origin);
+  // `quoteId` is the id the quote will have in data/quotes.json (a hash of its
+  // own words), so a caller can link to it before the sync has run.
+  return json({ ok: true, id, createdAt, quoteId: quoteId(payload.text) }, 200, origin);
 }
 
 async function postAck(request, env, origin) {

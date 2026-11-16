@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6efe4">
 <meta name="color-scheme" content="light dark">
-<title>What to read next – Quote Collection</title>
+<title>What to read next – My quote collection</title>
 <meta name="description" content="Reading suggestions drawn from the shape of the collection.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -177,6 +177,15 @@
     color: var(--body-soft);
     font-size: 0.88rem;
   }
+
+  /* The bar above sticks from 701px up, and this page's own filter row sticks
+     too: at top 0 it went behind the bar, so once the page had scrolled only the
+     bar showed. It hangs from the bar's bottom edge, which nav.js measures into
+     --nav-h, as the shelf's row does. Below 701px neither of them sticks, and a
+     top offset on a row that is not sticky would only push it down the page. */
+  @media (min-width: 701px) {
+    .controls { top: var(--nav-h, 0px); }
+  }
 </style>
 </head>
 
@@ -185,7 +194,6 @@
 <a class="skip-link" href="#suggestions">Skip to the suggestions</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker" data-i18n="next.kicker">Quote Collection</p>
   <h1 data-i18n="next.title">What to Read Next</h1>
   <p class="masthead-dek" data-i18n="next.dek">
     Suggestions drawn from the shape of what you have already kept – the
@@ -209,11 +217,8 @@
 
       <button class="pill" id="reroll" type="button">Suggest again</button>
     </div>
-
-    <div class="control-group" style="margin-left:auto">
-      <a class="pill" href="scout.html">The board</a>
-      <a class="pill" href="index.html">← The collection</a>
-    </div>
+    <!-- The links to the board and back to the collection stood on the right.
+         They are the name in the bar above and two lines in its More panel. -->
   </div>
 </div>
 
@@ -284,7 +289,6 @@
 <script type="module">
   Promise.all([import('./assets/nav.js'), import('./assets/i18n.js')]).then(([nav, i18n]) => {
     i18n.register({
-    'next.kicker': { en: 'Quote Collection', da: 'Citatsamlingen' },
     'next.title': { en: 'What to Read Next', da: 'Hvad skal jeg læse nu' },
     'next.dek': {
       en: 'Suggestions drawn from the shape of what you have already kept – the authors you return to, and the questions your quotes keep circling.',

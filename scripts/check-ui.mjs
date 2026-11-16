@@ -23,6 +23,7 @@
 
 import { execSync, spawn } from 'node:child_process';
 import { mkdir, rm, writeFile } from 'node:fs/promises';
+import net from 'node:net';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -30,10 +31,40 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SHOTS = path.join(ROOT, 'data', 'shots');
 
-// Derived from the pid so two builders running this at the same time in the
-// same checkout do not fight over a port.
-const SERVE_PORT = 8600 + (process.pid % 200);
-const CDP_PORT = 9200 + (process.pid % 500);
+/**
+ * The first port from `start` upwards that nothing is listening on.
+ *
+ * Both ports used to be worked out from the process id and trusted. Two runs
+ * at once, or any other program already sitting on that number, then meant the
+ * harness quietly tested somebody else's server and called it a pass. Asking
+ * the machine is the only version that cannot be wrong, and starting high
+ * keeps well clear of the ports other things on this Mac like to use.
+ */
+async function freePort(start) {
+  // Something already answering on either loopback address means the port is
+  // taken, whichever way it was bound. A bind that merely succeeds is not
+  // proof: a listener on ::1 does not stop a bind to 127.0.0.1.
+  const answers = (port, host) => new Promise((resolve) => {
+    const socket = net.connect({ port, host });
+    socket.setTimeout(300, () => { socket.destroy(); resolve(false); });
+    socket.once('connect', () => { socket.destroy(); resolve(true); });
+    socket.once('error', () => resolve(false));
+  });
+  const binds = (port) => new Promise((resolve) => {
+    const probe = net.createServer();
+    probe.once('error', () => resolve(false));
+    probe.once('listening', () => probe.close(() => resolve(true)));
+    probe.listen(port);
+  });
+  for (let port = start; port < start + 500; port += 1) {
+    const taken = (await answers(port, '127.0.0.1')) || (await answers(port, '::1'));
+    if (!taken && await binds(port)) return port;
+  }
+  throw new Error(`no free port between ${start} and ${start + 499}`);
+}
+
+const SERVE_PORT = await freePort(41000 + (process.pid % 2000));
+const CDP_PORT = await freePort(SERVE_PORT + 1);
 const PROFILE = `/tmp/quotes-ui-${process.pid}`;
 
 function parseArgs(argv) {
@@ -557,7 +588,7 @@ async function main() {
   }
 
   // The page-specific acceptance lives with the people building those pages.
-  for (const module of ['./checks/shelf.mjs', './checks/collection.mjs']) {
+  for (const module of ['./checks/shelf.mjs', './checks/collection.mjs', './checks/favourites.mjs']) {
     const loaded = await import(module);
     if (typeof loaded.run !== 'function') {
       rec(`${module} exports run(ctx)`, false, 'no run() export');

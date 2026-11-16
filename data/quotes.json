@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-02T23:18:54.776Z",
+  "updatedAt": "2026-11-15T18:29:08.082Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -294,7 +294,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -342,7 +342,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -577,7 +577,7 @@
         "status": "reported",
         "note": "Spoken, not written. String-matched verbatim against a transcript of the interview supplied by the collector; the transcript was identified as this talk because the phrase that titles it appears verbatim within. Not checked against YC's own audio or video, and machine transcripts carry errors, hence reported rather than verified. Two lowercase sentence-starts are as transcribed."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-08-03"
     },
@@ -1381,7 +1381,7 @@
         "status": "reported",
         "note": "Spoken, not written. String-matched verbatim against a cleaned transcript of the interview supplied by the collector. Not checked against YC's own audio or video, hence reported rather than verified."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-08-03"
     },
@@ -1482,7 +1482,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -1896,7 +1896,7 @@
         "status": "reported",
         "note": "Attribution certain: the essay is signed by Amodei and published on his own site, October 2024. Wording checked character for character against two independently archived full-text copies of the essay, which agree exactly. darioamodei.com is unreachable from this environment, so the primary page itself was not consulted."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -2559,7 +2559,7 @@
         "status": "verified",
         "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Part of the numbered list of “the algorithm”, given in Musk’s own first-person voice rather than inside quotation marks. Checked 2026-08-03."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-08-03"
     },
@@ -2591,7 +2591,7 @@
         "status": "verified",
         "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Isaacson sets the five steps of “the algorithm” as a numbered list in Musk’s own first-person voice — step 1 ends “even if the requirement came from me” — rather than inside quotation marks, so these are Musk’s words as transcribed by his biographer. Checked 2026-08-03."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-08-03"
     },
@@ -2655,7 +2655,7 @@
         "status": "verified",
         "note": "Read in the book itself and checked character-for-character against its full text (Walter Isaacson, Elon Musk, 2023). Musk speaking, set by Isaacson as a block quotation drawn from a conversation of more than two hours in late 2021. Checked 2026-08-03."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-08-03"
     },
@@ -2770,7 +2770,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -3153,7 +3153,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -3199,7 +3199,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -3434,7 +3434,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -3507,7 +3507,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -3530,7 +3530,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -3917,7 +3917,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -4163,7 +4163,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -4974,7 +4974,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -5022,7 +5022,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -5429,7 +5429,7 @@
         "status": "unverified",
         "note": "Imported from Goodreads; wording not independently checked."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-07-29"
     },
@@ -6202,7 +6202,7 @@
         "status": "verified",
         "note": "Read verbatim in the essay on Altman's own blog on 2026-08-04; string-matched against the page source."
       },
-      "favorite": false,
+      "favorite": true,
       "note": "",
       "addedAt": "2026-08-04"
     },

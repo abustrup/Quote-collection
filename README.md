@@ -1,8 +1,8 @@
-# Quote Collection
+# My quote collection
 
-A personal library of lines worth keeping – philosophy, technology, literature,
-and the sentences that would not leave. It is a plain website with no build
-step and no server: the quotations live in one JSON file, and the site reads it.
+My collection of quotations: technology, philosophy, literature, and the
+sentences that would not leave. It is a plain website with no build step and no
+server: the quotations live in one JSON file, and the site reads it.
 
 **Read it here:** https://abustrup.github.io/Quote-collection/
 
@@ -12,12 +12,12 @@ step and no server: the quotations live in one JSON file, and the site reads it.
 
 ### 1. Add a quote (from the page itself, or from a phone)
 
-Press **+ Add** in the header, type the quotation and who said it, and press
-**Add it**. It appears at the top of the collection at once, marked *pending*,
-and within a few hours a scheduled job writes it into `data/quotes.json` and
-the mark goes away. The first time on a new device the page asks for your
-**edit code** – it lives in `.env` next to this README as `EDIT_KEY`, and the
-page remembers it after that.
+Press **Add** at the top of the page (it sits beside the shelf), type the
+quotation and who said it, and press **Add it**. It appears at the top of the
+collection at once, marked *pending*, and within a few hours a scheduled job
+writes it into `data/quotes.json` and the mark goes away. The first time on a
+new device the page asks for your **edit code** – it lives in `.env` next to
+this README as `EDIT_KEY`, and the page remembers it after that.
 
 Without the code (or on someone else's device) the same button opens the
 **[Add a quote](https://github.com/abustrup/Quote-collection/issues/new?template=add-quote.yml)**
@@ -26,10 +26,11 @@ Either way you never touch a file.
 
 ### 1b. Remove or fix one (press **Curate**)
 
-On the collection, press **Curate** (or the <kbd>C</kbd> key). Every quote grows
-a tick box, an **Edit** link and its id. Tick the ones you want gone, press
-**Remove selected**, and submit the issue it opens. One issue removes any number
-of quotes.
+On the collection, open **More** and press **Curate** (or press the <kbd>C</kbd>
+key). Every quote grows a tick box, an **Edit** link and its id. Tick the ones
+you want gone, press **Remove selected**, and submit the issue it opens. One
+issue removes any number of quotes. **Done** on the bar above the list ends the
+mode.
 
 Removals stick, and that is less obvious than it sounds. A quote's id is a hash
 of its own text, so simply deleting one would not work: the next morning's
@@ -79,7 +80,7 @@ checked them. If you ever want it sooner, run
 and press the button.
 
 <details>
-<summary>If the sync ever breaks — the manual way in</summary>
+<summary>If the sync ever breaks: the manual way in</summary>
 
 The importer still works, and does not depend on Goodreads being readable by a
 robot. Print each page of your quotes list to PDF (in Chrome or Safari:
@@ -133,15 +134,18 @@ bills your own account, so it stays switched off until you turn it on.
 
 | | |
 |---|---|
+| **On the page** | Five things: the search, the **subject** filter, **Favourites**, the **shelf** and **Add**. A quiet **More** holds the rest, so nothing else is showing until you ask |
+| **Under More** | The **author**, **work** and **era** filters and the sort; **Focus** and **Curate**; the edition and the language; the board, read next and the Goodreads importer |
 | **Search** | Type anything – words in the quote, an author, a book |
-| **Filter** | By author, **work**, **subject** or **era**. Every filter is in the URL, so any view can be sent to someone |
+| **Filter** | By **subject** on the page, and by author, **work** or **era** under More. Every filter is in the URL, so any view can be sent to someone |
 | **The shelf** | [works.html](https://abustrup.github.io/Quote-collection/works.html) – your library: every book with its cover, shelf and rating, and every talk quoted here |
-| **Editions** | *Paper* to read slowly, *Night* for the dark, *Folio* for one line at a time, *Index* to scan hundreds fast. The moon in the header flips paper and night |
-| **Language** | The **DA / EN** pill switches every label and button; the quotations themselves are never translated |
-| **Focus** | One quote, nothing else. Press <kbd>F</kbd>, or the Focus button; <kbd>S</kbd> stars it |
-| **Keyboard** | <kbd>/</kbd> search · <kbd>J</kbd>/<kbd>K</kbd> move · <kbd>F</kbd> focus · <kbd>R</kbd> random · <kbd>C</kbd> curate · <kbd>Esc</kbd> clear |
-| **Links** | Every quote has its own permanent link, so you can send one to someone |
-| **Favourites** | The star keeps a quote in your shortlist – on every device once editing is unlocked, on this device otherwise |
+| **Source** | Where a quote has a page of its own, such as an essay or a talk, its work title links to it. Quotes from Goodreads link nowhere, because the Goodreads page only shows who copied the line |
+| **Editions** | *Paper* to read slowly, *Night* for the dark, *Folio* for one line at a time, *Index* to scan hundreds fast. Choose one under **More** |
+| **Language** | **More**, then **DA / EN**, switches every label and button; the quotations themselves are never translated |
+| **Focus** | One quote, nothing else. Press <kbd>F</kbd>, or choose Focus under More; <kbd>S</kbd> stars it |
+| **Keyboard** | <kbd>/</kbd> search · <kbd>J</kbd>/<kbd>K</kbd> move · <kbd>F</kbd> focus · <kbd>R</kbd> random · <kbd>C</kbd> curate · <kbd>S</kbd> star in Focus · <kbd>Esc</kbd> clear or close. They work with More closed |
+| **Links** | Every quote has its own permanent address: its id after a `#`. Open a quote in Focus and the address bar holds that address, so copying it is how you send one line, and whoever opens it can press <kbd>F</kbd> to read it on its own |
+| **Favourites** | The star under each quote keeps it in your shortlist – on every device once editing is unlocked, on this device otherwise. The star is always showing, because a phone has no hover |
 
 ---
 
@@ -168,8 +172,9 @@ Era is not stored at all. It is computed from the year, so it cannot drift out
 of step with the date, and a work with no year simply has no era rather than
 being guessed into one.
 
-The old `themes` are still on each quote and still clickable, but they have been
-demoted out of the filter row to what they always were: one reader's tags.
+The old `themes` are still on each quote in the data, and `?theme=` in the
+address still filters by one, but the cards no longer show them. They were one
+reader's tags, and a quotation is read for its words.
 
 ---
 
@@ -187,8 +192,9 @@ records how far it has actually been checked:
 
 Anything imported from Goodreads starts as *unverified*, because Goodreads
 quotations are transcribed by other readers and nobody has checked them. That is
-not a criticism of the quotes; it is just the honest label. Verified entries
-show no badge at all – the badge appears only when there is something to say.
+not a criticism of the quotes; it is just the honest label. The status is part
+of each quote's record in `data/quotes.json`, where the scripts and the checks
+read it. The cards do not show it any more.
 
 ---
 
@@ -240,7 +246,12 @@ npm run check:ui   # drive both pages in headless Chrome: layout, motion, editin
 the front page and the shelf at 1440 and 390 px in paper and night, re-sorts
 the shelf and measures the animation, opens a book, rates it against a stub
 of the write service, flips the language, and writes every screen it saw to
-`data/shots/`. The write service itself lives in `worker/` and deploys with
+`data/shots/`. On the front page it also counts what is showing at rest (five
+things and More), opens More and walks everything inside it, and checks that no
+card carries a theme chip or a verification badge, that one filter has one way
+out, that a phone is not shown the names of keys, and that the Add dialog is
+thumb-sized on a phone. The write service itself
+lives in `worker/` and deploys with
 `npm run worker:deploy`; its edit code is a Worker secret and a repository
 secret, never a file in git.
 

@@ -1,16 +1,17 @@
 /* ==========================================================================
-   The shared header — one bar on every page.
+   The shared header — one bar on every page, and three controls in it.
 
-   Two builders consume this, so it stays small and it stays stable: layout for
-   `mountNav()`'s markup and nothing else. Colour, type and the `.pill` shape
-   itself all come from assets/app.css, which every page already loads, so a
-   change to an edition's palette reaches the header without anybody editing
-   this file.
+   Layout for `mountNav()`'s markup and nothing else. Colour, type and the
+   `.pill` shape itself come from assets/app.css, which every page already
+   loads, so a change to an edition's palette reaches the header without
+   anybody editing this file.
 
-   Every selector is prefixed with `#site-nav`. That is not tidiness: app.css
-   paints `.pill[aria-current="true"]` with the ink fill, and the Shelf pill has
-   to stay gold while also being the current page. An id in the selector wins
-   that argument whatever order the stylesheets happen to load in.
+   The three controls (the shelf, Add, More) are the same markup whether they
+   sit at the end of the bar along the top of a page or at the end of the front
+   page's controls row, so their rules hang off `.nav-actions` and `.more`
+   rather than off the bar. Each of those selectors is one class longer than
+   the rule in app.css it has to win against, which is what keeps the shelf
+   pill gold on the page that is the shelf.
    ========================================================================== */
 
 :root {
@@ -64,6 +65,8 @@
   padding-block: 0.55rem;
 }
 
+/* The name of the site, and the way back to the quotes. It is the only thing
+   on the left of the bar. */
 #site-nav .nav-brand {
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -76,38 +79,35 @@
 
 #site-nav .nav-brand:hover { color: var(--accent-ink); }
 
-#site-nav .nav-links {
+/* The three controls. Wherever they are, they are one group. */
+.nav-actions {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  margin-left: auto;
   min-width: 0;
 }
 
-#site-nav .nav-tools {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
+#site-nav .nav-actions { margin-left: auto; }
 
 /* The primary destination. One filled pill, a book glyph, and nothing else on
    the page painted this colour. */
-#site-nav .pill.is-primary,
-#site-nav .pill.is-primary[aria-current="page"] {
-  background: var(--nav-gold);
+.nav-actions .pill.is-primary,
+.nav-actions .pill.is-primary[aria-current="page"] {
   border-color: var(--nav-gold);
+  background: var(--nav-gold);
   color: var(--nav-on-gold);
   font-weight: 700;
+  box-shadow: none;
 }
 
-#site-nav .pill.is-primary:hover {
-  background: var(--nav-gold);
+.nav-actions .pill.is-primary:hover {
   border-color: var(--nav-on-gold);
+  background: var(--nav-gold);
   color: var(--nav-on-gold);
   filter: brightness(1.05);
 }
 
-#site-nav .nav-glyph {
+.nav-glyph {
   display: block;
   width: 0.95em;
   height: 0.95em;
@@ -115,101 +115,176 @@
   fill: currentColor;
 }
 
-/* The quiet one. Small, outlined, deliberately not competing with Shelf. */
-#site-nav .pill.is-quiet {
-  padding-inline: 0.6rem;
-  border-color: var(--rule-soft);
-  font-size: 0.72rem;
+/* The quiet ones. Small, outlined, deliberately not competing with the shelf. */
+.nav-actions .pill.is-quiet {
+  padding-inline: 0.7rem;
+  border-color: var(--rule);
+  font-size: 0.74rem;
   color: var(--muted);
 }
 
-#site-nav .pill.is-quiet:hover { color: var(--ink); border-color: var(--ink); }
+.nav-actions .pill.is-quiet:hover { color: var(--ink); border-color: var(--ink); }
 
-#site-nav .pill[aria-current="page"]:not(.is-primary) {
-  border-color: var(--ink);
+.nav-plus { font-weight: 700; }
+
+/* ------------------------------------------------------------ the panel */
+
+/* What "More" opens. The button is the only part of this that is in the flow;
+   the panel is positioned by nav.js, inside whichever sticky bar holds it. So
+   `.more` itself must stay unpositioned, or the panel would measure itself
+   against the button instead of the bar. */
+
+.more { display: inline-flex; }
+
+.more-button { gap: 0.3rem; }
+
+.more-chevron {
+  width: 0.8em;
+  height: 0.8em;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.16s var(--ease);
+}
+
+.more-button[aria-expanded="true"] { color: var(--ink); border-color: var(--ink); }
+.more-button[aria-expanded="true"] .more-chevron { transform: rotate(180deg); }
+
+.more-panel {
+  position: absolute;
+  z-index: 10;
+  width: min(26rem, calc(100vw - 1rem));
+  max-height: min(78vh, 40rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.35rem 1rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: calc(var(--radius) + 8px);
+  background: var(--bg);
   color: var(--ink);
+  box-shadow: 0 2px 6px rgba(20, 15, 8, 0.12), 0 24px 48px -24px rgba(20, 15, 8, 0.4);
 }
 
-#site-nav .nav-toggle {
-  min-width: 42px;
-  justify-content: center;
-  font-variant-numeric: tabular-nums;
+/* One step lighter than the page, so a panel on a dark page reads as raised. */
+:root[data-edition="night"] .more-panel {
+  background: var(--surface);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 24px 48px -24px rgba(0, 0, 0, 0.8);
 }
 
-/* ------------------------------------------------------- the front page */
+:root[data-edition="index"] .more-panel { background: var(--surface); }
 
-/* One row under the masthead's dek: the four destinations, "+ Add", then the
-   two toggles, centred together.
+.more-section { padding: 0.8rem 0; }
+.more-section + .more-section { border-top: 1px solid var(--rule-soft); }
 
-   The toggles used to be positioned out of the flow at the page's top-right
-   corner. That is two rows the eye has to find instead of one, it left them
-   floating half a pill below the row at 1440, and on a phone the pills wrapped
-   up underneath them — which the collection then had to patch by measuring the
-   collision at runtime. They are the last two items in the row now, and the
-   patch is gone. */
-
-#site-nav[data-variant="row"] .nav-row {
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-  min-height: 0;
-  padding-block: 0 1.05rem;
-  border-bottom: 1px solid var(--nav-gold);
+.more-label {
+  display: block;
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
-#site-nav[data-variant="row"] .nav-brand { display: none; }
+/* A label over a control. The controls fill the width they are given, which is
+   what lets a long book title be cut with an ellipsis instead of widening the
+   panel. */
+.more-field { min-width: 0; }
 
-#site-nav[data-variant="row"] .nav-links {
-  order: 1;
-  margin-left: 0;
-  justify-content: center;
-  flex-wrap: wrap;
-  row-gap: 0.4rem;
+.more-panel .more-field .pill { width: 100%; max-width: none; }
+.more-panel .more-field .lang-toggle { width: auto; min-width: 4rem; justify-content: center; }
+
+.more-settings { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.7rem 0.9rem; align-items: end; }
+
+/* The page's own tools: a grid of filters, then a row of actions. */
+.more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem 0.7rem; }
+.more-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+
+.more-actions .pill { gap: 0.5rem; color: var(--ink); }
+
+.pill-key {
+  padding: 0 0.3rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  opacity: 0.5;
 }
 
-#site-nav[data-variant="row"] .nav-tools {
-  order: 2;
-  margin-left: 0;
-  row-gap: 0.4rem;
-  flex-wrap: wrap;
+.more-pages { display: flex; flex-direction: column; padding-block: 0.4rem; }
+
+.more-link {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
 }
+
+.more-link:hover { color: var(--accent-ink); }
 
 /* ------------------------------------------------------------- narrow */
 
 @media (max-width: 700px) {
-  /* A sticky header plus a sticky control row eats a phone screen. The
-     controls are the ones worth following down the page, so the bar lets go. */
-  #site-nav[data-variant="bar"] { position: static; }
+  /* A sticky header plus a sticky control row eats a phone screen. The bar
+     lets go; it stays positioned, because the panel is placed inside it. */
+  #site-nav[data-variant="bar"] { position: relative; }
 
   #site-nav .nav-row {
     flex-wrap: wrap;
     min-height: 0;
-    gap: 0.45rem;
-    padding-block: 0.5rem 0.45rem;
+    gap: 0.45rem 0.6rem;
+    padding-block: 0.5rem 0.55rem;
   }
 
-  #site-nav .nav-brand { font-size: 0.98rem; }
+  #site-nav .nav-brand { font-size: 1rem; }
 
-  /* The pills wrap onto a second line rather than scrolling off the edge of
-     one. A horizontally scrollable row hid "+ Add" behind the screen edge with
-     nothing to say it was there — a pill you cannot see is a pill that does not
-     exist, and on a page this short there is room for the extra line. */
-  #site-nav[data-variant="bar"] .nav-links {
-    order: 3;
-    flex: 1 0 100%;
-    flex-wrap: wrap;
-    margin-left: 0;
-    row-gap: 0.4rem;
+  /* The name keeps the first line to itself when the three controls do not fit
+     beside it; they wrap onto a line of their own rather than being cut off. */
+  #site-nav .nav-actions { flex-wrap: wrap; }
+
+  .more-panel { width: calc(100vw - 1rem); }
+}
+
+@media (max-width: 480px) {
+  /* On a phone the three controls take a line to themselves, as three equal
+     buttons. The bar and the front page's controls row do the same, so the
+     trio looks like one thing wherever it turns up. */
+  .nav-actions { flex: 1 1 100%; gap: 0.5rem; }
+  .nav-actions > .pill,
+  .nav-actions > .more { flex: 1 1 0; justify-content: center; }
+  .nav-actions .more-button { width: 100%; justify-content: center; }
+
+  /* Equal, except that the shelf is the destination and Add is the errand, so
+     the shelf keeps the wider button. */
+  .nav-actions > .is-primary { flex-grow: 1.6; }
+}
+
+/* A thumb needs 44px. Pills are 34px for a mouse, which is the right size
+   there; on a phone, or anything that reports a coarse pointer, they grow. */
+@media (max-width: 700px), (pointer: coarse) {
+  #site-nav .pill,
+  .nav-actions .pill,
+  .more-panel .pill { min-height: var(--tap-min); }
+
+  .more-link { min-height: var(--tap-min); }
+
+  /* The name is the way back to the quotes, so it is a target as well. */
+  #site-nav .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-min);
   }
+}
 
-  /* The toggles keep the first line, beside the brand. */
-  #site-nav[data-variant="bar"] .nav-tools { margin-left: auto; }
-
-  /* The front page has no brand in the row, so all seven controls are one set
-     and should wrap as one. Without this the four destinations fill a line, the
-     "+ Add" pill wraps alone onto a second, and the two toggles take a third.
-     `display: contents` drops the <nav> box while keeping the element — and its
-     navigation role and label — in the accessibility tree. */
-  #site-nav[data-variant="row"] .nav-links { display: contents; }
-  #site-nav[data-variant="row"] .nav-row { row-gap: 0.4rem; }
+@media (max-width: 700px) {
+  /* The name's line is 44px now, so the bar needs less air around it. */
+  #site-nav .nav-row { padding-block: 0.1rem 0.4rem; }
 }

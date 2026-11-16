@@ -334,6 +334,10 @@
   position: relative;
   order: 4;
   flex: 1 0 100%;
+  /* A flex item will not shrink below its content, and on a phone each fact on
+     this line is held to one line. Without this the line sets the card's width
+     and the page scrolls sideways by 16px at 390px. */
+  min-width: 0;
   margin: 0;
   padding-top: 0.85rem;
   border-top: 2px solid var(--shelf-ledge-line);
@@ -1294,6 +1298,15 @@
   color: var(--ink);
   font-family: var(--font-label);
   font-size: 0.85rem;
+}
+
+/* The username is only there to give a saved code something to be called. */
+.unlock-card input[readonly] { color: var(--muted); }
+
+/* iOS Safari zooms the page when a field under 16px gets focus, and leaves it
+   zoomed. The same rule as the Add dialog's fields on the quotes page. */
+@media (pointer: coarse) {
+  .unlock-card input { font-size: 16px; }
 }
 
 .unlock-actions { display: flex; gap: 0.4rem; align-items: center; }

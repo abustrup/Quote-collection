@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6efe4">
 <meta name="color-scheme" content="light dark">
-<title>Import from Goodreads – Quote Collection</title>
+<title>Import from Goodreads – My quote collection</title>
 <meta name="description" content="Turn printed Goodreads quote pages back into the collection, without uploading anything.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -205,7 +205,6 @@
 <a class="skip-link" href="#dropzone">Skip to the importer</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker" data-i18n="import.kicker">Quote Collection</p>
   <h1 data-i18n="import.title">Import from Goodreads</h1>
   <p class="masthead-dek lede" data-i18n="import.dek">
     Goodreads has no export worth the name, but it will print. Drop the printed
@@ -214,13 +213,8 @@
   </p>
 </header>
 
-<div class="controls">
-  <div class="shell controls-row">
-    <div class="control-group">
-      <a class="pill" href="index.html">← The collection</a>
-    </div>
-  </div>
-</div>
+<!-- The pill that stood here, back to the collection, is the name in the bar above,
+     and is gone. -->
 
 <main class="shell">
 
@@ -435,13 +429,13 @@
       tr.dataset.flagged = quote.flags.some((flag) => !flagIsQuiet(flag)) ? 'yes' : 'no';
 
       cell(tr, 'col-text', quote.text);
-      cell(tr, 'col-author', quote.author || '—');
-      cell(tr, 'col-work', quote.work || '—');
+      cell(tr, 'col-author', quote.author || '–');
+      cell(tr, 'col-work', quote.work || '–');
 
       const tags = cell(tr, 'col-tags', '');
       const tagText = document.createElement('span');
       tagText.className = 'taglist';
-      tagText.textContent = quote.tags.length ? quote.tags.join(', ') : '—';
+      tagText.textContent = quote.tags.length ? quote.tags.join(', ') : '–';
       tags.append(tagText);
 
       const notes = cell(tr, 'col-notes', '');
@@ -451,7 +445,7 @@
         note.textContent = flag;
         notes.append(note);
       }
-      if (!quote.flags.length) notes.textContent = '—';
+      if (!quote.flags.length) notes.textContent = '–';
 
       const remove = document.createElement('td');
       remove.className = 'col-remove';
@@ -581,7 +575,6 @@
 <script type="module">
   Promise.all([import('./assets/nav.js'), import('./assets/i18n.js')]).then(([nav, i18n]) => {
     i18n.register({
-    'import.kicker': { en: 'Quote Collection', da: 'Citatsamlingen' },
     'import.title': { en: 'Import from Goodreads', da: 'Importér fra Goodreads' },
     'import.dek': {
       en: 'Goodreads has no export worth the name, but it will print. Drop the printed pages here and they become quotes again – read in this browser, on this device, and never sent anywhere.',

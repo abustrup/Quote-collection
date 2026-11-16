@@ -131,6 +131,7 @@ register({
     en: 'The code lives in the owner’s .env file. It is remembered on this device only.',
     da: 'Koden står i ejerens .env-fil. Den huskes kun på denne enhed.',
   },
+  'shelf.unlock.user': { en: 'Username', da: 'Brugernavn' },
   'shelf.unlock.wrong': { en: 'That code was not accepted.', da: 'Koden blev ikke godkendt.' },
   'shelf.lockNow': { en: 'Lock editing again', da: 'Lås redigering igen' },
   'shelf.unlockNow': { en: 'Unlock editing', da: 'Lås redigering op' },

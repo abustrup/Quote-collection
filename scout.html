@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6efe4">
 <meta name="color-scheme" content="light dark">
-<title>The board – Quote Collection</title>
+<title>The board – My quote collection</title>
 <meta name="description" content="Lines proposed for the collection, waiting to be kept or let go.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -280,7 +280,6 @@
 <a class="skip-link" href="#board">Skip to the board</a>
 
 <header class="masthead shell">
-  <p class="masthead-kicker" data-i18n="board.kicker">Quote Collection</p>
   <h1 data-i18n="board.title">The Board</h1>
   <p class="masthead-dek" data-i18n="board.dek">
     Closed on 3 September 2026. For five weeks a routine read the shape of the
@@ -289,14 +288,8 @@
   </p>
 </header>
 
-<div class="controls">
-  <div class="shell controls-row">
-    <div class="control-group">
-      <a class="pill" href="index.html">← The collection</a>
-      <a class="pill" href="suggest.html">What to read next</a>
-    </div>
-  </div>
-</div>
+<!-- The two pills that stood here, back to the collection and on to read next, are
+     the name in the bar above and two lines in its More panel, and are gone. -->
 
 <main class="shell">
   <p class="board-note" id="board-note" hidden></p>
@@ -370,7 +363,6 @@
 <script type="module">
   Promise.all([import('./assets/nav.js'), import('./assets/i18n.js')]).then(([nav, i18n]) => {
     i18n.register({
-    'board.kicker': { en: 'Quote Collection', da: 'Citatsamlingen' },
     'board.title': { en: 'The Board', da: 'Tavlen' },
     'board.dek': {
       en: 'Closed on 3 September 2026. For five weeks a routine read the shape of the collection and went looking for lines from works it did not hold. This is the record of what it offered and what was kept.',
