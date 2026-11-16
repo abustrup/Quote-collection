@@ -70,6 +70,18 @@ Ten seconds of video took ten seconds to fetch on 2026-09-12; then read `frame.j
 package is not. Offer the install, never assume it: he declined on 2026-08-04 and was right, since
 `reported` was the correct status either way.
 
+## Panels, press conferences and two guests
+
+Where several people speak, `>>` (machine track) or a leading `-` (uploader track) misses real changes
+of speaker and adds false ones, so the check that refuses a quote across a turn cannot be trusted alone.
+Build a timed turn view yourself (the pauses, the questions, who is addressed) and, if the publisher
+posted a labelled transcript, read the turns from it with `fetch-text.py` (it is a derived source, see
+above). Attribute a line only when you are sure who said it; when you judged it from the turn, flag the
+card and say "judged from the turn" in the note. A line whose speaker you cannot name is dropped, however
+good. Each line carries its own `speaker`; `work.author` is the person the work is about or the main
+guest. A work with two equal guests is registered under the first named in the title, and the locator
+names who speaks. A press conference is `speech`, an interview with a host and a guest is `interview`.
+
 ## Two views of one source are one source
 
 YouTube's "Show transcript" panel renders the same caption track `captions.py` downloads. He may point you

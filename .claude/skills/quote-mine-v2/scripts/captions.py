@@ -341,13 +341,19 @@ def main():
     words = write_transcript(entries, info.get("chapters") or [], out / "transcript.txt")
 
     if kind == "asr":
-        warnings.append("Machine captions only: punctuation and sentence boundaries are the machine's, speakers are not marked at all, and names are often mangled. Every quote from this is `reported`.")
+        marks = (out / "transcript.txt").read_text(encoding="utf-8").count(">>")
+        turns = (f"'>>' marks {marks} changes of speaker, but it misses some and invents some, so judge every turn from context or a published transcript"
+                 if marks else "no change of speaker is marked")
+        warnings.append(f"Machine captions only: punctuation and sentence boundaries are the machine's, {turns}, and names are often mangled. Every quote from this is `reported`.")
     else:
-        warnings.append("Uploader captions: '- ' marks a change of speaker, not who is speaking. Confirm the speaker before filing under a name. Still someone's typing: `reported`, not `verified`.")
+        marks = len(re.findall(r"(?m)^- ", vtt))
+        turns = (f"'- ' marks {marks} changes of speaker, not who is speaking. Confirm the speaker before filing under a name."
+                 if marks else "No change of speaker is marked, so judge the turns from context or a published transcript and say so in the note.")
+        warnings.append(f"Uploader captions: {turns} Still someone's typing: `reported`, not `verified`.")
     if cleaner.stray:
         warnings.append(f"Removed {cleaner.stray} stray cue headers that had leaked into the caption text.")
     if cleaner.entities:
-        warnings.append(f"Unescaped {cleaner.entities} HTML entities in the caption text.")
+        warnings.append(f"Cleaned {cleaner.entities} HTML entities (such as &nbsp;) out of the caption text. Nothing to fix.")
     if len(entries) < 20:
         warnings.append(f"Only {len(entries)} caption entries — check the track is really the whole work.")
 

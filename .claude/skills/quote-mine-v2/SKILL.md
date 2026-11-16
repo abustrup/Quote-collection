@@ -114,7 +114,7 @@ Thesis: the work's claim in one sentence
 2. [m:ss] ...
 ```
 
-Four to eight main points. A main point is a claim the work argues for, one that could be agreed or
+Four to eight main points (up to ten for a work longer than 90 minutes, where eight forces merges). A main point is a claim the work argues for, one that could be agreed or
 disputed ("automating AI research is what makes superintelligence near"). A topic ("AI research") and an
 aside are no main points. The video's own chapter titles (in `meta.json`) are topics: a useful map, no
 more. Essays, papers and documents get the same outline, shorter. A work that argues nothing (a poem, a
@@ -127,7 +127,8 @@ where. A second pass over a work already mined returns thinner ore, which does n
 
 **Rank by how central the line is to the work's argument.** The line that would stand for the whole video
 comes first, never document order. Every candidate carries a one-clause **Main point** label that he
-reads: which point of the work this line proves. Lines proving the same point carry the same label.
+reads: which point of the work this line proves. Lines proving the same point carry the same label. The
+label is printed on every row, so keep each under 80 characters.
 
 The failure to catch is the well-turned platitude: a sentence that names no one, commits to nothing
 falsifiable, and survives having its subject swapped. Prefer the sentence that commits. A famous line can
@@ -247,9 +248,12 @@ reason goes into the verification note, so give one you could defend to him. A l
 mid-sentence with none of that is only a warning, and fine when it stands alone: read the sentence it sits in,
 and if the sentence goes on to qualify what the line says, widen the line. In a track without punctuation the
 same findings are only warnings, because the check cannot see where a sentence ends; they still have to be
-settled, never skipped. A warning that the same words are said at two times (a teaser in the opening and
-the real moment) names both: in a long video the link and the locator use the one after the opening minute,
-so check it is the one you mean.
+settled, never skipped. `ack` settles a red row only; a warning is settled by reading the sentence the
+line sits in, and by a `flag` when he should know (a flag shows on the card). A warning that the same
+words are said at two times (a teaser in the opening and the real moment) names both: in a long video the
+link and the locator should use the one after the opening minute, so check it is the one you mean with
+`locate-quote.py`. When the link still lands in a cold-open teaser (the tidied teaser can match better than
+the raw answer), say so in the locator ("as played in the opening teaser").
 
 Then the dry run, which is what makes a number always mean the same line and filing mechanical:
 
