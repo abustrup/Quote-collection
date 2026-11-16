@@ -42,7 +42,13 @@ day work" in one, "second day of work" in the other). A disagreement is a warnin
 neither.
 
 **Caption cut-offs.** Machine tracks drop a sentence's last word and sometimes end a sentence mid-clause
-at a cue boundary. A line that ends oddly is not filed; say it was dropped for that.
+at a cue boundary. A line that ends oddly is not filed; say it was dropped for that. Part of this is the
+script and not the track: in a machine track `transcript.txt` can lack the last word of a cue that the raw
+`source.*.vtt` has (26 of 6,241 words in one 30-minute talk, 247 of 14,041 in a 70-minute interview:
+"behind as a [programmer.]", "use [10] codex", "going totally [nuts]"),
+because that word sits only in an untagged line. So for every line that ends where a sentence could go on,
+and for every line whose last word is a number, search the raw track for the words after it
+(`grep -n "<the last four words>" source.*.vtt`) before you trust the ending.
 
 **Caption spellings.** Names and compounds arrive split or misspelt (`selfregulate`, `open AI`,
 `antonyym`, `alpha fold two`). A respell edit puts the right spelling in the quote and the note says so.
