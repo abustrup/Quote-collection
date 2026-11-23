@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-16T17:03:08.074Z",
+  "updatedAt": "2026-11-23T22:01:31.549Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -7354,6 +7354,126 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_296e6adda194",
+      "text": "My biggest fear is that it's not a specific scenario like AI creating a virus or killer robots. It's really that in five or 10 or 20 years, all humans will just have no idea what is happening anymore.",
+      "author": "Yuval Noah Harari",
+      "work": "AI, Consciousness and the Future of Humanity",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/H43e72-2aAs?t=312",
+        "locator": "Yuval Noah Harari to Mustafa Suleyman · 5:12, on his biggest fear"
+      },
+      "tags": [
+        "ai",
+        "understanding"
+      ],
+      "themes": [
+        "technology",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-23, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"It's\" (repeated). Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…Yeah, I mean\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-23"
+    },
+    {
+      "id": "q_502e3de36f75",
+      "text": "I think the project of the 21st century of humanity, to be successful, is to define and then deliver on what we won't do with technology.",
+      "author": "Mustafa Suleyman",
+      "work": "AI, Consciousness and the Future of Humanity",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/H43e72-2aAs?t=1704",
+        "locator": "Mustafa Suleyman to Yuval Noah Harari · 28:24, on the project of the 21st century"
+      },
+      "tags": [
+        "ai",
+        "restraint"
+      ],
+      "themes": [
+        "technology",
+        "ethics",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-23, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"is\" (false start: 'is to be successful is to define'). Capitalisation and punctuation tidied. The quote starts after the opening \"So\"."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-23"
+    },
+    {
+      "id": "q_4bf69436711d",
+      "text": "The test of technology is, does it in aggregate improve human well-being and reduce suffering, and can we measure that.",
+      "author": "Mustafa Suleyman",
+      "work": "AI, Consciousness and the Future of Humanity",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/H43e72-2aAs?t=1635",
+        "locator": "Mustafa Suleyman to Yuval Noah Harari · 27:15, on the test of technology"
+      },
+      "tags": [
+        "ai",
+        "humanist superintelligence"
+      ],
+      "themes": [
+        "technology",
+        "ethics",
+        "suffering"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-23, and lined up against that transcript word by word. Not checked against the audio. No words cut, changed or added. Capitalisation and punctuation tidied. The quote starts mid-sentence, after \"…on the street might agree with which is\". The quote stops mid-sentence, before \"and it and that is the the sole…\". Boundary kept on purpose: the 'might' belongs to the average person agreeing with the direction, not to the test the speaker states."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-23"
+    },
+    {
+      "id": "q_b0d1b99c09d6",
+      "text": "The problem with the analogy to nuclear and biological and chemical weapons is that there isn't a lot of money to be made from biological warfare or from a nuclear war.",
+      "author": "Yuval Noah Harari",
+      "work": "AI, Consciousness and the Future of Humanity",
+      "workKind": "interview",
+      "year": 2026,
+      "source": {
+        "kind": "curated",
+        "url": "https://youtu.be/H43e72-2aAs?t=2534",
+        "locator": "Yuval Noah Harari to Mustafa Suleyman · 42:14, on why nuclear-style containment will not work for AI"
+      },
+      "tags": [
+        "ai",
+        "containment",
+        "markets"
+      ],
+      "themes": [
+        "technology",
+        "power",
+        "risk"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "reported",
+        "note": "Read in YouTube's machine caption track (en-orig) of the video, fetched with yt-dlp on 2026-11-23, and lined up against that transcript word by word. Not checked against the audio. Edits to the transcript wording: removed \"to\" (repeated)."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-23"
     }
   ]
 }
