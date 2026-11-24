@@ -217,6 +217,9 @@ data/library.json     the curated works the recommender can suggest
 data/schema.json      the shape data/quotes.json must keep to
 assets/covers/        one WebP per book, fetched by scripts/fetch-covers.py
 assets/fonts/         Playfair Display, Source Serif 4 and DM Sans, subset
+assets/favicon.svg    the tab icon, the masthead's quote mark in gold on ink;
+                      apple-touch-icon.svg is the iPhone Home Screen version,
+                      and npm run icons draws the PNG copies of both
 worker/               the Cloudflare Worker that takes ratings, shelves,
                       favourites and new quotes from the page
 scout-log.md          what the weekly scout tried, and how often it was right
@@ -240,6 +243,7 @@ npm run serve      # http://localhost:8080
 npm run check      # validate the collection, the registry, the library, the covers
 npm test           # run the unit tests
 npm run check:ui   # drive both pages in headless Chrome: layout, motion, editing
+npm run icons      # redraw the icon's PNG copies after changing an SVG master
 ```
 
 `npm run check:ui` is the executable half of `docs/ACCEPTANCE.md`: it opens

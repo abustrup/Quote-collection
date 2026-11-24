@@ -10,6 +10,7 @@
     "serve": "node scripts/serve.mjs",
     "check:ui": "node scripts/check-ui.mjs",
     "check:ui:live": "node scripts/check-ui.mjs --url https://abustrup.github.io/Quote-collection",
+    "icons": "node scripts/draw-icons.mjs",
     "sync:shelf": "node scripts/apply-shelf-state.mjs",
     "sync:shelf:dry": "node scripts/apply-shelf-state.mjs --dry-run",
     "worker:dev": "npx wrangler dev --cwd worker --local",
