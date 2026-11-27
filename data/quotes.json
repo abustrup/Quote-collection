@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-27T12:06:20.728Z",
+  "updatedAt": "2026-11-27T12:28:56.688Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -7489,7 +7489,10 @@
       },
       "tags": [
         "ai",
-        "bots"
+        "bots",
+        "agents",
+        "organisation",
+        "management"
       ],
       "themes": [
         "work",
@@ -7497,7 +7500,8 @@
       ],
       "lang": "en",
       "verification": {
-        "status": "unverified"
+        "status": "unverified",
+        "note": "No source found. Exact-phrase and broader web searches on 2026-11-27 turned up nothing; the owner does not know who said it."
       },
       "favorite": false,
       "note": "",
