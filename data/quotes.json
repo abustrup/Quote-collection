@@ -7048,6 +7048,38 @@
       "addedAt": "2026-07-29"
     },
     {
+      "id": "q_ed73961d3689",
+      "text": "Your ability to coordinate work with bots is directly linked to your ability to make your company's vision and operational protocols explicit.",
+      "author": "Unknown",
+      "work": null,
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "manual",
+        "url": null,
+        "locator": null
+      },
+      "tags": [
+        "ai",
+        "bots",
+        "agents",
+        "organisation",
+        "management"
+      ],
+      "themes": [
+        "work",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "unverified",
+        "note": "No source found. Exact-phrase and broader web searches on 2026-11-27 turned up nothing; the owner does not know who said it."
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-27"
+    },
+    {
       "id": "q_0575edcf15b1",
       "text": "Basic research is a long-term process — it ceases to be basic if immediate results are expected on short-term support.",
       "author": "Vannevar Bush",
@@ -7474,38 +7506,6 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-31"
-    },
-    {
-      "id": "q_ed73961d3689",
-      "text": "Your ability to coordinate work with bots is directly linked to your ability to make your company's vision and operational protocols explicit.",
-      "author": "Unknown",
-      "work": null,
-      "workKind": null,
-      "year": null,
-      "source": {
-        "kind": "manual",
-        "url": null,
-        "locator": null
-      },
-      "tags": [
-        "ai",
-        "bots",
-        "agents",
-        "organisation",
-        "management"
-      ],
-      "themes": [
-        "work",
-        "technology"
-      ],
-      "lang": "en",
-      "verification": {
-        "status": "unverified",
-        "note": "No source found. Exact-phrase and broader web searches on 2026-11-27 turned up nothing; the owner does not know who said it."
-      },
-      "favorite": false,
-      "note": "",
-      "addedAt": "2026-11-27"
     }
   ]
 }
