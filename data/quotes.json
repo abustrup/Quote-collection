@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-23T22:01:31.549Z",
+  "updatedAt": "2026-11-27T12:06:20.728Z",
   "quotes": [
     {
       "id": "q_9641f066b009",
@@ -7474,6 +7474,34 @@
       "favorite": false,
       "note": "",
       "addedAt": "2026-08-31"
+    },
+    {
+      "id": "q_ed73961d3689",
+      "text": "Your ability to coordinate work with bots is directly linked to your ability to make your company's vision and operational protocols explicit.",
+      "author": "Unknown",
+      "work": null,
+      "workKind": null,
+      "year": null,
+      "source": {
+        "kind": "manual",
+        "url": null,
+        "locator": null
+      },
+      "tags": [
+        "ai",
+        "bots"
+      ],
+      "themes": [
+        "work",
+        "technology"
+      ],
+      "lang": "en",
+      "verification": {
+        "status": "unverified"
+      },
+      "favorite": false,
+      "note": "",
+      "addedAt": "2026-11-27"
     }
   ]
 }
